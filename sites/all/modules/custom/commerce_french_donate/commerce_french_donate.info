@@ -1,0 +1,9 @@
+name = Commerce French Donate
+description = "Commerce module for donation"
+package = Commerce French Donate
+core = 7.x
+
+dependencies[] = commerce_checkout
+dependencies[] = list
+
+;configure = admin/config/ilot/settings

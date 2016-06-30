@@ -1,0 +1,21 @@
+<?php
+
+function ilot_theme_install() {
+	// default theme settings
+	variable_set('theme_default', 'ilot');
+	theme_enable(array('zen', 'ilot', 'seven'));
+	$vars = variable_get('theme_ilot_settings');
+	$vars['toggle_name'] = 0;
+	$vars['toggle_slogan'] = 0;
+	$vars['toggle_logo'] = 0;
+	$vars['toggle_main_menu'] = 1;
+	$vars['toggle_secondary_menu'] = 0;
+	$vars['zen_html5_respond_meta']['respond'] = 0;
+	$vars['zen_html5_respond_meta']['meta'] = 0;
+	$vars['zen_breadcrumb'] = 'admin';
+	$vars['zen_breadcrumb_home'] = 1;
+	$vars['zen_breadcrumb_title'] = 1;
+
+
+	variable_set('theme_ilot_settings', $vars);
+}

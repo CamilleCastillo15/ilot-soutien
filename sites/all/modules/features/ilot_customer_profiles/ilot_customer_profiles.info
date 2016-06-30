@@ -1,0 +1,14 @@
+name = ilot_customer_profiles
+core = 7.x
+package = ilot
+version = 7.x-1.0
+project = ilot_customer_profiles
+dependencies[] = addressfield
+dependencies[] = email
+dependencies[] = features
+features[features_api][] = api:2
+features[field_base][] = commerce_customer_address
+features[field_base][] = field_billing_email
+features[field_instance][] = commerce_customer_profile-billing-commerce_customer_address
+features[field_instance][] = commerce_customer_profile-billing-field_billing_email
+mtime = 1417187518

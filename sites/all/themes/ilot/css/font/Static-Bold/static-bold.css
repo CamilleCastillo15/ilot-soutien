@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'StaticBold';
+    src: url('static-bold.eot');
+    src: url('static-bold.eot?#iefix') format('embedded-opentype'),
+         url('static-bold.woff') format('woff'),
+         url('static-bold.ttf') format('truetype'),
+         url('static-bold.svg#StaticRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

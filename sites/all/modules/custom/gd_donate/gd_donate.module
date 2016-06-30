@@ -1,0 +1,598 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function gd_donate_menu() {
+  $items['admin/commerce/config/gd_donate'] = array(
+    'title' => 'GD Donate settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('gd_donate_admin_form'),
+    'access arguments' => array('administer gd_donate'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'gd_donate.admin.inc',
+  );
+  $items['faire-un-don'] = array(
+    'title' => 'Donate',
+    'page callback' => 'gd_donate_donate_callback',
+    'type' => MENU_CALLBACK,
+    'access arguments' => array('access content'),
+  );
+  return $items;
+}
+
+
+
+/**
+ * Menu callback. Init a default Donation order with a line item.
+ */
+function gd_donate_donate_callback() {
+  global $user;
+
+  // Create the new order in checkout status.
+  $order = commerce_order_new($user->uid, 'checkout_checkout');
+  commerce_order_save($order);
+
+
+  $amount = 0;
+  $amount = commerce_currency_decimal_to_amount($amount, commerce_default_currency());
+  $line_item = commerce_french_donate_line_item_new($order->order_id, $amount);
+  $line_item->field_gd_donate_mensualite[LANGUAGE_NONE][0]['value'] = 0;
+  commerce_line_item_save($line_item);
+
+
+  $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+  $order_wrapper->commerce_line_items->set(array($line_item));
+
+  commerce_order_save($order);
+
+  $_SESSION['commerce_cart_orders'][] = $order->order_id;
+
+  drupal_goto('checkout/' . $order->order_id);
+}
+
+/**
+ * Implement hook_form().
+ */
+function gd_donate_form($form, &$form_state, $checkout = FALSE) {
+  $values = isset($form_state['values']) ? $form_state['values'] : array();
+  if (empty($values)) {
+    $donation_type = 'don_normal';
+  }
+  elseif (isset($values['gd_donate'])) {
+    $donation_type = $values['gd_donate']['donation_type'] ? $values['gd_donate']['donation_type'] : 'don_normal';
+  }
+  else {
+    $donation_type = $values['donation_type'] ? $values['donation_type'] : 'don_normal';
+  }
+  $monthly_options = variable_get('gd_donate_monthly_options');
+  $monthly_free = variable_get('gd_donate_activ_monthly_free');
+  $unique_options = variable_get('gd_donate_unique_options');
+  $unique_free = variable_get('gd_donate_activ_unique_free');
+
+  $form['#attached']['js'] = array(
+    drupal_get_path('module', 'gd_donate') . '/gd_donate.js' => array(
+      'type' => 'file',
+    ),
+  );
+
+  $form['#prefix'] = '<div id="gd_donate" class="gd_donate_wrapper form-wrapper"><h2 id="title_donation">' . t('My online donation') . '</h2>';
+  $form['#suffix'] = '</div>';
+
+  $form['donation_type'] = array(
+    '#type' => 'radios',
+    '#title' => t('Donation type'),
+    '#description' => t('Choose your donation type'),
+    '#options' => array(
+      'don_normal' => 'Don en ligne',
+      'don_isf' => 'Don ISF',
+    ),
+    '#attributes' => array(
+        'class' => array('type'),
+      ),
+    '#default_value' => 'don_normal',
+    '#ajax' => array(
+      'callback' => 'gd_donate_ajax_donation_type_refresh',
+      'event' => 'change',
+      'wrapper' => 'gd_donate',
+      'method' => 'replace',
+    ),
+  );
+  if (($monthly_options || $monthly_free) && $donation_type == 'don_normal') {
+    $form['fieldset_monthly'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('I give <span>monthly</span>'),
+      '#description' => t('I support your action all along the year for more efficiency'),
+      '#weight' => 10,
+      '#collapsible' => FALSE,
+      '#collapsed' => FALSE,
+      '#attributes' => array(
+        'class' => array('edit-gd-donate-fieldset-monthly'),
+      ),
+    );
+  }
+
+  if ($monthly_options && $donation_type == 'don_normal') {
+    $form['fieldset_monthly']['monthly'] = array(
+      '#type' => 'radios',
+      '#title' => t('I give monthly'),
+      '#options' => variable_get('gd_donate_monthly_options'),
+      '#attributes' => array(
+        'class' => array('monthly', 'don', 'restrict'),
+      ),
+    );
+  }
+
+  if ($monthly_free && $donation_type == 'don_normal') {
+    $form['fieldset_monthly']['monthly_free'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Free amount'),
+      '#maxlength' => 10,
+      '#size' => 15,
+      '#default_value' => '',
+      '#attributes' => array(
+        'placeholder' => t('Other amount ?'),
+        'class' => array('monthly', 'don', 'free'),
+      ),
+    );
+  }
+  if ($unique_options || $unique_free) {
+    $form['fieldset_unique'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('I give <span>directly</span>'),
+      '#weight' => 50,
+      '#collapsible' => FALSE,
+      '#collapsed' => FALSE,
+      '#attributes' => array(
+        'class' => array('edit-gd-donate-fieldset-unique'),
+      ),
+    );
+  }
+
+  if ($unique_options) {
+    $form['fieldset_unique']['unique'] = array(
+      '#type' => 'radios',
+      '#title' => t('I give once'),
+      '#options' => variable_get('gd_donate_unique_options'),
+      '#description' => t('Choose an option.'),
+      '#attributes' => array(
+        'class' => array('unique', 'don', 'restrict'),
+      ),
+    );
+  }
+
+  if ($unique_free) {
+    $form['fieldset_unique']['unique_free'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Free amount'),
+      '#maxlength' => 10,
+      '#size' => 15,
+      '#default_value' => '',
+      '#attributes' => array(
+        'placeholder' => t('Other amount ?'),
+        'class' => array('unique', 'don', 'free'),
+      ),
+    );
+  }
+
+  if (isset($form['fieldset_monthly']) && isset($form['fieldset_unique'])) {
+    $form['markup_or'] = array(
+      '#markup' => "<div class='block_or'><span>" . t('Or') . "</span></div>",
+      '#weight' => 30,
+    );
+  }
+  if (variable_get('gd_donate_activ_calculator')) {
+    if ($unique_free) {
+      $form['fieldset_unique']['unique_free']['#ajax'] = array(
+        'callback' => 'gd_donate_ajax_calcul',
+        'event' => 'change',
+        'wrapper' => 'gd_donate',
+        'method' => 'replace',
+      );
+    }
+
+    if ($monthly_free) {
+      $form['fieldset_monthly']['monthly_free']['#ajax'] = array(
+        'callback' => 'gd_donate_ajax_calcul',
+        'event' => 'change',
+        'wrapper' => 'gd_donate',
+        'method' => 'replace',
+      );
+    }
+
+    $form['fieldset_unique']['unique']['#ajax'] = array(
+      'callback' => 'gd_donate_ajax_calcul',
+      'event' => 'change',
+      'wrapper' => 'gd_donate',
+      'method' => 'replace',
+    );
+
+    $form['fieldset_monthly']['monthly']['#ajax'] = array(
+      'callback' => 'gd_donate_ajax_calcul',
+      'event' => 'change',
+      'wrapper' => 'gd_donate',
+      'method' => 'replace',
+    );
+  }
+
+  $output = gd_donate_calculate_values($values, $donation_type);
+
+  $form['calcul_output'] = array(
+    '#markup' => $output,
+  );
+
+  if ($checkout == FALSE) {
+    $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => t('Submit'),
+      '#attributes' => array(
+        'class' => array('checkout-submit'),
+      ),
+    );
+  }
+
+  return $form;
+}
+
+function gd_donate_form_submit($form, &$form_state) {
+  global $user;
+
+  // Create the new order in checkout status.
+  $order = commerce_order_new($user->uid, 'checkout_checkout');
+  commerce_order_save($order);
+
+  if (isset($form_state['values']['gd_donate'])) {
+    $monthly = $values['gd_donate']['fieldset_monthly']['monthly'];
+    $unique = $values['gd_donate']['fieldset_unique']['unique'];
+    $monthly_free = variable_get('gd_donate_activ_monthly_free') ? $values['gd_donate']['fieldset_monthly']['monthly_free'] : '';
+    $unique_free = variable_get('gd_donate_activ_unique_free') ? $values['gd_donate']['fieldset_unique']['unique_free'] : '';
+  }
+  else {
+    $monthly = variable_get('gd_donate_monthly_options') ? $form_state['values']['monthly'] : '';
+    $unique = variable_get('gd_donate_unique_options') ? $form_state['values']['unique'] : '';
+    $monthly_free = variable_get('gd_donate_activ_monthly_free') ? $form_state['values']['monthly_free'] : '';
+    $unique_free = variable_get('gd_donate_activ_unique_free') ? $form_state['values']['unique_free'] : '';
+  }
+
+  $amount = !empty($monthly) ? $monthly : 0;
+  $amount = !empty($unique) && empty($amount) ? $unique : $amount;
+  $amount = !empty($monthly_free) && empty($amount) ? $monthly_free : $amount;
+  $amount = !empty($unique_free) && empty($amount) ? $unique_free : $amount;
+
+  $amount = commerce_currency_decimal_to_amount($amount, commerce_default_currency());
+  $line_item = gd_donate_line_item_new($order->order_id, $amount);
+
+  if ($monthly_free != '' || $monthly != '') {
+    $line_item->field_gd_donate_mensualite[LANGUAGE_NONE][0]['value'] = 1;
+  }
+  else {
+    $line_item->field_gd_donate_mensualite[LANGUAGE_NONE][0]['value'] = 0;
+  }
+
+  commerce_line_item_save($line_item);
+
+  $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+  $order_wrapper->commerce_line_items->set(array($line_item));
+
+  commerce_order_save($order);
+
+  $_SESSION['commerce_cart_orders'][] = $order->order_id;
+
+  $form_state['redirect'] = 'checkout/' . $order->order_id;
+}
+
+/**
+ * Menu callback for AJAX additions.
+ */
+function gd_donate_ajax_calcul($form, $form_state) {
+  if (isset($form['gd_donate'])){
+    return $form['gd_donate'];
+  }
+  return $form;
+}
+
+/**
+ * Menu callback for AJAX additions.
+ */
+function gd_donate_ajax_donation_type_refresh($form, $form_state) {
+  $values = $form_state['values'];
+
+  if (empty($values)) {
+    $donation_type = 'don_normal';
+  }
+  elseif (isset($values['gd_donate'])) {
+    $donation_type = $values['gd_donate']['donation_type'] ? $values['gd_donate']['donation_type'] : 'don_normal';
+  }
+  else {
+    $donation_type = $values['donation_type'] ? $values['donation_type'] : 'don_normal';
+  }
+  $commands = array();
+  $commands[] = ajax_command_replace('#gd_donate',drupal_render($form['gd_donate']));
+  $commands[] = ajax_command_replace('#title_donation',gd_donate_ajax_donation_type_replace_content($form, $form_state));
+
+  //Create hook_gd_donate_ajax_donation_type_refresh_alter to add ajax_commands
+  //from your own module.
+  $context = array(
+    'form' => $form,
+    'form_state' => $form_state,
+  );
+  drupal_alter('gd_donate_ajax_donation_type_refresh', $commands, $context);
+
+  return array('#type' => 'ajax', '#commands' => $commands);
+}
+
+/**
+ *
+ */
+function gd_donate_ajax_donation_type_replace_content($form, $form_state) {
+  $values = $form_state['values'];
+  if (empty($values)) {
+    $donation_type = 'don_normal';
+  }
+  elseif (isset($values['gd_donate'])) {
+    $donation_type = $values['gd_donate']['donation_type'] ? $values['gd_donate']['donation_type'] : 'don_normal';
+  }
+  else {
+    $donation_type = $values['donation_type'] ? $values['donation_type'] : 'don_normal';
+  }
+
+  if ($donation_type == 'don_normal') {
+    return '<h2>' . t('My online donation') . '</h2>';
+  }
+  return '<h2>' . t('ISF donation') . '</h2>';
+}
+
+function gd_donate_calculate_values($values, $donation_type) {
+  $calcul = '';
+  $ceiling_regular = variable_get('gd_donate_ceiling');
+  $ceiling_isf = variable_get('gd_donate_ceiling_isf');
+  $ceiling = ($donation_type == 'don_normal') ? $ceiling_regular : $ceiling_isf;
+  $calcul_above = variable_get('gd_donate_calculate_above_ceiling');
+  $calcul_below = variable_get('gd_donate_calculate_below_ceiling');
+  $answer_above = variable_get('gd_donate_answer_above_ceiling');
+  $answer_below = variable_get('gd_donate_answer_below_ceiling');
+  if (!empty($values)) {
+    $math = new ctools_math_expr;
+
+    if (isset($values['gd_donate'])) {
+      if ($donation_type == 'don_normal') {
+        $monthly = $values['gd_donate']['fieldset_monthly']['monthly'];
+        $monthly_free = variable_get('gd_donate_activ_monthly_free') ? $values['gd_donate']['fieldset_monthly']['monthly_free'] : '';
+      }
+      $unique = $values['gd_donate']['fieldset_unique']['unique'];
+      $unique_free = variable_get('gd_donate_activ_unique_free') ? $values['gd_donate']['fieldset_unique']['unique_free'] : '';
+    }
+    else {
+      if ($donation_type == 'don_normal') {
+        $monthly = $values['monthly'];
+        $monthly_free = variable_get('gd_donate_activ_monthly_free') ? $values['monthly_free'] : '';
+      }
+      $unique = $values['unique'];
+      $unique_free = variable_get('gd_donate_activ_unique_free') ? $values['unique_free'] : '';
+    }
+
+    if (!empty($monthly) && $monthly <= $ceiling) {
+      $formula = str_replace(array('[ceiling]', '[user-amount]'), array($ceiling, $monthly), $calcul_below);
+      $reduc = $math->evaluate($formula);
+      $total = $monthly - $reduc;
+      $total = round($total, 2);
+      $calcul = str_replace('[donation]', $total, $answer_below);
+    }
+    elseif (!empty($monthly) && $monthly > $ceiling) {
+      $formula = str_replace(array('[ceiling]', '[user-amount]'), array($ceiling, $monthly), $calcul_above);
+      $reduc = $math->evaluate($formula);
+      $total = $monthly - $reduc;
+      $total = round($total, 2);
+      $calcul = str_replace(array('[donation]', '[ceiling]'), array($total, $ceiling), $answer_above);
+    }
+    elseif (!empty($unique) && $unique <= $ceiling) {
+      $formula = str_replace(array('[ceiling]', '[user-amount]'), array($ceiling, $unique), $calcul_below);
+      $reduc = $math->evaluate($formula);
+      $total = $unique - $reduc;
+      $total = round($total, 2);
+      $calcul = str_replace('[donation]', $total, $answer_below);
+    }
+    elseif (!empty($unique) && $unique > $ceiling) {
+      $formula = str_replace(array('[ceiling]', '[user-amount]'), array($ceiling, $unique), $calcul_above);
+      $reduc = $math->evaluate($formula);
+      $total = $unique - $reduc;
+      $total = round($total, 2);
+      $calcul = str_replace(array('[donation]', '[ceiling]'), array($total, $ceiling), $answer_above);
+    }
+    elseif (!empty($monthly_free) && $monthly_free <= $ceiling) {
+      $formula = str_replace(array('[ceiling]', '[user-amount]'), array($ceiling, $monthly_free), $calcul_below);
+      $reduc = $math->evaluate($formula);
+      $total = $monthly_free - $reduc;
+      $total = round($total, 2);
+      $calcul = str_replace('[donation]', $total, $answer_below);
+    }
+    elseif (!empty($monthly_free) && $monthly_free > $ceiling) {
+      $formula = str_replace(array('[ceiling]', '[user-amount]'), array($ceiling, $monthly_free), $calcul_above);
+      $reduc = $math->evaluate($formula);
+      $total = $monthly_free - $reduc;
+      $total = round($total, 2);
+      $calcul = str_replace(array('[donation]', '[ceiling]'), array('<span>' . $total . '</span>', $ceiling), $answer_above);
+    }
+    elseif (!empty($unique_free) && $unique_free <= $ceiling) {
+      $formula = str_replace(array('[ceiling]', '[user-amount]'), array($ceiling, $unique_free), $calcul_below);
+      $reduc = $math->evaluate($formula);
+      $total = $unique_free - $reduc;
+      $total = round($total, 2);
+      $calcul = str_replace('[donation]', $total, $answer_below);
+    }
+    elseif (!empty($unique_free) && $unique_free > $ceiling) {
+      $formula = str_replace(array('[ceiling]', '[user-amount]'), array($ceiling, $unique_free), $calcul_above);
+      $reduc = $math->evaluate($formula);
+      $total = $unique_free - $reduc;
+      $total = round($total, 2);
+      $calcul = str_replace(array('[donation]', '[ceiling]'), array($total, $ceiling), $answer_above);
+    }
+  }
+  return $calcul;
+}
+
+/**
+ * Implements hook_commerce_checkout_pane_info().
+ *
+ * This is where we define the name of the pane, related information, and
+ * the base name of all the form builder functions used to present the
+ * pane.
+ */
+function gd_donate_commerce_checkout_pane_info() {
+  $panes['gd_donate'] = array(
+    'title' => t('GD Donate'),
+    'base' => 'checkout_gd_donate_pane',
+    'page' => 'checkout',
+    'weight' => -5,
+  );
+  return $panes;
+}
+
+/**
+ * Example Pane: form callback.
+ *
+ * This is a standard FAPI form which will be presented in the pane.
+ * The form gathers and stores information from $order->data, an array which
+ * can be populated with free-form keys and values.
+ */
+function checkout_gd_donate_pane_checkout_form($form, &$form_state, $checkout_pane, $order) {
+
+  $pane_form = gd_donate_form(array(), $form_state, TRUE);
+  $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+  $line_item = '';
+
+  foreach ($order_wrapper->commerce_line_items as $delta => $line_item_wrapper) {
+    $line_item = $line_item_wrapper->value();
+
+    if ($line_item->type == 'gd_donate') {
+    $mensualite = $line_item->field_gd_donate_mensualite[LANGUAGE_NONE][0]['value'];
+    $amount = commerce_currency_amount_to_decimal($line_item->commerce_unit_price[LANGUAGE_NONE][0]['amount'], commerce_default_currency());
+
+      if ( $mensualite == 0) {
+        if (isset($pane_form['fieldset_unique']['unique']['#options'][$amount])) {
+          $pane_form['fieldset_unique']['unique']['#default_value'] = $amount;
+        }
+        else {
+          $pane_form['fieldset_unique']['unique_free']['#default_value'] = $amount;
+        }
+      }
+
+      if ( $mensualite == 1) {
+        if (isset($pane_form['fieldset_monthly']['monthly']['#options'][$amount])) {
+          $pane_form['fieldset_monthly']['monthly']['#default_value'] = $amount;
+        }
+        else {
+          $pane_form['fieldset_monthly']['monthly_free']['#default_value'] = $amount;
+        }
+      }
+    }
+  }
+  return $pane_form;
+}
+
+/**
+ * Implements hook_commerce_line_type_info().
+ */
+
+function gd_donate_commerce_line_item_type_info() {
+  $line_item_types = array();
+
+  $line_item_types['gd_donate'] = array(
+    'name' => t('GD Donate'),
+    'description' => t('Add a donation with selected amount or custom amount'),
+    'product' => FALSE,
+    'add_form_submit_value' => t('Add a donation'),
+    'base' => 'gd_donate_line_item',
+  );
+
+  return $line_item_types;
+}
+
+function gd_donate_line_item_title($line_item) {
+  return (t('Line Item donation title'));
+}
+
+function gd_donate_line_item_add_form($element, &$form_state) {
+  $form = array();
+  return $form;
+}
+
+/**
+ * Adds the selected product information to a line item added via a line item
+ *   manager widget (on the admin order page).
+ *
+ * @param $line_item
+ *   The newly created line item object.
+ * @param $element
+ *   The array representing the widget form element.
+ * @param $form_state
+ *   The present state of the form upon the latest submission.
+ * @param $form
+ *   The actual form array.
+ *
+ * @return
+ *   NULL if all is well or an error message if something goes wrong.
+ */
+function gd_donate_line_item_add_form_submit(&$line_item, $element, &$form_state, $form) {
+  $line_item->line_item_label = t('GD Donate');
+
+  // Wrap the line item and product to easily set field information.
+  $line_item_wrapper = entity_metadata_wrapper('commerce_line_item', $line_item);
+
+  // Provide a default price.
+  $amount = variable_get('gd_donate_line_item_amount', 500);
+  $currency_code = variable_get('gd_donate_line_item_currency', 'USD');
+
+  $line_item->commerce_unit_price = array('und' => array(
+      '0' => array('amount' => $amount, 'currency_code' => $currency_code)
+  ));
+
+  if (!is_null($line_item_wrapper->commerce_unit_price->value())) {
+    // Add the base price to the components array.
+    if (!commerce_price_component_load($line_item_wrapper->commerce_unit_price->value(), 'base_price')) {
+      $line_item_wrapper->commerce_unit_price->data = commerce_price_component_add(
+        $line_item_wrapper->commerce_unit_price->value(),
+        'base_price',
+        $line_item_wrapper->commerce_unit_price->value(),
+        TRUE
+      );
+    }
+  }
+}
+
+function gd_donate_line_item_new($order_id = 0, $amount = 0) {
+  $type = 'gd_donate';
+
+  // Create the new line item.
+  $line_item = entity_create('commerce_line_item', array(
+    'type' => $type,
+    'order_id' => $order_id,
+    'quantity' => 1,
+  ));
+
+  $currency_code = commerce_default_currency();
+
+  $line_item->commerce_unit_price = array('und' => array(
+      '0' => array('amount' => $amount, 'currency_code' => $currency_code)
+  ));
+
+  $line_item_wrapper = entity_metadata_wrapper('commerce_line_item', $line_item);
+
+  if (!is_null($line_item_wrapper->commerce_unit_price->value())) {
+    // Add the base price to the components array.
+    if (!commerce_price_component_load($line_item_wrapper->commerce_unit_price->value(), 'base_price')) {
+      $line_item_wrapper->commerce_unit_price->data = commerce_price_component_add(
+        $line_item_wrapper->commerce_unit_price->value(),
+        'base_price',
+        $line_item_wrapper->commerce_unit_price->value(),
+        TRUE
+      );
+    }
+  }
+
+  return $line_item;
+}
+
+function gd_donate_form_alter(&$form, &$form_state, $form_id) {
+
+}

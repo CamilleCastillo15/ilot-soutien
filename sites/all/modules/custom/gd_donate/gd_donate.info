@@ -1,0 +1,9 @@
+name = GD Donate
+description = "Commerce module for donation"
+package = GD Commerce
+core = 7.x
+
+dependencies[] = commerce_checkout
+dependencies[] = list
+
+;configure = admin/config/ilot/settings

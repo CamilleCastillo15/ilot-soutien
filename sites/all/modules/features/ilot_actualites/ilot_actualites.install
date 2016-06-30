@@ -1,0 +1,25 @@
+<?php
+
+function ilot_actualites_install() {
+  $queue = new stdClass();
+  $queue->name = 'accueil_actu_queue';
+  $queue->title = 'Accueil - liste et ordre des actualités';
+  $queue->subqueue_title = '';
+  $queue->size = 0;
+  $queue->link = '';
+  $queue->link_remove = '';
+  $queue->owner = 'nodequeue';
+  $queue->show_in_ui = 1;
+  $queue->show_in_tab = 1;
+  $queue->show_in_links = 1;
+  $queue->reference = 0;
+  $queue->reverse = 0;
+  $queue->i18n = 0;
+  $queue->subqueues = 1;
+  $queue->types = array('actualites');
+  $queue->roles= array();
+  $queue->count = 0;
+  nodequeue_save($queue);
+  nodequeue_add_subqueue($queue, $queue->title);
+
+}

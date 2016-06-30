@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ilot_association feature.
+ */
+
+include_once 'ilot_association.features.inc';

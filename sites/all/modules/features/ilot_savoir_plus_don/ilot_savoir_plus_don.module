@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ilot_savoir_plus_don feature.
+ */
+
+include_once 'ilot_savoir_plus_don.features.inc';

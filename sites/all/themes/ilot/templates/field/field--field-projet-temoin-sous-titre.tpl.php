@@ -1,0 +1,1 @@
+<h3 class="sous-titre-simple"><?php print render($items); ?></h3>

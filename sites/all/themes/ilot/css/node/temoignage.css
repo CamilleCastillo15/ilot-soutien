@@ -1,0 +1,232 @@
+.node-temoignage.view-mode-short_teaser
+{
+	width : 170px;
+	height : 153px;
+	padding-top : 17px;
+	background-color : #ffffff;
+	color : #000000;
+	position : relative;
+	cursor : pointer;
+}
+
+.node-temoignage.view-mode-short_teaser h2
+{
+  font-size : 23px;
+  font-family : 'StaticBold', sans-serif;
+  font-weight : normal;
+  line-height : 20px;
+  margin : 0px 13px 0 13px;
+  text-transform : uppercase;
+}
+
+.node-temoignage.view-mode-short_teaser h3
+{
+  font-size : 20px;
+  font-family : 'StaticRegular', sans-serif;
+  line-height : 20px;
+  font-weight : normal;
+  margin : 3px 13px 0 13px;
+  text-transform: uppercase;
+  
+}
+.node-temoignage.view-mode-short_teaser h3 a,
+.node-temoignage.view-mode-short_teaser h2 a {
+	color: #2E2E2E;
+}
+.node-temoignage.view-mode-short_teaser a.read-more
+{
+  font-family : 'StaticRegular', sans-serif;
+  font-size : 14px;
+  background : url('/sites/all/themes/ilot/images/fleche_more.png') no-repeat center right #293036;
+  color : #ffffff;
+  text-decoration : none;
+  border-bottom : 0px solid #28bca4;
+  padding : 0px 35px 2px 10px;
+  height: 20px;
+  line-height: 20px;
+  display : none;
+  margin-left : 40px;
+  position : absolute;
+  bottom : 20px;
+}
+
+.node-temoignage.view-mode-short_teaser:hover a.read-more
+{
+  display : inline;
+}
+
+/*------------------TEASER------------------*/
+
+.node-temoignage.view-mode-teaser
+{
+  width : 750px;
+  height : 190px;
+  border-bottom : 1px solid #28bca4;
+  margin-bottom : 10px;
+  position:relative;
+}
+
+.node-temoignage.view-mode-teaser .vignette 
+{
+  float : left;
+  height : 190px;
+  width : 205px;
+  margin-right : 20px;
+}
+
+.node-temoignage.view-mode-teaser .vignette .field-name-field-projet-image
+{
+  position : relative;
+  height : 190px;
+}
+
+.node-temoignage.view-mode-teaser .vignette .field-name-field-projet-image:after
+{
+  content : '';
+  position : absolute;
+  top : 0;
+  width : 100%;
+  height : 100%;
+  background : rgba(40,188,164,0.2);
+}
+
+.node-temoignage.view-mode-teaser .texte
+{
+  height : 190px;
+}
+
+.node-temoignage.view-mode-teaser h2
+{
+  font-family : 'NeouBold', sans-serif;
+  font-size : 19px;
+  margin : 0;
+  font-weight : normal;
+}
+
+.node-temoignage.view-mode-teaser h3
+{
+  font-family : 'Anaheim', sans-serif;
+  text-transform: uppercase;
+  font-size : 19px;
+  line-height : 17px;
+  margin : 0;
+  font-weight : normal;
+}
+
+.node-temoignage.view-mode-teaser h3:after
+{
+  content : '';
+  display : inline-block;
+  width : 12px;
+  height : 10px;
+  background : url('/sites/all/themes/ilot/images/triangle.png') no-repeat;
+}
+
+.node-temoignage.view-mode-teaser .field-name-field-temoignage-accroche
+{
+  font-family : 'Gill Sans', sans-serif;
+  font-weight: bold;
+  font-size : 14px;
+  line-height : 16px;
+  margin : 15px 0 0 0;
+}
+
+.node-temoignage.view-mode-teaser a.read-more
+{
+  font-family : 'StaticRegular', sans-serif;
+  font-size : 14px;
+  background : url('/sites/all/themes/ilot/images/fleche_more.png') no-repeat center right #293036;
+  color : #ffffff;
+  text-decoration : none;
+  border-bottom : 0px solid #28bca4;
+  padding : 3px 35px 3px 10px;
+  position : absolute;
+  bottom : 20px;
+  height: 20px;
+  line-height: 20px;
+}
+
+.node-temoignage.view-mode-teaser a.read-more:hover
+{
+  border-bottom : 3px solid #28bca4;
+}
+.node-temoignage.view-mode-full
+{
+	width : 750px;
+}
+.node-temoignage.view-mode-full > img
+{
+	float : left;
+	margin-right : 20px;
+	margin-bottom : 20px;
+}
+
+.node-temoignage.view-mode-full h1
+{
+  font-family : 'NeouBold', sans-serif;
+  font-size : 25px;
+  line-height : 35px;
+  margin : 0;
+  font-weight : normal;
+  max-width : 550px;
+}
+
+.node-temoignage.view-mode-full h2
+{
+  font-family : 'Anaheim', sans-serif;
+  text-transform: uppercase;
+  font-size : 25px;
+  line-height: 25px;
+  margin : 0;
+  font-weight : normal;
+  max-width : 550px;
+}
+
+.node-temoignage.view-mode-full h2:after
+{
+  content : '';
+  display : inline-block;
+  width : 12px;
+  height : 10px;
+  background : url('/sites/all/themes/ilot/images/triangle.png') no-repeat;
+}
+
+.node-temoignage.view-mode-full .field-name-field-temoignage-accroche
+{
+	clear : both;
+	color : #28bca4;
+  margin-top: 13px;
+	font-family : 'Gill Sans', sans-serif;
+  font-style: italic;
+	font-size : 19px;
+	line-height : 22px;
+}
+
+.node-temoignage.view-mode-full .field-name-field-temoignage-corps
+{
+	font-family : 'Gill Sans', sans-serif;
+	font-size : 16px;
+	line-height : 17px;
+}
+.node-temoignage.view-mode-full h2.date
+{
+  font-family : 'NeouBold', sans-serif;
+}
+
+.node-temoignage.view-mode-full h2.date:after
+{
+	display : none;
+}
+
+.node-temoignage.view-mode-full span.date
+{
+	display : block;
+	font-family : 'Anaheim', sans-serif;
+  text-transform: uppercase;
+	font-size : 19px;
+}
+
+.node-temoignage.view-mode-full p
+{
+  margin: 1em 0;
+}

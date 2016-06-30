@@ -1,0 +1,58 @@
+article.node-page-simple h1
+{
+	font-family : 'NeouBold', sans-serif;
+	font-size : '29px';
+	font-weight : normal;
+}
+
+article.node-page-simple h2
+{
+  font-family : 'NeouBold', sans-serif;
+  font-size : 25px;
+  font-weight : normal;
+  margin : 0;
+  line-height : 14px;
+}
+
+article.node-page-simple h3
+{
+  font-family : 'Anaheim', sans-serif;
+  text-transform: uppercase;
+  font-size : 25px;
+  font-weight : normal;
+  margin : 0;
+}
+article.node-page-simple h1:after,
+article.node-page-simple h3:after
+{
+  content : '';
+  display : inline-block;
+  width : 12px;
+  height : 10px;
+  background : url('/sites/all/themes/ilot/images/triangle.png') no-repeat;
+}
+
+article.node-page-simple .field-name-field-page-simple-texte,
+article.node-page-simple .field-name-field-page-simple-telephone,
+article.node-page-simple .field-name-field-page-simple-mail
+{
+	font-family : 'Gill Sans', sans-serif;
+	font-size : 16px;
+}
+
+article.node-page-simple .field-name-field-page-simple-label
+{
+	font-family : 'AvenirLTStd85Heavy', sans-serif;
+	font-size : 16px;
+}
+
+article.node-page-simple .field-name-field-page-simple-telephone
+{
+  background : url('/sites/all/themes/ilot/images/tel.png') no-repeat 3px center;
+  text-indent : 25px;
+}
+article.node-page-simple .field-name-field-page-simple-mail
+{
+  background : url('/sites/all/themes/ilot/images/mail2.png') no-repeat left center;
+  text-indent : 25px;
+}

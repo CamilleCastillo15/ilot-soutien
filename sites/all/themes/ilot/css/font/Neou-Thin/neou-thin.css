@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'NeouThin';
+    src: url('neou-thin.eot');
+    src: url('neou-thin.eot?#iefix') format('embedded-opentype'),
+         url('neou-thin.woff') format('woff'),
+         url('neou-thin.ttf') format('truetype'),
+         url('neou-thin.svg#NeouThin') format('svg');
+}

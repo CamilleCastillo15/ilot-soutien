@@ -1,0 +1,102 @@
+.block-simplenews
+{
+	height : 55px;
+	width : 100%;
+	background-color : #f4f4f4;
+	margin : 30px 0 0 0;
+}
+
+.block-simplenews h2
+{
+	font-family : 'StaticRegular';
+	height : 45px;
+	font-size : 20px;
+	width : 130px;
+	text-transform : uppercase;
+	float : left;
+	padding : 10px 0 0 90px;
+	background : url('../../images/newsletter.png') no-repeat center left;
+	font-weight: normal;
+}
+
+.block-simplenews p
+{
+	float : left;
+	margin : 0;
+	font-family : 'Gill Sans', sans-serif;
+	font-weight: bold;
+	font-size : 14px;
+	height : 39px;
+	padding-top : 16px;
+}
+
+.block-simplenews .simplenews-subscribe
+{
+	float : right;
+	display : block;
+	width : 450px;
+	height : 55px;
+	padding : 0;
+	margin : 0;
+}
+
+.block-simplenews .form-item-mail
+{
+	width : 325px;
+	height : 55px;
+	margin : 0;
+	padding : 0;
+	float : left;
+}
+
+.block-simplenews .form-item-mail input
+{
+	width : 300px;
+	box-shadow : none;
+	border : none;
+	height : 25px;
+	margin-top : 12px;
+	padding : 5px 0 0 10px;
+	font-family : 'Gill Sans', sans-serif;
+  font-size : 15px;
+}
+.block-simplenews .form-item-mail input::-moz-placeholder
+{
+  color : #28bca4;
+}
+.block-simplenews .form-item-mail input:-moz-placeholder
+{
+  color : #28bca4;
+}
+.block-simplenews .form-item-mail input:-ms-input--placeholder
+{
+  color : #28bca4;
+}
+.block-simplenews .form-item-mail input::-webkit-input-placeholder
+{
+  color : #28bca4;
+}
+.block-simplenews .form-item-mail label
+{
+	display : none;
+}
+
+.block-simplenews .form-submit
+{
+	height : 55px;
+	padding-top : 12px;
+	width : 125px;
+	background-color : #28bca4;
+	border : none;
+	font-family : 'StaticRegular', sans-serif;
+	font-size : 28px;
+	color : #ffffff;
+	text-transform : uppercase;
+	float: right;
+}
+
+.block-simplenews .issues-link,
+.block-simplenews .feed-icon
+{
+	display : none;
+}

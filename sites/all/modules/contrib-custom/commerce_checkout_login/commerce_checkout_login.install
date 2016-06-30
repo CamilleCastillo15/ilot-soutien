@@ -1,0 +1,5 @@
+<?php
+
+function commerce_checkout_login_install() {
+  variable_set('checkout_login_enforce_login', TRUE);
+}

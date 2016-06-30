@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ilot_profile feature.
+ */
+
+include_once 'ilot_profile.features.inc';

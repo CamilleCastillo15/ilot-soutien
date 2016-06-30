@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'StaticRegular';
+    src: url('static.eot');
+    src: url('static.eot?#iefix') format('embedded-opentype'),
+         url('static.woff') format('woff'),
+         url('static.ttf') format('truetype'),
+         url('static.svg#StaticRegular') format('svg');
+}

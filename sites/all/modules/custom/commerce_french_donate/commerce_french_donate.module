@@ -1,0 +1,705 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function commerce_french_donate_menu() {
+  $items['admin/commerce/config/commerce_french_donate'] = array(
+    'title' => 'Commerce Ilot donation settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('commerce_french_donate_admin_form'),
+    'access arguments' => array('view the administration theme'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'commerce_french_donate.admin.inc',
+  );
+  $items['faire-un-don'] = array(
+    'title' => 'Donate',
+    'page callback' => 'commerce_french_donate_donate_callback',
+    'type' => MENU_CALLBACK,
+    'access arguments' => array('access content'),
+  );
+  return $items;
+}
+
+/**
+ * Menu callback. Init a default Donation order with a line item.
+ */
+function commerce_french_donate_donate_callback() {
+  global $user;
+  ilot_custom_form_session_value('checkout_donation', array());
+  if (!empty($_SESSION['commerce_cart_orders'])) {
+    foreach ($_SESSION['commerce_cart_orders'] as $key => $order_id) {
+      $order = commerce_order_load($order_id);
+      if (is_object($order)) {
+        if ($order->status == 'checkout_checkout') {
+          commerce_order_delete($order_id);
+          unset($_SESSION['commerce_cart_orders'][$key]);
+        }
+      }
+    }
+  }
+  // Create the new order in checkout status.
+  $order = commerce_order_new($user->uid, 'checkout_checkout');
+  commerce_order_save($order);
+
+
+  $amount = 0;
+  $amount = commerce_currency_decimal_to_amount($amount, commerce_default_currency());
+  $line_item = commerce_french_donate_line_item_new($order->order_id, $amount);
+  $line_item->field_french_donate_mensualite[LANGUAGE_NONE][0]['value'] = 0;
+  $donation_type = 'don_normal';
+
+  $line_item->line_item_label = "Don normal";
+  if (arg(1) && arg(1) == 'isf') {
+    $donation_type = 'don_isf';
+    $line_item->line_item_label = "Don ISF";
+  }
+
+  $line_item->field_cf_donate_type_don[LANGUAGE_NONE][0]['value'] = $donation_type;
+  commerce_line_item_save($line_item);
+
+
+  $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+  $order_wrapper->commerce_line_items->set(array($line_item));
+
+  if (!empty($_GET['referent'])) {
+    $order_wrapper->field_url_referent->set($_GET['referent']);
+  }
+  if (!empty($_GET['redirection'])) {
+    $order_wrapper->field_url_redirection->set($_GET['redirection']);
+  }
+  commerce_order_save($order);
+
+  $_SESSION['commerce_cart_orders'][] = $order->order_id;
+
+  if (!empty($_GET['checkout'])) {
+  drupal_goto('checkout/' . $order->order_id, array('query' => array('checkout' => $_GET['checkout'])));
+  }
+  drupal_goto('checkout/' . $order->order_id);
+
+}
+
+/**
+ * Implement hook_form().
+ */
+function commerce_french_donate_form($form, &$form_state, $order) {
+  if (empty($form_state['values']['commerce_french_donate'])) {
+    $saved_form_state_values = ilot_custom_form_session_value('checkout_donation');
+    if (!empty($saved_form_state_values)) {
+      $form_state['values']['commerce_french_donate'] = $saved_form_state_values;
+    }
+  }
+
+  $values = isset($form_state['values']) ? $form_state['values'] : array();
+  if (empty($values)) {
+    $donation_type = 'don_normal';
+  }
+
+  $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+  foreach ($order_wrapper->commerce_line_items as $delta => $line_item_wrapper) {
+    $line_item = $line_item_wrapper->value();
+
+    if ($line_item->type == 'commerce_french_donate') {
+      $mensualite = $line_item->field_french_donate_mensualite[LANGUAGE_NONE][0]['value'];
+      $donation_type = $line_item_wrapper->field_cf_donate_type_don->value();
+      break;
+    }
+  }
+
+  $monthly_options = variable_get('commerce_french_donate_monthly_options');
+  $monthly_free = variable_get('commerce_french_donate_activ_monthly_free');
+  $unique_options = variable_get('commerce_french_donate_unique_options');
+  $unique_free = variable_get('commerce_french_donate_activ_unique_free');
+
+  $form['#attached']['js'] = array(
+    drupal_get_path('module', 'commerce_french_donate') . '/commerce_french_donate.js' => array(
+      'type' => 'file',
+    ),
+  );
+
+  $title = "Mon don en ligne";
+  $form['fieldset_wrapper'] = array(
+    '#type' => 'fieldset',
+    '#prefix' => '<div id="commerce_french_donate" class="commerce_french_donate_wrapper ' . $donation_type . ' form-wrapper"><h2 id="title_donation"><span><abbr title="Premiere étape">1</abbr></span>' . $title . '</h2>',
+    '#suffix' => '<div class="clearfix"></div></div>',
+    '#collapsible' => FALSE,
+    '#collapsed' => FALSE,
+    '#attributes' => array(
+      'class' => array('commer_french_donate_fieldset_wrapper'),
+    ),
+  );
+
+  $form['fieldset_wrapper']['donation_type'] = array(
+    '#type' => 'value',
+    '#value' => 'don_normal',
+  );
+
+  if ($unique_options || $unique_free) {
+    $form['fieldset_wrapper']['fieldset_unique'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Je donne <span>maintenant</span>'),
+      '#weight' => 0,
+      '#collapsible' => FALSE,
+      '#collapsed' => FALSE,
+      '#attributes' => array(
+        'class' => array('edit-commerce-french-donate-fieldset-unique'),
+      ),
+    );
+  }
+
+  if ($unique_options) {
+    $form['fieldset_wrapper']['fieldset_unique']['unique'] = array(
+      '#type' => 'radios',
+      '#title' => t('je donne maintenant'),
+      '#options' => ($donation_type == 'don_isf') ? variable_get('commerce_french_donate_isf_unique_options') : variable_get('commerce_french_donate_unique_options'),
+      '#default_value' => (isset($values['commerce_french_donate']['fieldset_wrapper']['fieldset_unique']['unique'])) ? $values['commerce_french_donate']['fieldset_wrapper']['fieldset_unique']['unique'] : NULL,
+      '#attributes' => array(
+        'class' => array('unique', 'don', 'restrict'),
+      ),
+    );
+  }
+
+  if ($unique_free) {
+    $form['fieldset_wrapper']['fieldset_unique']['unique_free'] = array(
+      '#type' => 'textfield',
+      '#title' => t('un autre montant ?'),
+      '#maxlength' => 10,
+      '#size' => 15,
+      '#default_value' => (isset($values['commerce_french_donate']['fieldset_wrapper']['fieldset_unique']['unique_free'])) ? $values['commerce_french_donate']['fieldset_wrapper']['fieldset_unique']['unique_free'] : NULL,
+      '#attributes' => array(
+        'placeholder' => t('un autre montant ?'),
+        'class' => array('unique', 'don', 'free'),
+      ),
+    );
+  }
+
+  // adjustment made on 11/28/14 for form simplification
+  /*if (($monthly_options || $monthly_free) && $donation_type == 'don_normal') {
+    $form['fieldset_wrapper']['fieldset_monthly'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Je donne <span>chaque mois</span>'),
+      // adjustment made on 11/28/14 for form simplification
+      //'#description' => t('je soutiens vos actions toute l’année pour plus d’efficacité'),
+      '#weight' => 10,
+      '#collapsible' => FALSE,
+      '#collapsed' => FALSE,
+      '#attributes' => array(
+        'class' => array('edit-commerce-french-donate-fieldset-monthly'),
+      ),
+      '#suffix' => '<a class="btn" href="/sites/default/files/public/pdf/accord_pa_ilot.pdf" target="_blank">Formulaire à télécharger</a>',
+    );
+  }*/
+  /*if ($monthly_options && $donation_type == 'don_normal') {
+    $form['fieldset_wrapper']['fieldset_monthly']['monthly'] = array(
+      '#type' => 'radios',
+      '#title' => t('Je donne chaque mois'),
+      '#options' => variable_get('commerce_french_donate_monthly_options'),
+      '#default_value' => (isset($values['commerce_french_donate']['fieldset_wrapper']['fieldset_monthly']['monthly'])) ? $values['commerce_french_donate']['fieldset_wrapper']['fieldset_monthly']['monthly'] : NULL,
+      '#attributes' => array(
+        'class' => array('monthly', 'don', 'restrict'),
+      ),
+    );
+    if (FALSE) {
+      $form['fieldset_wrapper']['fieldset_monthly']['monthly']['#value'] = NULL;
+    }
+  }
+  if ($monthly_free && $donation_type == 'don_normal') {
+    $form['fieldset_wrapper']['fieldset_monthly']['monthly_free'] = array(
+      '#type' => 'textfield',
+      '#title' => t('un autre montant ?'),
+      '#maxlength' => 10,
+      '#size' => 15,
+      '#default_value' => (isset($values['commerce_french_donate']['fieldset_wrapper']['fieldset_monthly']['monthly_free'])) ? $values['commerce_french_donate']['fieldset_wrapper']['fieldset_monthly']['monthly_free'] : NULL,
+      '#attributes' => array(
+        'placeholder' => t('un autre montant ?'),
+        'class' => array('monthly', 'don', 'free'),
+      ),
+    );
+  }*/
+
+
+  // AJAX DISABLE : adjustment made on 11/28/14 for form simplification
+  /*
+  if (variable_get('commerce_french_donate_activ_calculator')) {
+    if (isset($form['fieldset_wrapper']['fieldset_unique']) && $unique_free) {
+      $form['fieldset_wrapper']['fieldset_unique']['unique_free']['#ajax'] = array(
+        'callback' => 'commerce_french_donate_ajax_calcul',
+        'event' => 'change',
+        'wrapper' => 'calcul_output_ajax_wrapper',
+        'method' => 'replace',
+      );
+    }
+
+    if (isset($form['fieldset_wrapper']['fieldset_monthly']) && $monthly_free) {
+      $form['fieldset_wrapper']['fieldset_monthly']['monthly_free']['#ajax'] = array(
+        'callback' => 'commerce_french_donate_ajax_calcul',
+        'event' => 'change',
+        'wrapper' => 'calcul_output_ajax_wrapper',
+        'method' => 'replace',
+      );
+    }
+
+    $form['fieldset_wrapper']['fieldset_unique']['unique']['#ajax'] = array(
+      'callback' => 'commerce_french_donate_ajax_calcul',
+      'event' => 'change',
+      'wrapper' => 'calcul_output_ajax_wrapper',
+      'method' => 'replace',
+    );
+    if (isset($form['fieldset_wrapper']['fieldset_monthly'])) {
+      $form['fieldset_wrapper']['fieldset_monthly']['monthly']['#ajax'] = array(
+        'callback' => 'commerce_french_donate_ajax_calcul',
+        'event' => 'change',
+        'wrapper' => 'calcul_output_ajax_wrapper',
+        'method' => 'replace',
+      );
+    }
+  }
+  */
+
+  $output = commerce_french_donate_calculate_values($values, $donation_type, $form_state);
+
+  $form['fieldset_wrapper']['calcul_output'] = array(
+    '#prefix' => '<div id="calcul_output_ajax_wrapper">',
+    '#suffix' => '</div>',
+    '#markup' => $output,
+    '#weight' => 100,
+  );
+
+  return $form;
+}
+
+/**
+ * Menu callback for AJAX additions.
+ */
+function commerce_french_donate_ajax_calcul(&$form, &$form_state) {
+  if (isset($form_state['triggering_element'])) {
+    if (in_array('fieldset_monthly', $form_state['triggering_element']['#parents'])) {
+      $form_state['values']['commerce_french_donate']['fieldset_wrapper']['fieldset_unique'] = array();
+      $element = array(
+      	'#parents' => array(
+    	    'commerce_french_donate',
+    	    'fieldset_wrapper',
+    	    'fieldset_unique',
+      	  'unique',
+      	),
+      );
+      form_set_value($element, NULL, $form_state);
+      $element = array(
+        '#parents' => array(
+          'commerce_french_donate',
+          'fieldset_wrapper',
+          'fieldset_unique',
+          'unique_free',
+        ),
+      );
+      form_set_value($element, NULL, $form_state);
+
+      if (in_array('monthly_free', $form_state['triggering_element']['#parents'])) {
+       $element = array(
+         '#parents' => array(
+           'commerce_french_donate',
+    	    'fieldset_wrapper',
+    	    'fieldset_monthly',
+      	  'monthly',
+         ),
+       );
+       form_set_value($element, NULL, $form_state);
+      }
+
+      if (in_array('monthly', $form_state['triggering_element']['#parents'])) {
+       $element = array(
+         '#parents' => array(
+           'commerce_french_donate',
+           'fieldset_wrapper',
+           'fieldset_monthly',
+           'monthly_free',
+         ),
+       );
+       form_set_value($element, NULL, $form_state);
+      }
+
+    }
+    elseif (in_array('fieldset_unique', $form_state['triggering_element']['#parents'])) {
+
+     $form_state['values']['commerce_french_donate']['fieldset_wrapper']['fieldset_monthly'] = array();
+      $element = array(
+      	'#parents' => array(
+    	    'commerce_french_donate',
+    	    'fieldset_wrapper',
+    	    'fieldset_monthly',
+      	  'monthly',
+      	),
+      );
+      form_set_value($element, NULL, $form_state);
+      $element = array(
+        '#parents' => array(
+          'commerce_french_donate',
+          'fieldset_wrapper',
+          'fieldset_monthly',
+          'monthly_free',
+        ),
+      );
+      form_set_value($element, NULL, $form_state);
+      if (in_array('unique_free', $form_state['triggering_element']['#parents'])) {
+       $element = array(
+         '#parents' => array(
+           'commerce_french_donate',
+           'fieldset_wrapper',
+           'fieldset_unique',
+           'unique',
+         ),
+       );
+       form_set_value($element, NULL, $form_state);
+      }
+
+      if (in_array('unique', $form_state['triggering_element']['#parents'])) {
+       $element = array(
+         '#parents' => array(
+           'commerce_french_donate',
+           'fieldset_wrapper',
+           'fieldset_unique',
+           'unique_free',
+         ),
+       );
+       form_set_value($element, NULL, $form_state);
+      }
+    }
+  }
+
+  // Rebuild the form:
+  $form = drupal_rebuild_form($form['#form_id'], $form_state, $form);
+
+  ilot_custom_form_session_value('checkout_donation', $form_state['values']['commerce_french_donate']);
+
+  return $form['commerce_french_donate']['fieldset_wrapper']['calcul_output'];
+}
+
+/**
+ * Generate the front content according to the parameter set in the admin
+ *
+ * @param unknown_type $values
+ * @param unknown_type $donation_type
+ * @return Ambigous <string, mixed>
+ */
+function commerce_french_donate_calculate_values($values, $donation_type, &$form_state) {
+  $calcul = '';
+  $output = '';
+  //$output = '<div class="calculator-title">Ma déduction <span>fiscale pour l’impôt</span><span class="picto">sur le revenu</span></div>';
+  if (isset($form_state['triggering_element'])) {
+   $element = end($form_state['triggering_element']['#parents']);
+  }
+  if ($donation_type == 'don_normal') {
+    $ceiling = variable_get('commerce_french_donate_ceiling_regular');
+    $calcul_above = variable_get('commerce_french_donate_calculate_above_ceiling_regular');
+    $calcul_below = variable_get('commerce_french_donate_calculate_below_ceiling_regular');
+    $answer = variable_get('commerce_french_donate_answer_regular');
+    $info = variable_get('commerce_french_donate_info_regular');
+    // Title
+    //$title_impot = 'IMPÔT SUR LE REVENU';
+    $title_impot = 'Déduction fiscale';
+    // button switch type de don
+    $button = l('CLIQUEZ ICI POUR UN DON ISF', 'faire-un-don/isf');
+  }
+  elseif ($donation_type == 'don_isf') {
+    $ceiling = variable_get('commerce_french_donate_ceiling_isf');
+    $calcul_above = variable_get('commerce_french_donate_calculate_above_ceiling_isf');
+    $calcul_below = variable_get('commerce_french_donate_calculate_below_ceiling_isf');
+    $answer = variable_get('commerce_french_donate_answer_isf');
+    // Overwrite calcul title
+    // adjustment made on 11/28/14 for form simplification
+    //$output = '<div class="calculator-title">Ma déduction <span class="picto">fiscale pour l’ISF</span></div>';
+    $info = variable_get('commerce_french_donate_info_isf');
+    // Title
+    $title_impot = 'Déduction fiscale';
+    // button switch type de don
+    $button = l('POUR TOUT AUTRE DON, CLIQUEZ ICI', 'faire-un-don/en-ligne');
+  }
+  // Markup footer
+  $output_footer = '<div class="calculator-footer"><div class="title">'.$title_impot.'</div>';
+  $output_footer .= '<div class="info">' . $info . '</div>';
+  $output_footer .= $button . '</div>';
+
+  if (!empty($values)) {
+    $math = new ctools_math_expr;
+
+    if (isset($values['commerce_french_donate'])) {
+      if ($donation_type == 'don_normal'
+          && (
+               isset($values['commerce_french_donate']['fieldset_wrapper']['fieldset_monthly']['monthly'])
+            || isset($values['commerce_french_donate']['fieldset_wrapper']['fieldset_monthly']['monthly_free'])
+      	 )) {
+
+        $monthly = $values['commerce_french_donate']['fieldset_wrapper']['fieldset_monthly']['monthly'];
+        $monthly_free = variable_get('commerce_french_donate_activ_monthly_free') && isset($values['commerce_french_donate']['fieldset_wrapper']['fieldset_monthly']['monthly_free']) ? $values['commerce_french_donate']['fieldset_wrapper']['fieldset_monthly']['monthly_free'] : '';
+        $monthly = $monthly * 12;
+        $monthly_free = $monthly_free * 12;
+      }
+      $unique = $values['commerce_french_donate']['fieldset_wrapper']['fieldset_unique']['unique'];
+      $unique_free = variable_get('commerce_french_donate_activ_unique_free') ? $values['commerce_french_donate']['fieldset_wrapper']['fieldset_unique']['unique_free'] : '';
+    }
+
+
+    if (!empty($monthly_free) && is_numeric($monthly_free) && $monthly_free <= $ceiling && (empty($element) || $element == 'monthly_free')) {
+      $formula = str_replace(array('[ceiling]', '[user-amount]'), array($ceiling, $monthly_free), $calcul_below);
+      $reduc = $math->evaluate($formula);
+      $total = $monthly_free - $reduc;
+      $total = round($total, 2);
+      $calcul = str_replace(array('[donation]', '[user-amount]'), array($total, $monthly_free), $answer);
+    }
+    elseif (!empty($monthly_free) && is_numeric($monthly_free) && $monthly_free > $ceiling && (empty($element) || $element == 'monthly_free')) {
+      $formula = str_replace(array('[ceiling]', '[user-amount]'), array($ceiling, $monthly_free), $calcul_above);
+      $reduc = $math->evaluate($formula);
+      $total = $monthly_free - $reduc;
+      $total = round($total, 2);
+      $calcul = str_replace(array('[donation]', '[ceiling]', '[user-amount]'), array('<span>' . $total . '</span>', $ceiling, $monthly_free), $answer);
+    }
+    elseif (!empty($unique_free) && is_numeric($unique_free) && $unique_free <= $ceiling && (empty($element) || $element == 'unique_free')) {
+      $formula = str_replace(array('[ceiling]', '[user-amount]'), array($ceiling, $unique_free), $calcul_below);
+      $reduc = $math->evaluate($formula);
+      $total = $unique_free - $reduc;
+      $total = round($total, 2);
+      $calcul = str_replace(array('[donation]', '[user-amount]'), array($total, $unique_free), $answer);
+    }
+    elseif (!empty($unique_free) && is_numeric($unique_free) && $unique_free > $ceiling && (empty($element) || $element == 'unique_free')) {
+      $formula = str_replace(array('[ceiling]', '[user-amount]'), array($ceiling, $unique_free), $calcul_above);
+      $reduc = $math->evaluate($formula);
+      $total = $unique_free - $reduc;
+      $total = round($total, 2);
+      $calcul = str_replace(array('[donation]', '[ceiling]', '[user-amount]'), array($total, $ceiling, $unique_free), $answer);
+    }
+    elseif (!empty($monthly) && is_numeric($monthly) && $monthly <= $ceiling && (empty($element) || $element == 'monthly')) {
+      $formula = str_replace(array('[ceiling]', '[user-amount]'), array($ceiling, $monthly), $calcul_below);
+      $reduc = $math->evaluate($formula);
+      $total = $monthly - $reduc;
+      $total = round($total, 2);
+      $calcul = str_replace(array('[donation]', '[user-amount]'), array($total, $monthly), $answer);
+    }
+    elseif (!empty($monthly) && is_numeric($monthly) && $monthly > $ceiling && (empty($element) || $element == 'monthly')) {
+      $formula = str_replace(array('[ceiling]', '[user-amount]'), array($ceiling, $monthly), $calcul_above);
+      $reduc = $math->evaluate($formula);
+      $total = $monthly - $reduc;
+      $total = round($total, 2);
+      $calcul = str_replace(array('[donation]', '[ceiling]', '[user-amount]'), array($total, $ceiling, $monthly), $answer);
+    }
+    elseif (!empty($unique) && is_numeric($unique) && $unique <= $ceiling && (empty($element) || $element == 'unique')) {
+     $formula = str_replace(array('[ceiling]', '[user-amount]'), array($ceiling, $unique), $calcul_below);
+     $reduc = $math->evaluate($formula);
+     $total = $unique - $reduc;
+     $total = round($total, 2);
+     $calcul = str_replace(array('[donation]', '[user-amount]'), array($total, $unique), $answer);
+    }
+    elseif (!empty($unique) && is_numeric($unique) && $unique > $ceiling && (empty($element) || $element == 'unique')) {
+     $formula = str_replace(array('[ceiling]', '[user-amount]'), array($ceiling, $unique), $calcul_above);
+     $reduc = $math->evaluate($formula);
+     $total = $unique - $reduc;
+     $total = round($total, 2);
+     $calcul = str_replace(array('[donation]', '[ceiling]', '[user-amount]'), array($total, $ceiling, $unique), $answer);
+    }
+  }
+  if (empty($calcul)) {
+    $calcul = '<em>Choisissez un montant de don pour calculer son coût réel après déduction fiscale.</em>';
+  }
+  // adjustment made on 11/28/14 for form simplification
+  //$output .= '<div class="resultat fadein">' . $calcul . '</div>';
+  return '<div class="calculator">' . $output . $output_footer . '</div>';
+}
+
+/**
+ * Implements hook_commerce_checkout_pane_info().
+ *
+ * This is where we define the name of the pane, related information, and
+ * the base name of all the form builder functions used to present the
+ * pane.
+ */
+function commerce_french_donate_commerce_checkout_pane_info() {
+  $panes['commerce_french_donate'] = array(
+    'title' => t('Commerce French Donate'),
+    'base' => 'checkout_commerce_french_donate_pane',
+    'page' => 'checkout',
+    'weight' => 0,
+  );
+  return $panes;
+}
+
+/**
+ * Commerce french donate pane form callback.
+ */
+function checkout_commerce_french_donate_pane_checkout_form($form, &$form_state, $checkout_pane, $order) {
+  $pane_form = commerce_french_donate_form(array(), $form_state, $order);
+  return $pane_form;
+}
+
+/**
+ * Commerce french donate pane form_validate callback.
+ */
+function checkout_commerce_french_donate_pane_checkout_form_validate($form, &$form_state) {
+  $values = $form_state['values']['commerce_french_donate']['fieldset_wrapper'];
+  if (empty($values['fieldset_unique']['unique']) && empty($values['fieldset_unique']['unique_free'])
+      && empty($values['fieldset_monthly']['monthly']) && empty($values['fieldset_monthly']['monthly_free'])) {
+    form_set_error('commerce_french_donate][fieldset_wrapper', "Veuillez renseigner un montant pour votre donation.");
+    return FALSE;
+  }
+  return TRUE;
+}
+
+/**
+ * Commerce french donate pane form_submit callback.
+ */
+function checkout_commerce_french_donate_pane_checkout_form_submit($form, &$form_state) {
+  // Set values in session.
+  ilot_custom_form_session_value('checkout_donation', $form_state['values']['commerce_french_donate']);
+
+  $order = commerce_order_load($form_state['order']->order_id);
+  $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+  $values = $form_state['values']['commerce_french_donate']['fieldset_wrapper'];
+  $amount = 0;
+  if (!empty($values['fieldset_monthly']['monthly'])) {
+    $amount = $values['fieldset_monthly']['monthly'];
+  }
+  elseif (!empty($values['fieldset_monthly']['monthly_free'])) {
+    $amount = $values['fieldset_monthly']['monthly_free'];
+  }
+  elseif (!empty($values['fieldset_unique']['unique'])) {
+    $amount = $values['fieldset_unique']['unique'];
+  }
+  elseif (!empty($values['fieldset_unique']['unique_free'])) {
+     $amount = $values['fieldset_unique']['unique_free'];
+  }
+  $amount = commerce_currency_decimal_to_amount($amount, commerce_default_currency());
+  foreach ($order_wrapper->commerce_line_items as $delta => $line_item_wrapper) {
+    $line_item = $line_item_wrapper->value();
+    if ($line_item->type == 'commerce_french_donate') {
+
+      if (!empty($values['fieldset_monthly']['monthly']) || !empty($values['fieldset_monthly']['monthly_free'])) {
+        $line_item_wrapper->field_french_donate_mensualite->set(TRUE);
+        $line_item->line_item_label = "Don normal - Mensuel";
+      }
+      elseif (!empty($values['fieldset_unique']['unique']) || !empty($values['fieldset_unique']['unique_free'])) {
+        $line_item_wrapper->field_french_donate_mensualite->set(FALSE);
+      }
+
+      $line_item_wrapper->commerce_unit_price->set(array());
+      $line_item_wrapper->commerce_unit_price->amount = $amount;
+      $line_item_wrapper->commerce_unit_price->data = commerce_price_component_add(
+        $line_item_wrapper->commerce_unit_price->value(),
+        'base_price',
+        $line_item_wrapper->commerce_unit_price->value(),
+        TRUE
+      );
+      $line_item_wrapper->save();
+      $order_wrapper->save();
+      break;
+    }
+  }
+}
+
+/**
+ * Implements hook_commerce_line_type_info().
+ */
+function commerce_french_donate_commerce_line_item_type_info() {
+  $line_item_types = array();
+
+  $line_item_types['commerce_french_donate'] = array(
+    'name' => t('Commerce French Donate'),
+    'description' => t('Add a donation with selected amount or custom amount'),
+    'product' => FALSE,
+    'add_form_submit_value' => t('Add a donation'),
+    'base' => 'commerce_french_donate_line_item',
+  );
+
+  return $line_item_types;
+}
+
+/**
+ * Custom line_item title callback.
+ */
+function commerce_french_donate_line_item_title($line_item) {
+  return (t('Don en ligne'));
+}
+
+/**
+ * Default form for our custom line items.
+ */
+function commerce_french_donate_line_item_add_form($element, &$form_state) {
+  $form = array();
+  return $form;
+}
+
+/**
+ * Adds the selected product information to a line item added via a line item
+ *   manager widget (on the admin order page).
+ *
+ * @param $line_item
+ *   The newly created line item object.
+ * @param $element
+ *   The array representing the widget form element.
+ * @param $form_state
+ *   The present state of the form upon the latest submission.
+ * @param $form
+ *   The actual form array.
+ *
+ * @return
+ *   NULL if all is well or an error message if something goes wrong.
+ */
+function commerce_french_donate_line_item_add_form_submit(&$line_item, $element, &$form_state, $form) {
+  $line_item->line_item_label = t('Commerce French Donate');
+
+  // Wrap the line item and product to easily set field information.
+  $line_item_wrapper = entity_metadata_wrapper('commerce_line_item', $line_item);
+
+  // Provide a default price.
+  $amount = variable_get('commerce_french_donate_line_item_amount', 500);
+  $currency_code = variable_get('commerce_french_donate_line_item_currency', 'USD');
+
+  $line_item->commerce_unit_price = array('und' => array(
+    '0' => array('amount' => $amount, 'currency_code' => $currency_code)
+  ));
+
+  if (!is_null($line_item_wrapper->commerce_unit_price->value())) {
+    // Add the base price to the components array.
+    if (!commerce_price_component_load($line_item_wrapper->commerce_unit_price->value(), 'base_price')) {
+      $line_item_wrapper->commerce_unit_price->data = commerce_price_component_add(
+        $line_item_wrapper->commerce_unit_price->value(),
+        'base_price',
+        $line_item_wrapper->commerce_unit_price->value(),
+        TRUE
+      );
+    }
+  }
+}
+
+/**
+ * Create a new line_item to an order.
+ */
+function commerce_french_donate_line_item_new($order_id = 0, $amount = 0) {
+  $type = 'commerce_french_donate';
+
+  // Create the new line item.
+  $line_item = entity_create('commerce_line_item', array(
+    'type' => $type,
+    'order_id' => $order_id,
+    'quantity' => 1,
+  ));
+
+  $currency_code = commerce_default_currency();
+
+  $line_item->commerce_unit_price = array('und' => array(
+      '0' => array('amount' => $amount, 'currency_code' => $currency_code)
+  ));
+
+  $line_item_wrapper = entity_metadata_wrapper('commerce_line_item', $line_item);
+
+  if (!is_null($line_item_wrapper->commerce_unit_price->value())) {
+    // Add the base price to the components array.
+    if (!commerce_price_component_load($line_item_wrapper->commerce_unit_price->value(), 'base_price')) {
+      $line_item_wrapper->commerce_unit_price->data = commerce_price_component_add(
+        $line_item_wrapper->commerce_unit_price->value(),
+        'base_price',
+        $line_item_wrapper->commerce_unit_price->value(),
+        TRUE
+      );
+    }
+  }
+
+  return $line_item;
+}

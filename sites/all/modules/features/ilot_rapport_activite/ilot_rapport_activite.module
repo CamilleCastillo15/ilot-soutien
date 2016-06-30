@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ilot_rapport_activite feature.
+ */
+
+include_once 'ilot_rapport_activite.features.inc';

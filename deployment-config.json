@@ -1,0 +1,9 @@
+{
+    "type": "ftp",
+    "host": "ilotsoutien.dinde.pro",
+    "username": "ilotsoutien",
+    "password": "dLcWobdB2k6MwsVR",
+    "port": 21,
+    "remotePath": "/home/ilotsoutien/public_html/",
+    "uploadOnSave": true
+}

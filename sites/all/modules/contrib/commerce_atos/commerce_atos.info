@@ -1,0 +1,12 @@
+name = Commerce Atos Payment method
+description = Add the ATOS/SIPS payment method
+package = Commerce
+core = 7.x
+dependencies[] = commerce_payment
+
+; Information added by drupal.org packaging script on 2012-11-11
+version = "7.x-1.0-beta4"
+core = "7.x"
+project = "commerce_atos"
+datestamp = "1352648158"
+

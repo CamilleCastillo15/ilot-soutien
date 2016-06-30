@@ -1,0 +1,1 @@
+<span class="date"><?php print render($items); ?></span>

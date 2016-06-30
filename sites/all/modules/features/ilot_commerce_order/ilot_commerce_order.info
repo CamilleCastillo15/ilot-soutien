@@ -1,0 +1,15 @@
+name = ilot_commerce_order
+core = 7.x
+package = ilot
+version = 7.x-1.0
+project = ilot_commerce_order
+dependencies[] = features
+dependencies[] = list
+dependencies[] = options
+dependencies[] = text
+features[features_api][] = api:2
+features[field_base][] = field_generate_account
+features[field_base][] = field_numero_donateur
+features[field_instance][] = commerce_order-commerce_order-field_generate_account
+features[field_instance][] = commerce_order-commerce_order-field_numero_donateur
+project path = sites/all/modules/features

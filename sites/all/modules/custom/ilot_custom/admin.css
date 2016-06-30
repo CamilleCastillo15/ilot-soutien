@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+
+.field-group-format-toggler {
+  color: #0074BD;
+  text-decoration: none;
+  padding: 10px;
+}
+.field-group-format-wrapper {
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.ui-accordion .ui-accordion-content 
+{
+	overflow : visible;
+}
+
+.ief-form div[class$=form-delete]
+{
+	display : none;
+}
+

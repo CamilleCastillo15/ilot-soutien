@@ -1,0 +1,77 @@
+.page-search h2
+{
+	font-family : 'NeouBold', sans-serif;
+	font-size : 25px;
+	font-weight : normal;
+}
+
+.block-search-api-page form .search-advanced,
+.search-form .search-advanced
+{
+	display : none;
+}
+
+.block-search-api-page form .container-inline .form-type-textfield label,
+.search-form form .container-inline .form-type-textfield label
+{
+	font-family : 'AvenirLTSts45Book', sans-serif;
+	font-size : 20px;
+	font-weight : normal;
+}
+
+.block-search-api-page form .form-text
+{
+  border : none;
+  box-shadow : none;
+  background-color : #f4f4f4;
+  width : 160px;
+  height : 30px;
+  padding : 0 0 0 10px;
+}
+.search-api-page-results
+{
+	width : 750px;
+}
+
+.search-api-page-results
+{
+	list-style : none;
+	border-bottom : 1px solid #28bca4;
+	padding-top : 25px;
+}
+	
+.search-result .title a
+{
+	font-family : 'NeouBold', sans-serif;
+	font-size : 19px;
+	color : #28bca4;
+	font-weight : normal;
+  -webkit-transition:all 0.3s ease;
+     -moz-transition:all 0.3s ease;
+       -o-transition:all 0.3s ease;
+          transition:all 0.3s ease;
+}
+
+.search-result .title a:hover
+{
+	color : #293036;
+  -webkit-transition:all 0.3s ease;
+     -moz-transition:all 0.3s ease;
+       -o-transition:all 0.3s ease;
+          transition:all 0.3s ease;
+}
+
+.search-result .search-snippet-info
+{
+  font-family : 'AvenirLTStd45Book', sans-serif;
+  font-size : 16px;
+}
+.search-result .search-snippet-info strong
+{
+  color : #28bca8;
+}
+
+.search-result .search-snippet-info .search-info a
+{
+	display : none;
+}

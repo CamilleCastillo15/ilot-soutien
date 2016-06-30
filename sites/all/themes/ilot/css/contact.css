@@ -1,0 +1,214 @@
+#modalContent .modal-forms-modal-content
+{
+	width : 600px !important;
+	height : 600px !important;
+}
+
+#modal-content
+{
+	width : 360px !important;
+	height : 600px !important;
+	margin : 0 auto !important;
+	padding : 0;
+}
+
+#modalContent .modal-forms-modal-content .popups-container
+{
+	border-radius : 0;
+	background-color : #f4f4f4;
+}
+
+#modalContent .modal-header
+{
+	padding : 30px 30px 20px 30px;
+}
+
+#modalContent .contact-form h1
+{
+	display : none;
+}
+
+#modal-title
+{
+	font-family : 'NeouBold', sans-serif;
+	font-size : 25px;
+	font-weight : normal;
+}
+
+#modal-title:after
+{
+  content : '';
+  display : inline-block;
+  width : 12px;
+  height : 10px;
+  background : url('/sites/all/themes/ilot/images/triangle.png') no-repeat;
+}
+
+#modalContent .popups-close
+{
+	background : url('/sites/all/themes/ilot/images/close.png') no-repeat center center transparent;
+}
+
+.contact-info
+{
+  width:100%;
+  min-height:10px;
+  background-color:#28bca4;
+  padding:5px;
+  color:white;
+  font-family : 'AvenirLTStd65Medium', sans-serif;
+  font-size:13px;
+  line-height:18px;
+}
+
+.contact-info a
+{
+  color:white;
+}
+
+.contact-info a:hover
+{
+  color:black;
+}
+
+.contact-form .form-item label
+{
+	display : none;
+}
+
+.contact-form .form-item
+{
+  margin : 10px 0px;
+}
+.contact-form .form-item input
+{
+	box-shadow : none;
+	border : none;
+	height : 30px;
+	width : 345px;
+	font-family : 'AvenirLTStd65Medium', sans-serif;
+	font-size : 14px;
+	padding-left : 15px;
+}
+
+.contact-form .form-item input::-moz-placeholder,
+.contact-form .form-item textarea::-moz-placeholder
+{
+  color : #28bca4;
+}
+.contact-form .form-item input:-moz-placeholder,
+.contact-form .form-item textarea:-moz-placeholder
+{
+  color : #28bca4;
+}
+.contact-form .form-item input:-ms-input-placeholder,
+.contact-form .form-item textarea:-ms-input--placeholder
+{
+  color : #28bca4;
+}
+.contact-form .form-item input::-webkit-input-placeholder,
+.contact-form .form-item textarea::-webkit-input-placeholder
+{
+  color : #28bca4;
+}
+
+.contact-form .form-item textarea
+{
+  box-shadow : none;
+  border : none;
+  height : 130px;
+  max-width : 360px;
+  min-width : 360px;
+  font-family : 'AvenirLTStd65Medium', sans-serif;
+  font-size : 14px;
+  padding-left : 15px;
+  padding-top : 7px;
+}
+
+.contact-form .form-item .grippie
+{
+	display : none;
+}
+.contact-form .form-item-copy
+{
+	width : 50%;
+	float : left;
+	margin : 0;
+}
+.contact-form .form-item-copy label
+{
+	display : inline;
+}
+
+.contact-form .form-item-copy input
+{
+	height : 15px;
+	width : 15px;
+}
+
+.contact-form .form-actions
+{
+	width : 50%;
+	margin : 0;
+  float : right;
+}
+
+.contact-form .form-actions input
+{
+	-moz-appearance : none;
+	-webkit-appearance : none;
+	appearance : none;
+  box-shadow : none;
+  border : none;
+  background-color : #28bca4;
+  font-family : 'StaticRegular', sans-serif;
+  font-size : 18px;
+  text-transform : uppercase;
+  color : #ffffff;
+  padding : 10px 17px 7px 17px;
+  float : right;
+   -webkit-transition:all 0.3s ease;
+     -moz-transition:all 0.3s ease;
+       -o-transition:all 0.3s ease;
+          transition:all 0.3s ease;
+}
+
+.contact-form .form-actions input:hover
+{
+	background-color : #293036;
+   -webkit-transition:all 0.3s ease;
+     -moz-transition:all 0.3s ease;
+       -o-transition:all 0.3s ease;
+          transition:all 0.3s ease;
+}
+
+body.page-contact .contact-form
+{
+	width : 600px;
+	margin : 0 auto 30px auto;
+	background : #f4f4f4;
+	padding : 10px 0;
+	overflow : hidden;
+}
+
+body.page-contact .contact-form > div
+{
+	width : 360px;
+	margin : 0 auto;
+}
+
+body.page-contact .contact-form h1
+{
+  font-family : 'NeouBold', sans-serif;
+  font-size : 25px;
+  font-weight : normal;
+}
+
+body.page-contact .contact-form h1:after
+{
+  content : '';
+  display : inline-block;
+  width : 12px;
+  height : 10px;
+  background : url('/sites/all/themes/ilot/images/triangle.png') no-repeat;
+}

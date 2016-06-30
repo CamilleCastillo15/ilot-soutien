@@ -1,0 +1,498 @@
+/**
+ * @file
+ * Page Styling
+ *
+ * Style the markup found in page.tpl.php. Also includes some styling of
+ * miscellaneous Drupal elements that appear in the $content variable, such as
+ * ul.links, .pager, .more-link, etc.
+ */
+
+body {
+  margin: 200px;
+  padding: 0;
+  color: #2e2e2e;
+}
+
+#page {
+
+    
+
+}
+
+#skip-link {
+  margin: 0;
+}
+
+#skip-link a,
+#skip-link a:visited {
+  display: block;
+  width: 100%;
+  padding: 2px 0 3px 0;
+  text-align: center;
+  background-color: #666;
+  color: #fff;
+}
+
+/*
+ * Header
+ */
+
+#header {
+}
+
+#logo { /* Wrapping link for logo */
+  float: left; /* LTR */
+  margin: 0;
+  padding: 0;
+}
+#logo img {
+  vertical-align: bottom;
+}
+
+#name-and-slogan { /* Wrapper for website name and slogan */
+  float: left;
+}
+
+#site-name { /* The name of the website */
+  margin: 0;
+  font-size: 2em;
+  line-height: 1.5em;
+}
+#site-name a:link,
+#site-name a:visited {
+  color: #000;
+  text-decoration: none;
+}
+#site-name a:hover,
+#site-name a:focus {
+  text-decoration: underline;
+}
+
+#site-slogan { /* The slogan (or tagline) of a website */
+  margin: 0;
+  font-size: 1em;
+}
+
+.region-header { /* Wrapper for any blocks placed in the header region */
+  clear: both; /* Clear the logo */
+  position : relative;
+}
+
+#navigation
+{
+  height: 173px;
+  position: relative;
+  width: 960px;
+	margin-bottom: 60px;
+	padding:0;
+}
+
+body.admin-menu #navigation
+{
+	margin-top : 50px;
+}
+
+.region-header #block-ilot-theme-image-logo
+{
+	position: absolute;
+  top: 5px;
+  width: 150px;
+}
+
+.region-header .logo-wrapper span
+{
+	display : none;
+}
+
+.region-header .block-menu-block
+{
+	clear : both;
+}
+
+.region-header #block-ilot-theme-bandeau-don .bandeau-don
+{
+	clear : both;
+	height : 20px;
+	background-color : #f4f4f4;
+	/*margin-top : 40px; */
+    width: 100%;
+    height: 80px;
+}
+
+.region-header #block-ilot-theme-bandeau-don .bandeau-don span
+{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#block-ilot-theme-bandeau-don
+{
+    clear: both;
+}
+
+#block-ilot-theme-bandeau-don .bandeau-don span,
+#block-ilot-theme-bandeau-don .bandeau-don a
+{
+    font-family : 'NeouBold', sans-serif;
+    font-size :25px;
+}
+
+#block-ilot-theme-bandeau-don .bandeau-don span
+{
+    color : #e75a5a
+}
+
+#block-ilot-theme-bandeau-don .bandeau-don span.premier
+{
+  color : #28bca4;
+  padding: 30px 12px 30px 20px;
+}
+
+#block-ilot-theme-bandeau-don .bandeau-don a
+{
+	float : right;
+	display : inline-block;
+	height : 32px;
+	padding : 18px 20px 30px 80px;
+	width : 90px;
+	font-family : 'StaticBold', sans-serif;
+	color : #ffffff;
+	text-transform : uppercase;
+	font-size : 25px;
+	text-decoration : none;
+	background : url('../images/don-image.png') no-repeat 20px center #293036;
+}
+
+#block-ilot-theme-social-share
+{
+	overflow : hidden;
+	width : 60px;
+	float : right;
+}
+
+#block-ilot-theme-social-share .item-list ul
+{
+	margin : 0;
+	padding : 0;
+}
+#block-ilot-theme-social-share .item-list ul li
+{
+	display : block;
+	height : 30px;
+	width : 30px;
+	background : #28bca4;
+	overflow : hidden;
+	float : left;
+	list-style :none;
+	text-indent : 999px;
+  -webkit-transition:all 0.3s ease;
+     -moz-transition:all 0.3s ease;
+       -o-transition:all 0.3s ease;
+          transition:all 0.3s ease;
+}
+
+#block-ilot-theme-social-share .item-list ul li:hover
+{
+	background : #293036;
+  -webkit-transition:all 0.3s ease;
+     -moz-transition:all 0.3s ease;
+       -o-transition:all 0.3s ease;
+          transition:all 0.3s ease;
+}
+
+#block-ilot-theme-social-share .item-list ul li a
+{
+	display : block;
+	width : 100%;
+	height : 100%;
+	text-indent : -999em;
+}
+
+#block-ilot-theme-social-share .item-list ul li a.facebook
+{
+	background : url('../images/facebook-white.png') no-repeat center center transparent;
+}
+
+#block-ilot-theme-social-share .item-list ul li a.twitter
+{
+  background : url('../images/twitter-white.png') no-repeat center center transparent;
+}
+
+.block-search-api-page
+{
+	float : right;
+	display : block;
+	width : 200px;
+}
+
+.block-search-api-page form .form-text
+{
+	border : none;
+	box-shadow : none;
+	background-color : #f4f4f4;
+	width : 160px;
+	height : 30px;
+	padding : 0 0 0 10px;
+}
+
+.block-search-api-page form .form-text::-webkit-input-placeholder
+{
+  color : #28bca4;
+}
+.block-search-api-page form .form-text:-moz-placeholder
+{
+  color : #28bca4;
+}
+.block-search-api-page form .form-text::-moz-placeholder
+{
+  color : #28bca4;
+}
+.block-search-api-page form .form-text:-ms-input-placeholder
+{
+  color : #28bca4;
+}
+
+.block-search-api-page form .form-submit
+{
+	-webkit-appearance : none;
+     -moz-appearance : none;
+	        appearance : none;
+  width : 30px;
+  height : 30px;
+  border : none;
+  padding : 0;
+  margin : 0;
+  text-indent : -999em;
+  font-size: 1px;
+  line-height : 0;
+  background : url('../images/search.png') no-repeat center center #293036;
+  float: left;
+}
+.block-search-api-page .form-item {
+    margin: 0;
+    float: left;
+}
+
+.search-api-page-results h1.title {
+    font-family: 'NeouBold',sans-serif;
+    font-size: 25px;
+    font-weight: normal;
+    line-height: 35px;
+    margin: 0;
+}
+.search-api-page-results h1.title:after {
+    background: url("/sites/all/themes/ilot/images/triangle.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    content: "";
+    display: inline-block;
+    height: 10px;
+    width: 12px;
+}
+/*
+ * Main (container for everything else)
+ */
+
+#main {
+}
+
+/*
+ * Content
+ */
+
+ p,
+pre {
+  /* Sets 1 unit of vertical rhythm on the top and bottom margin. */
+  margin: 0.6em 0;
+}
+
+
+#content {
+	padding: 0;
+}
+
+.region-highlighted {
+}
+
+.breadcrumb { /* The path to the current page in the form of a list of links */
+}
+.breadcrumb ol {
+  margin: 0;
+  padding: 0;
+}
+.breadcrumb li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1.title, /* The title of the page */
+h2.node-title, /* Title of a piece of content when it is given in a list of content */
+h2.block-title, /* Block title */
+h2.title, /* Comment section heading */
+h2.comment-form, /* Comment form heading */
+h3.title { /* Comment title */
+  margin: 0;
+}
+
+tr.even { /* Some tables have rows marked even or odd. */
+  /* background-color: #eee; */ /* Drupal core uses a #eee background */
+}
+
+tr.odd {
+  /* background-color: #eee; */ /* Drupal core uses a #eee background */
+}
+
+div.messages { /* Important messages (status, warning, and error) for the user. See also the declarations in messages.css. */
+  margin: 1.5em 0; /* Drupal core uses "6px 0" margin */
+}
+div.messages ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+div.status { /* Normal priority messages */
+}
+
+div.warning,
+tr.warning { /* Medium priority messages */
+  /* border: 1px solid #f0c020; */ /* Drupal core uses: 1px solid #f0c020 */
+}
+
+div.error,
+tr.error { /* High priority messages. See also the .error declaration below. */
+}
+
+.error { /* Errors that are separate from div.messages status messages. */
+  /* color: #e55; */ /* Drupal core uses a #e55 background */
+}
+
+.warning { /* Warnings that are separate from div.messages status messages. */
+  /* color: #e09010; */ /* Drupal core uses a #e09010 background */
+}
+
+.tabs { /* See also the tabs.css file. */
+}
+
+.region-help { /* Help text on a page */
+}
+
+.more-help-link { /* Link to more help */
+}
+
+.region-content { /* Wrapper for the actual page content */
+}
+
+ul.inline { /* List of links generated by theme_links() */
+  display: inline;
+  padding: 0;
+}
+ul.inline li {
+  display: inline;
+  list-style-type: none;
+  padding: 0 1em 0 0; /* LTR */
+}
+
+span.field-label { /* The inline field label used by the Fences module */
+  padding: 0 1em 0 0; /* LTR */
+}
+
+.item-list .pager { /* A list of page numbers when more than 1 page of content is available */
+  padding: 0;
+}
+.item-list .pager li { /* Each page number in the pager list */
+  padding: 0 0.5em;
+}
+
+.feed-icon { /* The link to the RSS or Atom feed for the current list of content */
+}
+
+.more-link { /* Aggregator, blog, and forum more link */
+}
+
+/*
+ * First sidebar (on left in LTR languages, on right in RTL)
+ *
+ * Remember to NOT add padding or margin to your .region-sidebar-first
+ * (see the layout.css file.)
+ */
+
+.region-sidebar-first {
+}
+
+/*
+ * Second sidebar (on right in LTR languages, on left in RTL)
+ *
+ * Remember to NOT add padding or margin to your .region-sidebar-second
+ * (see the layout.css file.)
+ */
+
+.region-sidebar-second {
+}
+
+/*
+ * Footer
+ */
+
+#footer {
+	padding: 0;
+}
+
+.menu-name-menu-footer-menu
+{
+	background-color : #293036;
+	color : #ffffff;
+	overflow : hidden;
+	margin : 0;
+	border-top : 4px solid #28bca4;
+}
+
+.menu-name-menu-footer-menu .menu
+{
+	list-style : none;
+}
+.menu-name-menu-footer-menu .menu li
+{
+	float : left;
+	padding : 0 10px;
+	margin : 20px 0 35px 0;
+	height : 12px;
+	line-height : 15px;
+	border-left : solid 1px #28bca4;
+	font-family : 'NeouBold', sans-serif;
+	font-size : 14px;
+	list-style : none;
+}
+
+.menu-name-menu-footer-menu .menu li.first,
+.menu-name-menu-footer-menu .menu li.last
+{
+	border : none;
+	padding-left : 0;
+}
+
+.menu-name-menu-footer-menu .menu li.last
+{
+	float : right;
+	font-family : 'AvenirLTStd45Book', sans-serif;
+	font-size : 13px;
+}
+
+.menu-name-menu-footer-menu .menu li a
+{
+	color : #ffffff;
+	text-decoration : none;
+}
+
+.menu-name-menu-footer-menu .menu li a:hover,
+.menu-name-menu-footer-menu .menu li a.active
+{
+  color : #28bca4;
+}
+
+/*
+ * Page bottom
+ */
+
+.region-bottom { /* Wrapper for any blocks placed in the page bottom region */
+  margin-top: 25px;
+}

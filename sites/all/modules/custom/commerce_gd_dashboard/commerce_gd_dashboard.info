@@ -1,0 +1,12 @@
+name = Commerce Ilot dashboard
+description = Provides method for a commerce dashboard.
+core = 7.x
+package = Commerce (contrib)
+version = 7.x-1.0
+project = commerce_gd_dashboard
+dependencies[] = commerce_order
+dependencies[] = commerce_order_ui
+dependencies[] = entity
+dependencies[] = entityreference
+dependencies[] = views
+dependencies[] = views_bulk_operations

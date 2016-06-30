@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ilot_valeur feature.
+ */
+
+include_once 'ilot_valeur.features.inc';

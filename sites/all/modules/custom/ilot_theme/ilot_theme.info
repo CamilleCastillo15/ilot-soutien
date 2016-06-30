@@ -1,0 +1,7 @@
+name = ilot theme
+description = "Provides theme and preprocess functions for rendering ilot content types."
+package = ilot
+core = 7.x
+;configure = admin/config/ilot/settings
+
+version = "7.x-1.0"

@@ -1,0 +1,107 @@
+<?php
+
+function ilot_custom_install() {
+  $query = db_update('filter_format');
+  $query->fields(array('weight' => -20));
+  $query->condition('format', 'full_html', '=');
+  $result = $query->execute();
+
+  variable_set('checkout_login_enforce_login', FALSE);
+  variable_set('commerce_customer_profile_billing_addressbook', TRUE);
+
+  ilot_custom_install_blocks();
+
+  variable_set('clean_url', TRUE);
+}
+
+/**
+ * Enable custom blocks.
+ */
+function ilot_custom_install_blocks() {
+  // Enable some standard blocks.
+  $default_theme = variable_get('theme_default', 'ilot');
+  $values = array(
+    array(
+      'module' => 'ilot_theme',
+      'delta' => 'image-logo',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => -10,
+      'region' => 'header',
+      'pages' => '',
+      'title' => '',
+      'cache' => DRUPAL_CACHE_GLOBAL,
+    ),
+    array(
+      'module' => 'menu_block',
+      'delta' => 'custom-1',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 10,
+      'region' => 'header',
+      'pages' => '',
+      'title' => '',
+      'cache' => DRUPAL_CACHE_PER_PAGE,
+    ),
+    array(
+      'module' => 'search_api_page',
+      'delta' => 'ilot',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 7,
+      'region' => 'header',
+      'pages' => '',
+      'title' => '<none>',
+      'cache' => DRUPAL_NO_CACHE,
+    ),
+    array(
+      'module' => 'ilot_theme',
+      'delta' => 'bandeau-don',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 15,
+      'region' => 'header',
+      'pages' => '',
+      'title' => '',
+      'cache' => DRUPAL_CACHE_GLOBAL,
+    ),
+    array(
+      'module' => 'ilot_theme',
+      'delta' => 'social-share',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 5,
+      'region' => 'header',
+      'pages' => '',
+      'title' => '',
+      'cache' => DRUPAL_CACHE_GLOBAL,
+    ),
+    array(
+      'module' => 'simplenews',
+      'delta' => '1',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'footer',
+      'pages' => '',
+      'title' => 'Newsletter',
+      'cache' => DRUPAL_NO_CACHE,
+    ),
+    array(
+      'module' => 'menu_block',
+      'delta' => 'custom-2',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 10,
+      'region' => 'footer',
+      'pages' => '',
+      'title' => '<none>',
+      'cache' => DRUPAL_CACHE_PER_PAGE,
+    ),
+  );
+  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'pages', 'title', 'cache'));
+  foreach ($values as $record) {
+    $query->values($record);
+  }
+  $query->execute();
+}

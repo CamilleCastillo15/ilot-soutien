@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'NeouBold';
+    src: url('neou-bold.eot');
+    src: url('neou-bold.eot?#iefix') format('embedded-opentype'),
+         url('neou-bold.woff') format('woff'),
+         url('neou-bold.ttf') format('truetype'),
+         url('neou-bold.svg#NeouBold') format('svg');
+}

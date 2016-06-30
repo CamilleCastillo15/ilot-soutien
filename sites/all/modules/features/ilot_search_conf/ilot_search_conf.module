@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ilot_search_conf feature.
+ */
+
+include_once 'ilot_search_conf.features.inc';

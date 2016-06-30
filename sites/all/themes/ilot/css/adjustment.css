@@ -1,0 +1,136 @@
+form.commerce-checkout-form-checkout div.commerce_french_donate_wrapper fieldset fieldset legend span span
+{
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+form.commerce-checkout-form-checkout div.commerce_french_donate_wrapper .edit-commerce-french-donate-fieldset-unique
+{
+  margin-bottom: 15px;
+}
+form.commerce-checkout-form-checkout div.commerce_french_donate_wrapper
+{
+  position: relative;
+}
+div.commerce_french_donate_wrapper .calculator .title, div.commerce_french_donate_wrapper.don_isf .calculator .title
+{
+  background:  none;
+  border: 0;
+  font-family: "NeouBold";
+  font-weight: normal;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 21px;
+}
+
+form.commerce-checkout-form-checkout div.commerce_french_donate_wrapper #calcul_output_ajax_wrapper
+{
+  margin-top: 40px;
+  float: left;
+}
+div.commerce_french_donate_wrapper .calculator a
+{
+  background-color: #90130a;
+}
+
+form.commerce-checkout-form-checkout div.customer_profile_billing_container .form-type-textfield label, form.commerce-checkout-form-checkout div.customer_profile_billing_container .form-type-select label
+{
+  display: block;
+}
+form.commerce-checkout-form-checkout fieldset.customer_profile_billing label
+{
+  font-weight: normal;
+}
+.customer_profile_billing_container
+{
+  position: relative;
+}
+form.commerce-checkout-form-checkout div.commerce_french_donate_wrapper,
+form.commerce-checkout-form-checkout div.customer_profile_billing_container
+{
+  height: 600px;
+  min-height: 0;
+}
+fieldset.customer_profile_billing div.fieldset-wrapper .form-item.form-type-textfield input
+{
+  height: 18px;
+  font-size: 13px;
+  padding-top: 3px;
+}
+fieldset.customer_profile_billing div.fieldset-wrapper .form-item.form-type-textfield .postal-code
+{
+  width: 45px;
+}
+fieldset.customer_profile_billing div.fieldset-wrapper .form-item.form-type-textfield .first-name
+{
+  width: 134px;
+}
+fieldset.customer_profile_billing div.fieldset-wrapper .checkout-buttons
+{
+  /*position: absolute;
+  bottom: 20px;
+  right: 20px;*/
+  margin-top: 10px;
+  float: left;
+  width: 100%;
+  clear: both;
+}
+fieldset.customer_profile_billing div.fieldset-wrapper .form-item.form-type-textarea textarea
+{
+  height: 59px;
+  font-size: 13px;
+  padding: 2px;
+  font-family: verdana,sans-serif;
+  border: 0;
+  resize: none;
+}
+fieldset.customer_profile_billing div.fieldset-wrapper .form-item.form-type-textarea .grippie
+{
+  display: none;
+}
+form.commerce-checkout-form-checkout fieldset.customer_profile_billing .button-operator, form.commerce-checkout-form-checkout fieldset.customer_profile_billing .checkout-cancel
+{
+  display: none;
+}
+form.commerce-checkout-form-checkout fieldset.customer_profile_billing .checkout-submit
+{
+  font-size: 17px;
+  margin: 10px 0;
+  font-family: "NeouBold";
+  padding: 12px 10px 9px;
+  float: right;
+  clear: both;
+}
+
+form.commerce-checkout-form-checkout fieldset.checkout_pane_info
+{
+  height: 610px;
+}
+form.commerce-checkout-form-checkout fieldset.checkout_pane_info .pane_savoir_plus
+{
+  color: #28bca4;
+  font-size: 21px;
+  font-weight: normal;
+  line-height: 19px;
+  margin: 0;
+  text-transform: uppercase;
+  width: 200px;
+  padding: 0;
+  display: block;
+  text-decoration: none;
+  background: none;
+}
+form.commerce-checkout-form-checkout fieldset.checkout_pane_info .ctools-use-modal
+{
+  text-decoration: none;
+}
+
+.block-legal-checkout
+{
+  line-height: normal;
+  font-size: 13px;
+  text-align: center;
+  float: left;
+  width: 620px;
+}

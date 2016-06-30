@@ -1,0 +1,51 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the ilot_standard installation profile.
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * Performs actions to set up the site for this profile.
+ *
+ * @see system_install()
+ */
+function ilot_standard_install() {
+	// Add text formats.
+	$full_html_format = array(
+		'format' => 'full_html',
+		'name' => 'Full HTML',
+		'weight' => 1,
+		'filters' => array(
+			// URL filter.
+			'filter_url' => array(
+				'weight' => 0,
+				'status' => 1,
+			),
+			// Line break filter.
+			'filter_autop' => array(
+				'weight' => 1,
+				'status' => 1,
+			),
+			// HTML corrector filter.
+			'filter_htmlcorrector' => array(
+				'weight' => 10,
+				'status' => 1,
+			),
+		),
+	);
+	$full_html_format = (object) $full_html_format;
+	filter_format_save($full_html_format);
+
+  // Allow visitor account creation, but with administrative approval.
+  variable_set('user_register', USER_REGISTER_ADMINISTRATORS_ONLY);
+
+  // Enable default permissions for system roles.
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content'));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content'));
+
+  // Enable the admin theme.
+  variable_set('admin_theme', 'seven');
+  variable_set('node_admin_theme', '1');
+}

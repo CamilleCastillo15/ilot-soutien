@@ -1,0 +1,84 @@
+name = ilot_standard
+description = Start with only a few modules enabled.
+version = VERSION
+core = 7.x
+
+; Install necessary core modules.
+dependencies[] = block
+dependencies[] = dblog
+dependencies[] = color
+dependencies[] = comment
+dependencies[] = contextual
+dependencies[] = dashboard
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = taxonomy
+dependencies[] = search
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = rdf
+dependencies[] = shortcut
+dependencies[] = contact
+
+; Install necessary contrib modules.
+dependencies[] = "ctools"
+dependencies[] = "views_ui"
+dependencies[] = "features"
+dependencies[] = "date"
+dependencies[] = "date_popup"
+dependencies[] = "date_views"
+dependencies[] = "token"
+dependencies[] = "pathauto"
+dependencies[] = "field_group"
+dependencies[] = "strongarm"
+dependencies[] = "admin_menu_toolbar"
+dependencies[] = "field_collection"
+dependencies[] = "jquery_update"
+dependencies[] = "entity"
+dependencies[] = "entityreference"
+dependencies[] = "ckeditor"
+dependencies[] = "machine_name"
+dependencies[] = "libraries"
+dependencies[] = "nodequeue"
+dependencies[] = "rules_admin"
+dependencies[] = "site_map"
+dependencies[] = "sharethis"
+dependencies[] = "simplenews"
+dependencies[] = "inline_entity_form"
+dependencies[] = "imce"
+dependencies[] = "commerce"
+dependencies[] = "addressfield"
+dependencies[] = "commerce_atos"
+dependencies[] = "commerce_checkout"
+dependencies[] = "commerce_line_item_ui"
+dependencies[] = "commerce_order_ui"
+dependencies[] = "commerce_french_donate"
+dependencies[] = "commerce_checkout_login"
+dependencies[] = "commerce_customer_ui"
+dependencies[] = "commerce_payment_ui"
+dependencies[] = "googtube"
+dependencies[] = "commerce_addressbook"
+dependencies[] = "menu_block"
+dependencies[] = "modal_forms"
+dependencies[] = "views_slideshow_cycle"
+dependencies[] = "transliteration"
+dependencies[] = "email"
+dependencies[] = "search_api"
+dependencies[] = "search_api_db"
+dependencies[] = "search_api_page"
+dependencies[] = "publication_date"
+dependencies[] = "print"
+dependencies[] = "entitycache"
+dependencies[] = "special_menu_items"
+
+
+; Information added by drupal.org packaging script on 2013-02-20
+version = "7.20"
+project = "drupal"
+datestamp = "1361393684"
+

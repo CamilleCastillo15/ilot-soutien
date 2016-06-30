@@ -1,0 +1,132 @@
+<?php
+
+/**
+ * Name of ilot custom theme.
+ */
+define('SITE_CUSTOM_THEME', 'ilot');
+define('SITE_ADMIN_THEME', 'seven');
+
+
+/**
+ * Implement hook_init
+ */
+function ilot_custom_init() {
+  if (path_is_admin(current_path())) {
+    drupal_add_css(drupal_get_path('module', 'ilot_custom') . '/admin.css');
+  }
+}
+
+function ilot_custom_entity_info_alter(&$entity_info) {
+  if (isset($entity_info['taxonomy_term'])) {
+    $entity_info['taxonomy_term']['inline entity form'] = array(
+      'controller' => 'EditoAuthorTaxonomyTermItemInlineEntityFormController',
+    );
+  }
+}
+
+function ilot_custom_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'entity_info_alter') {
+    // Move my_module_rdf_mapping() to the end of the list. module_implements()
+    // iterates through $implementations with a foreach loop which PHP iterates
+    // in the order that the items were added, so to move an item to the end of
+    // the array, we remove it and then add it.
+    $group = $implementations['ilot_custom'];
+    unset($implementations['ilot_custom']);
+    $implementations['ilot_custom'] = $group;
+  }
+}
+
+
+
+function ilot_custom_get_auteurs_options() {
+  $vocabulary = taxonomy_vocabulary_machine_name_load('auteur');
+  $terms = taxonomy_get_tree($vocabulary->vid);
+  $options = array();
+  foreach ($terms as $term) {
+    $options[$term->tid] = $term->name;
+  }
+  return $options;
+}
+
+/**
+ * Perform alterations before the reference form is included in the IEF widget.
+ *
+ * The reference form is used to add existing entities through an autocomplete
+ * field
+ *
+ * @param $reference_form
+ *   Nested array of form elements that comprise the reference form.
+ * @param $form_state
+ *   The form state of the parent form.
+ */
+function ilot_custom_inline_entity_form_reference_form_alter(&$reference_form, &$form_state) {
+  //$reference_form['entity_id']['#type'] = 'select';
+  $reference_form['entity_id'] = array(
+   '#type' => 'select',
+   '#options' => ilot_custom_get_auteurs_options(),
+ );
+ unset($reference_form['#autocomplete_path']);
+ unset($reference_form['#element_validate']);
+}
+
+/**
+ * From commerce_cart.module
+ */
+function ilot_custom_order_convert($order, $account) {
+  // Only convert orders that are currently anonmyous orders.
+  if ($order->uid == 0) {
+    // Update the uid and e-mail address to match the current account since
+    // there currently is no way to specify a custom e-mail address per order.
+    $order->uid = $account->uid;
+    $order->mail = $account->mail;
+
+    // Update the uid of any referenced customer profiles.
+    $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+
+    foreach (field_info_instances('commerce_order', $order->type) as $field_name => $instance) {
+      $field_info = field_info_field($field_name);
+
+      if ($field_info['type'] == 'commerce_customer_profile_reference') {
+        if ($order_wrapper->{$field_name} instanceof EntityListWrapper) {
+          foreach ($order_wrapper->{$field_name} as $delta => $profile_wrapper) {
+            if ($profile_wrapper->uid->value() == 0) {
+              $profile_wrapper->uid = $account->uid;
+              $profile_wrapper->save();
+            }
+          }
+        }
+        elseif (!is_null($order_wrapper->{$field_name}->value()) &&
+        $order_wrapper->{$field_name}->uid->value() == 0) {
+          $order_wrapper->{$field_name}->uid = $account->uid;
+          $order_wrapper->{$field_name}->save();
+        }
+      }
+    }
+
+    // Allow other modules to operate on the converted order and then save.
+    module_invoke_all('commerce_cart_order_convert', $order_wrapper, $account);
+    $order_wrapper->save();
+
+    return $order_wrapper;
+  }
+
+  return FALSE;
+}
+
+/**
+ * Set and get the user form values.
+ */
+function ilot_custom_form_session_value($key, $value = null) {
+  static $storage = array();
+  if (!is_null($value)) {
+    $storage[$key] = $value ;
+    $_SESSION['lists'][$key] = $value;   // I put 'lists' in case some other module uses 'type' in $_SESSION
+  }
+  else if (empty($storage[$key]) && isset($_SESSION['lists'][$key])) {
+    $storage[$key] = $_SESSION['lists'][$key];
+  }
+  else{
+    return array();
+  }
+  return $storage[$key];
+}

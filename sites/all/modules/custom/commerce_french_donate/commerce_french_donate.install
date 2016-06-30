@@ -1,0 +1,139 @@
+<?php
+/**
+ * @file line_item_example.install
+ */
+
+/**
+ * Implements hook_install().
+ */
+function commerce_french_donate_install() {
+  variable_set('commerce_french_donate_monthly_options', array(
+    10 => '10 €',
+    15 => '15 €',
+    20 => '20 €',
+    30 => '30 €',
+    50 => '50 €'
+  ));
+  variable_set('commerce_french_donate_unique_options', array(30 => '30 €', 70 => '70 €', 100 => '100 €', 200 => '200 €'));
+  variable_set('commerce_french_donate_isf_unique_options', array(100 => '100 €', 250 => '250 €', 500 => '500 €', 1000 => '1000 €'));
+  variable_set('commerce_french_donate_ceiling_regular', '521');
+  variable_set('commerce_french_donate_answer_regular', "Après réduction, mon don de [user-amount] € me revient à [donation] €");
+  variable_set('commerce_french_donate_calculate_below_ceiling_regular', '[user-amount]*0.75');
+  variable_set('commerce_french_donate_calculate_above_ceiling_regular', '[ceiling]*0.75+(([user-amount]-[ceiling])*0.66)');
+  variable_set('commerce_french_donate_ceiling_isf', '50000');
+  variable_set('commerce_french_donate_answer_isf', "Après réduction, mon don de [user-amount] € me revient à [donation] €");
+  variable_set('commerce_french_donate_calculate_below_ceiling_isf', '[user-amount]*0.75');
+  variable_set('commerce_french_donate_calculate_above_ceiling_isf', '[ceiling]*0.75+(([user-amount]-[ceiling])*0.66)');
+  variable_set('commerce_french_donate_info_isf', "Vous pouvez déduire 75% du montant de votre don de votre ISF dans la limite de 50 000 € par an. Vous recevrez un reçu fiscal.");
+  variable_set('commerce_french_donate_info_regular', "Vous pouvez déduire 75 % de votre don à hauteur de 521 € par an. Au delà, votre don est déductible à hauteur de 66 % dans la limite de 20 % de votre revenu net imposable. Vous recevrez un reçu fiscal.");
+
+
+
+
+  // If there is a specific ceiling with a different rate of tax deduction above it, here is an example : [ceiling]*0.75 + ([user-amount]-[ceiling])*2/3
+  variable_set('commerce_french_donate_activ_monthly_free', TRUE);
+  variable_set('commerce_french_donate_activ_unique_free', TRUE);
+  variable_set('commerce_french_donate_activ_calculator', TRUE);
+  variable_set('commerce_french_donate_activ_regular', TRUE);
+  variable_set('commerce_french_donate_activ_isf', FALSE);
+  variable_set('commerce_french_donate_activ_mecenat', FALSE);
+  commerce_french_donate_mensualite_field_create();
+  commerce_french_donate_type_don_field_create();
+}
+
+/**
+ * Implements hook_enable().
+ *
+ * Here we count on Commerce Line Items module to configure our type based on
+ * the information we provide in
+ * line_item_example_commerce_line_item_type_info().
+ */
+function commerce_french_donate_enable() {
+  // This function configures all existing line item types, including ours.
+  commerce_line_item_configure_line_item_types();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function commerce_french_donate_uninstall() {
+  $variables = array(
+      'commerce_french_donate_line_item_amount',
+      'commerce_french_donate_line_item_currency',
+  );
+  foreach ($variables as $variable) {
+    variable_del($variable);
+  }
+  $instance_delete = field_info_instance('commerce_line_item', 'field_french_donate_mensualite', 'commerce_french_donate');
+  field_delete_instance($instance_delete);
+}
+
+/**
+ * Create a field instance.
+ */
+function commerce_french_donate_type_don_field_create() {
+  $field_type_don = array(
+      'field_name' => 'field_cf_donate_type_don',
+      'cardinality' => 1,
+      'entity_type' => 'commerce_line_item',
+      'type' => 'list_text',
+  );
+
+  field_create_field($field_type_don);
+
+  $field_instance = array(
+      'field_name' => 'field_cf_donate_type_don',
+      'label' => 'Type de don',
+      'entity_type' => 'commerce_line_item',
+      'bundle' => 'commerce_french_donate',
+      'display' => array(),
+      'required' => TRUE,
+      'settings' => array(
+          'allowed_values' => array(
+              'don_normal' => 'Don normal',
+              'don_isf' => 'Don ISF',
+          ),
+      ),
+      'default_value' => array(
+          'don_normal' => 'Don normal',
+      ),
+      'widget' => array(
+          'type' => 'options_buttons',
+      ),
+  );
+  field_create_instance($field_instance);
+}
+
+/**
+ * Create a field instance.
+ */
+function commerce_french_donate_mensualite_field_create() {
+  $field_mensualite = array(
+      'field_name' => 'field_french_donate_mensualite',
+      'cardinality' => 1,
+      'entity_type' => 'commerce_line_item',
+      'type' => 'list_boolean',
+  );
+
+  field_create_field($field_mensualite);
+
+  $field_instance = array(
+      'field_name' => 'field_french_donate_mensualite',
+      'label' => 'Mensualité',
+      'entity_type' => 'commerce_line_item',
+      'bundle' => 'commerce_french_donate',
+      'display' => array(),
+      'required' => FALSE,
+      'settings' => array(
+          'allowed_values' => array(
+              '0' => 'No',
+              '1' => 'Yes',
+          ),
+      ),
+      'widget' => array(
+          'type' => 'options_onoff',
+      ),
+  );
+
+  field_create_instance($field_instance);
+}

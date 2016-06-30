@@ -1,0 +1,666 @@
+<?php
+require_once drupal_get_path('module', 'ilot_theme') .'/ilot_theme.blocks.inc';
+
+
+function ilot_theme_init() {
+ // global $user;
+ // $arg0 = strtolower(arg(0));
+ // if (!$user->uid && !in_array($arg0, array(
+ //  	'user',
+ //   'checkout',
+ //   'faire-un-don',
+ //   'contact',
+ //   'modal_forms',
+ //   'system',
+ //   'commerce_atos',
+
+ // ))) {
+ //   drupal_goto('faire-un-don', array('query' => array('checkout' => 'light')));
+ // }
+ // if (!$user->uid) {
+ // 	 $_GET['checkout'] = 'light';
+ // }
+
+}
+
+/**
+ * Preprocess page.
+ * @param $variables
+ * @param $hook
+ */
+function ilot_theme_preprocess_page(&$variables, $hook) {
+  global $user;
+	$node = null;
+	if (isset($variables['node']) && is_object($variables['node'])) {
+		$node = $variables['node'];
+		$include = drupal_get_path('module', 'ilot_theme') .'/includes/' . $variables['node']->type . '.inc';
+		if (file_exists($include)) {
+			require_once $include;
+		}
+		$function = __FUNCTION__ . '_' . $variables['node']->type;
+		if (function_exists($function)) {
+		  $function($variables, $hook);
+		}
+  }
+  if (arg(0) == 'checkout' && is_numeric(arg(1)) && arg(2) == 'complete') {
+    if ($order = commerce_order_load(arg(1))) {
+      if ($order->uid == $user->uid) {
+        $variables['page']['content']['tracking'] = array(
+          '#markup' => '<!-- Google Code for Checkout ab Adwords Conversion Page -->
+                        <script type="text/javascript">
+                        /* <![CDATA[ */
+                        var google_conversion_id = 958531558;
+                        var google_conversion_language = "en";
+                        var google_conversion_format = "3";
+                        var google_conversion_color = "ffffff";
+                        var google_conversion_label = "4V4wCLnm5VoQ5o-IyQM";
+                        var google_remarketing_only = false;
+                        /* ]]> */
+                        </script>
+                        <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+                        </script>
+                        <noscript>
+                        <div style="display:inline;">
+                        <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/958531558/?label=4V4wCLnm5VoQ5o-IyQM&amp;guid=ON&amp;script=0"/>
+                        </div>
+                        </noscript>',
+        );
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function ilot_theme_preprocess_node(&$variables, $hook) {
+  $include = drupal_get_path('module', 'ilot_theme') .'/includes/' . $variables['node']->type . '.inc';
+  if (file_exists($include)) {
+    require_once $include;
+  }
+  $function = __FUNCTION__ . '_' . $variables['node']->type;
+  if (function_exists($function)) {
+    $function($variables, $hook);
+  }
+
+  $variables['classes_array'][] = 'view-mode-' . $variables['view_mode'];
+  array_unshift($variables['theme_hook_suggestions'], $variables['theme_hook_suggestions'][0] . '__' . $variables['view_mode']);
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function ilot_theme_preprocess_entity(&$variables, $hook) {
+  if ($variables['entity_type'] == 'field_collection_item') {
+    $fc = $variables['field_collection_item'];
+    $fc_wrapper = entity_metadata_wrapper('field_collection_item', $fc);
+    if ($fc->field_name == 'field_missions_blocs') {
+      $variables['link_url'] = $fc_wrapper->field_missions_bloc_lien->url->value();
+    }
+  }
+
+}
+
+/**
+ * Implements hook_entity_info_alter().
+ */
+function ilot_theme_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes']['short_teaser'] = array(
+    'label' => t('Short teaser'),
+    'custom settings' => TRUE,
+  );
+  $entity_info['node']['view modes']['contextual_teaser'] = array(
+    'label' => t('Contextual teaser'),
+    'custom settings' => TRUE,
+  );
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function ilot_theme_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'search_api_page_search_form_ilot' || $form_id == 'search_api_page_search_form' ) {
+    // HTML5 placeholder attribute
+    $form['keys_1']['#attributes']['placeholder'] = t('Search');
+    $form['form']['keys_1']['#attributes']['placeholder'] = t('Search');
+    $form['#attributes']['class'][] = 'search-form';
+  }
+  if (strpos($form_id, 'commerce_checkout_form') !== FALSE) {
+    $order = $form_state['order'];
+    $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+
+    $referent = $order_wrapper->field_url_referent->value();
+    if (!empty($referent)) {
+    	$_GET['checkout'] = 'light';
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ilot_theme_form_simplenews_block_form_1_alter(&$form, &$form_state, $form_id) {
+  $form['submit']['#value'] = 'Envoyer';
+  $form['mail']['#attributes']['placeholder'] = "Saisissez votre mail";
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+
+/*
+
+function my_submit_handler(&$form, &$form_state) {
+  $form_state['redirect'] = '#';
+}
+
+*/
+
+function ilot_theme_form_contact_site_form_alter(&$form, &$form_state, $form_id) {
+
+  drupal_set_title('Nous contacter');
+
+  $form['phone'] = array(
+      '#type' => 'textfield',
+      '#maxlength' => 20,
+      '#title' => t('Téléphone'),
+      '#required' => true,
+      '#attributes' => array(
+        'placeholder' => 'Téléphone*',
+      ),
+  );
+  $form['prenom'] = array(
+      '#type' => 'textfield',
+      '#maxlength' => 20,
+      '#title' => t('Prénom'),
+      '#required' => true,
+      '#attributes' => array(
+        'placeholder' => 'Prénom*',
+      ),
+  );
+  $form['societe'] = array(
+      '#type' => 'textfield',
+      '#maxlength' => 20,
+      '#title' => t('Société'),
+      '#attributes' => array(
+        'placeholder' => 'Société',
+      ),
+  );
+
+  $form['titreopt'] = array(
+      '#markup' => '<h1>Nous contacter</h1>'
+  );
+
+  $site_email = variable_get('site_mail', '');
+
+  $form['contact_info'] = array(
+      '#markup' => '<div class="contact-info">
+      Téléphone : 01 43 14 31 00 <br/>
+      Email : <a href="mailto:'.$site_email.'?subject=contact">'.$site_email.'</a>
+      </div>'
+  );
+
+  $form['champ_oblig'] = array(
+      '#markup' => '<br/><br/><span class="contact_obl">Les champs suivis de * sont obligatoires.</span>'
+  );
+
+  $form['mail']['#attributes'] = array('placeholder' => 'Email*');
+  $form['name']['#attributes'] = array('placeholder' => 'Nom*');
+  $form['subject']['#attributes'] = array('placeholder' => 'Objet de votre message*');
+  $form['message']['#attributes'] = array('placeholder' => 'Votre message*');
+  $form['actions']['submit']['#value'] = 'Envoyer';
+  //$form['actions']['submit']['#submit'] = array('ilot_theme_forms_submit_handler');
+ //  $form['#submit'][] = 'my_submit_handler';
+  // Define the order of the top level elements on the form (include those from contact_site_form().
+  $order = array('titreopt','contact_info', 'prenom', 'name', 'societe', 'phone', 'mail', 'subject', 'cid', 'message', 'copy', 'actions','champ_oblig');
+
+  // Order the elements by changing their #weight property.
+  foreach($order as $key => $field) {
+    $form[$field]['#weight'] = $key;
+  }
+
+
+
+}
+
+// Block redirection form to front  page
+/*function ilot_theme_forms_submit_handler($form, &$form_state) {
+
+	//$uri = $_SERVER['HTTP_HOST'] . request_uri();
+
+   unset($_REQUEST['destination']);
+   unset($form['#redirect']);
+   $form_state['redirect']  = 'http://google.com';
+
+}*/
+
+
+
+// add created inputs to the contact site mail body
+
+function ilot_theme_mail_alter(&$message) {
+  if ($message['id'] == 'contact_page_mail') {
+  	$paramsMail = $message['params'];
+
+  	$message['body'] = array();
+
+  	$message['body'][] = "\nNom : ".$paramsMail['name']." ".$paramsMail['prenom'];
+  	$message['body'][] = "\nEmail : ".$paramsMail['mail'];
+  	$message['body'][] = "\nTelephone : ".$paramsMail['phone'];
+  	if (isset($paramsMail['societe']))
+  	{
+  		$message['body'][] = "\nSociete : ".$paramsMail['societe'];
+  	}
+  	$message['body'][] = "\n\nMessage : ".$paramsMail['message'];
+
+
+  }
+}
+
+
+
+
+/**
+ * Implements hook_commerce_checkout_pane_info().
+ *
+ * This is where we define the name of the pane, related information, and
+ * the base name of all the form builder functions used to present the
+ * pane.
+ */
+function ilot_theme_commerce_checkout_pane_info() {
+
+  $panes['checkout_pane_info_don'] = array(
+      'title' => t('Checkout donation information'),
+      'base' => 'checkout_pane_info_don',
+      'page' => 'checkout',
+      'weight' => -5,
+      'file' => 'includes/pane.inc',
+      'attributes' => array(
+        'class' => array('checkout-pane-info-don'),
+      ),
+  );
+  /*$panes['checkout_pane_don_confiance'] = array(
+      'title' => t('Don en confiance'),
+      'base' => 'checkout_pane_don_confiance',
+      'page' => 'checkout',
+      'weight' => 3,
+      'file' => 'includes/pane.inc',
+      'attributes' => array(
+        'class' => array('checkout-pane-don-confiance'),
+      ),
+  );*/
+  /*$panes['checkout_pane_don_secure'] = array(
+      'title' => t('Don sécurisé'),
+      'base' => 'checkout_pane_don_secure',
+      'page' => 'checkout',
+      'weight' => 5,
+      'file' => 'includes/pane.inc',
+      'attributes' => array(
+        'class' => array('checkout-pane-don-secure'),
+      ),
+  );*/
+  return $panes;
+}
+
+/**
+ * Implements hook_commerce_checkout_pane_info_alter().
+ *
+ * Ordering when the panes of the checkout would be set or not, wich page, weight, etc ..
+ */
+function ilot_theme_commerce_checkout_pane_info_alter(&$checkout_panes) {
+  if (isset($checkout_panes['checkout_pane_info_don'])) {
+    $checkout_panes['checkout_pane_info_don']['page'] = 'checkout';
+    $checkout_panes['checkout_pane_info_don']['weight'] = -20;
+  }
+  if (isset($checkout_panes['commerce_french_donate'])) {
+    $checkout_panes['commerce_french_donate']['page'] = 'checkout';
+    $checkout_panes['commerce_french_donate']['weight'] = -10;
+  }
+  if (isset($checkout_panes['customer_profile_billing'])) {
+    $checkout_panes['customer_profile_billing']['page'] = 'checkout';
+    $checkout_panes['customer_profile_billing']['weight'] = 10;
+  }
+  if (isset($checkout_panes['account'])) {
+    $checkout_panes['account']['page'] = 'disabled';
+    $checkout_panes['account']['weight'] = 0;
+  }
+
+}
+
+/**
+ * Implements hook_commerce_checkout_page_info_alter().
+ */
+function ilot_theme_commerce_checkout_page_info_alter(&$items) {
+ foreach ($items as $key => $item) {
+  $items[$key]['title'] = 'Faire un don';
+ }
+}
+
+function ilot_theme_commerce_checkout_complete($order) {
+  $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+  if (empty($_GET['checkout'])) {
+    $redirection = $order_wrapper->field_url_redirection->value();
+    if (!empty($redirection)) {
+    		drupal_goto($redirection, array('external' => TRUE, 'query' => array('order_id' => $order->order_id)));
+    }
+  }
+}
+
+/**
+ * Implements hook_form_ID_alter().
+ *
+ * Alter the checkout_checkout form.
+ */
+function ilot_theme_form_commerce_checkout_form_checkout_alter(&$form, &$form_state) {
+  global $user;
+  $order = $form_state['order'];
+  $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+
+  if (empty($_GET['checkout'])) {
+  	$referent = $order_wrapper->field_url_referent->value();
+  	if (!empty($referent)) {
+  		drupal_goto($referent, array('external' => TRUE, 'query' => array('order_id' => $order->order_id)));
+  	}
+  }
+
+  $form['#prefix'] = '<div class="ajax-notifier-anchor"></div>';
+  $form['#attributes'] = array(
+    'class' => array('commerce-checkout-form-checkout'),
+  );
+  $form['buttons']['#weight'] = 99;
+  //$form['buttons']['#attributes'] = array('class' => array('buttons_submit'));
+  $form['buttons']['continue']['#value'] = 'Valider';
+  $form['buttons']['continue']['#attributes'] = array('class' => array('checkout-submit'),);
+
+  $var = $form['buttons'];
+  unset($form['buttons']);
+
+  // customer_profile_billing // always present
+  if (!isset($form['customer_profile_billing']['#prefix'])) {
+    $form['customer_profile_billing']['#prefix'] = '';
+  }
+  if (!isset($form['customer_profile_billing']['#suffix'])) {
+    $form['customer_profile_billing']['#suffix'] = '';
+  }
+
+  $form['customer_profile_billing']['#prefix'] .= '<div class="customer_profile_billing_container form-wrapper"><h2 class="customer_profile_billing_title"><span><abbr title="Seconde étape">2</abbr></span>Mes coordonnées</h2>';
+  $form['customer_profile_billing']['#suffix'] = '<div class="clearfix"></div></div>' . $form['customer_profile_billing']['#suffix'];
+
+  $form['customer_profile_billing']['continue'] = $var;
+
+  /*$form['customer_profile_billing']['numero_donateur'] = array(
+    '#type' => 'textfield',
+    '#max_length' => 255,
+    '#default_value' => $order_wrapper->field_numero_donateur->value() ? $order_wrapper->field_numero_donateur->value() : NULL,
+    '#title' => t('n° de Donateur'),
+    '#default_value' => $user->uid != 0 ? $user->name : '',
+    '#attributes' => array(
+      'placeholder' => t('n° de Donateur'),
+    ),
+    '#weight' => -20,
+  );
+  if($user->uid != 0) {
+    $form['customer_profile_billing']['numero_donateur']['#prefix'] = 'Numéro de donateur';
+    $form['customer_profile_billing']['numero_donateur']['#disabled'] = TRUE;
+  }
+  $form['customer_profile_billing']['button_connexion'] = array(
+    '#type' => 'submit',
+    '#value' => ($user->uid == 0) ? 'Connexion' : 'Déconnexion',
+    '#weight' => -19,
+    '#limit_validation_errors' => array(array('customer_profile_billing', 'numero_donateur')),
+    '#submit' => array('ilot_theme_form_commerce_checkout_check_donateur_option'),
+  );
+  $form['customer_profile_billing']['generate_account'] = array(
+    '#type' => 'checkbox',
+    '#default_value' => $order_wrapper->field_generate_account->value(),
+    '#access' => ($user->uid == 0),
+    '#title' => '<strong>' . t('Je souhaite recevoir un n° de Donateur') . '</strong>',
+    '#description' => '<em>' . t('Si vous donnez régulièrement à l’Îlot vous pouvez mémoriser vos données.') . '</em>',
+    '#weight' => -15,
+  );*/
+
+  /*
+  $form['customer_profile_billing']['field_billing_email']['mandatory_note'] = array(
+    '#markup' => '<div class="clearfix"></div><p><em>Les champs suivis de * sont obligatoires.</em><br/><em>Ces informations nous permettront de vous envoyer votre reçu fiscal.</em><p><div class="clearfix"></div>',
+    '#weight' => 100,
+  ); */
+
+  $form['buttons']['continue']['#submit'][] = 'ilot_theme_form_commerce_checkout_submit_customer_profile';
+
+  $form['customer_profile_billing']['field_billing_telephone'][LANGUAGE_NONE][0]['value']['#title'] = t('Téléphone');
+  $form['customer_profile_billing']['field_billing_telephone'][LANGUAGE_NONE][0]['value']['#attributes'] = array('placeholder' => t('Téléphone'));
+  // adjustment made on 11/28/14 for form simplification
+  $form['customer_profile_billing']['field_billing_telephone'][LANGUAGE_NONE][0]['value']['#access'] = false;
+  $form['customer_profile_billing']['field_billing_email'][LANGUAGE_NONE][0]['email']['#title'] = t('Email');
+  //$form['customer_profile_billing']['field_billing_email'][LANGUAGE_NONE][0]['email']['#attributes'] = array('placeholder' => t('Email') . ' * ');
+  $form['customer_profile_billing']['field_billing_email'][LANGUAGE_NONE][0]['email_verify']['#title'] = t('Confirmation du courriel');
+  $form['customer_profile_billing']['field_billing_email'][LANGUAGE_NONE][0]['email_verify']['#attributes'] = array('placeholder' => t('Confirmation du courriel') . ' * ');
+
+  $form['customer_profile_billing']['field_condition_privacy'][LANGUAGE_NONE]['#prefix'] = "Si vous ne souhaitez pas que vos coordonnées soient utilisées par nos partenaires, cochez la case ci-contre";
+  $form['customer_profile_billing']['field_condition_privacy'][LANGUAGE_NONE]['#title'] = '';
+
+  $form['customer_profile_billing']['commerce_customer_address'][LANGUAGE_NONE][0]['#process'][] = 'ilot_theme_form_commerce_checkout_process_customer_profile_address';
+}
+
+/**
+ * Custom submit callback for the checkout_checkout form.
+ */
+function ilot_theme_form_commerce_checkout_submit_customer_profile($form, &$form_state) {
+  $order = commerce_order_load($form_state['order']->order_id);
+  $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+
+  $order_wrapper->mail->set($order_wrapper->commerce_customer_billing->field_billing_email->value());
+  $order_wrapper->save();
+  /*global $user;
+  $order = commerce_order_load($form_state['order']->order_id);
+  $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+
+  $order_wrapper->mail->set($order_wrapper->commerce_customer_billing->field_billing_email->value());
+
+  if ($user->uid) {
+   $order_wrapper->field_numero_donateur->set($user->name);
+   $order_wrapper->field_generate_account->set(FALSE);
+  	// user is already logged in. nothing to do in here.
+  	return;
+  }
+
+
+  $generate_account = $form_state['values']['customer_profile_billing']['generate_account'];
+  $numero_donateur = $form_state['values']['customer_profile_billing']['numero_donateur'];
+
+  // If donateur account already exists logged in the user and continue
+  if (!empty($numero_donateur) && ilot_theme_numero_donateur_exist($numero_donateur)) {
+    $order_wrapper->field_numero_donateur->set($numero_donateur);
+    $order_wrapper->field_generate_account->set(FALSE);
+
+    // Log in user and convert order (update in db with the good UID, so the user can see is order after login).
+    ilot_theme_form_commerce_checkout_connect_donateur($numero_donateur, $order);
+
+    entity_save('commerce_order', $order);
+    return;
+  }
+
+
+  if ($generate_account) {
+    while (true) {
+      $numero_donateur = ilot_theme_generate_password(10);
+      if (!ilot_theme_numero_donateur_exist($numero_donateur)) {
+        break;
+      }
+    }
+    $order_wrapper->field_numero_donateur->set($numero_donateur);
+    $order_wrapper->field_generate_account->set(TRUE);
+
+    //set up the user fields
+    $fields = array(
+      'name' => $numero_donateur,
+      'mail' => '',
+      'pass' => $numero_donateur,
+      'status' => 1,
+      'init' => '',
+      'timezone' => 'Europe/Berlin',
+      'roles' => array(
+        DRUPAL_AUTHENTICATED_RID => 'authenticated user',
+      ),
+    );
+    $account = user_save('', $fields);
+    // Log in user and convert order (update in db with the good UID, so the user can see is order after login).
+    ilot_theme_form_commerce_checkout_connect_donateur($numero_donateur, $order, $account);
+  }*/
+}
+
+
+/**
+ * This function log in the user with the username passed in.
+ * And doesn't do any test by itself.
+ * That they can be different wether this function is called.
+ * Can convert an order in the process if passed in.
+ *
+ * @param String $numero_donateur
+ * @param StdObject $order
+ *
+function ilot_theme_form_commerce_checkout_connect_donateur($numero_donateur, &$order = NULL, $user_numero = NULL) {
+  global $user;
+  if (is_null($user_numero)) {
+    $user_numero = user_load_by_name($numero_donateur);
+  }
+  if (is_object($user_numero)) {
+    ilot_custom_order_convert($order, $user_numero);
+    $user = $user_numero;
+    user_login_finalize();
+  }
+}*/
+
+/**
+ * Connect button in shpping pane, submit callback.
+ *
+function ilot_theme_form_commerce_checkout_check_donateur_option(&$form, &$form_state) {
+  global $user;
+
+  if ($user->uid != 0) {
+    watchdog('ilot_theme_user', 'Session closed for customer %name in checkout.', array('%name' => $user->name));
+
+    module_invoke_all('user_logout', $user);
+
+    // Backup the session from the donation form
+    $saved_session_secured_part_checkout_donation = ilot_custom_form_session_value('checkout_donation');
+
+    // Get the donation type (normal / isf).
+    $order = $form_state['order'];
+    $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+    foreach ($order_wrapper->commerce_line_items as $delta => $line_item_wrapper) {
+      $line_item = $line_item_wrapper->value();
+
+      if ($line_item->type == 'commerce_french_donate') {
+        $donation_type = $line_item_wrapper->field_cf_donate_type_don->value();
+        break;
+      }
+    }
+
+
+
+    // Destroy the current session, and reset $user to the anonymous user.
+    session_destroy();
+
+    // Restore the session from the donation form, the user keep that.
+    ilot_custom_form_session_value('checkout_donation', $saved_session_secured_part_checkout_donation);
+
+    if (isset($donation_type) && $donation_type == 'don_isf') {
+      drupal_goto('faire-un-don/isf');
+    }
+    drupal_goto('faire-un-don');
+  }
+  $numero_donateur = trim($form_state['values']['customer_profile_billing']['numero_donateur']);
+  if (empty($numero_donateur)) {
+    form_set_error('customer_profile_billing][numero_donateur', 'Le champ ' . $form['customer_profile_billing']['numero_donateur']['#title'] . ' est requis pour se connecter');
+    return;
+  }
+  if (ilot_theme_numero_donateur_exist($numero_donateur)) {
+    $order = commerce_order_load($form_state['order']->order_id);
+    $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+    $order_wrapper->field_numero_donateur->set($numero_donateur);
+    $order_wrapper->field_generate_account->set(FALSE);
+
+    // Log in user and convert order (update in db with the good UID, so the user can see is order after login).
+    ilot_theme_form_commerce_checkout_connect_donateur($numero_donateur, $order);
+
+    $form_state['order'] = $order;
+  }
+  else {
+    form_set_error('customer_profile_billing][numero_donateur', 'Le numéro de donateur ' . $numero_donateur . " n'existe pas");
+  }
+
+}*/
+
+/**
+ * Check if a donateur number exists.
+ * @param String $numero_donateur
+ * @return boolean
+ *   TRUE if the number exists, FALSE otherwise.
+ *
+function ilot_theme_numero_donateur_exist($numero_donateur) {
+  $query = db_select('field_data_field_numero_donateur', 'n');
+  $query->addField('n', 'entity_id');
+  $query->condition('n.field_numero_donateur_value', $numero_donateur);
+  $query->range(0, 1);
+  $result_field = $query->execute()->fetchField();
+
+  return !empty($result_field);
+}*/
+
+/**
+ * Preprocess the address field form.
+ */
+function ilot_theme_form_commerce_checkout_process_customer_profile_address($form, &$form_state) {
+  // adjustment made on 11/28/14 for form simplification
+  $form['country']['#access'] = false;
+  // Last name, Nom:
+  $form['name_block']['last_name']['#title'] = t('Nom');
+  //$form['name_block']['last_name']['#attributes']['placeholder'] .=  ' * ';
+  $form['name_block']['last_name']['#weight'] = 10;
+  // First name, Prénom:
+  $form['name_block']['first_name']['#title'] = t('Prénom');
+  //$form['name_block']['first_name']['#attributes']['placeholder'] .=  ' * ';
+  $form['name_block']['first_name']['#weight'] = 0;
+  // Address 1:
+  $form['street_block']['thoroughfare']['#title'] = $form['street_block']['thoroughfare']['#type'] = 'textarea';
+  $form['street_block']['thoroughfare']['#title'] = t('Adresse');
+  //$form['street_block']['thoroughfare']['#attributes']['placeholder'] .=  ' * ';
+  // Address 2:
+  $form['street_block']['premise']['#title'] = $form['street_block']['premise']['#attributes']['placeholder'] = t("Complément d'adresse");
+  // adjustment made on 11/28/14 for form simplification
+  $form['street_block']['premise']['#access'] = false;
+  // Postal code:
+  $form['locality_block']['postal_code']['#title'] = t('Code postal');
+  //$form['locality_block']['postal_code']['#attributes']['placeholder'] .=  ' * ';
+  // City:
+  $form['locality_block']['locality']['#title'] = t('Ville');
+  //$form['locality_block']['locality']['#attributes']['placeholder'] .=  ' * ';
+
+  return $form;
+}
+
+/**
+ * Generate a random numeric password.
+ *
+function ilot_theme_generate_password($length = 10) {
+  // This variable contains the list of allowable characters for the
+  // password.
+  $allowable_characters = '0123456789';
+
+  // Zero-based count of characters in the allowable list:
+  $len = strlen($allowable_characters) - 1;
+
+  // Declare the password as a blank string.
+  $pass = '';
+
+  // Loop the number of times specified by $length.
+  for ($i = 0; $i < $length; $i++) {
+
+    // Each iteration, pick a random character from the
+    // allowable string and append it to the password:
+    $pass .= $allowable_characters[mt_rand(0, $len)];
+  }
+
+  return $pass;
+}*/

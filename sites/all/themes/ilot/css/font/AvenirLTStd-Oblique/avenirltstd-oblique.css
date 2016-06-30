@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'AvenirLTStdOblique';
+    src: url('AvenirLTStd-Oblique.eot');
+    src: url('AvenirLTStd-Oblique.eot?#iefix') format('embedded-opentype'),
+         url('AvenirLTStd-Oblique.woff') format('woff'),
+         url('AvenirLTStd-Oblique.ttf') format('truetype'),
+         url('AvenirLTStd-Oblique.svg#AvenirLTStdOblique') format('svg');
+}

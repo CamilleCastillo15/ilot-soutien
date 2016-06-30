@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ilot_page_simple feature.
+ */
+
+include_once 'ilot_page_simple.features.inc';

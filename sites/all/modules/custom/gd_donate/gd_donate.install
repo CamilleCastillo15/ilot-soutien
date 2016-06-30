@@ -1,0 +1,116 @@
+<?php
+/**
+ * @file line_item_example.install
+ */
+
+/**
+ * Implements hook_install().
+ */
+function gd_donate_install() {
+  variable_set('gd_donate_monthly_options', array(7 => '7 €', 10 => '10 €', 15 => '15 €', 20 => '20 €', 30 => '30 €'));
+  variable_set('gd_donate_unique_options', array(30 => '30 €', 70 => '70 €', 100 => '100 €', 150 => '150 €'));
+  variable_set('gd_donate_ceiling', '');
+  variable_set('gd_donate_answer_below_ceiling', "Montant de mon don après déduction fiscale de 66% sur mon impôt sur le revenu [donation]. Pour un don ISF, la déduction s'élève à 75%");
+  variable_set('gd_donate_answer_above_ceiling', "Montant de mon don après déduction fiscale de 66% sur mon impôt sur le revenu [donation]. Pour un don ISF, la déduction s'élève à 75%");
+  variable_set('gd_donate_calculate_below_ceiling', '[user-amount]*0.66');
+  variable_set('gd_donate_calculate_above_ceiling', '[user-amount]*0.66');
+  //If there is a specific ceiling with a different rate of tax deduction above it, here is an example : [ceiling]*0.75 + ([user-amount]-[ceiling])*2/3
+  variable_set('gd_donate_activ_monthly_free', TRUE);
+  variable_set('gd_donate_activ_unique_free', TRUE);
+  variable_set('gd_donate_activ_calculator', TRUE);
+  gd_donate_mensualite_field_create();
+}
+
+/**
+ * Implements hook_enable().
+ *
+ * Here we count on Commerce Line Items module to configure our type based on
+ * the information we provide in
+ * line_item_example_commerce_line_item_type_info().
+ */
+function gd_donate_enable() {
+  // This function configures all existing line item types, including ours.
+  commerce_line_item_configure_line_item_types();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function gd_donate_uninstall() {
+  $variables = array(
+    'gd_donate_line_item_amount',
+    'gd_donate_line_item_currency',
+  );
+  foreach ($variables as $variable) {
+    variable_del($variable);
+  }
+}
+
+/**
+ * Create a field instance.
+ */
+function gd_donate_type_don_field_create() {
+  $field_type_don = array(
+    'field_name' => 'field_gd_donate_type_don',
+    'cardinality' => 1,
+    'entity_type' => 'commerce_line_item',
+    'type' => 'list_text',
+  );
+
+  field_create_field($field_type_don);
+
+  $field_instance = array(
+    'field_name' => 'field_gd_donate_type_don',
+    'label' => 'Type de don',
+    'entity_type' => 'commerce_line_item',
+    'bundle' => 'gd_donate',
+    'display' => array(),
+    'required' => TRUE,
+    'settings' => array(
+      'allowed_values' => array(
+        'don_normal' => 'Don normal',
+        'don_isf' => 'Don ISF',
+      ),
+    ),
+    'default_value' => array(
+      'don_normal' => 'Don normal',
+    ),
+    'widget' => array(
+      'type' => 'options_buttons',
+    ),
+  );
+}
+
+/**
+ * Create a field instance.
+ */
+function gd_donate_mensualite_field_create() {
+  $field_mensualite = array(
+    'field_name' => 'field_gd_donate_mensualite',
+    'cardinality' => 1,
+    'entity_type' => 'commerce_line_item',
+    'type' => 'list_boolean',
+  );
+
+  field_create_field($field_mensualite);
+
+  $field_instance = array(
+    'field_name' => 'field_gd_donate_mensualite',
+    'label' => 'Mensualité',
+    'entity_type' => 'commerce_line_item',
+    'bundle' => 'gd_donate',
+    'display' => array(),
+    'required' => FALSE,
+    'settings' => array(
+      'allowed_values' => array(
+        '0' => 'No',
+        '1' => 'Yes',
+      ),
+    ),
+    'widget' => array(
+      'type' => 'options_onoff',
+    ),
+  );
+
+  field_create_instance($field_instance);
+}

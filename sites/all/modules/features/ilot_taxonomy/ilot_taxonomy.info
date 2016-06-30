@@ -1,0 +1,16 @@
+name = ilot_taxonomy
+core = 7.x
+package = ilot
+version = 7.x-1.0
+project = ilot_taxonomy
+dependencies[] = features
+dependencies[] = taxonomy
+dependencies[] = text
+features[features_api][] = api:2
+features[field_base][] = field_auteur_fonction
+features[field_instance][] = taxonomy_term-auteur-field_auteur_fonction
+features[taxonomy][] = auteur
+features[taxonomy][] = type_partner
+features[taxonomy][] = type_temoignage
+features_exclude[field][taxonomy_term-auteur-field_auteur_fonction] = taxonomy_term-auteur-field_auteur_fonction
+project path = sites/all/modules/features

@@ -1,0 +1,11 @@
+name = ilot_footer_menu
+core = 7.x
+package = ilot
+version = 7.x-1.0
+project = ilot_footer_menu
+dependencies[] = features
+dependencies[] = menu
+features[features_api][] = api:2
+features[menu_custom][] = menu-footer-menu
+features_exclude[menu_custom][main-menu] = main-menu
+mtime = 1417082887

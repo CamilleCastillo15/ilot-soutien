@@ -1,0 +1,313 @@
+.node-actualites.view-mode-teaser
+{
+	border-bottom : solid 1px #28bca4;
+	height : 190px;
+	width : 630px;
+  margin-bottom: 28px;
+	position : relative
+}
+.node-actualites.view-mode-contextual_teaser
+{
+
+  width : 195px;
+  margin-bottom: 45px;
+
+}
+.node-actualites.view-mode-full
+{
+  width : 750px;
+  margin-bottom : 10px;
+  position : relative
+}
+.node-actualites .vignette
+{
+	width : 205px;
+	float : left;
+	position : relative;
+}
+
+.node-actualites.view-mode-full .vignette
+{
+	margin-bottom : 25px;
+}
+
+.node-actualites .texte
+{
+	float : left;
+	width : 410px;
+	margin-left : 20px 
+}
+.node-actualites.view-mode-teaser .texte {
+  width: 290px;
+}
+body.node-type-accueil .node-actualites.view-mode-teaser .texte {
+  width: 305px;
+}
+.node-actualites .date-actualite
+{
+	width : 130px;
+	position : absolute;
+	top : 0;
+	right : 0;
+}
+.node-actualites.view-mode-teaser .date-actualite
+{
+	width : 100px;
+}
+
+.node-actualites .vignette a
+{
+	display: block;
+  position : relative;
+  height : 190px;
+  width : 205px;
+}
+
+.node-actualites .vignette a:after
+{
+	content : '';
+  position : absolute;
+  top : 0;
+  left: 0;
+  width : 100%;
+  height : 100%;
+  background : rgba(40,188,164,0.2);
+}
+
+.node-actualites.view-mode-teaser .vignette .auteur,
+.node-actualites.view-mode-contextual_teaser .vignette .auteur
+{
+	position : absolute;
+	bottom : 20px;
+	left : 15px;
+	font-family : 'Anaheim', sans-serif;
+	text-transform: uppercase;
+	font-size : 27px;	
+	color : #ffffff;
+}
+.node-actualites.view-mode-contextual_teaser .vignette a {
+  height: 185px;
+  width: 195px;
+}
+.node-actualites .date-actualite-long {
+	margin: 5px 0;
+}
+.node-actualites.view-mode-contextual_teaser .actu-short h2
+{
+  font-family: 'Anaheim',sans-serif;
+  text-transform: uppercase;
+  font-size: 19px;
+  font-weight: normal;
+  line-height: 18px;
+  margin: 0;
+}
+
+.node-actualites.view-mode-teaser .vignette .auteur .auteur-bold
+{
+	font-family : 'NeouBold', sans-serif;
+}
+
+.node-actualites .texte h1,
+.node-actualites.view-mode-teaser .texte h2
+{
+	clear: both;
+  font-family: 'Anaheim',sans-serif;
+  text-transform: uppercase;
+  font-size: 19px;
+  font-weight: normal;
+  line-height: 18px;
+  margin: 0 0 5px;
+}
+.node-actualites.view-mode-full .texte .auteur
+{
+  font-family : 'NeouBold', sans-serif;
+  font-size : 30px;
+}
+.node-actualites.view-mode-full .texte h1
+{
+	font-size : 30px;
+	line-height: 30px;
+  margin-top: 5px;
+}
+
+.node-actualites .texte h1:after
+{
+	content : '';
+	display : inline-block;
+	width : 12px;
+	height : 10px;
+	background : url('/sites/all/themes/ilot/images/triangle.png') no-repeat;
+	margin-left: 5px;
+}
+.field-name-field-actualite-video embed {
+	width: 750px;
+	height: 400px;
+}
+.node-actualites.view-mode-teaser .texte .field-name-field-actualite-accroche
+{
+	font-family : 'Gill Sans', sans-serif;
+	font-weight: bold;
+	font-size : 14px;
+	line-height : 16px;
+	margin-bottom : 10px;
+}
+
+.node-actualites.view-mode-teaser .texte a.read-more
+{
+	font-family : 'StaticRegular', sans-serif;
+	font-size : 14px;
+	background : url('/sites/all/themes/ilot/images/fleche_more.png') no-repeat center right #293036;
+	color : #ffffff;
+	text-decoration : none;
+	border-bottom : 0px solid #28bca4;
+	padding : 3px 35px 3px 10px;
+	height: 20px;
+  line-height: 20px;
+  bottom: 10px;
+  position: absolute;
+}
+
+.node-actualites.view-mode-teaser .texte a.read-more:hover
+{
+	border-bottom : 3px solid #28bca4;
+}
+
+.node-actualites.view-mode-teaser .texte h1 a {
+	color: #2e2e2e;
+	text-decoration: none;
+}
+.node-actualites .date-actualite
+{
+	overflow : hidden;
+	font-family : 'NeouBold', sans-serif;
+	font-size : 24px;	
+}
+.node-actualites.view-mode-full .date-actualite
+{
+  font-size : 32px; 
+}
+.node-actualites .date-actualite .jour
+{
+	display : inline-block;
+	float : left;
+	margin-right : 7px;
+	width : 36px;
+	height : 33px;
+	text-align : center;
+	color : #ffffff;
+	padding-top : 8px;
+	font-family : 'StaticBold', sans-serif;
+	font-size : 24px;
+	background : url('/sites/all/themes/ilot/images/calendar.png') no-repeat center center;
+}
+
+.node-actualites.view-mode-full .date-actualite .jour
+{
+  width : 55px;
+  padding-top : 19px;
+  height : 43px;
+  font-size : 36px;
+  background : url('/sites/all/themes/ilot/images/calendar2.png') no-repeat center center;
+}
+
+.node-actualites .date-actualite .mois
+{
+  padding-top : 1px;
+}
+.node-type-accueil .node-actualites .date-actualite .mois,
+.node-type-accueil .node-actualites .date-actualite .annee {
+	font-size: 15px;
+	line-height: 14px;
+}
+.node-actualites.view-mode-full .date-actualite .mois
+{
+  padding-top : 10px;
+}
+
+.node-actualites .corps
+{
+	margin-top : 30px;
+	clear : both;
+	font-family : 'Gill Sans', sans-serif;
+  padding-bottom : 40px;
+}
+
+.node-actualites .corps .field-name-field-actualite-accroche,
+.node-actualites .corps .field-name-field-actualite-corps bold
+{
+  font-family : 'AvenirLTStd85Heavy', sans-serif;
+  font-size : 16px;
+  line-height : 18px;
+}
+
+.node-actualites .corps .field-name-field-actualite-corps
+{
+	font-size : 16px;
+	line-height : 19px;
+}
+
+.node-actualites .corps .auteur,
+.node-actualites .corps h2
+{
+  font-family : 'NeouBold', sans-serif;
+  font-size : 25px;
+  font-weight : normal;
+}
+
+.node-actualites .corps .field-name-field-actualite-video
+{
+	margin-bottom : 40px;
+}
+
+.node-actualites .corps .field-name-field-actualite-auteur-fonction
+{
+  font-family : 'Anaheim', sans-serif;
+  text-transform: uppercase;
+  font-size : 25px;
+}
+
+.node-actualites.view-mode-full .icone-set
+{
+	top : 140px;
+}
+
+
+/** Liste d'actualités **/
+div.node-liste-actualites {
+  float: left;
+  width: 630px;
+  margin-left: 35px;
+}
+aside.node-liste-actualites {
+  float: left;
+  margin-left: 70px;
+  width: 210px;
+}
+aside.node-liste-actualites h3 {
+	margin-top: 0;
+	text-transform: uppercase;
+	font-family: 'NeouBold',sans-serif;
+	font-weight: normal;
+	margin-bottom: 0;
+}
+aside.node-liste-actualites ul {
+  padding: 0;
+  list-style: none inside none;
+  margin-top:0;
+}
+aside.node-liste-actualites ul li {
+	margin: 10px 0;
+}
+aside.node-liste-actualites ul li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Anaheim',sans-serif;
+  transition: color 0.5s;
+}
+aside.node-liste-actualites ul li a.active_sort:hover {
+  color: #2e2e2e;
+  cursor: default;
+}
+aside.node-liste-actualites ul li a:hover {
+	color: #28bca4;
+}

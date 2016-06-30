@@ -1,0 +1,43 @@
+name = ilot custom
+description = "Provides theme and preprocess functions for rendering ilot content types."
+package = ilot
+core = 7.x
+configure = admin/config/ilot/settings
+
+; Contrib modules that need to be enabled after the profile install:
+
+
+; Custom modules
+dependencies[] = ilot_theme
+
+; Custom features
+dependencies[] = ilot_accueil
+dependencies[] = ilot_actualites
+dependencies[] = ilot_association
+dependencies[] = ilot_chiffre
+dependencies[] = ilot_edito
+dependencies[] = ilot_image_style_configuration
+dependencies[] = ilot_mission
+dependencies[] = ilot_page_editoriale
+dependencies[] = ilot_page_simple
+dependencies[] = ilot_profile
+dependencies[] = ilot_partenaires
+dependencies[] = ilot_projet
+dependencies[] = ilot_taxonomy
+dependencies[] = ilot_temoignage
+dependencies[] = ilot_valeur
+dependencies[] = ilot_rapport_activite
+dependencies[] = ilot_footer_menu
+dependencies[] = ilot_customer_profiles
+dependencies[] = ilot_search_conf
+dependencies[] = ilot_page_intro
+dependencies[] = ilot_page_intro_categorie
+dependencies[] = ilot_mentions_legales
+dependencies[] = ilot_information_don 
+dependencies[] = ilot_savoir_plus_don
+
+files[] = includes/taxonomy_term.inline_entity_form.inc
+
+
+version = "7.x-1.0"
+

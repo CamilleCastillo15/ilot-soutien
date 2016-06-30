@@ -1,0 +1,8 @@
+.node-mentions-legales.view-mode-full h1:after
+{
+  content : '';
+  display : inline-block;
+  width : 12px;
+  height : 10px;
+  background : url('/sites/all/themes/ilot/images/triangle.png') no-repeat;
+}

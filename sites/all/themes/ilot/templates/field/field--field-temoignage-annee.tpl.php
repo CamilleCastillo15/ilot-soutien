@@ -1,0 +1,1 @@
+<span class="date">Témoignage recueilli en <?php print render($items); ?></span>

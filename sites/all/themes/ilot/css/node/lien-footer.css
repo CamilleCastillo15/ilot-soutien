@@ -1,0 +1,64 @@
+#site-map .content > ul.site-map-menu > li
+{
+	float : left;
+	width : 150px;
+	text-align : center;
+	text-transform : uppercase;
+	margin-right : 10px;
+}
+#site-map h1
+{
+  font-family : 'NeouBold', sans-serif;
+  font-size : 25px;
+  font-weight : normal;
+}
+
+#site-map h1:after
+{
+  content : '';
+  display : inline-block;
+  width : 12px;
+  height : 10px;
+  background : url('/sites/all/themes/ilot/images/triangle.png') no-repeat;
+}
+#site-map .content > ul.site-map-menu > li > a
+{
+	font-family : 'NeouBold', sans-serif;
+	font-size : 18px;
+	background-color : #28bca4;
+  padding : 10px 0 3px 0;
+  display : block;
+  color : #ffffff;
+}
+#site-map ul.site-map-menu
+{
+	margin : 0;
+	padding : 0;
+}
+#site-map ul.site-map-menu li
+{
+	margin : 0;
+	padding : 0;
+	list-style : none;
+}
+
+#site-map ul.site-map-menu li a
+{
+	text-decoration : none;
+	color : #000000;
+}
+
+#site-map div.site-map-menus h2.title
+{
+	display : none;
+}
+#site-map ul.site-map-menu ul.site-map-menu li
+{
+	 text-transform : none;
+  background-color : #ffffff;
+	list-style-image: url("/sites/all/themes/ilot/images/fleche_list.png");
+  border-top : 1px solid #28bca4;
+  list-style-position:inside;
+  padding : 10px 0;
+  text-align : left;
+}

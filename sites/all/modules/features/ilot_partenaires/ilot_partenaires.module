@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ilot_partenaires feature.
+ */
+
+include_once 'ilot_partenaires.features.inc';

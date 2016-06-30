@@ -1,0 +1,45 @@
+.node-edito.view-mode-full
+{
+	width : 200px;
+	height : 300px;
+	background-color : #28bca4;
+	padding : 15px;
+}
+
+.node-edito.view-mode-full h1
+{
+	font-family : 'Anaheim', sans-serif;
+  text-transform: uppercase;
+	font-size : 28px;
+	color : #ffffff;
+	font-weight : normal;
+	margin : 0;
+	letter-spacing : 1px;
+}
+
+.node-edito.view-mode-full .field-name-field-edito-corps p
+{
+	margin : 0;
+	font-family : 'Gill Sans', sans-serif;
+	font-style: italic;
+	font-size : 14px;
+	color : #ffffff;
+	line-height : 16px;
+}
+
+.node-edito .field-name-field-edito-nom
+{
+	font-family : 'MistralStdRegular', sans-serif;
+	font-size : 29px;
+	color : #ffffff;
+	text-align : right;
+	margin-top : 8px;
+}
+
+.node-edito .field-name-field-edito-fonction
+{
+	font-family : 'Gill Sans', sans-serif;
+	font-size : 14px;
+	color : #ffffff;
+  text-align : right;
+}
