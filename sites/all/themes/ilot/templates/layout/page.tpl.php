@@ -76,9 +76,9 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
 
 <div id="page" <?php if ($light) : print 'class="checkout-light"'; endif; ?>>
     <?php if (!$light) : ?>
-    <div id="navigation" >
+    <div id="l-header" >
           <?php print render($page['header']);?>
-
+          <div class="clear"></div>
     </div><!-- /#navigation -->
     <?php endif; ?>
 

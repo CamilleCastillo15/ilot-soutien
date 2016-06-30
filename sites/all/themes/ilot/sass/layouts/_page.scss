@@ -1,3 +1,15 @@
+@import "singularitygs";
+@import "breakpoint";
+@import "../variables/var";
+
 html {
     background-color: yellow;
+}
+
+#page {
+
+  @include background-grid($color: grey);
+  margin: auto;
+  max-width: $max;
+
 }
