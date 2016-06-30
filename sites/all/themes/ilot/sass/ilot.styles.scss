@@ -3,8 +3,11 @@
 //@import "variables/{YOUR FILE NAME HERE}";
 //@import "abstractions/{YOUR FILE NAME HERE}";
 //@import "base/{YOUR FILE NAME HERE}";
-@import "variables/fonts";
 @import "variables/var";
+
+@import "variables/fonts";
+@import "variables/typos";
+
 @import "variables/mixins";
 
 @import "layouts/page";

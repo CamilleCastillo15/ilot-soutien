@@ -75,63 +75,63 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
 ?>
 
 <div id="page" <?php if ($light) : print 'class="checkout-light"'; endif; ?>>
-<?php if (!$light) : ?>
-<div id="navigation" >
-      <?php print render($page['header']);?>
+    <?php if (!$light) : ?>
+    <div id="navigation" >
+          <?php print render($page['header']);?>
 
 
 
-</div><!-- /#navigation -->
-<?php endif; ?>
-
-<div id="main">
-
-    <div id="content" class="column" role="main">
-      <?php print render($page['highlighted']); ?>
-      <?php print $breadcrumb; ?>
-      <a id="main-content"></a>
-      <?php print $messages; ?>
-      <?php print render($tabs); ?>
-      <?php print render($page['help']); ?>
-      <?php if ($action_links): ?>
-        <ul class="action-links"><?php print render($action_links); ?></ul>
-      <?php endif; ?>
-      <?php print render($page['content']); ?>
-      <?php
-      // adjustment made on 11/28/14 for form simplification
-      if (arg(0) == 'checkout' && (!arg(2))) : ?>
-
-        <p class="block-legal-checkout">En application de la loi "Informatique et Libertés" du 6 janvier 1978, vous disposez d'un droit d'accès, de rectification et de suppression des informations vous concernant, <a href="/contact">en nous contactant</a>.</p>
-
-        <?php if (false): ?>
-        <div class="block-logo-confiance">
-        <img src="/<?php print drupal_get_path('theme', 'ilot') . '/images/comite-charte.png' ; ?>">
-        <p>L'association l'Îlot est reconnue d'utilité publique depuis 1988 et agréée par le Comité de la Charte du don en confiance, organisme d'agrément et de contrôle des organisations faisant appel aux dons.</p>
-        </div>
-        <?php endif; ?>
-      <?php endif; ?>
-      <?php print $feed_icons; ?>
-      <div class="clearfix"></div>
-    </div><!-- /#content -->
-
-
-    <?php
-      // Render the sidebars to see if there's anything in them.
-      $sidebar_first  = render($page['sidebar_first']);
-      $sidebar_second = render($page['sidebar_second']);
-    ?>
-
-    <?php if ($sidebar_first || $sidebar_second): ?>
-      <aside class="sidebars">
-        <?php print $sidebar_first; ?>
-        <?php print $sidebar_second; ?>
-      </aside><!-- /.sidebars -->
+    </div><!-- /#navigation -->
     <?php endif; ?>
 
-  </div><!-- /#main -->
-<?php if (!$light) : ?>
-  <?php print render($page['footer']); ?>
-<?php endif; ?>
+    <div id="main">
+
+        <div id="content" class="column l-content" role="main">
+          <?php print render($page['highlighted']); ?>
+          <?php print $breadcrumb; ?>
+          <a id="main-content"></a>
+          <?php print $messages; ?>
+          <?php print render($tabs); ?>
+          <?php print render($page['help']); ?>
+          <?php if ($action_links): ?>
+            <ul class="action-links"><?php print render($action_links); ?></ul>
+          <?php endif; ?>
+          <?php print render($page['content']); ?>
+          <?php
+          // adjustment made on 11/28/14 for form simplification
+          if (arg(0) == 'checkout' && (!arg(2))) : ?>
+
+            <p class="block-legal-checkout">En application de la loi "Informatique et Libertés" du 6 janvier 1978, vous disposez d'un droit d'accès, de rectification et de suppression des informations vous concernant, <a href="/contact">en nous contactant</a>.</p>
+
+            <?php if (false): ?>
+            <div class="block-logo-confiance">
+            <img src="/<?php print drupal_get_path('theme', 'ilot') . '/images/comite-charte.png' ; ?>">
+            <p>L'association l'Îlot est reconnue d'utilité publique depuis 1988 et agréée par le Comité de la Charte du don en confiance, organisme d'agrément et de contrôle des organisations faisant appel aux dons.</p>
+            </div>
+            <?php endif; ?>
+          <?php endif; ?>
+          <?php print $feed_icons; ?>
+          <div class="clearfix"></div>
+        </div><!-- /#content -->
+
+
+        <?php
+          // Render the sidebars to see if there's anything in them.
+          $sidebar_first  = render($page['sidebar_first']);
+          $sidebar_second = render($page['sidebar_second']);
+        ?>
+
+        <?php if ($sidebar_first || $sidebar_second): ?>
+          <aside class="sidebars">
+            <?php print $sidebar_first; ?>
+            <?php print $sidebar_second; ?>
+          </aside><!-- /.sidebars -->
+        <?php endif; ?>
+
+      </div><!-- /#main -->
+    <?php if (!$light) : ?>
+      <?php print render($page['footer']); ?>
+    <?php endif; ?>
 </div><!-- /#page -->
 <?php if (!$light) : ?>
 <?php print render($page['bottom']); ?>

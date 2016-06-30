@@ -81,6 +81,7 @@ article.node-projets .bandeau-don span
 	display : inline;
 }
 
+/*
 .node-projets.view-mode-teaser
 {
 	position: relative;
@@ -97,6 +98,7 @@ article.node-projets .bandeau-don span
 	width : 205px;
 	margin-right : 20px;
 }
+*/
 
 .node-projets.view-mode-teaser .vignette .field-name-field-projet-image-accroche
 {
@@ -119,6 +121,7 @@ article.node-projets .bandeau-don span
 	height : 190px;
 }
 
+/*
 .node-projets.view-mode-teaser h2
 {
   font-family : 'NeouBold', sans-serif;
@@ -160,6 +163,7 @@ article.node-projets .bandeau-don span
   line-height : 16px;
   margin : 15px 0 0 0;
 }
+*/
 
 .node-projets.view-mode-teaser a.read-more
 {
