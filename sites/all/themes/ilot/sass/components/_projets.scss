@@ -14,17 +14,14 @@
 
             img {
 
-                @include breakpoint($mobilel) {
-                    //margin-left:25%;
-                 }
-
-                @include breakpoint($tablet) {
-                    //min-height: 204px;
-                 }
-
-                @include breakpoint($laptopl) {
-                    //min-height: 204px;
-                 }
+//                @include breakpoint($mobilel) {
+//                 }
+//
+//                @include breakpoint($tablet) {
+//                 }
+//
+//                @include breakpoint($laptopl) {
+//                 }
 
                 height: 100%;
 
