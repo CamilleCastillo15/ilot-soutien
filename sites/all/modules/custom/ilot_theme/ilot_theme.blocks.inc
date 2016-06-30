@@ -69,7 +69,7 @@ function ilot_theme_block_view($delta = '') {
     case 'image-logo':
       $block['subject'] = '';
       $block['content'] = array(
-	      '#markup' => '<div class="logo-wrapper"><a href="/"><span>Ilot</span><img class="logo" src="/sites/all/themes/ilot/images/logo.png" /></a></div>',
+	      '#markup' => '<div class="logo-wrapper"><a href="/"><span>Ilot</span><img class="logo" src="/sites/all/themes/ilot/images/ilot_degrade.svg" /></a></div>',
 	    );
       break;
     case 'bandeau-don':

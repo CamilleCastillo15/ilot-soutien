@@ -94,9 +94,10 @@ body.admin-menu #navigation
 
 .region-header #block-ilot-theme-image-logo
 {
-	position: absolute;
-  top: 5px;
-  width: 150px;
+/*	position: absolute;*/
+ display: inline-block;
+ top: 5px;
+ width: 150px;
 }
 
 .region-header .logo-wrapper span
@@ -128,6 +129,7 @@ body.admin-menu #navigation
 #block-ilot-theme-bandeau-don
 {
     clear: both;
+    display: inline-block;
 }
 
 #block-ilot-theme-bandeau-don .bandeau-don span,

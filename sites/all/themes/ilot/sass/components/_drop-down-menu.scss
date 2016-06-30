@@ -1,33 +1,20 @@
 .header__region {
 
     ul.menu {
-
         text-align: center;
-
         li {
-
             cursor: pointer;
-
             &:hover > ul {
-
                 display: block;
-
             }
-
             a {
-
                 text-decoration: none;
-
             }
-
         }
 
         &.expanded {
-
            position: relative;
-
         }
-
     }
 
     .expanded ul.menu {
@@ -35,9 +22,7 @@
         padding: 10px 0;
 
         @include breakpoint($laptop) {
-
             padding: 24px 0;
-
         }
 
         @include breakpoint($laptopl) {
