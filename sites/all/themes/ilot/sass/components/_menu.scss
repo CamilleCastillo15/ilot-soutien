@@ -3,23 +3,25 @@
     .menu {
         $h: 100px;
         height: $h;
-        @include grid-span(9,3);
+        @include grid-span(12,0);
+        margin-left: 0;
 
         li {
-             transition:all 0ms;
+            transition:all 0ms;
             text-transform: uppercase;
-            display: inline-block;
+//            display: inline-block;
             line-height: $h;
             font-size: 1rem;
-            margin: 0 0.4rem;
+//            margin: 0 0.4rem;
+
+            padding: 1rem 1rem;
 
             a {
                 transition:all 400ms;
                  padding-bottom: 1rem;
-                 border-bottom: 3px solid white;
+//                 border-bottom: 3px solid white;
                 &:hover,
                 &.active{
-
                     border-bottom: 3px solid $green;
                 }
                 text-decoration: none;
@@ -28,14 +30,13 @@
 
             @include breakpoint($laptop) {
                 font-size: 1.2rem;
-                margin: 0 0.8rem;
+//                margin: 0 0.8rem;
             }
 
             @include breakpoint($laptopl) {
                 font-size: 1.4rem;
-                margin: 0 1.2rem;
+//                margin: 0 1.2rem;
             }
-
         }
 
         li.expanded {
@@ -43,17 +44,25 @@
                 position: relative;
 
                 .menu {
+                    font-size:0.5rem;
+                    z-index: 10;
+                    margin-left: 0;
 
-                @include grid-span(18,1);
-                font-size:0.5rem;
-                left: 50%;
-                transform: translate(-50%,0);
-                z-index: 10;
+                    width: 150.84746%;
+                    float: left;
+                    margin-right: -100%;
+                    margin-left: 0;
+
+                    left: 50%;
+                    -webkit-transform: translate(-50%,0);
+                    -ms-transform: translate(-50%,0);
+                    transform: translate(-50%,0);
+                    z-index: 10;
 
                 li {
 
                     font-size: 0.7rem;
-                    line-height: 50px;
+                    line-height: 40px;
 
                     @include breakpoint($laptop) {
                         font-size: 0.9rem;
@@ -69,27 +78,20 @@
 
                     &:hover,
                     &.active {
-
                         background-color:$green;
                     }
 
                     a {
-
                         &:hover,
                         &.active {
-
                             border-bottom:none !important;
                         }
-
                         text-decoration: none;
                     }
 
                     &.active-trail {
-
                         background-color: $green;
-
                     }
-
                 }
 
                 &:before {
@@ -118,18 +120,12 @@
                     right: 0;
                     left:0;
 
-                    //margin-left: -48px;
-
                     @include breakpoint($laptop) {
-
                         margin-top: -21px;
-
                     }
 
                     @include breakpoint($laptopl) {
-
                         margin-top: -24px;
-
                     }
 
                 }
