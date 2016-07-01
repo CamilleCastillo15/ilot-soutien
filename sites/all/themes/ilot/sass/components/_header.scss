@@ -66,9 +66,22 @@
         a {
 
             font-family: "PermanentMarker",sans-serif;
-
-//
             @include btn_don(#903139);
+            min-width: 250px;
+            display: inline-block;
+
+            .col-1 {
+
+                display: inline-block;
+
+            }
+
+            img {
+
+                display: inline-block;
+                width:4rem;
+
+            }
 
         }
 

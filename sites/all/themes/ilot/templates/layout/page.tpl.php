@@ -98,9 +98,14 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
                     </div>
 
                     <a href="/faire-un-don">
-                        Je fais<br />
-                        un don
+
                         <img src="/sites/all/themes/ilot/images/logo_coeur_blanc.svg" />
+
+                        <div class="col-1">
+                            Je fais<br />
+                            un don
+                        </div>
+
                     </a>
 
                </div>

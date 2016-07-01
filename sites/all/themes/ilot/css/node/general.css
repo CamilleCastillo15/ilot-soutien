@@ -206,6 +206,7 @@ aside .bandeau-don a
   padding-right: 40px;
   width: 80px;
 }
+/*
 .bandeau-don a
 {
   float : right;
@@ -220,6 +221,7 @@ aside .bandeau-don a
   text-decoration : none;
   background : url('../../images/don-image.png') no-repeat 20px center #293036;
 }
+*/
 a.read-more
 {
   font-family : 'StaticRegular', sans-serif;
