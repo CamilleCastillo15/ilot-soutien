@@ -38,15 +38,19 @@
 
         position: relative;
 
-        .text-bandeau-don {
+        .center-texte-don {
 
-            padding: 2rem 1rem;
-            text-align: center;
             margin: 0 auto;
-            display: inline-block;
-            font-size: 2rem;
 
-            position: relative;
+            .text-bandeau-don {
+
+                padding: 2rem 1rem;
+                text-align: center;
+                margin: 0 auto;
+                display: inline-block;
+                font-size: 2rem;
+
+                position: relative;
 
             span{
 
@@ -63,23 +67,25 @@
 
         }
 
-        a {
+            a {
 
-            font-family: "PermanentMarker",sans-serif;
-            @include btn_don(#903139);
-            min-width: 250px;
-            display: inline-block;
-
-            .col-1 {
-
+                font-family: "PermanentMarker",sans-serif;
+                @include btn_don(#903139);
+                min-width: 250px;
                 display: inline-block;
 
-            }
+                .col-1 {
 
-            img {
+                    display: inline-block;
 
-                display: inline-block;
-                width:4rem;
+                }
+
+                img {
+
+                    display: inline-block;
+                    width:4rem;
+
+                }
 
             }
 

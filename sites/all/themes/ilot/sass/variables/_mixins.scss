@@ -67,8 +67,8 @@
     background-image : url(../images/f_blanches/f_droite.svg);
 
     min-height: 55px;
-    position: absolute;
-    top:  50%;
-    @include translate(0%,-50%);
+//    position: absolute;
+//    top:  50%;
+    @include translate(0%,-22%);
 
 }
