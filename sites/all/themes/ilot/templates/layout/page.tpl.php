@@ -79,6 +79,7 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
 
     <div id="l-header" >
 
+        <?php print render($page['navigation']);?>
 
          <div class="container-logo-bandeau-don">
 
@@ -114,7 +115,6 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
             </div>
 
          </div>
-
 
           <?php print render($page['header']);?>
 

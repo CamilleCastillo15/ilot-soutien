@@ -1,4 +1,4 @@
-#block-menu-block-custom-1 {
+.menu-block-custom-1{
 
     .menu {
         $h: 100px;
@@ -10,17 +10,23 @@
         clear: none;
         margin-left: 0;
 
-        padding-left: 0
+        padding: 0;
 
         li {
             transition:all 0ms;
             text-transform: uppercase;
             line-height: $h;
             font-size: 1rem;
-
             padding: 1rem 1rem;
-
             display: inline-block;
+
+            @include breakpoint($laptop) {
+                font-size: 1.2rem;
+            }
+
+            @include breakpoint($laptopl) {
+                font-size: 1.4rem;
+            }
 
             a {
                 transition:all 400ms;
@@ -32,13 +38,6 @@
                 text-decoration: none;
             }
 
-            @include breakpoint($laptop) {
-                font-size: 1.2rem;
-            }
-
-            @include breakpoint($laptopl) {
-                font-size: 1.4rem;
-            }
         }
 
         li.expanded {

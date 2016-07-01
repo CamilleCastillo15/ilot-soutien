@@ -54,21 +54,25 @@
     transition: all 200ms;
     text-decoration: none;
     text-transform: uppercase;
+    background-size : 15% 40%;
+    background-position: 96% center;
+    padding: 11px 24px 11px 0px;
 
-    padding: 13px 20px 19px 20px;
+    @include breakpoint($laptopl) {
+        padding: 13px 30px 19px 0px;
+        background-position: 100% center;
+        background-size : 7% 40%;
+    }
+
     text-align: center;
 
     background-repeat: no-repeat;
 
-    background-size : 15% 40%;
-    background-position: 100% center;
     position: relative;
     border : 2px solid $color;
     background-image : url(../images/f_blanches/f_droite.svg);
 
     min-height: 55px;
-//    position: absolute;
-//    top:  50%;
     @include translate(0%,-22%);
 
 }
