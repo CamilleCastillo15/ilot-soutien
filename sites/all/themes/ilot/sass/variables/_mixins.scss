@@ -39,3 +39,36 @@
         color: white;
     }
 }
+
+@mixin translate($x,$y){
+    -moz-transform : translate($x,$y);
+    -webkit-transform : translate($x,$y);
+    transform : translate($x,$y);
+}
+
+
+@mixin btn_don($color){
+    background-color: $color;
+    color:white;
+    cursor:pointer;
+    transition: all 200ms;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    padding: 18px 20px 30px 80px;
+    text-align: center;
+
+    background-repeat: no-repeat;
+
+    background-size : 15% 40%;
+    background-position: 100% center;
+    position: relative;
+    border : 2px solid $color;
+    background-image : url(../images/f_blanches/f_droite.svg);
+
+    min-height: 55px;
+    position: absolute;
+    top:  50%;
+    @include translate(0%,-50%);
+
+}

@@ -76,12 +76,47 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
 
 <div id="page" <?php if ($light) : print 'class="checkout-light"'; endif; ?>>
     <?php if (!$light) : ?>
+
     <div id="l-header" >
-         <div class="logo-wrapper"><a href="/"><span>Ilot</span><img class="logo" src="/sites/all/themes/ilot/images/ilot_degrade.svg" /></a></div>
-         <div class="bandeau-don"><span class="premier">Un accueil, un toit,</span><span> Un nouveau départ</span><a href="/faire-un-don">Faire un don</a></div>
+
+
+         <div class="container-logo-bandeau-don">
+
+             <div class="logo-wrapper">
+                 <a href="/"><img class="logo" src="/sites/all/themes/ilot/images/ilot_degrade.svg" /></a>
+             </div>
+
+             <div class="bandeau-don">
+
+               <div class="center-texte-don">
+
+                    <div class="text-bandeau-don">
+
+                        <span class="premier">Un accueil, un toit,</span>
+                        <span> Un nouveau départ</span>
+
+                    </div>
+
+                    <a href="/faire-un-don">
+                        Je fais<br />
+                        un don
+                        <img src="/sites/all/themes/ilot/images/logo_coeur_blanc.svg" />
+                    </a>
+
+               </div>
+
+
+            </div>
+
+         </div>
+
+
           <?php print render($page['header']);?>
+
           <div class="clear"></div>
+
     </div><!-- /#navigation -->
+
     <?php endif; ?>
 
     <div id="main">
@@ -98,7 +133,6 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
           <?php endif; ?>
           <?php print render($page['content']); ?>
           <?php
-          // adjustment made on 11/28/14 for form simplification
           if (arg(0) == 'checkout' && (!arg(2))) : ?>
 
             <p class="block-legal-checkout">En application de la loi "Informatique et Libertés" du 6 janvier 1978, vous disposez d'un droit d'accès, de rectification et de suppression des informations vous concernant, <a href="/contact">en nous contactant</a>.</p>
@@ -113,7 +147,6 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
           <?php print $feed_icons; ?>
           <div class="clearfix"></div>
         </div><!-- /#content -->
-
 
         <?php
           // Render the sidebars to see if there's anything in them.

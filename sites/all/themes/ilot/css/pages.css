@@ -151,20 +151,18 @@ body.admin-menu #navigation
   padding: 30px 12px 30px 20px;
 }
 
+/*
 #block-ilot-theme-bandeau-don .bandeau-don a
 {
-	float : right;
-	display : inline-block;
-	height : 32px;
+
 	padding : 18px 20px 30px 80px;
-	width : 90px;
-	font-family : 'StaticBold', sans-serif;
 	color : #ffffff;
 	text-transform : uppercase;
 	font-size : 25px;
 	text-decoration : none;
 	background : url('../images/don-image.png') no-repeat 20px center #293036;
 }
+*/
 
 #block-ilot-theme-social-share
 {

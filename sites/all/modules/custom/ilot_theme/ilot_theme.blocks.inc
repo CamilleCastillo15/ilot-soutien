@@ -34,20 +34,20 @@ function ilot_theme_menu_block_blocks() {
  */
 function ilot_theme_block_info() {
   $blocks = array();
-
-  $blocks['image-logo'] = array(
-		'info' => t('Logo Ilot'),
-		'weight' => 1,
-		'visibility' => BLOCK_VISIBILITY_NOTLISTED,
-		'cache' => DRUPAL_CACHE_GLOBAL,
-  );
-
-  $blocks['bandeau-don'] = array(
-      'info' => t('Bandeau don'),
-      'weight' => 10,
-      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
-      'cache' => DRUPAL_CACHE_GLOBAL,
-  );
+//
+//  $blocks['image-logo'] = array(
+//		'info' => t('Logo Ilot'),
+//		'weight' => 1,
+//		'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+//		'cache' => DRUPAL_CACHE_GLOBAL,
+//  );
+//
+//  $blocks['bandeau-don'] = array(
+//      'info' => t('Bandeau don'),
+//      'weight' => 10,
+//      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+//      'cache' => DRUPAL_CACHE_GLOBAL,
+//  );
 
   $blocks['social-share'] = array(
       'info' => t('Social-share'),
@@ -66,18 +66,18 @@ function ilot_theme_block_view($delta = '') {
   //The $delta parameter tells us which block is being reqested.
   $block = array();
   switch ($delta) {
-    case 'image-logo':
-      $block['subject'] = '';
-      $block['content'] = array(
-	      '#markup' => '<div class="logo-wrapper"><a href="/"><span>Ilot</span><img class="logo" src="/sites/all/themes/ilot/images/ilot_degrade.svg" /></a></div>',
-	    );
-      break;
-    case 'bandeau-don':
-      $block['subject'] = '';
-      $block['content'] = array(
-	      '#markup' => '<div class="bandeau-don"><span class="premier">Un accueil, un toit,</span><span> Un nouveau départ</span><a href="/faire-un-don">Faire un don</a></div>',
-	    );
-      break;
+//    case 'image-logo':
+//      $block['subject'] = '';
+//      $block['content'] = array(
+//	      '#markup' => '<div class="logo-wrapper"><a href="/"><span>Ilot</span><img class="logo" src="/sites/all/themes/ilot/images/ilot_degrade.svg" /></a></div>',
+//	    );
+//      break;
+//    case 'bandeau-don':
+//      $block['subject'] = '';
+//      $block['content'] = array(
+//	      '#markup' => '<div class="bandeau-don"><span class="premier">Un accueil, un toit,</span><span> Un nouveau départ</span><a href="/faire-un-don">Faire un don</a></div>',
+//	    );
+//      break;
     case 'social-share':
       $block['subject'] = '';
       $block['content'] = array(
