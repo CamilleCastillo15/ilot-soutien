@@ -115,7 +115,8 @@ body.admin-menu #navigation
 	clear : both;
 	height : 20px;
 	background-color : #f4f4f4;
-	/*margin-top : 40px; */
+	background-image: url('../images/banniere_coin.svg');
+    background-repeat: no-repeat;
     width: 100%;
     height: 80px;
 }
@@ -182,7 +183,7 @@ body.admin-menu #navigation
 	display : block;
 	height : 30px;
 	width : 30px;
-	background : #28bca4;
+	background : white;
 	overflow : hidden;
 	float : left;
 	list-style :none;
@@ -212,12 +213,14 @@ body.admin-menu #navigation
 
 #block-ilot-theme-social-share .item-list ul li a.facebook
 {
-	background : url('../images/facebook-white.png') no-repeat center center transparent;
+	background : url('../images/facebook_vert.svg') no-repeat center center transparent;
+    background-size: 60% 60%;
 }
 
 #block-ilot-theme-social-share .item-list ul li a.twitter
 {
-  background : url('../images/twitter-white.png') no-repeat center center transparent;
+  background : url('../images/twitter_vert.svg') no-repeat center center transparent;
+  background-size: 60% 60%;
 }
 
 .block-search-api-page

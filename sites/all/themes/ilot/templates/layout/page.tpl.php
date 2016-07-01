@@ -77,6 +77,8 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
 <div id="page" <?php if ($light) : print 'class="checkout-light"'; endif; ?>>
     <?php if (!$light) : ?>
     <div id="l-header" >
+         <div class="logo-wrapper"><a href="/"><span>Ilot</span><img class="logo" src="/sites/all/themes/ilot/images/ilot_degrade.svg" /></a></div>
+         <div class="bandeau-don"><span class="premier">Un accueil, un toit,</span><span> Un nouveau départ</span><a href="/faire-un-don">Faire un don</a></div>
           <?php print render($page['header']);?>
           <div class="clear"></div>
     </div><!-- /#navigation -->
