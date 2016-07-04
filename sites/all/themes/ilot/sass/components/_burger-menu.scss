@@ -1,0 +1,58 @@
+@import "singularitygs";
+@import "breakpoint";
+@import "../variables/var";
+
+.burger {
+    display: block;
+    @include breakpoint($tablet) {
+        display:none ;
+    }
+    top: $margin;
+    right:$margin;
+    position: fixed;
+    width: 60px;
+    height: auto;
+    cursor: pointer;
+    z-index:1000;
+    $offsetX: 10.8px;
+    $offsetY: 15.7px;
+    $offsetY_2: 31.4px;
+    $offsetY_3: 47.1px;
+    $widthX: 46.7438px;
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    transition: all 500ms;
+    circle {
+        opacity: 0.3;
+    }
+    #burger_1 {
+        transform: translate(10.8px, 5.7px) rotate(0deg);
+        transition: all 200ms linear;
+        transform-origin: $widthX/2 $offsetY;
+        fill: white;
+    }
+    #burger_2 {
+        transform: translate(10.8px, 5.7px) rotate(0deg);
+        fill: white;
+    }
+    #burger_3 {
+        transform: translate(10.8px, 5.7px) rotate(0deg);
+        transition: all 200ms linear;
+        transform-origin: $offsetX+($widthX/2) $offsetY_3;
+        fill: white;
+    }
+    &.o {
+        #burger_1 {
+            transform: translate($offsetX+2, 5.7px+($offsetY)/2) rotate(45deg);
+        }
+        #burger_2 {
+            opacity: 0;
+        }
+        #burger_3 {
+            transform: translate($offsetX+3, -(5.7px+($offsetY_2)/2)) rotate(-45deg);
+        }
+        #g10 {
+            transform: translate(-0.1px, 0);
+        }
+    }
+}
