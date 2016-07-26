@@ -16,10 +16,8 @@
         float: none;
 
         img {
-
             width:100%;
             max-width:12rem;
-
         }
 
         @include breakpoint($laptopxcl) {
@@ -66,40 +64,40 @@
 
                 position: relative;
 
-            span{
+                span {
 
-                color: $red;
-                padding-left: 1rem;
+                    color: $red;
+                    padding-left: 1rem;
 
-                font-size: 1rem;
+                    font-size: 1rem;
 
-                @include breakpoint($laptop) {
-                    font-size: 1.25rem;
+                    @include breakpoint($laptop) {
+                        font-size: 1.25rem;
+                    }
+
+                    @include breakpoint($laptopl) {
+                        font-size: 1.5rem;
+                    }
+
                 }
 
-                @include breakpoint($laptopl) {
-                    font-size: 1.5rem;
+                .premier {
+
+                    color: $green;
+
+                     font-size: 1rem;
+
+                    @include breakpoint($laptop) {
+                        font-size: 1.25rem;
+                    }
+
+                    @include breakpoint($laptopl) {
+                        font-size: 1.5rem;
+                    }
+
                 }
 
             }
-
-            .premier {
-
-                color: $green;
-
-                 font-size: 1rem;
-
-                @include breakpoint($laptop) {
-                    font-size: 1.25rem;
-                }
-
-                @include breakpoint($laptopl) {
-                    font-size: 1.5rem;
-                }
-
-            }
-
-        }
 
             a {
 

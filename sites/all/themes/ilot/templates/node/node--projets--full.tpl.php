@@ -55,9 +55,9 @@
       <?php endif;?>
     </div>
   <?php endif; ?>
-  <div class="bandeau-don">
-<span>Je soutiens les <br/>actions de l’Îlot</span>
-<a href="/faire-un-don">Faire un don</a>
+<div class="bandeau-don">
+    <span>Je soutiens les <br/>actions de l’Îlot</span>
+    <a href="/faire-un-don">Faire un don</a>
 </div>
 
   <div class="nav-next-prev">

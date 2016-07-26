@@ -97,9 +97,7 @@
 			  });
 		  });
 		}
-	  
   });//end $(function(){}):
-
 })(jQuery, Drupal, this, this.document);
 
 
@@ -116,13 +114,11 @@
        $('#navigation ul.menu li.expanded').mouseenter(function(e)
        {
          clearTimeout(menu_timeout);
-
          $('#navigation ul.menu ul.menu').hide();
 
 
          $('#navigation ul.menu li:not(.active-trail).active').removeClass('active');
          $(this).addClass('active').find('ul.menu').slideDown(200);
-
        });
 
        $('#navigation ul.menu li.expanded:not(.active-trail)').mouseleave(function(e)
@@ -134,10 +130,7 @@
            $(' #navigation ul.menu ul.menu').hide();
 
          }, 150);
-
-
        });
-
      });
     })(jQuery, Drupal, this, this.document);
 
@@ -147,6 +140,59 @@
  * Overwrite drupal ajax before send
  * Prepare the Ajax request before it is sent.
  */
+
+console.log("preprocess menu mobile");
+
+//if (typeof jQuery != 'undefined') {
+//    // jQuery is loaded => print the version
+//    alert(jQuery.fn.jquery);
+//}
+
+(function ($) {
+    Drupal.behaviors.masBehavior = {
+        attach: function (context, settings) {
+            var mobile = (navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i) ? true : false);
+            var clickmethod = mobile ? "touchstart" : "click";
+            var doc = $(document);
+            var win = $(window);
+            var burger = document.getElementsByClassName("burger")[0];
+            var l_off = document.getElementsByClassName("l-off")[0];
+            var l_shield= document.getElementsByClassName("l-shield")[0];
+//            console.log(l_shield);
+//            console.log("l_shield");
+            var toggle = 1;
+            $(window).on("resize",function(){
+                l_shield.setAttribute("class", "l-shield");
+                burger.setAttribute("class", "burger");
+                l_off.setAttribute("class", "l-off h");
+                toggle = 1;
+
+            });
+            $(".l-shield").on(clickmethod, function () {
+                l_shield.setAttribute("class", "l-shield");
+                burger.setAttribute("class", "burger");
+                l_off.setAttribute("class", "l-off h");
+                toggle = 1;
+            });
+            $(".burger").on(clickmethod, function () {
+                if (toggle == 1) {
+                    l_shield.setAttribute("class", "l-shield o");
+                    burger.setAttribute("class", "burger o");
+                    l_off.setAttribute("class", "l-off o");
+                    toggle = 0;
+
+                } else {
+                    l_shield.setAttribute("class", "l-shield");
+                    burger.setAttribute("class", "burger");
+                    l_off.setAttribute("class", "l-off h");
+                    toggle = 1;
+                }
+            });
+        }
+    }
+
+})(jQuery);
+
 Drupal.ajax.prototype.beforeSend = function (xmlhttprequest, options) {
  // For forms without file inputs, the jQuery Form plugin serializes the form
  // values, and then calls jQuery's $.ajax() function, which invokes this
@@ -157,6 +203,7 @@ Drupal.ajax.prototype.beforeSend = function (xmlhttprequest, options) {
  // to the form to submit the values in options.extraData. There is no simple
  // way to know which submission mechanism will be used, so we add to extraData
  // regardless, and allow it to be ignored in the former case.
+
  if (this.form) {
    options.extraData = options.extraData || {};
 
@@ -244,12 +291,7 @@ Drupal.behaviors.ilot_form_messages = {
 (function ($) {
   Drupal.behaviors.others =  {
     attach: function(context, settings) {
-
-
-      // Footer menu mailto
-
       $('.menu-mlid-595 > a').attr("href", "mailto:maisons-accueil@ilot.asso.fr");
-
     }
   };
 })(jQuery);

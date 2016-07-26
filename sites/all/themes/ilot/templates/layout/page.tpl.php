@@ -72,15 +72,15 @@ $light = FALSE;
 if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
 	$light = TRUE;
 }
+  $theme = base_path() . drupal_get_path("theme",$GLOBALS['theme']) ;
+
 ?>
 
 <div id="page" <?php if ($light) : print 'class="checkout-light"'; endif; ?>>
     <?php if (!$light) : ?>
 
     <div id="l-header" >
-
         <?php print render($page['navigation']);?>
-
          <div class="container-logo-bandeau-don">
 
              <div class="logo-wrapper">
@@ -88,44 +88,33 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
              </div>
 
              <div class="bandeau-don">
-
                <div class="center-texte-don">
-
                     <div class="text-bandeau-don">
-
                         <span class="premier">Un accueil, un toit,</span>
                         <span> Un nouveau départ</span>
-
                     </div>
 
                     <a href="/faire-un-don">
-
                         <img src="/sites/all/themes/ilot/images/logo_coeur_blanc.svg" />
-
                         <div class="col-1">
                             Je fais<br />
                             un don
                         </div>
-
                     </a>
-
                </div>
-
-
             </div>
-
          </div>
 
-          <?php print render($page['header']);?>
-
-          <div class="clear"></div>
+          <div class="menu-header">
+              <?php print render($page['header']);?>
+              <div class="clear"></div>
+          </div>
 
     </div><!-- /#navigation -->
 
     <?php endif; ?>
 
     <div id="main">
-
         <div id="content" class="column l-content" role="main">
           <?php print render($page['highlighted']); ?>
           <?php print $breadcrumb; ?>
@@ -167,6 +156,23 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
         <?php endif; ?>
 
       </div><!-- /#main -->
+      <div class="l-shield"></div>
+      <div class="l-off h text-presentation">
+            <a href="/">
+                <img class="logo" src="<?php print $theme ?>/images/ilot_vert.svg" alt="logo" title="logo" />
+            </a>
+            <?php print render($page['header']); ?>
+            <div class="reseaux">
+               <a href="https://twitter.com/IlotAsso?lang=fr" class="twitter-lien" target="_blank">
+                    <div class="twitter-img">
+                    </div>
+               </a>
+               <a href="https://www.linkedin.com/company/3787026?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A3787026%2Cidx%3A2-1-3%2CtarId%3A1460643706927%2Ctas%3Al%27ilot%20" class="linkedin-lien" target="_blank">
+                    <div class="facebook-img">
+                    </div>
+                </a>
+            </div>
+       </div>
     <?php if (!$light) : ?>
       <?php print render($page['footer']); ?>
     <?php endif; ?>

@@ -1,141 +1,432 @@
-.menu-block-custom-1{
+.menu-header {
+
+    .menu-block-custom-1 {
+
+        .menu {
+
+            $h: 100px;
+            height: $h;
+            margin-left: 0;
+            width: 100%;
+            margin-right: -100%;
+            margin-left: -8.47458%;
+            clear: none;
+            margin-left: 0;
+            padding: 0;
+
+            li {
+                transition:all 0ms;
+                text-transform: uppercase;
+                line-height: $h;
+                font-size: 1rem;
+                padding: 1rem 1rem;
+                display: inline-block;
+
+                @include breakpoint($laptop) {
+                    font-size: 1.2rem;
+                }
+
+                @include breakpoint($laptopl) {
+                    font-size: 1.4rem;
+                }
+
+                a {
+                    transition:all 400ms;
+                     padding-bottom: 1rem;
+                    &:hover,
+                    &.active{
+                        border-bottom: 3px solid $green;
+                    }
+                    text-decoration: none;
+                }
+
+            }
+
+            li.expanded {
+
+                    position: relative;
+
+                    .menu {
+                        font-size:0.5rem;
+                        z-index: 10;
+                        margin-left: 0;
+
+                        width: 150.84746%;
+                        float: left;
+                        margin-right: -100%;
+                        margin-left: 0;
+
+                        left: 50%;
+                        -webkit-transform: translate(-50%,0);
+                        -ms-transform: translate(-50%,0);
+                        transform: translate(-50%,0);
+                        z-index: 10;
+
+                    li {
+
+                        font-size: 0.7rem;
+                        line-height: 40px;
+                        display: inherit;
+
+                        @include breakpoint($laptop) {
+                            font-size: 0.9rem;
+                            margin: 0;
+                            line-height: 60px;
+                        }
+
+                        @include breakpoint($laptopl) {
+                            font-size: 1.1rem;
+                            margin: 0;
+                            line-height: 70px;
+                        }
+
+                        &:hover,
+                        &.active {
+                            background-color:$green;
+                        }
+
+                        a {
+                            &:hover,
+                            &.active {
+                                border-bottom:none !important;
+                            }
+                            text-decoration: none;
+                        }
+
+                        &.active-trail {
+                            background-color: $green;
+                        }
+                    }
+
+                    &:before {
+
+                        content:"";
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 0 16px 28px 16px;
+
+                        @include breakpoint($laptop) {
+                            border-width: 0 32px 56px 32px;
+                        }
+
+                        @include breakpoint($laptopl) {
+                            border-width: 0 39px 78px 39px;
+                        }
+
+                        border-color: transparent transparent $grey transparent;
+                        z-index: 10000;
+                        position: absolute;
+
+                        margin-top: -20px;
+                        margin-left: auto;
+                        margin-right: auto;
+                        right: 0;
+                        left:0;
+
+                        @include breakpoint($laptop) {
+                            margin-top: -21px;
+                        }
+
+                        @include breakpoint($laptopl) {
+                            margin-top: -24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.l-shield {
+    transition: height 0ms ease-in-out 400ms, opacity 400ms ease-in-out 0ms;
+    opacity : 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(255,255,255,0.7);
+    &.o {
+         transition: height 0ms ease-in-out 0ms, opacity 400ms ease-in-out 0ms;
+        opacity:1;
+        height:100%;
+    }
+}
+
+.l-off {
 
     .menu {
-        $h: 100px;
-        height: $h;
-        margin-left: 0;
-        width: 100%;
-        margin-right: -100%;
-        margin-left: -8.47458%;
-        clear: none;
-        margin-left: 0;
 
-        padding: 0;
+            border: none;
+            list-style: none;
+            text-align: left !important;
+            margin-top: 1rem;
+            display: block;
+            z-index: 10;
+
+        a {
+            color: white;
+
+            &:hover, &:link, &:active, &:visited {
+
+                text-decoration: none;
+
+            }
+
+            &.active {
+
+                color:$green;
+
+                &:hover {
+
+                    color:white;
+
+                }
+
+            }
+
+        }
 
         li {
-            transition:all 0ms;
-            text-transform: uppercase;
-            line-height: $h;
-            font-size: 1rem;
-            padding: 1rem 1rem;
-            display: inline-block;
 
-            @include breakpoint($laptop) {
-                font-size: 1.2rem;
-            }
+            display: block;
 
-            @include breakpoint($laptopl) {
-                font-size: 1.4rem;
-            }
+        }
+
+        li.leaf {
+
+            list-style-type: none;
+            list-style-image: none;
 
             a {
-                transition:all 400ms;
-                 padding-bottom: 1rem;
-                &:hover,
-                &.active{
-                    border-bottom: 3px solid $green;
+
+                padding: 4.5% 3% 4.5% 3%;
+                display: block;
+                margin:auto;
+
+                &:hover {
+
+                    background-color:$green;
+
                 }
-                text-decoration: none;
+
+            }
+
+            &:after {
+
+                content:"";
+                border-bottom: solid 1px white;
+                margin:0 2rem;
+                display: block;
+
+            }
+
+            &:hover > ul {
+                display: none;
             }
 
         }
 
         li.expanded {
 
-                position: relative;
+            list-style-type: none;
+            list-style-image: none;
+            position: relative;
 
-                .menu {
-                    font-size:0.5rem;
-                    z-index: 10;
-                    margin-left: 0;
+            a {
 
-                    width: 150.84746%;
-                    float: left;
-                    margin-right: -100%;
-                    margin-left: 0;
+                padding: 4.5% 3% 4.5% 3%;
+                display: block;
+                margin-left: auto;
 
-                    left: 50%;
-                    -webkit-transform: translate(-50%,0);
-                    -ms-transform: translate(-50%,0);
-                    transform: translate(-50%,0);
-                    z-index: 10;
+
+                &:hover {
+
+                    background-color:$green;
+
+                }
+
+            }
+
+            &:after {
+
+                content:"";
+                border-bottom: solid 1px white;
+                margin:0 2rem;
+                display: block;
+
+            }
+
+            ul {
+
+                margin-top:0rem;
 
                 li {
 
-                    font-size: 0.7rem;
-                    line-height: 40px;
-                    display: inherit;
-
-                    @include breakpoint($laptop) {
-                        font-size: 0.9rem;
-                        margin: 0;
-                        line-height: 60px;
-                    }
-
-                    @include breakpoint($laptopl) {
-                        font-size: 1.1rem;
-                        margin: 0;
-                        line-height: 70px;
-                    }
-
-                    &:hover,
-                    &.active {
-                        background-color:$green;
-                    }
+                    font-size:0.9rem;
 
                     a {
-                        &:hover,
-                        &.active {
-                            border-bottom:none !important;
+
+                        padding: 4.5% 3% 4.5% 6%;
+
+                        &:after {
+
+                            content:"";
+                            border-bottom: none;
+                            display: block;
+
                         }
-                        text-decoration: none;
+
                     }
 
-                    &.active-trail {
-                        background-color: $green;
-                    }
-                }
+                    &:after {
 
-                &:before {
+                        content:"";
+                        border-bottom: none;
 
-                    content:"";
-                    width: 0;
-                    height: 0;
-                    border-style: solid;
-                    border-width: 0 16px 28px 16px;
-
-                    @include breakpoint($laptop) {
-                        border-width: 0 32px 56px 32px;
-                    }
-
-                    @include breakpoint($laptopl) {
-                        border-width: 0 39px 78px 39px;
-                    }
-
-                    border-color: transparent transparent $grey transparent;
-                    z-index: 10000;
-                    position: absolute;
-
-                    margin-top: -20px;
-                    margin-left: auto;
-                    margin-right: auto;
-                    right: 0;
-                    left:0;
-
-                    @include breakpoint($laptop) {
-                        margin-top: -21px;
-                    }
-
-                    @include breakpoint($laptopl) {
-                        margin-top: -24px;
                     }
 
                 }
 
             }
 
+            &:hover > ul {
+                display: none;
+            }
+
         }
 
     }
 
+    @include breakpoint($laptop) {
+        //@include grid-span(6,1);
+        display: none;
+    }
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 375ms ease-in-out;
+    -moz-transition: all 375ms ease-in-out;
+    transition: all 375ms ease-in-out;
+    display: block;
+    @include breakpoint($mobilel){
+        width:70%;
+    }
+    &.h {
+        visibility: hidden;
+        left: -100%;
+    }
+    &.o {
+        left: 0px;
+    }
+    background-color: #4b4b4b;
+    text-transform: uppercase;
+
+
+.logo {
+        width: 26%;
+        margin: 0 auto;
+        display: block;
+        margin-top: 5%;
+    }
+
+    .reseaux {
+        display: block;
+        text-align: center;
+        padding-top: 5%;
+        color:white;
+        font-size: 2rem;
+        position: relative;
+
+        div {
+
+            &.twitter-img {
+                    &:after {
+
+                    content:"  | ";
+                    padding:0 40px;
+                    font-size:1.5rem;
+                    color:white;
+                    font-size: 37px;
+
+                }
+            }
+
+            &.linkedin-img {
+                //padding:0 35px;
+
+            }
+        }
+
+        a {
+            &:hover,
+            &:link,
+            &:active,
+            &:visited {
+
+                color: transparent;
+
+            }
+        }
+
+
+        img {
+            //width: 2vw;
+            margin: 0 1rem;
+
+        }
+
+        .twitter-img {
+            display: inline-block;
+            background: url("../images/twitter_blanc.svg") no-repeat;
+            background-position: bottom;
+            width:1.5rem;
+            margin: 0 1rem;
+            vertical-align: bottom;
+
+            &:hover {
+
+                background: url("../images/twitter_vert.svg") no-repeat;
+                background-position: bottom;
+
+            }
+
+            @include breakpoint($tablet) {
+                width:2rem;
+                margin: 0 0.5rem;
+            }
+
+        }
+
+        a {
+
+            vertical-align: middle;
+
+            .facebook-img {
+                display: inline-block;
+                background: url("../images/facebook_blanc.svg") no-repeat;
+                background-position: bottom;
+                width:1.5rem;
+                height: 1.5rem;
+                margin: 0 1rem;
+                vertical-align: middle;
+                &:hover {
+
+                    background: url("../images/facebook_vert.svg") no-repeat;
+                    background-position: bottom;
+
+                }
+
+                @include breakpoint($tablet) {
+                    width:2rem;
+                    margin: 0 0.5rem;
+                }
+
+            }
+        }
+    }
 }
+
+
