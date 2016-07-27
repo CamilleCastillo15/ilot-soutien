@@ -54,14 +54,22 @@
     transition: all 200ms;
     text-decoration: none;
     text-transform: uppercase;
-    background-size : 15% 40%;
-    background-position: 96% center;
-    padding: 11px 24px 11px 0px;
+    padding: 2rem 2rem;
 
     @include breakpoint($laptopl) {
         padding: 13px 30px 19px 0px;
-        background-size : 7% 40%;
+        background-size : 12% 40%;
     }
+
+    @include breakpoint($laptop) {
+        background-image : url(../images/f_blanches/f_droite.svg);
+        background-size : 15% 40%;
+        background-position: 96% center;
+    }
+
+    background-image : url(../images/f_blanches/f_bas.svg);
+    background-size : 15% 40%;
+    background-position: bottom center;
 
     text-align: center;
 
@@ -69,9 +77,24 @@
 
     position: relative;
     border : 2px solid $color;
-    background-image : url(../images/f_blanches/f_droite.svg);
 
-    min-height: 55px;
     @include translate(0%,-22%);
+
+}
+
+@mixin fz($size){
+	font-size: nth($a-fs, $size);
+	line-height: nth($a-lh, $size);
+}
+
+@mixin jpg($name, $poz:false, $size:false){
+    background-image: url(#{$image-path}/#{$name}.jpg);
+    background-repeat: no-repeat;
+    @if($size){
+        background-size: $size;
+    }
+    @if($poz){
+        background-position: $poz;
+    }
 
 }

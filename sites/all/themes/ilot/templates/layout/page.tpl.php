@@ -94,14 +94,14 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
                         <span> Un nouveau départ</span>
                     </div>
 
-                    <a href="/faire-un-don">
-                        <img src="/sites/all/themes/ilot/images/logo_coeur_blanc.svg" />
-                        <div class="col-1">
-                            Je fais<br />
-                            un don
-                        </div>
-                    </a>
                </div>
+                <a href="/faire-un-don">
+                    <img src="/sites/all/themes/ilot/images/logo_coeur_blanc.svg" />
+                    <div class="col-1">
+                        Je fais<br />
+                        un don
+                    </div>
+                </a>
             </div>
          </div>
 
@@ -162,6 +162,7 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
                 <img class="logo" src="<?php print $theme ?>/images/ilot_vert.svg" alt="logo" title="logo" />
             </a>
             <?php print render($page['header']); ?>
+            <?php print render($page['navigation']);?>
             <div class="reseaux">
                <a href="https://twitter.com/IlotAsso?lang=fr" class="twitter-lien" target="_blank">
                     <div class="twitter-img">
