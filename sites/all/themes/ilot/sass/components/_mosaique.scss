@@ -1,0 +1,165 @@
+.mosaique-new {
+
+    @include breakpoint($laptop) {
+        width: 34%;
+    }
+
+    width: 100%;
+
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+
+    font-size: -webkit-xxx-large;
+
+    .bloc {
+
+        @include breakpoint($laptop) {
+            width: 50%;
+        }
+
+        position: relative;
+        display: inline-block;
+        height: 14rem;
+
+        margin: 0;
+        padding: 0;
+        border: none;
+        line-height: 0;
+
+        &.dernier-projet {
+
+            background-color: $green;
+
+            .arrow {
+
+                border-top: 50px solid $green;
+
+            }
+
+        }
+
+        &.son-temoignage {
+
+            background-color: $darkgrey;
+
+            .arrow {
+
+                border-top: 50px solid $darkgrey;
+
+            }
+
+        }
+
+        &.espace-presse{
+
+            background-color: $lightgrey;
+
+            .mosaique-text {
+
+                color: black;
+
+            }
+
+            .arrow {
+
+                border-top: 50px solid $lightgrey;
+
+            }
+
+        }
+
+        &.ilot-medias {
+
+            background-color: $darkgrey;
+
+            .arrow {
+
+                border-top: 50px solid $darkgrey;
+
+            }
+
+        }
+
+        &.bloc-text {
+
+           width :70%;
+
+           @include breakpoint($laptop) {
+
+               width :none;
+
+            }
+
+        }
+
+        &.bloc-img {
+
+            width :30%;
+
+            @include breakpoint($laptop) {
+
+               width :none;
+
+            }
+
+        }
+
+        img {
+
+            height: 14rem;
+            width: 100%;
+
+        }
+
+        .mosaique-text {
+
+            font-family: "SourceSansProLight";
+            text-transform: uppercase;
+            color: white;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            @include translate(-50%, -50%);
+            line-height: 1.5rem;
+            text-align: center;
+            @include fz(4);
+
+        }
+
+    }
+
+    .west {
+        height: 0;
+        width: 0;
+        border-top: 50px solid black;
+        border-right: 50px solid transparent;
+        position: absolute;
+
+        top:50%;
+        left: -1.5rem;
+        -moz-transform : translate(0%,-50%) rotate(-45deg);
+        -webkit-transform : translate(0%,-50%) rotate(-45deg);
+        transform : translate(0%,-50%) rotate(-45deg);
+
+        z-index: 10;
+    }
+
+    .east {
+        height: 0;
+        width: 0;
+        border-top: 50px solid black;
+        border-right: 50px solid transparent;
+        position: absolute;
+        margin-left: -50px;
+
+        top:50%;
+        right: -1.5rem;
+        -moz-transform : translate(0%,-50%) rotate(135deg);
+        -webkit-transform : translate(0%,-50%) rotate(135deg);
+        transform : translate(0%,-50%) rotate(135deg);
+
+        z-index: 10;
+    }
+
+}

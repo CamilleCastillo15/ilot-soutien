@@ -221,7 +221,7 @@ aside .bandeau-don a
   text-decoration : none;
   background : url('../../images/don-image.png') no-repeat 20px center #293036;
 }
-*/
+
 a.read-more
 {
   font-family : 'StaticRegular', sans-serif;
@@ -240,4 +240,4 @@ a.read-more:hover
 {
 	border-color : #28bca4 !important;
 	border-size : 3px !important;
-}
+}*/

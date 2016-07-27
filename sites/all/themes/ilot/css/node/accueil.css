@@ -16,7 +16,7 @@
 }
 .view-accueil-chiffres
 {
-/*	width : 730px;*/
+	width : 81.8%;
 	overflow : hidden;
 }
 .view-accueil-chiffres .views-slideshow-controls-bottom .views-slideshow-controls-text-pause
@@ -48,9 +48,9 @@
   right : 0;
 }
 
+/*
 section.actualites
-{
-	width : 550px;
+{   width : 550px;
 	margin-top : 25px;
 	float : left;
 }
@@ -90,6 +90,7 @@ section.actualites
        -o-transition:all 0.05s ease;
           transition:all 0.05s ease;
 }
+*/
 
 .node-accueil section.actualites a.read-more.actu:hover
 {
