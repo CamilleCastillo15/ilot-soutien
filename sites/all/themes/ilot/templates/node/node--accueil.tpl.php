@@ -3,6 +3,7 @@
   <?php print render($content); ?>
   <?php print $views_accueil_chiffres;?>
   <section class="actualites">
+    <h1 class="gros">actualités</h1>
     <?php print $views_accueil_actu; ?>
     <?php print l('Voir toutes les actus', 'actualités', array('attributes' => array('class' => 'actu read-more')));?>
   </section>

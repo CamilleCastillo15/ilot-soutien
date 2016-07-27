@@ -1,5 +1,5 @@
-<div class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
+  <div class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <div class="vignette">
     <a href="<?php print url('node/' . $node->nid); ?>">
     <?php  print render($content['field_actualite_image_accroche']); ?>

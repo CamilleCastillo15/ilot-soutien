@@ -1,16 +1,19 @@
+
 article.node-chiffres-clefs.view-mode-teaser
+/*
 {
 	position : relative;
 	width : 730px;
 	height : 330px;
 }
+*/
 
 article.node-chiffres-clefs.view-mode-teaser .bloc-texte
 {
 	position : absolute;
 	top : 115px;
 	right : 60px;
-	width : 335px;
+/*	width : 335px;*/
 }
 
 article.node-chiffres-clefs.view-mode-teaser .bloc-texte .chiffres-clefs
@@ -18,24 +21,30 @@ article.node-chiffres-clefs.view-mode-teaser .bloc-texte .chiffres-clefs
 	display : inline-block;
 	text-align : center;
 	width : 100%;
-	height : 55px;
+/*	height : 55px;*/
 	background-color : #293036;
 	color : #ffffff;
-	font-family : 'StaticRegular', sans-serif;
-	font-size : 39px;
+/*	font-family : 'StaticRegular', sans-serif;*/
+    font-family: "PermanentMarker",sans-serif;
+/*	font-size : 39px;*/
 	line-height : 55px;
 	text-transform : uppercase;
 	
 }
+
+/*
 article.node-chiffres-clefs.view-mode-teaser .bloc-texte .chiffres-clefs .chiffre-bold
 {
   font-family : 'StaticBold', sans-serif;
 }
+*/
 
 article.node-chiffres-clefs.view-mode-teaser .bloc-texte .field-name-field-chiffres-clefs-accroche
 {
+/*
 	font-family : 'Gill Sans', sans-serif;
 	font-style: italic;
+*/
 	color : #ffffff;
 	background-color : #3d4851;
 	font-size : 14px;
@@ -49,16 +58,19 @@ article.node-chiffres-clefs.view-mode-teaser .bloc-texte a
 	color : #ffffff;
 	text-decoration : none;
 	text-transform : uppercase;
-	font-family : 'StaticRegular', sans-serif;
-	font-size : 16px;
+/*	font-family: 'StaticRegular', sans-serif;*/
+    font-family: "PermanentMarker",sans-serif;
+/*	font-size : 16px;*/
 	padding : 4px 25px 1px 10px;
 	background : url('/sites/all/themes/ilot/images/fleche.png') no-repeat 109px 9px #28bca4;
 }
 
+/*
 article.node-chiffres-clefs.view-mode-full
 {
 	width : 730px;
 }
+*/
 
 article.node-chiffres-clefs.view-mode-full h1,
 article.node-chiffres-clefs.view-mode-short_teaser h1
@@ -88,8 +100,8 @@ article.node-chiffres-clefs.view-mode-short_teaser h2:after
 {
   content : '';
   display : inline-block;
-  width : 12px;
-  height : 10px;
+/*  width : 12px;*/
+/*  height : 10px;*/
   background : url('/sites/all/themes/ilot/images/triangle.png') no-repeat;
 }
 
@@ -108,15 +120,15 @@ article.node-chiffres-clefs.view-mode-full .field-name-field-chiffres-clefs-desc
 
 article.node-chiffres-clefs.view-mode-short_teaser
 {
-	width : 750px;
+/*	width : 750px;*/
 	border-bottom : 1px solid #28bca4;
 }
 
 article.node-chiffres-clefs.view-mode-short_teaser .vignette
 {
 	float : left;
-	width : 205px;
-	height: 190px;
+/*	width : 205px;*/
+/*	height: 190px;*/
 	margin-right : 20px;
 }
 
@@ -129,8 +141,9 @@ article.node-chiffres-clefs.view-mode-short_teaser .field-name-field-chiffres-cl
 
 article.node-chiffres-clefs.view-mode-short_teaser a.read-more
 {
-  font-family : 'StaticRegular', sans-serif;
-  font-size : 14px;
+/*  font-family : 'StaticRegular', sans-serif;*/
+  font-family: "PermanentMarker",sans-serif;
+/*  font-size : 14px;*/
   background : url('/sites/all/themes/ilot/images/fleche_more.png') no-repeat center right #293036;
   color : #ffffff;
   text-decoration : none;

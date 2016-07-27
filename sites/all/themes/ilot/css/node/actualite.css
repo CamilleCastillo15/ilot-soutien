@@ -1,3 +1,4 @@
+/*
 .node-actualites.view-mode-teaser
 {
 	border-bottom : solid 1px #28bca4;
@@ -272,7 +273,7 @@ body.node-type-accueil .node-actualites.view-mode-teaser .texte {
 }
 
 
-/** Liste d'actualités **/
+* Liste d'actualités *
 div.node-liste-actualites {
   float: left;
   width: 630px;
@@ -310,4 +311,4 @@ aside.node-liste-actualites ul li a.active_sort:hover {
 }
 aside.node-liste-actualites ul li a:hover {
 	color: #28bca4;
-}
+}*/

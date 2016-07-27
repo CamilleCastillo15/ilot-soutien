@@ -1,0 +1,23 @@
+.bloc-texte {
+
+    width: 400px;
+     height: 123px;
+    position: absolute;
+
+    left: 50%;
+    top:50%;
+    @include translate(-50%, -50%);
+
+}
+
+.field-name-field-accueil-edito{
+
+    display: none;
+
+    @include breakpoint($laptopl) {
+
+        display: block;
+
+    }
+
+}

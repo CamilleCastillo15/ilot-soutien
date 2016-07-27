@@ -109,6 +109,11 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
               <?php print render($page['header']);?>
               <div class="clear"></div>
           </div>
+          <div class="vocation-mobile">
+          <h1>NOTRE VOCATION</h1>
+          <p>L'Îlot accueille, héberge et accompagne vers la réinsertion des personnes en grande détresse, en particulier lorsqu'elles sortent de prison. L'association accompagne ces personnes dans leur démarche personnelle et volontaire pour retrouver une place dans la société, notamment par l'accès au logement et à l'emploi.</p>
+        </div><!-- /.node -->
+        <div class="clearfix"></div>
 
     </div><!-- /#navigation -->
 
