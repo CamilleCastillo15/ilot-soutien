@@ -1,0 +1,73 @@
+#block-ilot-theme-newsletter {
+
+    padding-top: 14px;
+    min-height: 340px;
+    background-color: $lightgrey;
+
+    width: 100%;
+
+  @include breakpoint($laptop) {
+        width: 50%;
+     }
+
+    text-align: center;
+
+    img{
+        width:1em;
+        display: inline;
+    }
+
+    .telephone {
+
+        display: inline;
+
+        p {
+            display: inline;
+        }
+
+    }
+
+   a {
+    &:hover, &:link, &:active, &:visited {
+        color: white;
+        text-decoration: none;
+        }
+    }
+
+    .newsletter-btn {
+
+        &.readmore {
+
+            @include grid-span(7,4);
+
+            @include breakpoint($mobilel) {
+                @include btn_actu($green);
+             }
+
+            margin-left: 0%;
+            clear: both;
+            margin: 20px auto;
+
+            float: none;
+
+            @include breakpoint($tablet) {
+                margin-right: 0%;
+             }
+
+            a {
+
+                text-decoration: none;
+
+            }
+        }
+    }
+
+    input {
+
+        padding: 7.5px 0px;
+        max-width: 350px;
+        text-align: center;
+        color: $green;
+
+    }
+}

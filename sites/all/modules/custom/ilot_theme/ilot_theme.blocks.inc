@@ -59,6 +59,10 @@ function ilot_theme_block_info() {
     'info' => t('Bloc newsletter'), //The name that will appear in the block list.
     'cache' => DRUPAL_CACHE_PER_ROLE, //Default
   );
+      $blocks['contact'] = array(
+    'info' => t('Bloc contact'), //The name that will appear in the block list.
+    'cache' => DRUPAL_CACHE_PER_ROLE, //Default
+  );
   return $blocks;
 }
 
@@ -90,9 +94,15 @@ function ilot_theme_block_view($delta = '') {
         );
       break;
       case 'newsletter':
-      $block['subject'] = 'newsletter test';
+      $block['subject'] = 'newsletter';
       $block['content'] = array(
           '#theme' => 'newsletter'
+        );
+      break;
+      case 'contact':
+      $block['subject'] = 'contact';
+      $block['content'] = array(
+          '#theme' => 'contact'
         );
       break;
   }
@@ -113,6 +123,11 @@ function ilot_theme_theme($existing, $type, $theme, $path){
   return array( 
     'newsletter' => array(
       'template' => 'templates/ilot_theme_newsletter',
+//      'variables' => array('view' => NULL),
+//      'variables'=> array('ilot_theme' => $themez, 'body' => check_markup($bodyaddress["value"],$bodyaddress["format"]) )
+    ),
+      'contact' => array(
+      'template' => 'templates/ilot_theme_contact',
 //      'variables' => array('view' => NULL),
 //      'variables'=> array('ilot_theme' => $themez, 'body' => check_markup($bodyaddress["value"],$bodyaddress["format"]) )
     )

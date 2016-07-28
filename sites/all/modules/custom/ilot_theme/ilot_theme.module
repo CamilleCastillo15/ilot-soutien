@@ -48,13 +48,12 @@ function ilot_theme_admin() {
        
     );
     
-    $var2 = variable_get('ilot_theme_newsletter_img');
+//    $var2 = variable_get('ilot_theme_newsletter_img');
     $form['ilot_theme_newsletter']['ilot_theme_newsletter_img'] = array(
         '#type' => 'media',
         '#tree' => TRUE,
         '#title' => t('Icone du bloc newsletter'),
-        '#format' => $var2["format"],
-        '#default_value' =>$var2["value"],
+//        '#default_value' =>$var2["value"],
         '#media_options' => array(
             'global' => array(
                 'file_extensions' => 'jpg png', // File extensions
