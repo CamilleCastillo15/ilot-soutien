@@ -13,7 +13,7 @@
 
 <div class="bloc-contact">
 
-    <h1>Newsletter</h1>
+    <h1>Contact</h1>
     <?php print $contact_text['value'];?>
 
     <div class="contact-btn">Envoyez - nous !</div>
