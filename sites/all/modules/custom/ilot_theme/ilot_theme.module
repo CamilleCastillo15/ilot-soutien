@@ -2,6 +2,87 @@
 require_once drupal_get_path('module', 'ilot_theme') .'/ilot_theme.blocks.inc';
 
 
+function ilot_theme_menu(){
+    
+    $items = array();
+    $items['admin/settings/ateliers'] = array(
+        'title' => 'Configuration du site' ,
+        'description' => 'Configuration de la newsletter, du block contact..',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('ilot_theme_admin'),    
+        'access arguments' => array('access ateliersmod admin'),
+        'type' => MENU_NORMAL_ITEM,
+    );
+    
+    return $items;
+    
+}
+
+function ilot_theme_admin() {
+    
+    $form['ilot_theme_newsletter'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Paramétrage de la newsletter'),
+        '#collapsible' => TRUE, // Added
+        '#collapsed' => FALSE,  // Added
+    );
+    $form['ilot_theme_contact'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Paramétrage du bloc contact'),
+        '#collapsible' => TRUE, // Added
+        '#collapsed' => FALSE,  // Added
+    );
+    $defaults = array(
+        'value' => '',
+        'format' => 'full_html',
+    );
+    
+    $var1 = variable_get('ilot_theme_newsletter_text');
+    $form['ilot_theme_newsletter']['ilot_theme_newsletter_text'] = array(
+        '#type' => 'text_format',
+        '#title' => t('Texte du bloc'),
+        '#format' => $var1["format"],
+        '#default_value' =>$var1["value"],
+        '#description' => t("Texte présent dans le bloc newsletter"),
+        '#required' => FALSE,
+       
+    );
+    
+    $var2 = variable_get('ilot_theme_newsletter_img');
+    $form['ilot_theme_newsletter']['ilot_theme_newsletter_img'] = array(
+        '#type' => 'media',
+        '#tree' => TRUE,
+        '#title' => t('Icone du bloc newsletter'),
+        '#format' => $var2["format"],
+        '#default_value' =>$var2["value"],
+        '#media_options' => array(
+            'global' => array(
+                'file_extensions' => 'jpg png', // File extensions
+                'max_filesize' => '100 MB',
+                'file_directory' => 'config', // Will be a subdirectory of the files directory
+                'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
+            ),  
+        ),  
+        '#description' => t("Icone du bloc newsletter"),
+        '#required' => FALSE,
+       
+    );
+    
+    $var3 = variable_get('ilot_theme_contact_text');
+    $form['ilot_theme_contact']['ilot_theme_contact_text'] = array(
+        '#type' => 'text_format',
+        '#title' => t('Texte du bloc'),
+        '#format' => $var3["format"],
+        '#default_value' =>$var3["value"],
+        '#description' => t("Texte présent dans le bloc contact"),
+        '#required' => FALSE,
+       
+    );
+    
+    return system_settings_form($form);
+    
+}
+
 function ilot_theme_init() {
  // global $user;
  // $arg0 = strtolower(arg(0));

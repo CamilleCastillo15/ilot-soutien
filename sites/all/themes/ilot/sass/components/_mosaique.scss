@@ -10,17 +10,19 @@
     display: inline-block;
     vertical-align: top;
 
+    margin-top: 6rem;
+
     font-size: -webkit-xxx-large;
 
     .bloc {
 
         @include breakpoint($laptop) {
-            width: 50%;
+            height: 14rem;
         }
 
         position: relative;
         display: inline-block;
-        height: 14rem;
+        height: 9rem;
 
         margin: 0;
         padding: 0;
@@ -87,7 +89,7 @@
 
            @include breakpoint($laptop) {
 
-               width :none;
+               width :50%;
 
             }
 
@@ -99,7 +101,7 @@
 
             @include breakpoint($laptop) {
 
-               width :none;
+               width :50%;
 
             }
 
@@ -107,7 +109,11 @@
 
         img {
 
-            height: 14rem;
+            @include breakpoint($laptop) {
+                height: 14rem;
+            }
+
+            height: 9rem;
             width: 100%;
 
         }

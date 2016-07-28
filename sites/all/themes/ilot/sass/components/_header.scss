@@ -97,12 +97,12 @@
                         @include fz(5.5);
 
                         @include breakpoint($laptop) {
-                            @include fz(2);
-//                            padding-left: 1rem;
+                            @include fz(3);
+//                            padding-left 1rem;
                         }
 
                         @include breakpoint($laptopl) {
-                            @include fz(3);
+                            @include fz(4);
                         }
 
                         @include breakpoint($laptopxcl) {

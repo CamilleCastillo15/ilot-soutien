@@ -4,9 +4,11 @@
      height: 123px;
     position: absolute;
 
-    left: 50%;
-    top:50%;
-    @include translate(-50%, -50%);
+//    left: 50%;
+//    top:50%;
+    right: 5%;
+    top: 10%;
+//    @include translate(-50%, -50%);
 
 }
 

@@ -1,7 +1,7 @@
 .node-accueil .field-name-field-accueil-edito
 {
 	width : 230px;
-	height : 330px;
+	height : 360px;
 	float : left;
 	position: relative;
 }
@@ -11,7 +11,7 @@
 	right: 10px;
 }
 .node-accueil .field-name-field-accueil-edito .field-name-field-edito-corps {
-  height: 204px;
+    max-height: 254px;
 	overflow: auto;
 }
 .view-accueil-chiffres
@@ -37,14 +37,19 @@
   text-indent : -999em;
   height : 56px;
   width : 30px;
-  background : url('/sites/all/themes/ilot/images/fleche3.png') no-repeat center center #293036;
-  top : 132px;
+  background : url('/sites/all/themes/ilot/images/f_blanches/f_gauche.svg') no-repeat center center #293036;
+  background-size: 50%;
+  top : 50%;
+  -moz-transform : translate(0%,-50%);
+  -webkit-transform : translate(0%,-50%);
+  transform : translate(0%,-50%);
   z-index : 999;
 }
 
 .view-accueil-chiffres .views-slideshow-controls-text-next
 {
-  background : url('/sites/all/themes/ilot/images/fleche2.png') no-repeat center center #293036;
+  background : url('/sites/all/themes/ilot/images/f_blanches/f_droite.svg') no-repeat center center #293036;
+  background-size: 50%;
   right : 0;
 }
 
