@@ -1,7 +1,8 @@
 .mosaique-new {
 
     @include breakpoint($laptop) {
-        width: 34%;
+        width: 28%;
+        float: right;
     }
 
     width: 100%;
@@ -17,7 +18,7 @@
     .bloc {
 
         @include breakpoint($laptop) {
-            height: 14rem;
+            height: 12rem;
         }
 
         position: relative;
@@ -110,7 +111,7 @@
         img {
 
             @include breakpoint($laptop) {
-                height: 14rem;
+                height: 12rem;
             }
 
             height: 9rem;

@@ -49,11 +49,12 @@ function ilot_theme_admin() {
     );
     
    $var2 = variable_get('ilot_theme_newsletter_img');
+   dpm($var2);
    $form['ilot_theme_newsletterttt']['ilot_theme_newsletter_img'] = array(
         '#type' => 'media',
         '#tree' => TRUE,
         '#title' => t('Icone du bloc newsletter'),
-        '#default_value' =>$var2["value"],
+        '#default_value' =>$var2,
         
         '#media_options' => array(
             'global' => array(
@@ -67,8 +68,9 @@ function ilot_theme_admin() {
         '#required' => FALSE,
        
     );
-    /*
+    
     $var3 = variable_get('ilot_theme_contact_text');
+//    dpm($var3);
     $form['ilot_theme_contact']['ilot_theme_contact_text'] = array(
         '#type' => 'text_format',
         '#title' => t('Texte du bloc'),
@@ -78,7 +80,49 @@ function ilot_theme_admin() {
         '#required' => FALSE,
        
     );
-    */
+    
+    $var4 = variable_get('ilot_theme_contact_img');
+    dpm($var4);
+    $form['ilot_theme_contact']['ilot_theme_contact_img'] = array(
+        '#type' => 'media',
+        '#tree' => TRUE,
+        '#title' => t('Icone du bloc newsletter'),
+        '#default_value' =>$var4,
+        
+        '#media_options' => array(
+            'global' => array(
+                'file_extensions' => 'jpg png svg', // File extensions
+                'max_filesize' => '100 MB',
+                'file_directory' => 'config', // Will be a subdirectory of the files directory
+                'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
+            ),  
+        ),  
+        '#description' => t("Icone du bloc newsletter"),
+        '#required' => FALSE,
+       
+    );
+    
+    $var5 = variable_get('ilot_theme_contact_icone');
+    dpm($var5);
+    $form['ilot_theme_contact']['ilot_theme_contact_icone'] = array(
+        '#type' => 'media',
+        '#tree' => TRUE,
+        '#title' => t('Icone téléphone du bloc newsletter'),
+        '#default_value' =>$var5,
+        
+        '#media_options' => array(
+            'global' => array(
+                'file_extensions' => 'jpg png svg', // File extensions
+                'max_filesize' => '100 MB',
+                'file_directory' => 'config', // Will be a subdirectory of the files directory
+                'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
+            ),  
+        ),  
+        '#description' => t("'Icone téléphone du bloc newsletter"),
+        '#required' => FALSE,
+       
+    );
+    
     return system_settings_form($form);
     
 }

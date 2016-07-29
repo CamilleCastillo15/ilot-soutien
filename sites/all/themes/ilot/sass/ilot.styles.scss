@@ -1,5 +1,7 @@
 // Import variables, abstractions, base styles and components.
 // Uncomment the next lines and adjust them to your needs.
+@import "layouts/reset";
+
 @import "variables/var";
 
 @import "variables/fonts";
@@ -22,6 +24,7 @@
 @import "components/mosaique";
 @import "components/bloc-newsletter";
 @import "components/contact";
+@import "components/footer";
 
 
 

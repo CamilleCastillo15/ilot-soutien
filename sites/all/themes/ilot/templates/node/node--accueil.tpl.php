@@ -27,8 +27,18 @@
     </div><div class="bloc bloc-text ilot-medias">
         <div class="mosaique-text">l'îlot dans les médias</div>
         <div class="arrow west"></div>
+    </div><div class="bloc don-confiance">
+        Je fais un don en confiance
+        <div class ="don-confiance-btn readmore">Voir plus</div>
     </div>
-</section>
+</section><br />
+<div class="don-confiance">
+
+    Je fais un don en confiance
+
+    <div class="don-confiance-btn readmore">Voir plus</div>
+
+</div>
 </article><!-- /.node -->
 <div class="clearfix"></div>
 

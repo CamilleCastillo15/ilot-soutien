@@ -14,14 +14,14 @@
 
 <div class="bloc-newsletter">
 
+   <img src='<?php print $img ?>' alt='Newsletter' class='newsletter-title' />
+
     <div class="col-1">
 
         <h1>Newsletter</h1>
         <?php print $newsletter_text['value'];?>
 
     </div>
-
-    <img src='<?php print $img ?>' alt='Newsletter' class='newsletter-title' />
 
     <div class="newsletter-form">
     <?php $form = node_load(272);

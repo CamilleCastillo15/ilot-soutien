@@ -6,9 +6,9 @@
     display: inline-block;
     text-transform: uppercase;
 
-    @include breakpoint($laptop) {
-        margin-top:30px;
-    }
+//    @include breakpoint($laptop) {
+//        margin-top:30px;
+//    }
 
     @include breakpoint($laptopl) {
         margin-top:40px;
