@@ -34,40 +34,77 @@
         }
     }
 
-    .newsletter-btn {
+    .newsletter-form {
 
-        &.readmore {
+        .newsletter-btn {
 
-            @include grid-span(7,4);
+            &.readmore {
 
-            @include breakpoint($mobilel) {
-                @include btn_actu($green);
-             }
+                @include grid-span(7,4);
 
-            margin-left: 0%;
-            clear: both;
-            margin: 20px auto;
+                @include breakpoint($mobilel) {
+                    @include btn_actu($green);
+                 }
 
-            float: none;
+                margin-left: 0%;
+                clear: both;
+                margin: 20px auto;
 
-            @include breakpoint($tablet) {
-                margin-right: 0%;
-             }
+                float: none;
 
-            a {
+                @include breakpoint($tablet) {
+                    margin-right: 0%;
+                 }
 
-                text-decoration: none;
+                a {
 
+                    text-decoration: none;
+
+                }
             }
         }
+
+        .node__title {
+
+            display: none;
+
+        }
+
+        .form-actions {
+
+          margin-top: 0;
+          margin-bottom: 0;
+
+            input {
+
+                padding: 7.5px 0px;
+                max-width: 350px;
+                text-align: center;
+
+                background-color: transparent;
+                border: none;
+                text-transform: uppercase;
+
+                &:hover {
+
+                   color: white;
+
+                }
+
+            }
+
+        }
+
+        .webform-component-email {
+
+            input {
+
+                max-width: 350px;
+
+            }
+
+        }
+
     }
 
-    input {
-
-        padding: 7.5px 0px;
-        max-width: 350px;
-        text-align: center;
-        color: $green;
-
-    }
 }

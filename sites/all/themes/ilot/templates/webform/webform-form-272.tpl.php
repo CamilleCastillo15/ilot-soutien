@@ -31,10 +31,11 @@
 
  </div>
 
- <div class="newsletter-btn readmore">
+<div class="newsletter-btn readmore">
 
     <?php
         print drupal_render($form['actions']);
+//        dpm($form);
     ?>
 
 </div>

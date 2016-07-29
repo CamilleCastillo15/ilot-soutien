@@ -20,7 +20,7 @@ function ilot_theme_menu(){
 
 function ilot_theme_admin() {
     
-    $form['ilot_theme_newsletter'] = array(
+    $form['ilot_theme_newsletterttt'] = array(
         '#type' => 'fieldset',
         '#title' => t('Paramétrage de la newsletter'),
         '#collapsible' => TRUE, // Added
@@ -38,7 +38,7 @@ function ilot_theme_admin() {
     );
     
     $var1 = variable_get('ilot_theme_newsletter_text');
-    $form['ilot_theme_newsletter']['ilot_theme_newsletter_text'] = array(
+    $form['ilot_theme_newsletterttt']['ilot_theme_newsletter_text'] = array(
         '#type' => 'text_format',
         '#title' => t('Texte du bloc'),
         '#format' => $var1["format"],
@@ -48,15 +48,16 @@ function ilot_theme_admin() {
        
     );
     
-//    $var2 = variable_get('ilot_theme_newsletter_img');
-    $form['ilot_theme_newsletter']['ilot_theme_newsletter_img'] = array(
+   $var2 = variable_get('ilot_theme_newsletter_img');
+   $form['ilot_theme_newsletterttt']['ilot_theme_newsletter_img'] = array(
         '#type' => 'media',
         '#tree' => TRUE,
         '#title' => t('Icone du bloc newsletter'),
-//        '#default_value' =>$var2["value"],
+        '#default_value' =>$var2["value"],
+        
         '#media_options' => array(
             'global' => array(
-                'file_extensions' => 'jpg png', // File extensions
+                'file_extensions' => 'jpg png svg', // File extensions
                 'max_filesize' => '100 MB',
                 'file_directory' => 'config', // Will be a subdirectory of the files directory
                 'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
@@ -66,7 +67,7 @@ function ilot_theme_admin() {
         '#required' => FALSE,
        
     );
-    
+    /*
     $var3 = variable_get('ilot_theme_contact_text');
     $form['ilot_theme_contact']['ilot_theme_contact_text'] = array(
         '#type' => 'text_format',
@@ -77,7 +78,7 @@ function ilot_theme_admin() {
         '#required' => FALSE,
        
     );
-    
+    */
     return system_settings_form($form);
     
 }
