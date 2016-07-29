@@ -169,4 +169,26 @@
         z-index: 10;
     }
 
+
+    .don-confiance {
+
+        height: 15rem;
+        background-color: $lightgrey;
+        font-size: 1.5rem;
+        text-align: center;
+        font-family: 'PermanentMarker', sans-serif;
+        color: $red;
+        position: relative;
+
+        .bloc-absolute {
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include translate(-50%, -50%);
+
+        }
+
+    }
+
 }

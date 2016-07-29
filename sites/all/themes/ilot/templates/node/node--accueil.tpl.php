@@ -8,7 +8,7 @@
     <?php print l('Voir toutes les actus', 'actualités', array('attributes' => array('class' => 'actu readmore')));?>
   </section><section class="mosaique-new">
     <div class="bloc bloc-text dernier-projet">
-        <div class="mosaique-text">denier projet</div>
+        <div class="mosaique-text">dernier projet</div>
         <div class="arrow east"></div>
     </div><div class="bloc bloc-img img-dernier-projet">
        <img src="sites/all/themes/ilot/images/img_test/samia-temoignage.png" />
@@ -27,18 +27,13 @@
     </div><div class="bloc bloc-text ilot-medias">
         <div class="mosaique-text">l'îlot dans les médias</div>
         <div class="arrow west"></div>
-    </div><div class="bloc don-confiance">
-        Je fais un don en confiance
-        <div class ="don-confiance-btn readmore">Voir plus</div>
+    </div><div class="don-confiance">
+        <div class="bloc-absolute">
+            Je fais un don en confiance
+            <div class ="don-confiance-btn readmore">Voir plus</div>
+        </div>
     </div>
 </section><br />
-<div class="don-confiance">
-
-    Je fais un don en confiance
-
-    <div class="don-confiance-btn readmore">Voir plus</div>
-
-</div>
 </article><!-- /.node -->
 <div class="clearfix"></div>
 

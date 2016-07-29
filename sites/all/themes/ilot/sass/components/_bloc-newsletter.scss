@@ -10,6 +10,7 @@
         width: 50%;
         display: inline-block;
         margin-right: -4px;
+        border-top: 3px solid $green;
      }
 
     text-align: center;
@@ -128,13 +129,6 @@
             }
 
         }
-
-    }
-
-    .don-confiance {
-
-        height: 12rem;
-        background-color: $lightgrey;
 
     }
 
