@@ -15,6 +15,13 @@
 
     text-align: center;
 
+
+    h1 {
+
+        margin-bottom: 20px !important;
+
+    }
+
     img {
 
         width:1em;
@@ -22,20 +29,20 @@
 
     }
 
-    .contact-text {
-
-        width: 60%;
-
-        @include breakpoint($laptop) {
-            width: 100%;
-        }
-
-    }
+//    .contact-text {
+//
+//        width: 60%;
+//
+//        @include breakpoint($laptop) {
+//            width: 100%;
+//        }
+//
+//    }
 
     .bloc-contact {
 
-        padding-left: 10rem;
-        padding-right: 10rem;
+//        padding-left: 10rem;
+//        padding-right: 10rem;
 
     }
 
@@ -111,7 +118,14 @@
     .contact-img {
 
         width: 3em;
-        float: left;
+        position: absolute;
+        left: 10%;
+
+        @include breakpoint($mobilel){
+
+            left: 15%;
+
+        }
 
     }
 }
