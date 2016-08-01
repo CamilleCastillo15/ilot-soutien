@@ -187,8 +187,70 @@
             left: 50%;
             @include translate(-50%, -50%);
 
+            .readmore {
+
+                @include grid-span(7,4);
+
+                @include breakpoint($mobilel) {
+                    @include btn_actu($green);
+
+                    &:hover {
+
+                        background-color: $red;
+                        border: 2px solid $red;
+
+                    }
+
+                 }
+
+                font-family: "SourceSansProRegular", sans-serif;
+                text-transform: uppercase;
+                padding: 10px 0px;
+
+                margin-left: 0%;
+                clear: both;
+                margin-bottom: 20px;
+                margin-top: 20px;
+
+                @include breakpoint($tablet) {
+                    margin-right: 0%;
+                    float: right;
+                 }
+
+                a {
+
+                    text-decoration: none;
+
+                }
+
+            }
+
         }
 
     }
+
+    .don-confiance-text {
+
+        display: inline-block;
+        vertical-align: middle;
+        width: 60%;
+
+    }
+
+    .don-confiance-img-container {
+
+        display: inline-block;
+        vertical-align: middle;
+
+        img {
+
+            width: 4em;
+//            float: left;
+
+        }
+
+    }
+
+
 
 }

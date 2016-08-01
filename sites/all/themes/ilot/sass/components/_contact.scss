@@ -15,9 +15,28 @@
 
     text-align: center;
 
-    img{
+    img {
+
         width:1em;
         display: inline;
+
+    }
+
+    .contact-text {
+
+        width: 60%;
+
+        @include breakpoint($laptop) {
+            width: 100%;
+        }
+
+    }
+
+    .bloc-contact {
+
+        padding-left: 10rem;
+        padding-right: 10rem;
+
     }
 
     .telephone {
@@ -71,6 +90,28 @@
         max-width: 350px;
         text-align: center;
         color: $green;
+
+    }
+
+    .contact-text {
+
+        position: relative;
+
+    }
+
+    .contact-icone {
+
+        width: 1em;
+        bottom: 5%;
+        position: absolute;
+        left: 31%;
+
+    }
+
+    .contact-img {
+
+        width: 3em;
+        float: left;
 
     }
 }

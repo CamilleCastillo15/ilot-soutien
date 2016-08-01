@@ -29,7 +29,19 @@
         <div class="arrow west"></div>
     </div><div class="don-confiance">
         <div class="bloc-absolute">
-            Je fais un don en confiance
+
+            <?php
+                $don_confiance_img = variable_get("ilot_theme_mosaique_img");
+
+                $file = file_load($don_confiance_img);
+                $img = file_create_url($file->uri);
+            ?>
+
+            <div class="don-confiance-img-container">
+                <img src='<?php print $img ?>' alt='Don en confiance' class='don-confiance-img' />
+            </div>
+
+            <div class="don-confiance-text">Je fais un don en confiance</div>
             <div class ="don-confiance-btn readmore">Voir plus</div>
         </div>
     </div>

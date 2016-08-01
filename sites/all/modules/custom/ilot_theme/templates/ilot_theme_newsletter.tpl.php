@@ -8,7 +8,7 @@
 //    dpm($newsletter_text);
 
     $file = file_load($newsletter_img);
-    $img = image_style_url("header", $file->uri);
+    $img = file_create_url($file->uri);
 
 ?>
 

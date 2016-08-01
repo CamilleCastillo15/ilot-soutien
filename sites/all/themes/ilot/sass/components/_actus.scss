@@ -93,31 +93,31 @@
 
     }
 
-        .readmore {
+    .readmore {
 
-            @include grid-span(7,4);
+        @include grid-span(7,4);
 
-            @include breakpoint($mobilel) {
-                @include btn_actu($green);
-             }
+        @include breakpoint($mobilel) {
+            @include btn_actu($green);
+         }
 
-            margin-left: 0%;
-            clear: both;
-            margin-bottom: 20px;
-            margin-top: 20px;
+        margin-left: 0%;
+        clear: both;
+        margin-bottom: 20px;
+        margin-top: 20px;
 
-            @include breakpoint($tablet) {
-                margin-right: 0%;
-                float: right;
-             }
+        @include breakpoint($tablet) {
+            margin-right: 0%;
+            float: right;
+         }
 
-            a {
+        a {
 
-                text-decoration: none;
-
-            }
+            text-decoration: none;
 
         }
+
+    }
 
 }
 
