@@ -61,6 +61,7 @@
       $(e).val('');
     }
   };
+
   $.resetTxt = function(e, ref) {
     if ($(e).val() === '') {
       $(e).val(ref);
@@ -99,7 +100,6 @@
 		}
   });//end $(function(){}):
 })(jQuery, Drupal, this, this.document);
-
 
 (function($, Drupal, window, document, undefined)
     {
@@ -187,6 +187,40 @@ console.log("preprocess menu mobile");
                     l_off.setAttribute("class", "l-off h");
                     toggle = 1;
                 }
+            });
+
+            console.log($("#views_slideshow_cycle_main_accueil_chiffres-default").height());
+
+            var slideshow = $("#views_slideshow_cycle_main_accueil_chiffres-default");
+
+            var imgHeight = ($('#views_slideshow_cycle_teaser_section_accueil_chiffres-default').height());
+            $(".field-name-field-accueil-edito").height(imgHeight - 32);
+
+            $(window).bind('resize', function (event) {
+                    var widthResize = $("#views_slideshow_cycle_main_accueil_chiffres-default").width();
+
+                    var heightResize = $("#views_slideshow_cycle_main_accueil_chiffres-default").height();
+
+                    $('#views_slideshow_cycle_main_accueil_chiffres-default  img').attr('width', widthResize).removeAttr('height');
+
+                    $('#views_slideshow_cycle_main_accueil_chiffres-default  img').height('auto');
+
+                    $(".views-slideshow-cycle-main-frame, .views-slideshow-cycle-main-frame-row-item").width(widthResize);
+                    $(".views-slideshow-cycle-main-frame, .views-slideshow-cycle-main-frame-row-item").height(heightResize);
+
+                    var imgHeight = ($('#views_slideshow_cycle_teaser_section_accueil_chiffres-default').height());
+
+//                  console.log(imgHeight);
+
+                    var selectDiv = $('.views-slideshow-cycle-main-frame-row').filter(function() {
+                        return $(this).css('left') == '0px';
+                    });
+
+                    var selectImg = selectDiv.find('img');
+                    var selectImgHeight = selectImg.height();
+                    console.log(selectImgHeight);
+
+                    $(".field-name-field-accueil-edito").height(selectImgHeight);
             });
         }
     }

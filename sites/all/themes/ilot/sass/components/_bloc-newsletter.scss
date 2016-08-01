@@ -23,8 +23,7 @@
 
     .bloc-newsletter {
 
-//        padding-left: 10rem;
-//        padding-right: 10rem;
+            margin-top: 5%;
 
         img {
 
@@ -79,11 +78,8 @@
 
             &.readmore {
 
-                @include grid-span(7,4);
-
-                @include breakpoint($mobilel) {
-                    @include btn_actu($green);
-                 }
+//                @include grid-span(7,4);
+                @include btn_actu($green);
 
                 margin-left: 0%;
                 clear: both;

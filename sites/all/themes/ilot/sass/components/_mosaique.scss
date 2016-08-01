@@ -195,17 +195,14 @@
 
                 @include grid-span(7,4);
 
-                @include breakpoint($mobilel) {
-                    @include btn_actu($green);
+                @include btn_actu($green);
 
-                    &:hover {
+                &:hover {
 
-                        background-color: $red;
-                        border: 2px solid $red;
+                    background-color: $red;
+                    border: 2px solid $red;
 
-                    }
-
-                 }
+                }
 
                 font-family: "SourceSansProRegular", sans-serif;
                 text-transform: uppercase;
@@ -237,7 +234,10 @@
 
         display: inline-block;
         vertical-align: middle;
-        width: 60%;
+
+        @include breakpoint($laptop) {
+            width: 50%;
+        }
 
     }
 
