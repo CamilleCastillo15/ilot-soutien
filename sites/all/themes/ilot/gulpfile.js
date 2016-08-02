@@ -9,7 +9,7 @@ var compass = require('gulp-compass');
 
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
-var notify = require('gulp-notify');
+//var notify = require('gulp-notify');
 var minifyCSS = require('gulp-minify-css');
 
 var sourcemaps = require('gulp-sourcemaps');
@@ -37,8 +37,8 @@ gulp.task('sass:dev', function () {
         .pipe(sourcemaps.write('.'))
   	    .pipe(concat("all.css"))
         .pipe(gulp.dest('./css'))
-        .pipe(browserSync.stream({match: '**/*.css'}))
-        .pipe(notify({ message: 'Styles task complete' }));
+        .pipe(browserSync.stream({match: '**/*.css'}));
+//        .pipe(notify({ message: 'Styles task complete' }));
 });
 
 gulp.task('sass:watch', function () {

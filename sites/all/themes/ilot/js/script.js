@@ -225,7 +225,9 @@ console.log("preprocess menu mobile");
                     $(".field-name-field-accueil-edito").height((selectImgHeight) - 48);
                     $(".field-name-field-accueil-edito").css('max-height', '360px');
 
-//                  $('views_slideshow_cycle_main_accueil_chiffres-default ').width(selectImgWidth);
+                  $('.views_slideshow_cycle_main_accueil_chiffres-default').height(selectImgHeight);
+                  $('#views_slideshow_cycle_teaser_section_accueil_chiffres-default').height(selectImgHeight);
+
 
 //                  $('.view-accueil-chiffres').width(selectImgWidth);
                   $('.view-accueil-chiffres').height(selectImgHeight);

@@ -10,6 +10,12 @@
     padding: 1.5rem;
     box-sizing: border-box;
 
+    @include breakpoint($laptopl) {
+
+        height: 360px !important;
+
+    }
+
         h1 {
 
             margin-top: 0;
