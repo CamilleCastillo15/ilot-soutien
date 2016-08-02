@@ -1,11 +1,8 @@
 .mosaique-new {
 
 
-
     @include b(20vw);
     @include m(5rem,0rem,0rem,6rem);
-
-    font-size: -webkit-xxx-large;
 
     .bloc {
 
@@ -14,11 +11,8 @@
         @media #{$m-m} {
             height:6rem;
         }
-        position: relative;
-        margin: 0;
-        padding: 0;
-        border: none;
-        line-height: 0;
+    
+
 
         &.dernier-projet {
 
