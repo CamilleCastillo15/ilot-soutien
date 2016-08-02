@@ -139,3 +139,34 @@
     }
 
 }
+
+@mixin png($name, $poz:false, $size:false){
+    background-image: url(#{$image-path}/#{$name}.png);
+    background-repeat: no-repeat;
+    @if($size){
+        background-size: $size;
+    }
+    @if($poz){
+        background-position: $poz;
+    }
+
+}
+
+
+
+@mixin container($full){
+    @if($full){
+        
+        width: 100%;
+        max-width: 100%;
+       
+
+    }
+    @else {
+        width: 100%;
+        max-width: $max;
+       
+        margin: 0 auto;
+    }
+  
+}

@@ -3,8 +3,8 @@
 @import "../variables/var";
 
 html {
-    background-color: red;
-    background-color: black;
+   
+    background-color: white;
 
 }
 
@@ -12,6 +12,6 @@ html {
 
   @include background-grid($color: grey);
   margin: auto;
-  max-width: $max;
+  //max-width: $max;
 
 }

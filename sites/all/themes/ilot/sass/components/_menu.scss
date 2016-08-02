@@ -5,11 +5,12 @@
         .menu {
 
             $h: 100px;
-            height: $h;
+
+            height: auto;
             margin-left: 0;
             width: 100%;
-            margin-right: -100%;
-            margin-left: -8.47458%;
+            //margin-right: -100%;
+           // margin-left: -8.47458%;
             clear: none;
             margin-left: 0;
             padding: 0;
@@ -25,7 +26,8 @@
                 text-transform: uppercase;
                 line-height: $h;
                 font-size: 1rem;
-                padding: 1rem 1rem;
+        
+                padding: 0rem 2.5rem;
                 display: inline-block;
 
                 @include breakpoint($laptop) {
@@ -37,8 +39,9 @@
                 }
 
                 a {
-                    transition:all 400ms;
+                    transition:all 300ms;
                      padding-bottom: 1rem;
+                     border-bottom: 3px solid transparent;
                     &:hover,
                     &.active{
                         border-bottom: 3px solid $green;
@@ -58,15 +61,16 @@
                         margin-left: 0;
 
                         width: 150.84746%;
-                        float: left;
-                        margin-right: -100%;
-                        margin-left: 0;
+                       // float: left;
+                        //margin-right: -100%;
+                       //margin-left: 0;
 
                         left: 50%;
-                        -webkit-transform: translate(-50%,0);
-                        -ms-transform: translate(-50%,0);
-                        transform: translate(-50%,0);
-                        z-index: 10;
+                       // -webkit-transform: translate(-50%,0);
+                        //-ms-transform: translate(-50%,0);
+                        //transform: translate(-50%,0);
+                        @include transform(translate(-50%,0));
+                        z-index: 1000;
 
                     li {
 

@@ -12,6 +12,10 @@
 
 }
 
+.container-page{
+	@include container(false);
+}
+
 .field-name-field-accueil-edito{
 
     display: none;
@@ -21,5 +25,18 @@
         display: block;
 
     }
+
+}
+
+
+.node-accueil {
+ .field-name-field-accueil-edito {
+	width: 30%;
+	padding: 3rem;
+	
+	p{
+		@include fz(3);
+	}
+ }
 
 }

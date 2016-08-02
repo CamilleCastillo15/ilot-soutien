@@ -42,3 +42,19 @@ $a-lh : $lh-s-min, $lh-s, $lh-ss, $lh-sss, $lh-ssss, $lh-s-max;
 
 $image-path: '../images' !default;
 $fallback-extension: 'png' !default;
+
+
+$mobile-break:         600px;
+$tablet-break:         1100px;
+$desktop-break:        1101px;
+$super-desktop-break:  1600px;
+
+$m-m: "only screen and (max-width: "+$mobile-break+")";
+$m-t: "only screen and (min-width: "+$mobile-break+") and (max-width: "+$desktop-break+")";
+$m-d: "only screen and (min-width: "+$desktop-break+")";
+$m-sd: "only screen and (min-width: "+$super-desktop-break+")";
+
+$m-m-up: "only screen and (min-width: "+$mobile-break+")";
+$m-t-up: "only screen and (min-width: "+$tablet-break+")";
+
+$m-t-down: "only screen and (max-width: "+$desktop-break+")";

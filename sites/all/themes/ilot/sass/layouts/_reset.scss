@@ -35,3 +35,11 @@ table {
   border-spacing: 0; }
 
 /*# sourceMappingURL=actotheme.reset.css.map */
+
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
