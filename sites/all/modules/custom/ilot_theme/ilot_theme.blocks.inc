@@ -112,7 +112,7 @@ function ilot_theme_block_view($delta = '') {
 function ilot_theme_social_share_links() {
   $siteUrl = urlencode(url('', array('absolute'=>true)));
   $links = array();
-  $links[] = l('Facebook','https://www.facebook.com/sharer/sharer.php?u='.$siteUrl, array('attributes' => array('class' => 'facebook', 'target'=>'_blank')));
+  $links[] = l('Linkedin','https://www.linkedin.com/company/3787026?trk=vsrp_companies_cluster_name&trkInfo=VSRPsearchId%3A1089891661470124738767%2CVSRPtargetId%3A3787026%2CVSRPcmpt%3Acompanies_cluster', array('attributes' => array('class' => 'linkedin', 'target'=>'_blank')));
   $links[] = l('Twitter', 'https://twitter.com/home?status='.$siteUrl, array('attributes' => array('class' => 'twitter', 'target'=>'_blank')));
   return $links;
 }

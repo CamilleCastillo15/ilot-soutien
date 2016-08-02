@@ -220,6 +220,12 @@ body.admin-menu #navigation
   background-size: 60% 60%;
 }
 
+#block-ilot-theme-social-share .item-list ul li a.linkedin
+{
+  background : url('../images/linkedin_vert.svg') no-repeat center center transparent;
+  background-size: 60% 60%;
+}
+
 .block-search-api-page
 {
 	float : right;
@@ -267,7 +273,8 @@ body.admin-menu #navigation
   text-indent : -999em;
   font-size: 1px;
   line-height : 0;
-  background : url('../images/search.png') no-repeat center center #293036;
+  background : url('../images/loupe_recherche.svg') no-repeat center center #293036;
+  background-size: 60%;
   float: left;
 }
 .block-search-api-page .form-item {

@@ -2,7 +2,8 @@
 .field-name-field-accueil-edito {
 
     width : 200px;
-	height : 300px;
+//	height : 300px;
+    max-height: 360px;
 	background-color : $green;
 	padding : 15px;
     color: white;
@@ -16,12 +17,36 @@
 
         }
 
+        .field-name-field-edito-corps {
+
+            max-height:  164px;
+            overflow: auto;
+
+            @include breakpoint($laptopl) {
+
+                max-height:  190px;
+
+            }
+
+            @include breakpoint($laptopxcl) {
+
+                max-height:  214px;
+
+            }
+
+            @include breakpoint($laptopxl) {
+
+                max-height:  244px;
+
+            }
+
+        }
+
     }
 
 .view-accueil-chiffres {
 
-    min-height: 360px;
+//    min-height: 360px;
     max-height: 360px;
 
 }
-

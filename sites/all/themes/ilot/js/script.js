@@ -189,7 +189,7 @@ console.log("preprocess menu mobile");
                 }
             });
 
-            console.log($("#views_slideshow_cycle_main_accueil_chiffres-default").height());
+//            console.log($("#views_slideshow_cycle_main_accueil_chiffres-default").height());
 
             var slideshow = $("#views_slideshow_cycle_main_accueil_chiffres-default");
 
@@ -197,9 +197,9 @@ console.log("preprocess menu mobile");
             $(".field-name-field-accueil-edito").height(imgHeight - 32);
 
             $(window).bind('resize', function (event) {
-                    var widthResize = $("#views_slideshow_cycle_main_accueil_chiffres-default").width();
+                    var widthResize = slideshow.width();
 
-                    var heightResize = $("#views_slideshow_cycle_main_accueil_chiffres-default").height();
+                    var heightResize = slideshow.height();
 
                     $('#views_slideshow_cycle_main_accueil_chiffres-default  img').attr('width', widthResize).removeAttr('height');
 
@@ -218,9 +218,18 @@ console.log("preprocess menu mobile");
 
                     var selectImg = selectDiv.find('img');
                     var selectImgHeight = selectImg.height();
-                    console.log(selectImgHeight);
+                    var selectImgWidth = selectImg.width();
 
-                    $(".field-name-field-accueil-edito").height(selectImgHeight);
+//                    console.log(selectImgHeight);
+
+                    $(".field-name-field-accueil-edito").height((selectImgHeight) - 48);
+                    $(".field-name-field-accueil-edito").css('max-height', '360px');
+
+//                  $('views_slideshow_cycle_main_accueil_chiffres-default ').width(selectImgWidth);
+
+//                  $('.view-accueil-chiffres').width(selectImgWidth);
+                  $('.view-accueil-chiffres').height(selectImgHeight);
+
             });
         }
     }
