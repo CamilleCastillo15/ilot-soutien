@@ -2,6 +2,7 @@
 <?php hide($content['print_links']); ?>
   <?php print render($content); ?>
   <?php print $views_accueil_chiffres;?>
+  <div class="container-page">
   <section class="actualites">
     <h1 class="gros">actualités</h1>
     <?php print $views_accueil_actu; ?>
@@ -45,7 +46,10 @@
             <div class ="don-confiance-btn readmore">Voir plus</div>
         </div>
     </div>
-</section><br />
+</section>
+
+  </div>
+<br />
 </article><!-- /.node -->
 <div class="clearfix"></div>
 

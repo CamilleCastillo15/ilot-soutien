@@ -282,6 +282,7 @@ body.admin-menu #navigation
     float: left;
 }
 
+/*
 .search-api-page-results h1.title {
     font-family: 'NeouBold',sans-serif;
     font-size: 25px;
@@ -289,6 +290,7 @@ body.admin-menu #navigation
     line-height: 35px;
     margin: 0;
 }
+*/
 .search-api-page-results h1.title:after {
     background: url("/sites/all/themes/ilot/images/triangle.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
     content: "";

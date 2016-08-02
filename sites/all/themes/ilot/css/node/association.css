@@ -15,6 +15,7 @@ aside.node-mission {
   margin-left: 70px;
   width: 195px;
 }
+/*
 aside.node-mission h3 {
   margin-top: 0;
   text-transform: uppercase;
@@ -31,6 +32,7 @@ aside.node-mission h4 {
   margin : 0;
   font-weight : normal;
 }
+*/
 aside .field-collection-item-field-missions-blocs {
 	margin-bottom: 30px;
 }
@@ -44,6 +46,7 @@ aside.node-association.view-mode-full {
   margin-left: 70px;
   width: 210px;
 }
+/*
 aside.node-association.view-mode-full h2 {
   margin-top: 0;
   text-transform: uppercase;
@@ -60,6 +63,8 @@ aside.node-association.view-mode-full h3 {
   margin-bottom: 0;
   font-size: 19px;
 }
+*/
+/*
 aside.node-association.view-mode-full h4 {
   font-family : 'Anaheim', sans-serif;
   text-transform: uppercase;
@@ -68,6 +73,7 @@ aside.node-association.view-mode-full h4 {
   margin : 0;
   font-weight : normal;
 }
+*/
 aside.node-association.view-mode-full .texte {
 	margin-bottom:40px;
   margin-top:10px;
@@ -81,6 +87,7 @@ aside.node-association.view-mode-full .read-more {
   line-height: 21px;
   margin-top: 10px;
 }
+/*
 .node-association.view-mode-full h1,
 .node-valeur.view-mode-full h1,
 .node-liste-partenaire.view-mode-full h1,
@@ -95,7 +102,9 @@ aside.node-association.view-mode-full .read-more {
   margin : 0;
   font-weight : normal;
 }
+*/
 
+/*
 .node-association.view-mode-full h2,
 .node-valeur.view-mode-full h2,
 .node-liste-partenaire.view-mode-full h2,
@@ -112,6 +121,7 @@ aside.node-association.view-mode-full .read-more {
   margin : 0;
   font-weight : normal;
 }
+*/
 
 .node-association.view-mode-full h2:after,
 .node-valeur.view-mode-full h2:after,
@@ -127,6 +137,7 @@ aside.node-association.view-mode-full .read-more {
   background : url('/sites/all/themes/ilot/images/triangle.png') no-repeat;
 }
 
+/*
 .node-association.view-mode-full .field-name-field-association-texte,
 .node-valeur.view-mode-full .field-name-field-valeur-texte,
 .node-mission.view-mode-full .field-name-field-mission-texte
@@ -135,6 +146,7 @@ aside.node-association.view-mode-full .read-more {
 	font-size : 16px;
 	line-height : 20px;
 }
+*/
 .node ul li {
 	line-height: 23px;
 }
@@ -145,12 +157,14 @@ aside.node-association.view-mode-full .read-more {
   margin-bottom : 20px;
 }
 
+/*
 .node-association.view-mode-full .field-name-field-association-contenu ul,
 .node-valeur.view-mode-full .field-name-field-valeur-contenu ul,
 .node-mission.view-mode-full .field-name-field-mission-contenu ul
 {
 	color : #28bca4;
 }
+*/
 
 .node-association.view-mode-full .field-name-field-association-contenu .standard ul
 {
@@ -158,16 +172,18 @@ aside.node-association.view-mode-full .read-more {
 }
 .node-association.view-mode-full .field-name-field-association-contenu .content.vert
 {
-  background-color : #28bca4;
+  background-color : #00a886;
   color : #ffffff;
   padding : 20px;
 }
 
+/*
 .node-association.view-mode-full .field-name-field-association-contenu .content.vert ul
 {
   list-style-image : url('../../images/fleche_list_blanc.png');
   color : #ffffff;
 }
+*/
 
 .node-association.view-mode-full .field-name-field-association-contenu .content.gris
 {
@@ -182,6 +198,7 @@ aside.node-association.view-mode-full .read-more {
   right: 10px;
   top: -14px;
 }
+/*
 .node-association.view-mode-full .field-name-field-association-phrase-1,
 .node-association.view-mode-full .field-name-field-association-phrase-2,
 .node-association.view-mode-full .field-name-field-association-phrase-bouton
@@ -192,6 +209,7 @@ aside.node-association.view-mode-full .read-more {
 	color : #28bca4;
 	line-height : 31px;
 }
+*/
 
 .node-association.view-mode-full .field-name-field-association-phrase-2
 {
@@ -199,6 +217,7 @@ aside.node-association.view-mode-full .read-more {
   margin-bottom : 30px;
 }
 
+/*
 .node-association.view-mode-full .don span
 {
 	display : inline-block;
@@ -212,7 +231,9 @@ aside.node-association.view-mode-full .read-more {
 	text-transform : uppercase;
   padding : 15px;
 }
+*/
 
+/*
 .node-association.view-mode-full .don .don-btn
 {
     background: url("/sites/all/themes/ilot/images/don-image.png") no-repeat scroll 20px center #293036;
@@ -226,7 +247,9 @@ aside.node-association.view-mode-full .read-more {
     text-transform: uppercase;
     width: 90px;
 }
+*/
 
+/*
 .node-liste-partenaire.view-mode-full h1,
 .node-partenaire.view-mode-teaser h2,
 .node-rapport-activite.view-mode-full h1,
@@ -239,6 +262,8 @@ aside.node-association.view-mode-full .read-more {
 	font-size : 25px;
 	line-height : 23px;
 }
+*/
+/*
 .node-partenaire.view-mode-teaser h2
 {
   font-family : 'NeouBold', sans-serif;
@@ -246,6 +271,8 @@ aside.node-association.view-mode-full .read-more {
   margin : 0;
   font-weight : normal;
 }
+*/
+/*
 .node-partenaire.view-mode-teaser h3
 {
   font-family : 'Anaheim', sans-serif;
@@ -255,6 +282,7 @@ aside.node-association.view-mode-full .read-more {
   margin : 0;
   font-weight : normal;
 }
+*/
 .node-liste-partenaire.view-mode-full ul.block-filters,
 .node-liste-partenaire.view-mode-full ul.block-filters li {
 	list-style: none;
@@ -273,6 +301,7 @@ aside.node-association.view-mode-full .read-more {
 	 border-bottom: 3px solid #28bca4;
 }
 
+/*
 .node-liste-partenaire.view-mode-full ul.block-filters li a
 {
 	display: block;
@@ -286,6 +315,8 @@ aside.node-association.view-mode-full .read-more {
   border-bottom: 3px solid transparent;
   transition: all 0.5s;
 }
+*/
+/*
 .node-liste-partenaire.view-mode-full ul.block-filters li a span
 {
   font-family : 'Anaheim', sans-serif;
@@ -296,6 +327,7 @@ aside.node-association.view-mode-full .read-more {
   font-weight : normal;
   display:block;
 }
+*/
 .node-liste-partenaire.view-mode-full .view-liste-partenaire {
 	margin-top:25px;
 }
@@ -309,12 +341,15 @@ aside.node-association.view-mode-full .read-more {
   padding: 0 80px 0 0;
   width: 420px;
 }
+/*
 .node-rapport-activite.view-mode-full .field-name-field-rapport-activite-texte
 {
   font-family : 'Gill Sans', sans-serif;
   font-size : 18px;
 }
+*/
 
+/*
 .node-partenaire.view-mode-teaser a
 {
 	font-family : 'Gill Sans', sans-serif;
@@ -322,6 +357,7 @@ aside.node-association.view-mode-full .read-more {
 	color : #28bca4;
 	text-decoration : none;
 }
+*/
 
 .node-rapport-activite.view-mode-full a
 {

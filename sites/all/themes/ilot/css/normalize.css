@@ -280,13 +280,17 @@ a:active {
  * Addresses font sizes within 'section' and 'article' in FF4+, Chrome, S5
  */
 
+/*
 h1 {
   font-size: 2em;
+*/
   /* Sets the line height to 2 units of vertical rhythm */
-  line-height: 1.5em; /* 3rem / 2em = 1.5em */
+/*  line-height: 1.5em; */
+/* 3rem / 2em = 1.5em */
   /* Sets 1 unit of vertical rhythm on the top and bottom margins. */
-  margin-top: 0.75em; /* 1.5rem / 2em = .75em */
-  margin-bottom: 0.75em;
+/*  margin-top: 0.75em; */
+/* 1.5rem / 2em = .75em */
+/*  margin-bottom: 0.75em;*/
 }
 
 h2 {

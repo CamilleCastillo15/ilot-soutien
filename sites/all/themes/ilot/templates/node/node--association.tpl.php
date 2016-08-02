@@ -13,7 +13,7 @@
   <?php endif; ?>
   </article><!-- /.node -->
 <aside class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-<h2>Témoignages</h2>
+<h1>Témoignages</h1>
 <?php print $views_temoignages_contextuel; ?>
 <div class="bandeau-don">
 <span><?php print render($content['field_association_phrase_bouton'])?></span>

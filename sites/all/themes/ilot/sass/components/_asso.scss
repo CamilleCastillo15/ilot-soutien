@@ -1,0 +1,71 @@
+.node-association {
+
+    p {
+
+        margin: 1rem 0;
+
+    }
+
+    h1 {
+
+        padding-bottom: 0.5rem;
+
+    }
+
+    .content {
+
+        .field-name-field-association-texte {
+
+            table {
+
+                display: block;
+                background-color: $lightgrey;
+//                padding: 6rem;
+
+                tbody {
+
+                    display: block;
+                    width: 100%;
+
+                    tr {
+
+                        display: inline-block;
+
+                        td {
+
+                            display: inline-block;
+                            text-align: left;
+
+                            a {
+
+                                img {
+
+                                    height: 284px;
+                                    width: 200px;
+                                    text-align: center;
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+aside.view-mode-full.node-association {
+
+    background-color: $lightgrey;
+    text-transform: uppercase;
+    text-align: center;
+
+}
