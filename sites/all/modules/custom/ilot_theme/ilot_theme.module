@@ -20,6 +20,12 @@ function ilot_theme_menu(){
 
 function ilot_theme_admin() {
     
+    $form['ilot_theme_social'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Paramétrage des URLs des réseaux sociaux'),
+        '#collapsible' => TRUE, // Added
+        '#collapsed' => FALSE,  // Added
+    );
     $form['ilot_theme_newsletterttt'] = array(
         '#type' => 'fieldset',
         '#title' => t('Paramétrage de la newsletter'),
@@ -147,6 +153,26 @@ function ilot_theme_admin() {
         '#description' => t('Image du bloc "don en confiance"'),
         '#required' => FALSE,
        
+    );
+    
+    $var7 = variable_get('ilot_theme_social_twitter');
+    $form['ilot_theme_social']['ilot_theme_social_twitter'] = array(
+        '#type' => 'text_format',
+        '#title' => t('URL Twitter'),
+        '#format' => $var7["format"],
+        '#default_value' =>$var7["value"],
+        '#description' => t("URL du twitter de l'îlot"),
+        '#required' => FALSE,
+    );
+    
+    $var8 = variable_get('ilot_theme_social_linkedin');
+    $form['ilot_theme_social']['ilot_theme_social_linkedin'] = array(
+        '#type' => 'text_format',
+        '#title' => t('URL Linkedin'),
+        '#format' => $var8["format"],
+        '#default_value' =>$var8["value"],
+        '#description' => t("URL du linkedin de l'îlot"),
+        '#required' => FALSE,
     );
     
     return system_settings_form($form);
