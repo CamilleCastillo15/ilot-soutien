@@ -415,9 +415,9 @@
 
             vertical-align: middle;
 
-            .facebook-img {
+            .linkedin-img {
                 display: inline-block;
-                background: url("../images/facebook_blanc.svg") no-repeat;
+                background: url("../images/linkedin_blanc.svg") no-repeat;
                 background-position: bottom;
                 width:1.5rem;
                 height: 1.5rem;
@@ -425,7 +425,7 @@
                 vertical-align: middle;
                 &:hover {
 
-                    background: url("../images/facebook_vert.svg") no-repeat;
+                    background: url("../images/linkedin_vert.svg") no-repeat;
                     background-position: bottom;
 
                 }

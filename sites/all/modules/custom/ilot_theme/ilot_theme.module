@@ -61,7 +61,7 @@ function ilot_theme_admin() {
     );
     
    $var2 = variable_get('ilot_theme_newsletter_img');
-   dpm($var2);
+//   dpm($var2);
    $form['ilot_theme_newsletterttt']['ilot_theme_newsletter_img'] = array(
         '#type' => 'media',
         '#tree' => TRUE,
@@ -94,7 +94,7 @@ function ilot_theme_admin() {
     );
     
     $var4 = variable_get('ilot_theme_contact_img');
-    dpm($var4);
+//    dpm($var4);
     $form['ilot_theme_contact']['ilot_theme_contact_img'] = array(
         '#type' => 'media',
         '#tree' => TRUE,
@@ -115,7 +115,7 @@ function ilot_theme_admin() {
     );
     
     $var5 = variable_get('ilot_theme_contact_icone');
-    dpm($var5);
+//    dpm($var5);
     $form['ilot_theme_contact']['ilot_theme_contact_icone'] = array(
         '#type' => 'media',
         '#tree' => TRUE,
@@ -157,20 +157,20 @@ function ilot_theme_admin() {
     
     $var7 = variable_get('ilot_theme_social_twitter');
     $form['ilot_theme_social']['ilot_theme_social_twitter'] = array(
-        '#type' => 'text_format',
+        '#type' => 'textarea',
         '#title' => t('URL Twitter'),
-        '#format' => $var7["format"],
-        '#default_value' =>$var7["value"],
+//        '#format' => $var7["format"],
+        '#default_value' =>$var7,
         '#description' => t("URL du twitter de l'îlot"),
         '#required' => FALSE,
     );
     
     $var8 = variable_get('ilot_theme_social_linkedin');
     $form['ilot_theme_social']['ilot_theme_social_linkedin'] = array(
-        '#type' => 'text_format',
+        '#type' => 'textarea',
         '#title' => t('URL Linkedin'),
-        '#format' => $var8["format"],
-        '#default_value' =>$var8["value"],
+//        '#format' => $var8["format"],
+        '#default_value' =>$var8,
         '#description' => t("URL du linkedin de l'îlot"),
         '#required' => FALSE,
     );

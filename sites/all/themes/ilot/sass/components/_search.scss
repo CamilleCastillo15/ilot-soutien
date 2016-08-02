@@ -36,3 +36,19 @@
     }
 
 }
+
+.l-header {
+
+    .region-navigation {
+
+        display: none;
+
+        @include breakpoint($laptop) {
+
+            display: block;
+
+        }
+
+    }
+
+}
