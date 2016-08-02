@@ -1,18 +1,11 @@
 #block-ilot-theme-newsletter {
 
     padding: 20px 0px;
-    min-height: 340px;
     background-color: $grey_6;
 
-    width: 100%;
-
-  @include breakpoint($laptop) {
-        width: 50%;
-        display: inline-block;
-        margin-right: -4px;
-        border-top: 3px solid $green;
-     }
-
+    @include b(65%);
+ 
+     
     text-align: center;
 
     h1 {
@@ -23,19 +16,13 @@
 
     .bloc-newsletter {
 
-            margin-top: 5%;
+        margin-top: 2rem;
 
         img {
-
-            width: 4em;
+          
+            width: 3em;
             position: absolute;
             left: 10%;
-
-            @include breakpoint($mobilel){
-
-                left: 15%;
-
-            }
 
         }
 
@@ -43,13 +30,13 @@
 
     .col-1 {
 
-        width: 50%;
+     
         text-align: center;
         margin: 0 auto;
 
-        @include breakpoint($laptopl) {
-            padding: 0 9rem;
-        }
+       
+         padding: 0rem 4rem;
+        
 
     }
 

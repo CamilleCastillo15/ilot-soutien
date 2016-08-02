@@ -89,7 +89,7 @@
                   
                     vertical-align: middle;
                     padding: 0;
-                    letter-spacing: 1px;
+                    letter-spacing: 0px;
                     width: 100%;
                     
                     font-weight: bold;
@@ -109,20 +109,9 @@
                         clear: both;
                         float: none;
 
-                        @include fz(5.5);
+                        @include fz(4);
 
-                        @include breakpoint($laptop) {
-                            @include fz(3);
-//                            padding-left 1rem;
-                        }
-
-                        @include breakpoint($laptopl) {
-                            @include fz(4);
-                        }
-
-                        @include breakpoint($laptopxcl) {
-                            @include fz(4);
-                        }
+                     
 
                     }
 

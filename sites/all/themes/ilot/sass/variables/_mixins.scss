@@ -6,28 +6,21 @@
     display: inline-block;
     text-transform: uppercase;
 
-//    @include breakpoint($laptop) {
-//        margin-top:30px;
-//    }
-
-    @include breakpoint($laptopl) {
-        margin-top:40px;
-    }
-
-    padding: 10px 30px;
+    padding: 0.5rem 2rem;
     text-align: center;
 
     background-repeat: no-repeat;
 
-    background-size : 15% 40%;
-    background-position: 100% center;
+    background-size : 0.5rem;
+    background-position: 90% center;
     color: #000000;
     position: relative;
     border : 2px solid #000000;
     background-image : url(../images/f_noires/f_g_droite.svg);
+    width: 40%;
+    min-width: 16rem;
 
-    width:230px;
-
+ 
     &:hover {
         color: white;
         background-color: $color;
@@ -78,6 +71,80 @@
     }
 }
 
+$fzs: 0.9rem, 1.1rem,  1.3rem,  1.6rem,  3.8rem, 5rem;
+@mixin fz($size){
+  font-size: nth($fzs, $size);
+  line-height: nth($fzs, $size)*1.2;
+}
+
+// margin
+@mixin m($m-t:0rem,$m-r:0rem,$m-b:0rem,$m-l:0rem){
+    margin-top: $m-t;
+    margin-right: $m-r;
+    margin-bottom: $m-b;
+    margin-left: $m-l;
+    @media #{$m-m} {
+      margin:0rem;
+    }
+}
+
+//padding
+@mixin p($p-t:0rem,$p-r:0rem,$p-b:0rem,$p-l:0rem){
+    padding-top: $p-t;
+    padding-right: $p-r;
+    padding-bottom: $p-b;
+    padding-left: $p-l;
+    @media #{$m-m} {
+      padding:0rem;
+    }
+}
+
+
+
+// NEW BLOC : largeur , align , largeur mobile
+@mixin b($w:100%,$va:top,$m:100%){
+    
+    display: inline-block;  
+    width: $w;
+    vertical-align: $va;
+    position: relative;
+
+    @media #{$m-m} {
+        width: $m;
+    }  
+
+}
+
+@mixin fx-mix($color){
+
+     content:"";
+     background-color: $color;
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     top:0rem;
+     left:0rem;
+     mix-blend-mode:overlay;
+     z-index: 1;
+     @include opacity(0);
+     @include transition(all 0.2s ease-in-out);
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin opacity($opacity) {
+
+     opacity: $opacity;
+     $opacityIE: $opacity * 100;
+     filter: alpha(opacity=$opacityIE);
+}
+
 @mixin translate($x,$y){
     -moz-transform : translate($x,$y);
     -webkit-transform : translate($x,$y);
@@ -123,10 +190,6 @@
 
 }
 
-@mixin fz($size){
-	font-size: nth($a-fs, $size);
-	line-height: nth($a-lh, $size);
-}
 
 @mixin jpg($name, $poz:false, $size:false){
     background-image: url(#{$image-path}/#{$name}.jpg);
@@ -152,9 +215,27 @@
 
 }
 
+@mixin css3-prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+   -khtml-#{$property}: #{$value};
+     -moz-#{$property}: #{$value};
+      -ms-#{$property}: #{$value};
+       -o-#{$property}: #{$value};
+          #{$property}: #{$value};
+}
+
+
+@mixin transform($params) {
+  @include css3-prefix('transform', $params);
+}
+
+
 
 
 @mixin container($full){
+     clear: both;
+     float: none;
+     display: block;
     @if($full){
         
         width: 100%;

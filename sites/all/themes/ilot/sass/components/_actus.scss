@@ -1,22 +1,60 @@
 .actualites {
 
-    width: 100%;
-    display: block;
+  
 
-     @include breakpoint($laptop) {
-        width: 66%;
-        display: inline-block;
+    @include b(65%);
+
+  
+    .date{
+           .socials{
+
+            
+            overflow: hidden;
+            position: absolute;
+          
+            height: 3rem;
+            width: 5rem;
+            bottom: 1rem;
+            right: 0rem;
+     
+            @include jpg(fake_rs,50% 50%,contain);
+        }
+    }
+
+    .date-actualite{
+        position: absolute;
+        right: 0rem;
+       
+        color:black;
+        font-weight: bold;
+        @include fz(1);
+       
+
+     
+
+        .jour{
+            display: block;
+             @include jpg(bg_date,50% 100%, 100%);
+           
+             width: 100%;
+              @include fz(2);
+             color:white;
+             height: auto;
+            padding: 1rem;
+        }
+        .mois ,.annee{
+             @include transition(all 0.2s ease-in-out);
+            @include opacity(0);
+        }
+       
     }
 
     .actus {
 
         padding: 0;
-        margin: 5vw 5vw 0px 8vw;
+        position: relative;
 
-        @include breakpoint($laptopl) {
-            padding: 0;
-            margin: 60px 60px 0px 100px;
-        }
+        margin-bottom:2rem;
 
         border-bottom: 3px solid $green;
 
@@ -24,31 +62,30 @@
         height: 100%;
 
         &:not(:first-child) {
-            margin-top:50px;
+            margin-top:2rem;
+        }
+        &:hover{
+             .date-actualite{
+             .mois ,.annee{
+             @include opacity(0.8);
+            } 
+
+        }
         }
 
         .img-actu {
 
-                @include grid-span(3,1);
-                line-height:0;
+          display: inline-block;
+          vertical-align: top;
+          width: 35%;
+            line-height:0;
 
             img {
 
                 line-height: 0;
 
-                @include breakpoint($mobilel) {
-                    //margin-left:25%;
-                 }
-
-                @include breakpoint($tablet) {
-                    //min-height: 204px;
-                 }
-
-                @include breakpoint($laptopl) {
-                    //min-height: 204px;
-                 }
-
-                height: 100%;
+                width: 100%;
+                height: auto;
 
             }
 
@@ -56,24 +93,16 @@
 
         .text-actus {
 
-            @include grid-span(6,4);
-                margin-left:29%;
+            display: inline-block;
+            vertical-align: top;
+            width: 55%;
+            padding-left: 1rem;
+            padding-bottom: 5rem;
 
-            @include breakpoint($mobilel) {
-                margin-left:31%;
-             }
-
-            @include breakpoint($tablet) {
-                margin-left:32%;
-             }
-
-            @include breakpoint($laptop) {
-                margin-left:30%;
-             }
-
-            @include breakpoint($laptopl) {
-                margin-left:25%;
-             }
+            h1{
+                    margin-bottom: 1rem;
+            }
+            
 
             .text-detail {
 
@@ -95,21 +124,16 @@
 
     .readmore {
 
-        @include grid-span(7,4);
 
-        @include breakpoint($mobilel) {
-            @include btn_actu($green);
-         }
-
-        margin-left: 0%;
+        @include btn_actu($green);
+           
         clear: both;
-        margin-bottom: 20px;
-        margin-top: 20px;
-
-        @include breakpoint($tablet) {
-            margin-right: 0%;
-            float: right;
-         }
+        display: block;
+        margin:0 auto;
+        position: absolute;
+        bottom: 1rem;
+        width: 25%;
+        right: 25%;
 
         a {
 
@@ -117,6 +141,14 @@
 
         }
 
+    }
+
+      .actu{
+        float: right;
+         left: 0rem;
+            width: 50%;
+            position: relative;
+            margin-top: 3rem;
     }
 
 }

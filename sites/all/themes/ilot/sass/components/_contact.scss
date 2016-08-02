@@ -1,20 +1,11 @@
 #block-ilot-theme-contact {
 
-    padding: 20px 0px;
-    min-height: 340px;
+    padding: 20px 0px; 
     background-color: white;
 
-    width: 100%;
-
-  @include breakpoint($laptop) {
-        width: 50%;
-        display: inline-block;
-        vertical-align: top;
-        border-top: 3px solid $green;
-     }
-
+    @include b(34%);
+         
     text-align: center;
-
 
     h1 {
 
@@ -41,7 +32,7 @@
 
     .bloc-contact {
 
-        margin-top: 5%;
+        margin-top: 2rem;
 
     }
 
@@ -115,12 +106,6 @@
         width: 3em;
         position: absolute;
         left: 10%;
-
-        @include breakpoint($mobilel){
-
-            left: 15%;
-
-        }
 
     }
 }
