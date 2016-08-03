@@ -3,6 +3,7 @@
 
 html,body{
   font-family: 'Lato', sans-serif;
+  font-size: 16px;
   font-size: 1.1vw;
     //font-size: 15px;
     line-height: 1.3em;
@@ -11,8 +12,12 @@ html,body{
   @media #{$m-m} {
     font-size: 16px;
   }
-  @media #{$m-sd} {
+
+  @media #{$m-t} {
     font-size: 17px;
+  }
+  @media #{$m-sd} {
+    font-size: 18px;
   }
 }
 

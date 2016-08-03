@@ -80,7 +80,7 @@
 
 $fzs: 0.9rem, 1.1rem,  1.3rem,  1.6rem,  3.8rem, 5rem;
 @mixin fz($size){
-  font-size: nth($fzs, $size);
+  font-size: nth($fzs, $size) !important;
   line-height: nth($fzs, $size)*1.2;
 }
 
@@ -124,6 +124,22 @@ $fzs: 0.9rem, 1.1rem,  1.3rem,  1.6rem,  3.8rem, 5rem;
     }  
 
 }
+
+@mixin ba($w:100%,$m:100%){
+    
+    display: block;  
+    width: $w;
+    position: absolute;
+    margin:0rem;
+    padding:0rem;
+    border:none;
+
+    @media #{$m-m} {
+        width: $m;
+    }  
+
+}
+
 
 @mixin fx-mix($color){
 

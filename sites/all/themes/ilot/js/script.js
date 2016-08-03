@@ -189,14 +189,11 @@
 
 //            console.log($("#views_slideshow_cycle_main_accueil_chiffres-default").height());
 
-            var slideshow = $("#views_slideshow_cycle_main_accueil_chiffres-default");
 
-            var imgHeight = ($('#views_slideshow_cycle_teaser_section_accueil_chiffres-default').height());
-            $(".field-name-field-accueil-edito").height(imgHeight - 32);
 
             $(window).bind('resize', function (event) {
 
-                    var widthResize = slideshow.width();
+                    /*var widthResize = slideshow.width();
 
                     var heightResize = slideshow.height();
 
@@ -229,7 +226,7 @@
 
 
 //                  $('.view-accueil-chiffres').width(selectImgWidth);
-                  $('.view-accueil-chiffres').height(selectImgHeight);
+                  $('.view-accueil-chiffres').height(selectImgHeight);*/
 
             });
 
