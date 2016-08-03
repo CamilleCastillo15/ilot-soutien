@@ -1,14 +1,9 @@
 #block-ilot-theme-newsletter {
 
-
     background-color: $grey_6;
-
-    @include b(65%);
-    padding-bottom: 2rem;
- 
-     
+    @include b(64%);
+    padding-bottom: 2rem;    
     text-align: center;
-
     h1 {
 
         margin-bottom: 20px !important;
@@ -18,7 +13,6 @@
     .bloc-newsletter {
 
         margin-top: 2rem;
-
         img {
           
             width: 3em;
@@ -30,21 +24,16 @@
     }
 
     .col-1 {
-
-     
+   
         text-align: center;
         margin: 0 auto;
-
-       
-         padding: 0rem 4rem;
+        padding: 0rem 4rem;
         
-
     }
 
     .telephone {
 
         display: inline;
-
         p {
             display: inline;
         }

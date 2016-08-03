@@ -3,6 +3,11 @@
      border-top: 3px solid $green;
 }
 
+
+.l-footer{
+    @include container(true);
+}
+
 .l-footer {
 
     position: relative;
@@ -11,7 +16,8 @@
     .reseaux {
         position:absolute;
         right:2rem;
-        bottom:2rem;
+           bottom: -4rem;
+    z-index: 2;
 
 
         img {

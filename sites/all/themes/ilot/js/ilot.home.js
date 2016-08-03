@@ -4,7 +4,7 @@
 
     attach: function (context, settings) {
 
-         console.log("js home");
+      
 
         var swiper = new Swiper('.node-accueil .swiper-container', {
 
@@ -12,7 +12,7 @@
             paginationClickable: true,
             nextButton: '.swiper-button-next',
             prevButton: '.swiper-button-prev',
-            spaceBetween: 30,
+            spaceBetween: 0,
             autoplay : 10000
 
         });

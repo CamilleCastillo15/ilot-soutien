@@ -43,14 +43,18 @@
             position: relative;
             display: inline-block;
             vertical-align: middle;
-            width: 69%;
+            width: 75%;
             text-align: left;
             
             padding-left: 3rem;
 
             @include png(bg_don,0% 0%, auto);
+             box-shadow: 0 7px 8px -2px rgba(black,0.5);
+            @media #{$m-t-up} {
+                 box-shadow: 0 7px 8px -2px $grey_5;
+            }
 
-            box-shadow: 0 7px 8px -2px $grey_5;
+           
 
             @media #{$m-t-down} {
                
@@ -112,7 +116,6 @@
                         @include fz(4);
 
                      
-
                     }
 
                     .premier {
@@ -131,7 +134,7 @@
                  font-family: "PermanentMarker",sans-serif;
                     //@include btn_don(#903139);
 
-                    width: 30%;
+                    width: 32%;
 
                     display: inline-block;
 
@@ -229,11 +232,14 @@
 
     .vocation-mobile {
 
-        display: none;
+        
 
-        max-width: 323px;
+        //max-width: 323px;
+        text-align: center;
+        width: 80%;
         //height: 100%;
         background-color: $green;
+
         color: white;
         margin: 4rem auto;
         padding: 2rem;
@@ -246,3 +252,5 @@
     }
 
 }
+
+

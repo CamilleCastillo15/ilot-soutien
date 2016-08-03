@@ -1,43 +1,158 @@
-.bloc-texte {
-
-    width: 400px;
-     height: 123px;
-    position: absolute;
-
-//    left: 50%;
-//    top:50%;
-    right: 5%;
-    top: 10%;
-//    @include translate(-50%, -50%);
-
-}
 
 .container-page{
 	@include container(false);
 	
 }
 
-.field-name-field-accueil-edito{
-
-    display: none;
-
-    @include breakpoint($laptop) {
-
-        display: block;
-
-    }
-
-}
-
 
 .node-accueil {
+
  .field-name-field-accueil-edito {
 	width: 30%;
 	padding: 3rem;
+    background-color : $green;
+    color: white;
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    display: block;
+    @media #{$m-m} {
+        display: none;
+    }
+
 	
 	p{
 		@include fz(3);
 	}
  }
 
+ .view-accueil-chiffres{
+    width: 100%;
+    padding-left: 30%;
+
+    @media #{$m-m} {
+            
+        padding-left: 0%;
+
+    }
+
+    .field-name-field-chiffres-clefs-accroche{
+         @include fz(2);
+    }
+
+    .swiper-container{
+        ul{
+            list-style: none;
+            font-size: 0px;
+            padding: 0rem;
+            li{
+                @include fz(2);
+
+                overflow: hidden;
+
+                img{
+                    max-width: 200%;
+                    height: auto !important;
+                    width: 120%;
+                    position: relative;
+                    left:-10%;
+                    @media #{$m-m} {
+                        width: 200%;
+                        left:-50%;
+                    }
+                }
+
+            }
+        }
+    }
+ }
+
+}
+
+.container-slider{
+    display: block;
+    position: relative;
+    height: 26rem;
+
+      @media #{$m-m} {
+             height: 20rem;
+        }
+
+    .bloc-texte {
+
+
+        height: auto;
+        right: 5rem;
+        top: 2rem;
+
+        @include ba(30%,50%);
+
+        @media #{$m-m} {
+             right: 25%;
+            top: 45%;
+        }
+
+        .chiffres-clefs{
+            @include fz(4);
+            background-color: $grey;
+            font-family: "PermanentMarker",sans-serif;
+        }
+        .field-name-field-chiffres-clefs-accroche{
+           background-color: $grey_1;
+        }
+
+
+    }
+
+    .view-accueil-chiffres *:not(.bloc-texte){
+        height: 100%;       
+    }
+
+    .field-name-field-chiffres-clefs-accroche,.chiffres-clefs{
+        padding: 1rem;
+        width: 100%;
+        display: block;
+        position: relative;
+        color:white;
+        text-align: center;
+    }
+
+    .view-accueil-chiffres{
+        height: 100%;
+
+        .bloc-texte *{
+
+            height: auto !important;
+                 
+        }
+    }
+    
+}
+
+
+.node-association.view-mode-full {
+
+  float: none;
+  margin-left: 0px;
+
+  @include b(70%);
+  text-align:left;
+
+}
+aside.node-association.view-mode-full {
+  float: none;
+  
+  margin-left: 1rem;
+
+  @media #{$m-t-up} {
+     margin-left: 4rem;
+  }
+
+  @include b(20%);
+  text-align:left;
+
+}
+.container-page{
+    @include container(false);
+    text-align: center;
 }
