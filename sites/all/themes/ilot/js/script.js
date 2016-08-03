@@ -141,8 +141,6 @@
  * Prepare the Ajax request before it is sent.
  */
 
-console.log("preprocess menu mobile");
-
 //if (typeof jQuery != 'undefined') {
 //    // jQuery is loaded => print the version
 //    alert(jQuery.fn.jquery);
@@ -197,6 +195,7 @@ console.log("preprocess menu mobile");
             $(".field-name-field-accueil-edito").height(imgHeight - 32);
 
             $(window).bind('resize', function (event) {
+
                     var widthResize = slideshow.width();
 
                     var heightResize = slideshow.height();
@@ -233,6 +232,7 @@ console.log("preprocess menu mobile");
                   $('.view-accueil-chiffres').height(selectImgHeight);
 
             });
+
         }
     }
 

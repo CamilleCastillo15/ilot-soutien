@@ -30,11 +30,36 @@
                     tr {
 
                         display: inline-block;
+                        vertical-align: top;
+                        padding: 0 6rem;
+
+                        &:nth-child(1){
+
+                             display: block;
+                             padding: 2rem 6rem;
+
+                        }
+
+                        &:nth-child(2){
+
+                            img {
+
+                                height: 284px;
+
+                            }
+
+                        }
 
                         td {
 
                             display: inline-block;
                             text-align: left;
+
+                            &:nth-child(2){
+
+                                display: block;
+
+                            }
 
                             a {
 
@@ -60,6 +85,60 @@
 
     }
 
+    .read-more {
+
+
+        @include btn_generique($green);
+
+        clear: both;
+        display: block;
+        margin:0 auto;
+
+        a {
+
+            text-decoration: none;
+
+        }
+
+    }
+
+    .bandeau-je-fais-don {
+
+        img {
+
+            width: 6rem;
+            display: inline-block;
+            vertical-align: middle;
+
+        }
+
+        .col-1 {
+
+            display: inline-block;
+            font-family: "PermanentMarker",sans-serif;
+            color:$red;
+            vertical-align: middle;
+
+        }
+
+        .don-btn {
+
+            @include btn_generique($red);
+            margin: 10px 0;
+        }
+    }
+
+}
+
+article.node-association {
+
+    @include breakpoint($laptop){
+
+        width: 50%;
+
+    }
+
+    width: 100%;
 }
 
 aside.view-mode-full.node-association {
@@ -67,5 +146,31 @@ aside.view-mode-full.node-association {
     background-color: $lightgrey;
     text-transform: uppercase;
     text-align: center;
+
+    @include breakpoint($laptop){
+
+        width: 20%;
+
+    }
+
+    width: 100%;
+
+    .texte {
+
+        text-align: left;
+
+        h3 {
+
+            padding: 0 2rem;
+
+        }
+
+        h4 {
+
+            padding: 0 2rem;
+
+        }
+
+    }
 
 }
