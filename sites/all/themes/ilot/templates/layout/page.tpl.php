@@ -179,11 +179,10 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
               <?php print l("<div class='linkedin-img'></div>", render($url_linkedin), array("html"=>true, 'external' => TRUE,  'attributes' => array('class' => array('linkedin-lien'),'target'=>'_blank'))); ?>
             </div>
        </div>
+    <div class="l-footer" >
     <?php if (!$light) : ?>
       <?php print render($page['footer']); ?>
     <?php endif; ?>
-    <div class="l-footer" >
-
 <!--
         <div class="reseaux">
             <a href="https://twitter.com/IlotAsso?lang=fr" class="twitter-lien" target="_blank">
