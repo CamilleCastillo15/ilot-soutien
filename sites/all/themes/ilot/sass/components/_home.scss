@@ -128,3 +128,31 @@
     }
     
 }
+
+
+.node-association.view-mode-full {
+
+  float: none;
+  margin-left: 0px;
+
+  @include b(70%);
+  text-align:left;
+
+}
+aside.node-association.view-mode-full {
+  float: none;
+  
+  margin-left: 1rem;
+
+  @media #{$m-t-up} {
+     margin-left: 4rem;
+  }
+
+  @include b(20%);
+  text-align:left;
+
+}
+.container-page{
+    @include container(false);
+    text-align: center;
+}
