@@ -1006,7 +1006,7 @@ $.fn.cycle.defaults = {
     allowPagerClickBubble: false, // allows or prevents click event on pager anchors from bubbling
     animIn:           null,     // properties that define how the slide animates in
     animOut:          null,     // properties that define how the slide animates out
-    aspect:           false,    // preserve aspect ratio during fit resizing, cropping if necessary (must be used with fit option)
+    aspect:           true,    // preserve aspect ratio during fit resizing, cropping if necessary (must be used with fit option)
     autostop:         0,        // true to end slideshow after X transitions (where X == slide count)
     autostopCount:    0,        // number of transitions (optionally used with autostop to define X)
     backwards:        false,    // true to start slideshow at last slide and move backwards through the stack
@@ -1025,7 +1025,7 @@ $.fn.cycle.defaults = {
     easing:           null,     // easing method for both in and out transitions
     end:              null,     // callback invoked when the slideshow terminates (use with autostop or nowrap options): function(options)
     fastOnEvent:      0,        // force fast transitions when triggered manually (via pager or prev/next); value == time in ms
-    fit:              0,        // force slides to fit container
+    fit:              true,        // force slides to fit container
     fx:               'fade',   // name of transition effect (or comma separated names, ex: 'fade,scrollUp,shuffle')
     fxFn:             null,     // function used to control the transition: function(currSlideElement, nextSlideElement, options, afterCalback, forwardFlag)
     height:           'auto',   // container height (if the 'fit' option is true, the slides will be set to this height as well)

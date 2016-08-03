@@ -112,7 +112,6 @@
                         @include fz(4);
 
                      
-
                     }
 
                     .premier {
@@ -229,11 +228,14 @@
 
     .vocation-mobile {
 
-        display: none;
+        
 
-        max-width: 323px;
+        //max-width: 323px;
+        text-align: center;
+        width: 80%;
         //height: 100%;
         background-color: $green;
+
         color: white;
         margin: 4rem auto;
         padding: 2rem;
@@ -246,3 +248,5 @@
     }
 
 }
+
+
