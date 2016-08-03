@@ -38,13 +38,13 @@ aside .field-collection-item-field-missions-blocs {
 }
 .node-association.view-mode-full {
   float: left;
-  width: 630px;
+/*  width: 630px;*/
   margin-left: 35px;
 }
 aside.node-association.view-mode-full {
   float: left;
   margin-left: 70px;
-  width: 210px;
+/*  width: 210px;*/
 }
 /*
 aside.node-association.view-mode-full h2 {
@@ -76,15 +76,17 @@ aside.node-association.view-mode-full h4 {
 */
 aside.node-association.view-mode-full .texte {
 	margin-bottom:40px;
-  margin-top:10px;
+    margin-top:10px;
 }
 aside.node-association.view-mode-full .read-more {
 	
-  border-bottom : 3px solid #FFF;
+/*  border-bottom : 3px solid #FFF;*/
 	display: block;
+/*
   float: left;
   height: 20px;
   line-height: 21px;
+*/
   margin-top: 10px;
 }
 /*

@@ -1,8 +1,15 @@
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-<?php hide($content['print_links']); ?>
+<div class="container-slider">
+
+  <?php hide($content['print_links']); ?>
   <?php print render($content); ?>
   <?php print $views_accueil_chiffres;?>
-  <div class="container-page">
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+
+</div>
+<div class="container-page">
   <section class="actualites">
     <h1 class="gros">actualités</h1>
     <?php print $views_accueil_actu; ?>
@@ -48,7 +55,7 @@
     </div>
 </section>
 
-  </div>
+</div>
 <br />
 </article><!-- /.node -->
 <div class="clearfix"></div>

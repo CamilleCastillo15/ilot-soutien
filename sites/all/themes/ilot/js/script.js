@@ -141,8 +141,6 @@
  * Prepare the Ajax request before it is sent.
  */
 
-console.log("preprocess menu mobile");
-
 //if (typeof jQuery != 'undefined') {
 //    // jQuery is loaded => print the version
 //    alert(jQuery.fn.jquery);
@@ -198,9 +196,6 @@ console.log("preprocess menu mobile");
 
             $(window).bind('resize', function (event) {
 
-
-              
-
                     var widthResize = slideshow.width();
 
                     var heightResize = slideshow.height();
@@ -224,19 +219,20 @@ console.log("preprocess menu mobile");
                     var selectImgHeight = selectImg.height();
                     var selectImgWidth = selectImg.width();
 
-//                  console.log(selectImgHeight);
+//                    console.log(selectImgHeight);
 
                     $(".field-name-field-accueil-edito").height((selectImgHeight) - 48);
                     $(".field-name-field-accueil-edito").css('max-height', '360px');
 
-                    $('.views_slideshow_cycle_main_accueil_chiffres-default').height(selectImgHeight);
-                    $('#views_slideshow_cycle_teaser_section_accueil_chiffres-default').height(selectImgHeight);
+                  $('.views_slideshow_cycle_main_accueil_chiffres-default').height(selectImgHeight);
+                  $('#views_slideshow_cycle_teaser_section_accueil_chiffres-default').height(selectImgHeight);
 
 
 //                  $('.view-accueil-chiffres').width(selectImgWidth);
-                    $('.view-accueil-chiffres').height(selectImgHeight);
+                  $('.view-accueil-chiffres').height(selectImgHeight);
 
             });
+
         }
     }
 
