@@ -141,11 +141,12 @@
     .read-more {
 
 
-        @include btn_actu($green);
+        @include btn_actu($green,100%);
 
         clear: both;
         display: block;
-        margin:0 auto;
+       
+        margin-top:1rem;
 
         a {
 
@@ -157,27 +158,29 @@
 
     .bandeau-je-fais-don {
 
+        @include b(100%);
+        text-align: center;
+
         img {
 
-            width: 6rem;
-            display: inline-block;
-            vertical-align: middle;
+            @include b(35%,middle);
 
         }
 
         .col-1 {
-
-            display: inline-block;
+        
+            @include b(50%,middle);
             font-family: "PermanentMarker",sans-serif;
             color:$red;
-            vertical-align: middle;
+            @include fz(4);
+            font-size: 2.2rem !important;
 
         }
 
         .don-btn {
 
-            @include btn_generique($red);
-            margin: 10px 0;
+            @include btn_actu($red,100%);
+            margin: 1rem 0;
         }
     }
 
@@ -189,8 +192,8 @@ aside {
     background-color: $grey_3;
     text-align: center;
     img{
-            width: 100% !important;
-                                      height: auto !important;
+        width: 100%;
+        height: auto;
 
     }
 

@@ -147,6 +147,7 @@
             width: 50%;
             position: relative;
             margin-top: 3rem;
+             @include btn_actu($green,100%);
     }
 
 }
