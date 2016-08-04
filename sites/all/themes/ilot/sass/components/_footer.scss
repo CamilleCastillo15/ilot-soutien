@@ -1,6 +1,10 @@
 .region-footer{
      @include container(false);
-     border-top: 3px solid $green;
+     
+}
+
+footer{
+    border-top:3px solid $green;
 }
 
 

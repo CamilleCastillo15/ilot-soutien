@@ -22,7 +22,7 @@
 
 	
 	p{
-		@include fz(3);
+		@include fz(2);
 	}
  }
 
@@ -72,7 +72,7 @@
 .container-slider{
     display: block;
     position: relative;
-    height: 26rem;
+    height: 22rem;
 
       @media #{$m-m} {
              height: 20rem;

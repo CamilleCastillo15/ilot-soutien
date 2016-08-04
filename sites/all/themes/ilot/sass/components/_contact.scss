@@ -4,7 +4,12 @@
     background-color: white;
 
     @include b(35%);
-    padding-bottom: 2rem;padding-left: 6rem;
+    @include p(0rem,0rem,2rem,6rem);
+
+
+    @media #{$m-m} {
+            border-top:3px solid $green;
+    }
          
     text-align: center;
 

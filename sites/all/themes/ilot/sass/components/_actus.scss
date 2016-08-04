@@ -29,7 +29,7 @@
         font-weight: bold;
         @include fz(1);
        
-
+        
      
 
         .jour{
@@ -57,7 +57,7 @@
         margin-bottom:2rem;
 
         border-bottom: 3px solid $green;
-
+        text-align:left;
         overflow: hidden;
         height: 100%;
 
@@ -75,10 +75,7 @@
 
         .img-actu {
 
-          display: inline-block;
-          vertical-align: top;
-          width: 35%;
-            line-height:0;
+          @include b(35%,top,20%);
 
             img {
 
@@ -101,6 +98,7 @@
 
             h1{
                     margin-bottom: 1rem;
+                    margin-top:0rem;
             }
             
 
