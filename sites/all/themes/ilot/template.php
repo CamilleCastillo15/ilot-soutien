@@ -254,6 +254,10 @@ function ilot_preprocess_node(&$var) {
                 drupal_add_js("/".$theme_path."/js/Swiper/dist/js/swiper.jquery.min.js");
                 drupal_add_js("/".$theme_path."/js/ilot.home.js");
             break;
+            case "conseil_d_administration" :
+                dpm("conseil-d-administration");
+                drupal_add_js("/".$theme_path."/js/ilot.conseil.js");
+            break;
         }
     }
 

@@ -1,10 +1,8 @@
 
 <?php
 
-//    dpm($node);
     $fc_blocs_textes = field_get_items('node', $node, 'field_bloc_textes');
-//    dpm($fc_blocs_textes);
-//
+
     if($fc_blocs_textes){
         $idti = array();
         foreach ($fc_blocs_textes as $fc_field) {
@@ -12,8 +10,6 @@
         }
         $collectionsg =  field_collection_item_load_multiple($idti);
     }
-
-//    dpm($idti);
 
 ?>
 
@@ -28,7 +24,6 @@
       <?php
            for($i = 0; $i < count($idti); $i++) {
                $collectionsg_2 = $collectionsg[$idti[$i]];
-//               dpm($collectionsg_2);
                $titre = field_view_field('field_collection_item', $collectionsg_2, 'field_titre');
                $texte = field_view_field('field_collection_item', $collectionsg_2, 'field_texte');
         ?>
