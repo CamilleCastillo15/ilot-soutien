@@ -3,7 +3,7 @@
 }
 
 
-@mixin btn_actu($color) {
+@mixin btn_actu($color, $max:13rem) {
     background-color: transparent;
     cursor:pointer;
     transition: all 200ms;
@@ -16,16 +16,21 @@
 
     background-repeat: no-repeat;
 
-    background-size : 0.5rem;
-    background-position: 90% center;
+    background-size : 0.4rem;
+    background-position: 95% center;
     color: #000000;
     position: relative;
     border : 2px solid #000000;
     background-image : url(../images/f_noires/f_g_droite.svg);
-    width: 40%;
-    min-width: 10rem;
-    max-width: 12rem;
+    //width: 40%;
+    min-width: 13rem;
+    max-width: $max;
 
+
+
+    &:hover > a {
+        color: white;
+    }
  
     &:hover {
         color: white;
@@ -34,9 +39,21 @@
         background-image : url(../images/f_blanches/f_droite.svg);
     }
 
-    &:hover > a {
+
+    @if($color == $red){
         color: white;
+        background-color: $color;
+        border : 2px solid $color;
+        background-image : url(../images/f_blanches/f_droite.svg);
+
+          &:hover {
+             color: white;
+             background-color: darken($color,10%);
+             border : 2px solid darken($color,15%);
+             
+        }
     }
+
 }
 
 @mixin btn_generique($color) {

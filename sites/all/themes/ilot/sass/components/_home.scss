@@ -134,7 +134,8 @@
 .container-page{
     @include container(false);
     text-align: center;
-     margin-top:1rem;
+    margin-top:1rem;
+    
     article.view-mode-full {
 
       float: none;
