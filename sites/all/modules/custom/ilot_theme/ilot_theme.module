@@ -13,9 +13,7 @@ function ilot_theme_menu(){
         'access arguments' => array('access ateliersmod admin'),
         'type' => MENU_NORMAL_ITEM,
     );
-    
     return $items;
-    
 }
 
 function ilot_theme_admin() {
@@ -221,8 +219,7 @@ function ilot_theme_admin() {
             ),  
         ),  
         '#description' => t("Image header nos valeurs"),
-        '#required' => FALSE,
-       
+        '#required' => FALSE,     
     );
     
     return system_settings_form($form);
@@ -445,8 +442,6 @@ function ilot_theme_form_contact_site_form_alter(&$form, &$form_state, $form_id)
   foreach($order as $key => $field) {
     $form[$field]['#weight'] = $key;
   }
-
-
 
 }
 
