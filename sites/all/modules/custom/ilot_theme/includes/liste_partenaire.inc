@@ -35,7 +35,7 @@ function ilot_theme_preprocess_node_liste_partenaire(&$variables, $hook) {
       if ($term->tid == $type_partner) {
       	$options['attributes']['class'] = array('active-sort');
       }
-      $block_filters['#items'][] = l('Nos partenaires <span>' . $term->name . '</span>', current_path(), $options);
+      $block_filters['#items'][] = l('<span>' . $term->name . '</span>', current_path(), $options);
     }
     $variables['content']['block_filters'] = $block_filters;
     $variables['views_liste_partenaire'] = views_embed_view('liste_partenaire', 'default', $type_partner);

@@ -1,4 +1,4 @@
-<article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<article class="node-<?php print $node->nid; ?> <?php print render($content['field_partenaire_type_partner']);?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php print render($content['field_partenaire_logo'])?>
   <h1><?php print $node->title; ?></h1>
   <div class="icone-set">
