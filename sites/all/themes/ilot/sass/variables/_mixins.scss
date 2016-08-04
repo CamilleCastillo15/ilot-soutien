@@ -23,7 +23,7 @@
     border : 2px solid #000000;
     background-image : url(../images/f_noires/f_g_droite.svg);
     width: 40%;
-    min-width: 16rem;
+    min-width: 10rem;
     max-width: 12rem;
 
  
@@ -79,10 +79,10 @@
     }
 }
 
-$fzs: 0.9rem, 1.1rem,  1.3rem,  1.6rem,  3.8rem, 5rem;
+$fzs: 0.9rem, 1rem,  1.3rem,  1.6rem,  3.8rem, 5rem;
 @mixin fz($size){
   font-size: nth($fzs, $size) !important;
-  line-height: nth($fzs, $size)*1.2;
+  line-height: nth($fzs, $size)*1.3;
 }
 
 // margin
@@ -107,6 +107,19 @@ $fzs: 0.9rem, 1.1rem,  1.3rem,  1.6rem,  3.8rem, 5rem;
     }
 }
 
+
+@mixin u(){
+    padding:0rem;
+     padding-left: 1rem;
+     margin-bottom: 0.5rem;
+     margin-top: 0.5rem;
+    li{
+        padding:0rem;
+
+        margin-top: 0.1rem;
+        margin-bottom: 0.1rem;
+    }
+}
 
 
 // NEW BLOC : largeur , align , largeur mobile
