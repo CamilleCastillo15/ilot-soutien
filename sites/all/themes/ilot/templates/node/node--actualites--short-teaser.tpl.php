@@ -9,7 +9,7 @@
   <div class="actu-short">
     <?php print $actualites_date; ?>
     <h2><?php print l($node->title, 'node/'.$node->nid, array('html' => TRUE)); ?></h2>
-    <?php print l('voir plus', 'node/'.$node->nid, array('attributes' => array('class' => array('read-more')))); ?>
+    <?php print l('voir plus', 'node/'.$node->nid, array('attributes' => array('class' => array('')))); ?>
   </div>
 
 </div><!-- /.node -->
