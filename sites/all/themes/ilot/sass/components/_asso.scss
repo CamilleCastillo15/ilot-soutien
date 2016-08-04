@@ -425,10 +425,21 @@ article.node-valeur {
               border:3px solid rgba($green,0);
         }
 
+        &:after{
+             @include fx-mix();
+             @include opacity(0.5);
+             display: none;
+        }
+
         &.active{
              @include opacity(1);
+             &:after{
+                display: block;
+                
+             }
             img{
-            border:3px solid $green;
+           // border:3px solid $green;
+        
             
 
          }

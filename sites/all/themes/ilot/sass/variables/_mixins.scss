@@ -148,7 +148,7 @@ $fzs: 0.9rem, 1rem,  1.3rem,  1.6rem,  3.8rem, 5rem;
 }
 
 // MIX BLEND MODE
-@mixin fx-mix($color){
+@mixin fx-mix($color:$green){
 
      content:"";
      background-color: $color;
