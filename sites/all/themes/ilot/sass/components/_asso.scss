@@ -130,7 +130,7 @@
 
 }
 
-article.node-association {
+article.node-association, article.node-valeur {
 
     @include breakpoint($laptop){
 
@@ -158,10 +158,11 @@ aside.view-mode-full.node-association {
     .texte {
 
         text-align: left;
+//        padding-left: 6rem;
 
         h3 {
 
-            padding: 0 2rem;
+//            padding: 0 2rem;
 
         }
 

@@ -130,7 +130,7 @@
 }
 
 
-.node-association.view-mode-full {
+.node-association.view-mode-full, .node-valeur.view-mode-full {
 
   float: none;
   margin-left: 0px;
@@ -139,7 +139,7 @@
   text-align:left;
 
 }
-aside.node-association.view-mode-full {
+aside.node-association.view-mode-full, aside.node-valeur.view-mode-full {
   float: none;
   
   margin-left: 1rem;
