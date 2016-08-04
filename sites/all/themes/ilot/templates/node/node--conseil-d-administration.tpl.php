@@ -11,8 +11,6 @@
         $collectionsg =  field_collection_item_load_multiple($idti);
     }
 
-//    dpm($collectionsg);
-
     $fc_blocs_images_textes_conseil = field_get_items('node', $node, 'field_blocs_images_textes_consei');
 
     if($fc_blocs_images_textes_conseil){
@@ -22,8 +20,6 @@
         }
         $collectionsg_2 =  field_collection_item_load_multiple($idti_2);
     }
-
-//    dpm($collectionsg_2);
 
 ?>
 
