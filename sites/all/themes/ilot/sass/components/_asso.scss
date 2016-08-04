@@ -1,16 +1,59 @@
 .node-association {
+    padding: 1rem;
 
     p {
 
-        margin: 1rem 0;
+        //margin: 1rem 0;
+         @include fz(2);
+          margin-bottom: 0.5rem;
+
+          a{
+            color:$green;
+          }
 
     }
+
 
     h1 {
 
         padding-bottom: 0.5rem;
+        margin-bottom: 0rem;
 
     }
+
+    ul{
+        @include u();
+    }
+
+    .content{
+        margin-bottom: 2rem;
+
+    }
+
+    .standard{
+        padding: 0rem;
+        margin-bottom: 2rem;
+    }
+
+    .vert{
+         margin-bottom: 2rem;
+        background-color: $green;
+        color:white;
+        padding: 1rem;
+        padding-left: 3rem;
+
+        p{
+            font-weight: bold;
+        }
+    }
+
+    .gris{
+         margin-bottom: 2rem;
+        background-color: $grey_3;      
+        padding: 1rem;
+        padding-left: 3rem;
+    }
+
 
     .content {
 
@@ -20,31 +63,37 @@
 
                 display: block;
                 background-color: $lightgrey;
-//                padding: 6rem;
+//               padding: 6rem;
 
                 tbody {
 
                     display: block;
                     width: 100%;
+                    padding-top: 2rem;
 
                     tr {
 
                         display: inline-block;
                         vertical-align: top;
-                        padding: 0 6rem;
+                        padding: 0 2rem;
+                        
+                        width: 49%;
+                        text-align: center;
 
                         &:nth-child(1){
-
+                            width: 100%;
                              display: block;
-                             padding: 2rem 6rem;
+                             //padding: 2rem 6rem;
 
                         }
 
                         &:nth-child(2){
 
                             img {
-
-                                height: 284px;
+                                
+                                display: inline-block;
+                                width: 100% !important;
+                                height: auto !important;
 
                             }
 
@@ -53,7 +102,8 @@
                         td {
 
                             display: inline-block;
-                            text-align: left;
+                            text-align: center;
+                            width: 100%;
 
                             &:nth-child(2){
 
@@ -63,11 +113,14 @@
 
                             a {
 
+                                display: block;
+                                width: 100%;
+
                                 img {
 
-                                    height: 284px;
-                                    width: 200px;
-                                    text-align: center;
+                                      width: 100% !important;
+                                      height: auto !important;
+
 
                                 }
 
@@ -88,7 +141,7 @@
     .read-more {
 
 
-        @include btn_generique($green);
+        @include btn_actu($green);
 
         clear: both;
         display: block;
@@ -130,30 +183,16 @@
 
 }
 
-article.node-association, article.node-valeur {
 
-    @include breakpoint($laptop){
+aside {
 
-        width: 50%;
-
-    }
-
-    width: 100%;
-}
-
-aside.view-mode-full.node-association {
-
-    background-color: $lightgrey;
-    text-transform: uppercase;
+    background-color: $grey_3;
     text-align: center;
-
-    @include breakpoint($laptop){
-
-        width: 20%;
+    img{
+            width: 100% !important;
+                                      height: auto !important;
 
     }
-
-    width: 100%;
 
     .texte {
 
@@ -163,12 +202,24 @@ aside.view-mode-full.node-association {
         h3 {
 
 //            padding: 0 2rem;
+            color:$green;
+            text-transform: uppercase;
+            a{
+                 color:$green;
+                 font-weight: bold;
+            }
 
+        }
+
+        .field-name-field-temoignage-accroche{
+            text-transform: none;
+            @include fz(1);
         }
 
         h4 {
 
             padding: 0 2rem;
+            @include fz(2);
 
         }
 
