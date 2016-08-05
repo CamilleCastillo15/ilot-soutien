@@ -171,5 +171,9 @@
 
     &.full{
        @include container(true); 
+       article.view-mode-full{
+            @include b(90%);
+            text-align: center;
+       }
     }
 }

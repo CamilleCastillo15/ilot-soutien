@@ -3,10 +3,10 @@
 
 
 
-.node-liste-projets {
+.node-liste-projets, [class*="section-temoignages"]  {
 
 
-    .actus {
+    .actus,.node-temoignage {
 
             padding: 0;
             position: relative;
@@ -59,7 +59,7 @@
 
     }
 
-    .readmore{
+    .read-more{
         @include btn_actu();
         position: absolute;
         right: 0px;
@@ -68,7 +68,7 @@
 
     .nav-next-prev{
 
-        .readmore{
+        .read-more{
 
              @include btn_actu();
              max-width: 14rem !important;

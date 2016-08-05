@@ -32,21 +32,7 @@ body {
   color: #fff;
 }
 
-/*
- * Header
- */
 
-#header {
-}
-
-#logo { /* Wrapping link for logo */
-  float: left; /* LTR */
-  margin: 0;
-  padding: 0;
-}
-#logo img {
-  vertical-align: bottom;
-}
 
 #name-and-slogan { /* Wrapper for website name and slogan */
   float: left;
@@ -72,32 +58,13 @@ body {
   font-size: 1em;
 }
 
-.region-header { /* Wrapper for any blocks placed in the header region */
-  clear: both; /* Clear the logo */
-  position : relative;
-}
 
-#navigation
-{
-  height: 173px;
-  position: relative;
-  width: 960px;
-	margin-bottom: 60px;
-	padding:0;
-}
 
 body.admin-menu #navigation
 {
 	margin-top : 50px;
 }
 
-.region-header #block-ilot-theme-image-logo
-{
-/*	position: absolute;*/
- display: inline-block;
- top: 5px;
- width: 150px;
-}
 
 .region-header .logo-wrapper span
 {
@@ -517,6 +484,3 @@ span.field-label { /* The inline field label used by the Fences module */
  * Page bottom
  */
 
-.region-bottom { /* Wrapper for any blocks placed in the page bottom region */
-  margin-top: 25px;
-}
