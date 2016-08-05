@@ -1,6 +1,10 @@
-.actualites {
 
-  
+
+
+
+
+.actualites ,.node-liste-actualites {
+ 
 
     @include b(64%);
 
@@ -17,21 +21,18 @@
             bottom: 1rem;
             right: 0rem;
      
-            @include jpg(fake_rs,50% 50%,contain);
+            //@include jpg(fake_rs,50% 50%,contain);
         }
     }
 
     .date-actualite{
         position: absolute;
         right: 0rem;
-       
+        top:0px;
         color:black;
         font-weight: bold;
         @include fz(1);
        
-        
-     
-
         .jour{
             display: block;
              @include jpg(bg_date,50% 100%, 100%);
@@ -44,7 +45,7 @@
         }
         .mois ,.annee{
              @include transition(all 0.2s ease-in-out);
-            @include opacity(0);
+            @include opacity(0.7);
         }
        
     }
@@ -67,15 +68,15 @@
         &:hover{
              .date-actualite{
              .mois ,.annee{
-             @include opacity(0.8);
+             @include opacity(1);
             } 
 
         }
         }
 
-        .img-actu {
+        .vignette {
 
-          @include b(35%,top,20%);
+            @include b(35%,top,20%);
 
             img {
 
@@ -88,17 +89,18 @@
 
         }
 
-        .text-actus {
+        .texte {
 
             display: inline-block;
             vertical-align: top;
             width: 55%;
+
             padding-left: 1rem;
             padding-bottom: 5rem;
 
             h1{
-                    margin-bottom: 1rem;
-                    margin-top:0rem;
+                margin-bottom: 1rem;
+                margin-top:0rem;
             }
             
 
@@ -120,25 +122,12 @@
 
     }
 
-    .readmore {
-
-
-        @include btn_actu($green);
-           
-        clear: both;
-        display: block;
-        margin:0 auto;
+ 
+    .readmore{
+        @include btn_actu();
         position: absolute;
-        bottom: 1rem;
-        width: 25%;
-        right: 25%;
-
-        a {
-
-            text-decoration: none;
-
-        }
-
+        right: 0px;
+        bottom: 0.3rem;
     }
 
       .actu{
