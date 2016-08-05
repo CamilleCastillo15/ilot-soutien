@@ -80,12 +80,12 @@
 
     .bloc-texte {
 
-
+        @include ba(30%,50%);
         height: auto;
-        right: 5rem;
+        left: 65%;
         top: 2rem;
 
-        @include ba(30%,50%);
+       
 
         @media #{$m-m} {
              right: 25%;
@@ -135,7 +135,8 @@
     @include container(false);
     text-align: center;
     margin-top:1rem;
-    
+    padding-bottom: 3rem;
+
     article.view-mode-full {
 
       float: none;
@@ -166,5 +167,9 @@
         padding: 1.5rem;
       }
 
+    }
+
+    &.full{
+       @include container(true); 
     }
 }

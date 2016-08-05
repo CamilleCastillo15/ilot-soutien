@@ -379,21 +379,43 @@ article.node-valeur {
 
     position: absolute;
     right: 5%;
-    top: 9%;
+    top: 15%;
     background-color: $green;
     padding: 2rem;
     width: 30%;
-    height: 80%;
+    height: auto;
+    @include opacity(0);
+    @include transition(all 0.2s ease-in-out);
+
+
+
+     &.top{
+        @include opacity(1);
+        top:15%;
+    }
+
+
+    &.bottom{
+        @include opacity(1);
+        top:42%;
+    }
 
 
     > div{
+
         color:white;
+        visibility: hidden;
+        @include opacity(0);
+        //@include ba();
+        //@include p(2rem,2rem,2rem,2rem);
         display: none;
 
     }
 
     .active{
-        display: block !important;
+       visibility: visible;
+       @include opacity(1);
+       display: block;
     }
 
 }
@@ -416,33 +438,41 @@ article.node-valeur {
         height: 10rem;
         @include p();
 
-        @include opacity(0.8);
+        
+
+
       
       
         img{
             height: 100% !important;
             width: auto !important;
-              border:3px solid rgba($green,0);
+            @include opacity(0.8);
+            @include transition(all 0.2s ease-in-out);
+              
         }
 
         &:after{
-             @include fx-mix();
-             @include opacity(0.5);
-             display: none;
+             @include fx-mix($green,unset);
+             z-index: -1;
+             @include opacity(0);
+            @include transition(all 0.2s ease-in-out);
+            visibility: hidden;
         }
 
         &.active{
-             @include opacity(1);
+            
              &:after{
-                display: block;
+                visibility: visible;
+                @include opacity(0.8);
+                @include transform(rotate(3deg));
                 
              }
             img{
-           // border:3px solid $green;
-        
-            
 
-         }
+               @include transform(scale(1.15));
+            @include opacity(1);
+
+            }
         }
 
     }
@@ -450,6 +480,10 @@ article.node-valeur {
     .img-admin *{
         height: 100%;
         
+    }
+
+    h1{
+            padding: 1rem;
     }
 }
 
@@ -529,6 +563,16 @@ aside.node-mission{
         margin-bottom:2rem;
         a{
             @include btn_actu($green,100%);
+        }
+    }
+}
+
+.node-donnees-cles{
+    h1{
+        color:$green;
+        margin-top:3rem;
+        &:first-child{
+            margin-top:1rem;
         }
     }
 }

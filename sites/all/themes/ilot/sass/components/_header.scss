@@ -1,7 +1,7 @@
 #l-header {
 
     @include jpg(home_mobile_bg ,50% 50%,cover);
-    @include container(false);
+    @include container(true);
 
     @include breakpoint($laptop) {
 
@@ -11,8 +11,10 @@
 
     .container-logo-bandeau-don {
 
+
+ @include container(false);
         text-align: center;
-        padding-top: 6%;
+        padding-top: 2rem;
         width: 100%;
 
         &:hover{

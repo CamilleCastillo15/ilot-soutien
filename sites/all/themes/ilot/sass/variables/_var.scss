@@ -34,6 +34,8 @@ $mobile-break:         800px;
 $tablet-break:         1100px;
 $desktop-break:        1101px;
 $super-desktop-break:  1600px;
+$h-break: 800px;
+
 
 $m-m: "only screen and (max-width: "+$mobile-break+")";
 $m-t: "only screen and (min-width: "+$mobile-break+") and (max-width: "+$desktop-break+")";
@@ -44,3 +46,7 @@ $m-m-up: "only screen and (min-width: "+$mobile-break+")";
 $m-t-up: "only screen and (min-width: "+$tablet-break+")";
 
 $m-t-down: "only screen and (max-width: "+$desktop-break+")";
+
+
+
+$m-h: "only screen and (max-height: "+$h-break+")";
