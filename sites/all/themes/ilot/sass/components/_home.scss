@@ -168,4 +168,8 @@
       }
 
     }
+
+    &.full{
+       @include container(true); 
+    }
 }

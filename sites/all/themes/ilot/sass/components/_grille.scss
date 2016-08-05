@@ -1,0 +1,56 @@
+
+
+
+.liste-temoignages-container{
+
+    
+    @include b(30%);
+    @include p();
+    @include m();
+    background-color: $grey_3;
+
+    &:nth-child(even){
+        background-color: white;
+    }
+
+    @media #{$m-h} {
+        
+    }
+    
+
+     .vignette {
+
+          @include b(25%,top,20%);
+
+            img {
+
+                line-height: 0;
+
+                width: 100%;
+                height: auto;
+
+            }
+
+    }
+
+    .texte {
+
+         @include b(73%,top,75%);
+         padding-bottom: 4rem;
+         padding-left:2rem;
+            h2{
+                @include fz(4);
+            }
+         h3{
+            @include fz(3);
+            a{
+                text-transform: uppercase;
+            }
+         }
+
+         .auteur{
+            display: none;
+         }
+
+    }
+}
