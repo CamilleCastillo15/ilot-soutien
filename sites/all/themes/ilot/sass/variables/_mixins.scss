@@ -52,6 +52,19 @@
              
         }
     }
+     @if($color == $green_bt){
+        color: white;
+        background-color: $green;
+        border : 2px solid $green;
+        background-image : url(../images/f_blanches/f_droite.svg);
+
+          &:hover {
+             color: white;
+             background-color: darken($green,10%);
+             border : 2px solid darken($green,10%);
+             
+        }
+    }
     @include dev();
    
 }

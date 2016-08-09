@@ -3,10 +3,10 @@
 
 
 
-.node-liste-projets {
+.node-liste-projets, [class*="section-temoignages"]  {
 
 
-    .actus {
+    .actus,.node-temoignage {
 
             padding: 0;
             position: relative;
@@ -59,7 +59,7 @@
 
     }
 
-    .readmore{
+    .read-more{
         @include btn_actu();
         position: absolute;
         right: 0px;
@@ -68,7 +68,7 @@
 
     .nav-next-prev{
 
-        .readmore{
+        .read-more{
 
              @include btn_actu();
              max-width: 14rem !important;
@@ -85,4 +85,51 @@
     }
 
 
+}
+
+.image-accroche{
+    @include b(48%,middle);
+    margin-top:2rem;
+    margin-left:3%;
+    img{
+        width: 100%;
+    }
+}
+
+.container-accroche{
+    @include b(48%,middle);
+        background-color: $green;
+       @include fz(3);
+       color:white;
+     
+    padding:2rem;
+    margin-left:-3%;
+}
+
+.b-gris{
+    background-color: $grey_2;
+    padding:2rem;
+    margin-top:1rem;
+    margin-bottom: 1rem;
+}
+
+.contact{
+ @include b(48%,middle);
+
+}
+
+
+
+.nav-next-prev{
+    margin-top:3rem;
+    .read-more{
+        @include btn_actu($green);
+    }
+
+    .prev{
+        float: left;
+    }
+    .next{
+        float: right;
+    }
 }

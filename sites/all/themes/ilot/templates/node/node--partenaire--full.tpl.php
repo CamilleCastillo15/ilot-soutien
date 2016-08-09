@@ -6,6 +6,6 @@
     <?php print render($content['sharethis']);?>
   </div>
   <h2><?php print render($content['field_partenaire_sous_titre']); ?></h2>
-  <a href="<?php print render($content['field_partenaire_lien']); ?>" target="_blank"><div class="readmore"></div></a>
+  <a href="<?php print render($content['field_partenaire_lien']); ?>" target="_blank"><div class="read-more"></div></a>
 </article><!-- /.node -->
 <div class="clearfix"></div>

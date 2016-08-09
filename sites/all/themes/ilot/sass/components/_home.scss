@@ -166,10 +166,22 @@
         width: 100%;
         padding: 1.5rem;
       }
+      .view-actualites-contextuel{
+         width: 100%;
+         padding: 1.5rem;
+         text-align: center;
+         .vignette{
+             margin-top:2rem;
+         }
+      }
 
     }
 
     &.full{
        @include container(true); 
+       article.view-mode-full{
+            @include b(90%);
+            text-align: center;
+       }
     }
 }

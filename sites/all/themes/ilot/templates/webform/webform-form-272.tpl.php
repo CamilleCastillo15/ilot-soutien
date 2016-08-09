@@ -31,7 +31,7 @@
 
  </div>
 
-<div class="newsletter-btn readmore">
+<div class="newsletter-btn read-more">
 
     <?php
         print drupal_render($form['actions']);
