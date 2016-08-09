@@ -122,14 +122,16 @@ function ilot_theme_theme($existing, $type, $theme, $path){
   $bodyaddress = variable_get('ilot_theme_newsletter_text');
   return array( 
     'newsletter' => array(
-      'template' => 'templates/ilot_theme_newsletter',
-//      'variables' => array('view' => NULL),
-//      'variables'=> array('ilot_theme' => $themez, 'body' => check_markup($bodyaddress["value"],$bodyaddress["format"]) )
-    ),
+    'template' => 'templates/ilot_theme_newsletter',
+    ),      
       'contact' => array(
       'template' => 'templates/ilot_theme_contact',
-//      'variables' => array('view' => NULL),
-//      'variables'=> array('ilot_theme' => $themez, 'body' => check_markup($bodyaddress["value"],$bodyaddress["format"]) )
+    ),      
+    'ilot_theme_etablissements' => array(
+        'template' => 'templates/ilot_theme_etablissements', 
+        'variables' => array('login' => NULL,"machin"=> NULL), 
     )
+   
   );
+    
 }
