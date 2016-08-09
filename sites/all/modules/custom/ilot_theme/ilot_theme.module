@@ -13,7 +13,44 @@ function ilot_theme_menu(){
         'access arguments' => array('access ateliersmod admin'),
         'type' => MENU_NORMAL_ITEM,
     );
+    $items['liste-etablissements-chantiers-insertion'] = array(
+        'title' => 'Liste des établissements et chantiers d\'insertion' ,
+        'description' => 'Description',
+        'access callback' => TRUE,
+         'page callback' => 'ilot_theme_etablissements',
+        'page arguments' => array(0,1),        
+        'type' => MENU_NORMAL_ITEM,
+    );
     return $items;
+}
+
+function ilot_theme_etablissements(){
+
+    $view = views_get_view("case_studies");
+    $view->execute();
+    $result = $view->result;
+    
+    $view_2 = views_get_view("case_studies");
+    $view_2->execute();
+    $result_2 = $view_2->result;
+    
+    $a = array();
+    $b = array();
+    
+    foreach($result as $key => $case){
+        
+        $node = node_load($case->nid);
+        $a[]= $node;
+        
+    }
+    
+    foreach($result_2 as $key => $case){
+        
+        $node = node_load($case->nid);
+        $b[]= $node;
+        
+    }
+    return theme("ilot_theme_etablissements", array('view' => $a, 'view_2' => $b));
 }
 
 function ilot_theme_admin() {

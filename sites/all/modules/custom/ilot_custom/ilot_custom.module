@@ -36,8 +36,6 @@ function ilot_custom_module_implements_alter(&$implementations, $hook) {
   }
 }
 
-
-
 function ilot_custom_get_auteurs_options() {
   $vocabulary = taxonomy_vocabulary_machine_name_load('auteur');
   $terms = taxonomy_get_tree($vocabulary->vid);
@@ -95,6 +93,7 @@ function ilot_custom_order_convert($order, $account) {
             }
           }
         }
+          
         elseif (!is_null($order_wrapper->{$field_name}->value()) &&
         $order_wrapper->{$field_name}->uid->value() == 0) {
           $order_wrapper->{$field_name}->uid = $account->uid;
@@ -125,7 +124,7 @@ function ilot_custom_form_session_value($key, $value = null) {
   else if (empty($storage[$key]) && isset($_SESSION['lists'][$key])) {
     $storage[$key] = $_SESSION['lists'][$key];
   }
-  else{
+  else {
     return array();
   }
   return $storage[$key];

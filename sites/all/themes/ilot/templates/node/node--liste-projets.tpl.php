@@ -84,10 +84,9 @@
  */
 ?>
 <div class="container-page">
-<article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <?php print render($content['field_projets_accroche']); ?>
-  <?php print $views_liste_projet; ?>
-
-</article><!-- /.node -->
+    <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+      <?php print render($content['field_projets_accroche']); ?>
+      <?php print $views_liste_projet; ?>
+    </article><!-- /.node -->
 </div>
 <div class="clearfix"></div>
