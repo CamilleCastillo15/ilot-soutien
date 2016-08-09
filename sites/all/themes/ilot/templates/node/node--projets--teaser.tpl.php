@@ -4,7 +4,7 @@
     <?php  print l(render($content['field_projet_image_accroche']), 'node/' . $node->nid, array('html' => TRUE)); ?>
   </div>
   <div class="texte">
-  coucou
+
     <h2><?php print l($node->title, 'node/' . $node->nid, array('html' => TRUE)); ?></h2>
     <?php if(!empty($node->field_projet_sous_titre)): ?>
       <h3><?php  print l(render($content['field_projet_sous_titre']), 'node/' . $node->nid, array('html' => TRUE)); ?></h3>
