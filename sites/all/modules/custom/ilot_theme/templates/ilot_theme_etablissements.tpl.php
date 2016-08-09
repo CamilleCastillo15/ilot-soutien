@@ -17,12 +17,14 @@
                $title_principal = $node->title;
 
         ?>
-        <div class="liste-etablissements-container container-<?php print ($node->nid) ?>">
-            <?php print render($image) ?>
-            <h2><?php print render($title_principal) ?></h2>
-            <h3><?php print render($titre) ?></h3>
-            <div class='sous-titre'><?php print render($sous_titre) ?></div>
-            <?php print render($texte) ?>
+        <div class="liste-etablissements-container gb">
+            <div class="vignette"><?php print render($image) ?></div>
+            <div class="texte"><h2><?php print render($title_principal) ?></h2>
+              <h3><?php print render($titre) ?></h3>
+              <div class='sous-titre'><?php print render($sous_titre) ?></div>
+              <?php print render($texte) ?>
+              <a href="" class="read-more">voir plus</a>
+            </div>
         </div>
 
               <?php //} ?>
@@ -47,12 +49,15 @@
                $title_principal = $node->title;
 
         ?>
-
-                    <?php print render($image) ?>
-                    <h2><?php print render($title_principal) ?></h2>
-                    <h3><?php print render($titre) ?></h3>
-                    <div class='sous-titre'><?php print render($sous_titre) ?></div>
-                    <?php print render($texte) ?>
+              <div class="liste-etablissements-container gb">
+                    <div class="vignette"><?php print render($image) ?></div>
+                    <div class="texte"><h2><?php print render($title_principal) ?></h2>
+                      <h3><?php print render($titre) ?></h3>
+                      <div class='sous-titre'><?php print render($sous_titre) ?></div>
+                      <?php print render($texte) ?>
+                      <a href="" class="read-more">voir plus</a>
+                    </div>
+                </div>
 
               <?php //} ?>
 
