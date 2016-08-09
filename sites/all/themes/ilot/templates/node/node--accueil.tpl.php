@@ -50,7 +50,7 @@
             </div>
 
             <div class="don-confiance-text">Je fais un don en confiance</div>
-            <div class ="don-confiance-btn readmore">Voir plus</div>
+            <div class ="don-confiance-btn read-more">Voir plus</div>
         </div>
     </div>
 </section>

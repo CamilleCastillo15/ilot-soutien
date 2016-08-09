@@ -33,7 +33,7 @@
                 Je fais<br />
                 un don
             </div>
-            <?php print l("<div class='don-btn readmore'>Accéder au formulaire</div>", "", array("html"=>true)); ?>
+            <?php print l("<div class='don-btn'>Accéder au formulaire</div>", "", array("html"=>true)); ?>
         </div>
     </aside>
 </div>

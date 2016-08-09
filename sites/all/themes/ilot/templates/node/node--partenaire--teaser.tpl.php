@@ -17,6 +17,6 @@
         $lien_render = render($lien);
     ?>
 
-   <?php print l("<div class='readmore'>Accéder au site</div>", $lien_render, array("html"=>true, 'external' => TRUE,  'attributes' => array('class' => array( 'lien_partenaire'),'target'=>'_blank'))); ?>
+   <?php print l("<div class='read-more'>Accéder au site</div>", $lien_render, array("html"=>true, 'external' => TRUE,  'attributes' => array('class' => array( 'lien_partenaire'),'target'=>'_blank'))); ?>
 
 </article><!-- /.node -->

@@ -3,6 +3,7 @@
     <?php  print l(render($content['field_projet_image_accroche']), 'node/' . $node->nid, array('html' => TRUE)); ?>
   </div>
   <div class="texte">
+  coucou
     <h2><?php print l($node->title, 'node/' . $node->nid, array('html' => TRUE)); ?></h2>
     <?php if(!empty($node->field_projet_sous_titre)): ?>
       <h3><?php  print l(render($content['field_projet_sous_titre']), 'node/' . $node->nid, array('html' => TRUE)); ?></h3>
@@ -10,5 +11,5 @@
     <?php print render($content['field_projet_accoche']); ?>
 
   </div>
-  <?php print l("lire la suite", 'node/'.$node->nid, array("html"=>true, 'attributes' => array('class' => array('readmore')))); ?>
+  <?php print l("lire la suite", 'node/'.$node->nid, array("html"=>true, 'attributes' => array('class' => array('read-more')))); ?>
 </article><!-- /.node -->

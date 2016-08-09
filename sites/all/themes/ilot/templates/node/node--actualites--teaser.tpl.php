@@ -27,7 +27,7 @@
             print render($content['field_actualite_accroche']);?>
 
         </div>
-   <?php print l("lire la suite", 'node/'.$node->nid, array("html"=>true, 'attributes' => array('class' => array('readmore')))); ?>
+   <?php print l("lire la suite", 'node/'.$node->nid, array("html"=>true, 'attributes' => array('class' => array('read-more')))); ?>
       </div>
      
     

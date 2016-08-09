@@ -168,6 +168,7 @@ article.view-mode-full {
 .bandeau-je-fais-don {
 
         @include b(100%);
+        margin-top:1rem;
         text-align: center;
 
         &:hover{
@@ -196,10 +197,28 @@ article.view-mode-full {
 
         }
 
+        &.small{
+            .col-1 {
+                @include fz(3);
+                font-size: 1.2rem !important;
+            }
+        }
+
         .don-btn {
 
             @include btn_actu($red,100%);
             margin: 1rem 0;
+        }
+
+        &.bloc{
+            
+            @include b(48%,middle);
+             margin-left:3%;
+             .don-btn {
+                    display: block;
+             }
+  
+
         }
 }
 
@@ -575,4 +594,26 @@ aside.node-mission{
             margin-top:1rem;
         }
     }
+}
+
+.container-img{
+    @include b(45%,middle);
+}
+
+.container-txt{
+    &.i-0{
+      
+       background-color: $green;
+       @include fz(4);
+       color:white;
+       @include b(50%,middle);
+       padding:2rem;
+       padding-top: 1rem;
+        margin-left:3%;
+        p{
+            font-size: 1.5rem !important;
+            line-height: 1.6rem;
+        }
+    }
+   
 }
