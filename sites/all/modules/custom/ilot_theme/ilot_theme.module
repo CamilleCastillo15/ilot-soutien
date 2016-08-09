@@ -26,11 +26,11 @@ function ilot_theme_menu(){
 
 function ilot_theme_etablissements(){
 
-    $view = views_get_view("case_studies");
+    $view = views_get_view("liste_etablissements");
     $view->execute();
     $result = $view->result;
     
-    $view_2 = views_get_view("case_studies");
+    $view_2 = views_get_view("liste_chantiers_insertion");
     $view_2->execute();
     $result_2 = $view_2->result;
     
