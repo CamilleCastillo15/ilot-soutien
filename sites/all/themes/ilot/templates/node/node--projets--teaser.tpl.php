@@ -1,4 +1,5 @@
-<article class="actus node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+
+ <article class="actus node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <div class="vignette">
     <?php  print l(render($content['field_projet_image_accroche']), 'node/' . $node->nid, array('html' => TRUE)); ?>
   </div>

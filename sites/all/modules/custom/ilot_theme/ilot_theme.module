@@ -91,6 +91,30 @@ function ilot_theme_admin() {
         '#collapsible' => TRUE, // Added
         '#collapsed' => FALSE,  // Added
     );
+    $form['ilot_theme_temoignages'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Paramétrage de la page "Témoignages"'),
+        '#collapsible' => TRUE, // Added
+        '#collapsed' => FALSE,  // Added
+    );
+    $form['ilot_theme_projets'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Paramétrage de la page "Projets"'),
+        '#collapsible' => TRUE, // Added
+        '#collapsed' => FALSE,  // Added
+    );
+    $form['ilot_theme_partenaires'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Paramétrage de la page "Partenaires"'),
+        '#collapsible' => TRUE, // Added
+        '#collapsed' => FALSE,  // Added
+    );
+    $form['ilot_theme_etablissements'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Paramétrage de la page "Etablissements"'),
+        '#collapsible' => TRUE, // Added
+        '#collapsed' => FALSE,  // Added
+    );
     $defaults = array(
         'value' => '',
         'format' => 'full_html',
@@ -256,6 +280,78 @@ function ilot_theme_admin() {
             ),  
         ),  
         '#description' => t("Image header nos valeurs"),
+        '#required' => FALSE,     
+    );
+    
+    $var11 = variable_get('ilot_theme_temoignages_visuel');
+    $form['ilot_theme_temoignages']['ilot_theme_temoignages_visuel'] = array(
+        '#type' => 'media',
+        '#tree' => TRUE,
+        '#title' => t('Image header de la page "Témoignages"'),
+        '#default_value' => $var11,
+        '#media_options' => array(
+            'global' => array(
+                'file_extensions' => 'jpg png', // File extensions
+                'max_filesize' => '100 MB',
+                'file_directory' => 'config', // Will be a subdirectory of the files directory
+                'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
+            ),  
+        ),  
+        '#description' => t("Image header témoignages"),
+        '#required' => FALSE,     
+    );
+    
+    $var12 = variable_get('ilot_theme_projets_visuel');
+    $form['ilot_theme_projets']['ilot_theme_projets_visuel'] = array(
+        '#type' => 'media',
+        '#tree' => TRUE,
+        '#title' => t('Image header de la page "Projets"'),
+        '#default_value' => $var12,
+        '#media_options' => array(
+            'global' => array(
+                'file_extensions' => 'jpg png', // File extensions
+                'max_filesize' => '100 MB',
+                'file_directory' => 'config', // Will be a subdirectory of the files directory
+                'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
+            ),  
+        ),  
+        '#description' => t("Image header projets"),
+        '#required' => FALSE,     
+    );
+    
+    $var13 = variable_get('ilot_theme_partenaires_visuel');
+    $form['ilot_theme_partenaires']['ilot_theme_partenaires_visuel'] = array(
+        '#type' => 'media',
+        '#tree' => TRUE,
+        '#title' => t('Image header de la page "Partenaires"'),
+        '#default_value' => $var13,
+        '#media_options' => array(
+            'global' => array(
+                'file_extensions' => 'jpg png', // File extensions
+                'max_filesize' => '100 MB',
+                'file_directory' => 'config', // Will be a subdirectory of the files directory
+                'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
+            ),  
+        ),  
+        '#description' => t("Image header partenaires"),
+        '#required' => FALSE,     
+    );
+    
+    $var14 = variable_get('ilot_theme_etablissements_visuel');
+    $form['ilot_theme_etablissements']['ilot_theme_etablissements_visuel'] = array(
+        '#type' => 'media',
+        '#tree' => TRUE,
+        '#title' => t('Image header de la page "Etablissements"'),
+        '#default_value' => $var14,
+        '#media_options' => array(
+            'global' => array(
+                'file_extensions' => 'jpg png', // File extensions
+                'max_filesize' => '100 MB',
+                'file_directory' => 'config', // Will be a subdirectory of the files directory
+                'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
+            ),  
+        ),  
+        '#description' => t("Image header établissements"),
         '#required' => FALSE,     
     );
     
@@ -511,8 +607,6 @@ function ilot_theme_mail_alter(&$message) {
   		$message['body'][] = "\nSociete : ".$paramsMail['societe'];
   	}
   	$message['body'][] = "\n\nMessage : ".$paramsMail['message'];
-
-
   }
 }
 

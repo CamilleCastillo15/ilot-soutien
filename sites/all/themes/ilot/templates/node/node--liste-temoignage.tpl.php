@@ -1,4 +1,16 @@
-<div class="container-page full">
+<?php
+    $visuel_asso = variable_get("ilot_theme_temoignages_visuel");
+    $file = file_load($visuel_asso);
+//    $img = file_create_url($file->uri);
+    $img = image_style_url("header", $file->uri);
+?>
+<div class="imagetitle">
+    <div class="image">
+        <img src="<?php print $img; ?>" alt="header" title="header" />
+    </div>
+    <div class="title">témoignages</div>
+</div>
+  <div class="container-page full">
    <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
       <div class="liste-temoignages-container container-entreprises">
           <h1>Entreprises</h1>
