@@ -26,8 +26,6 @@ function commerce_french_donate_menu() {
  */
 function commerce_french_donate_donate_callback() {
     
-  dpm("test");
-    
   global $user;
   ilot_custom_form_session_value('checkout_donation', array());
   if (!empty($_SESSION['commerce_cart_orders'])) {
@@ -90,7 +88,10 @@ function commerce_french_donate_donate_callback() {
  * Implement hook_form().
  */
 function commerce_french_donate_form($form, &$form_state, $order) {
+    
+
   if (empty($form_state['values']['commerce_french_donate'])) {
+      dpm("LA R");
     $saved_form_state_values = ilot_custom_form_session_value('checkout_donation');
     if (!empty($saved_form_state_values)) {
       $form_state['values']['commerce_french_donate'] = $saved_form_state_values;
@@ -118,17 +119,18 @@ function commerce_french_donate_form($form, &$form_state, $order) {
   $unique_options = variable_get('commerce_french_donate_unique_options');
   $unique_free = variable_get('commerce_french_donate_activ_unique_free');
 
-  $form['#attached']['js'] = array(
+ $form['#attached']['js'] = array(
+      
     drupal_get_path('module', 'commerce_french_donate') . '/commerce_french_donate.js' => array(
       'type' => 'file',
     ),
-  );
+ );
 
   $title = "Mon don en ligne";
   $form['fieldset_wrapper'] = array(
     '#type' => 'fieldset',
-    '#prefix' => '<div id="commerce_french_donate" class="commerce_french_donate_wrapper ' . $donation_type . ' form-wrapper"><h2 id="title_donation"><span><abbr title="Premiere étape">1</abbr></span>' . $title . '</h2>',
-    '#suffix' => '<div class="clearfix"></div></div>',
+   '#prefix' => '<div id="commerce_french_donate" class="commerce_french_donate_wrapper ' . $donation_type . ' form-wrapper"><h2 id="title_donation"><span><abbr title="Premiere étape">1</abbr></span>' . $title . '</h2>',
+   '#suffix' => '</div>',
     '#collapsible' => FALSE,
     '#collapsed' => FALSE,
     '#attributes' => array(
@@ -142,6 +144,7 @@ function commerce_french_donate_form($form, &$form_state, $order) {
   );
 
   if ($unique_options || $unique_free) {
+      dpm("LA 1");
     $form['fieldset_wrapper']['fieldset_unique'] = array(
       '#type' => 'fieldset',
       '#title' => t('Je donne <span>maintenant</span>'),
@@ -155,6 +158,7 @@ function commerce_french_donate_form($form, &$form_state, $order) {
   }
 
   if ($unique_options) {
+      dpm("LA 2");
     $form['fieldset_wrapper']['fieldset_unique']['unique'] = array(
       '#type' => 'radios',
       '#title' => t('je donne maintenant'),
@@ -165,8 +169,9 @@ function commerce_french_donate_form($form, &$form_state, $order) {
       ),
     );
   }
-
+    
   if ($unique_free) {
+dpm("LA 3");
     $form['fieldset_wrapper']['fieldset_unique']['unique_free'] = array(
       '#type' => 'textfield',
       '#title' => t('un autre montant ?'),
@@ -267,11 +272,11 @@ function commerce_french_donate_form($form, &$form_state, $order) {
 
   $form['fieldset_wrapper']['calcul_output'] = array(
     '#prefix' => '<div id="calcul_output_ajax_wrapper">',
-    '#suffix' => '</div>',
+   '#suffix' => '</div>',
     '#markup' => $output,
     '#weight' => 100,
   );
-
+  
   return $form;
 }
 

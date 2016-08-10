@@ -670,12 +670,13 @@ function ilot_theme_mail_alter(&$message) {
  * pane.
  */
 function ilot_theme_commerce_checkout_pane_info() {
-
+dpm("COUCOUC");
   $panes['checkout_pane_info_don'] = array(
+    
       'title' => t('Checkout donation information'),
       'base' => 'checkout_pane_info_don',
       'page' => 'checkout',
-      'weight' => -5,
+      'weight' => 50,
       'file' => 'includes/pane.inc',
       'attributes' => array(
         'class' => array('checkout-pane-info-don'),
@@ -710,10 +711,8 @@ function ilot_theme_commerce_checkout_pane_info() {
  * Ordering when the panes of the checkout would be set or not, wich page, weight, etc ..
  */
 function ilot_theme_commerce_checkout_pane_info_alter(&$checkout_panes) {
-  if (isset($checkout_panes['checkout_pane_info_don'])) {
-    $checkout_panes['checkout_pane_info_don']['page'] = 'checkout';
-    $checkout_panes['checkout_pane_info_don']['weight'] = -20;
-  }
+
+ /*
   if (isset($checkout_panes['commerce_french_donate'])) {
     $checkout_panes['commerce_french_donate']['page'] = 'checkout';
     $checkout_panes['commerce_french_donate']['weight'] = -10;
@@ -722,11 +721,16 @@ function ilot_theme_commerce_checkout_pane_info_alter(&$checkout_panes) {
     $checkout_panes['customer_profile_billing']['page'] = 'checkout';
     $checkout_panes['customer_profile_billing']['weight'] = 10;
   }
+  */
+  if (isset($checkout_panes['checkout_pane_info_don'])) {
+    //$checkout_panes['checkout_pane_info_don']['page'] = 'checkout';
+    //$checkout_panes['checkout_pane_info_don']['weight'] = 50;
+  }/*
   if (isset($checkout_panes['account'])) {
     $checkout_panes['account']['page'] = 'disabled';
     $checkout_panes['account']['weight'] = 0;
   }
-
+*/
 }
 
 /**
@@ -763,7 +767,7 @@ function ilot_theme_form_commerce_checkout_form_checkout_alter(&$form, &$form_st
   if (empty($_GET['checkout'])) {
   	$referent = $order_wrapper->field_url_referent->value();
   	if (!empty($referent)) {
-  		//drupal_goto($referent, array('external' => TRUE, 'query' => array('order_id' => $order->order_id)));
+  		drupal_goto($referent, array('external' => TRUE, 'query' => array('order_id' => $order->order_id)));
   	}
   }
 
@@ -786,10 +790,10 @@ function ilot_theme_form_commerce_checkout_form_checkout_alter(&$form, &$form_st
   if (!isset($form['customer_profile_billing']['#suffix'])) {
     $form['customer_profile_billing']['#suffix'] = '';
   }
-
+/*
   $form['customer_profile_billing']['#prefix'] .= '<div class="customer_profile_billing_container form-wrapper"><h2 class="customer_profile_billing_title"><span><abbr title="Seconde étape">2</abbr></span>Mes coordonnées</h2>';
   $form['customer_profile_billing']['#suffix'] = '<div class="clearfix"></div></div>' . $form['customer_profile_billing']['#suffix'];
-
+*/
   $form['customer_profile_billing']['continue'] = $var;
 
   /*$form['customer_profile_billing']['numero_donateur'] = array(

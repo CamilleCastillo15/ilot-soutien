@@ -7,11 +7,9 @@ function checkout_pane_info_don_checkout_form($form, &$form_state, $checkout_pan
   $form['#attributes'] = array (
     'class' => array('checkout_pane_info'),
   );
-
   $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
   foreach ($order_wrapper->commerce_line_items as $delta => $line_item_wrapper) {
     $line_item = $line_item_wrapper->value();
-
     if ($line_item->type == 'commerce_french_donate') {
       $mensualite = $line_item->field_french_donate_mensualite[LANGUAGE_NONE][0]['value'];
       $amount = commerce_currency_amount_to_decimal($line_item->commerce_unit_price[LANGUAGE_NONE][0]['amount'], commerce_default_currency());
@@ -33,6 +31,7 @@ function checkout_pane_info_don_checkout_form($form, &$form_state, $checkout_pan
     );
   }
   else {
+   
     if (!is_null(variable_get('ilot_markup_pane_info_don_isf', NULL))) {
       $data = variable_get('ilot_markup_pane_info_don_isf', commerce_checkout_completion_message_default());
       $message_isf = $data['value'];
@@ -61,7 +60,7 @@ function checkout_pane_info_don_checkout_form($form, &$form_state, $checkout_pan
   }
 
   $form['checkout_savoir_plus_title'] = array(
-      '#markup' => '<br/><a href="/contact"><h4 class="pane_savoir_plus" id="btn-savoir-plus">en savoir plus</h4></a>'
+      '#markup' => '<br/><a href="/contact"></a>'
   );
 
   $node_don_savoir_plus = views_embed_view('view_savoir_plus_don');
