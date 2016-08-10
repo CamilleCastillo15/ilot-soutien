@@ -38,11 +38,11 @@
             <div class="texte"><h2><?php print render($type) ?></h2>
               <div class='sous-titre'><?php print render($title_principal) ?></div>
               <?php print render($texte) ?>
-              <a href="" class="read-more">voir plus</a>
+              
+              <?php print l('Voir plus', '/node/'.$nid, array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
+
             </div>
         </div>
-
-              <?php print l('Voir plus', '/node/'.$nid, array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
 
         <?php } ?>
 
