@@ -79,7 +79,7 @@
 // FONT SIZE
 $fzs: 0.9rem, 1rem,  1.3rem,  1.6rem,  3.8rem, 5rem;
 @mixin fz($size){
-  font-size: nth($fzs, $size) !important;
+  font-size: nth($fzs, $size);
   line-height: nth($fzs, $size)*1.3;
 }
 

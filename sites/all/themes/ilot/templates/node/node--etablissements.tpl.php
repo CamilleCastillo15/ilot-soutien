@@ -31,10 +31,13 @@
                $texte = field_view_field('field_collection_item', $collectionsg_2, 'field_texte');
                $image = field_view_field('field_collection_item', $collectionsg_2, 'field_image');
         ?>
+        <div class="bloc i-<?php print $i; ?>">
 
             <?php print render($image) ?>
         <h1><?php print render($titre) ?></h1>
             <?php print render($texte) ?>
+
+            </div>
 
       <?php } ?>
     </article><!-- /.node -->

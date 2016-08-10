@@ -3,7 +3,7 @@
 
 
 
-.node-liste-projets, [class*="section-temoignages"]  {
+.node-liste-projets, [class*="section-temoignages"], .full-temoignage {
 
 
     .actus,.node-temoignage {
@@ -38,9 +38,9 @@
          @include b(73%,top,75%);
          padding-bottom: 4rem;
          padding-left:2rem;
-            h2{
+          h2{
                 @include fz(4);
-            }
+          }
          h3{
             @include fz(3);
             a{
@@ -84,6 +84,7 @@
         }
     }
 
+   
 
 }
 

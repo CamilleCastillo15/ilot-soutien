@@ -25,12 +25,13 @@
         }
     }
 
-    .date-actualite{
+    .date{
         position: absolute;
         right: 0rem;
         top:0px;
         color:black;
         font-weight: bold;
+        text-align: center;
         @include fz(1);
        
         .jour{

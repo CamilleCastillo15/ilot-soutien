@@ -308,7 +308,7 @@ Drupal.behaviors.ilot_form_messages = {
       Drupal.behaviors.ilot_form_messages.timeout = setTimeout(function(){
         content_messages.stop().fadeOut(600, function(){content_messages.remove();});
         $('#main').animate({'padding-top' : 0}, 600);
-      },5000);
+      },50000);
     }
   };
 

@@ -61,6 +61,12 @@ p {
 
      @include fz(1);
 
+     &.gros{
+       @include fz(4);
+       padding: 2rem;
+       padding-bottom: 3rem;
+     }
+
 }
 
 

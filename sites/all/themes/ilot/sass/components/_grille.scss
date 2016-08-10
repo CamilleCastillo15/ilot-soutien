@@ -1,7 +1,6 @@
 
 
-
-.liste-temoignages-container,.gb{
+.gb{
 
     text-align: left;
     
@@ -24,10 +23,20 @@
     
 
     background-color: $grey_3;
+    box-shadow: 0px 0rem 1rem 0px rgba($grey_3,0);
     min-height: 27rem;
+    @include transition(all 0.7s ease-in-out);
 
     &:nth-child(even){
-        background-color: darken($grey_3,5%);
+
+        background-color: lighten($grey_3,3%);
+       
+        
+    }
+
+    &:hover{
+        background-color: #fff;
+        box-shadow: 0px 0rem 3rem 0px rgba(darken($grey_3,20%),0.7);
     }
 
     .pager{
@@ -101,4 +110,26 @@
              position: relative;
         }
     }
+}
+
+
+.bloc{
+
+   
+
+    &.i-0{
+        background-color: $green;
+        color:white;
+        @include b(48%);
+        padding: 2rem;
+    }
+    &.i-1{
+        
+        @include b(48%);
+         padding: 2rem;
+        margin-left:3%;
+    }
+
+    margin-top: 3rem;
+
 }
