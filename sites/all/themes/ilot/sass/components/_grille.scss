@@ -50,14 +50,23 @@
 
     }
 
+ .read-more{
+        @include btn_actu($green_bt,100%);
+        display: block;
+        position: absolute;
+        bottom: 0rem;
+        left:0px;
+        width: 100%;
+    }
+
     .texte {
 
          @include b(63%,top,75%);
          padding-bottom: 3rem;
          padding-left:1rem;
-            h2{
-                @include fz(3);
-            }
+         h2{
+            @include fz(3);
+         }
          h3{
             @include fz(2);
             font-weight: bold;
@@ -73,15 +82,16 @@
             display: none;
          }
 
+         .read-more{
+           
+            @include btn_actu();
+             margin-top:1rem;
+             bottom: 0px;
+             position: relative;
+        }
+
     }
-   .read-more{
-        @include btn_actu($green_bt,100%);
-        display: block;
-        position: absolute;
-        bottom: 0rem;
-        left:0px;
-        width: 100%;
-    }
+
     article.node-temoignage{
         .read-more{
            

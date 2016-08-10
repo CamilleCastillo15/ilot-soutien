@@ -2,7 +2,7 @@
   display: none;
 }
 
-@mixin btn_actu($color:$green, $max:14rem) {
+@mixin btn_actu($color:$green, $max:15rem) {
     background-color: transparent;
     cursor:pointer;
     transition: all 200ms;
