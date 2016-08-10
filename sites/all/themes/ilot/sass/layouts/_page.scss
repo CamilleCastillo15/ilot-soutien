@@ -49,6 +49,32 @@ html {
 }
 
 
+.page-chegckout{
+	@include container(false);
+	position: relative;
+
+
+	.checkout_pane_info{
+		@include b(100%);
+	
+		.fieldset-legend{
+			display: none;
+		}
+		h2{
+			@include fz(4);
+		}
+		.menu{
+			@include u();
+		}
+	}
+
+	.customer_profile_billing_container,.commerce_french_donate{
+		@include b(49%);	
+		padding:2rem;
+	}
+}
+
+
 
 .container-page{
     @include container(false);

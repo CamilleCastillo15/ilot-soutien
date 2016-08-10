@@ -4,6 +4,10 @@
     @include b(20vw);
     @include m(5%,0rem,0rem,8%);
 
+     @media #{$m-m} {
+            margin:0px;
+        }
+
 
     .bloc {
 
@@ -182,7 +186,7 @@
 
           
 
-            .readmore {
+            .read-more {
 
 
                 @include btn_actu($green);
