@@ -28,6 +28,7 @@ function gd_donate_menu() {
  */
 function gd_donate_donate_callback() {
   global $user;
+    
 
   // Create the new order in checkout status.
   $order = commerce_order_new($user->uid, 'checkout_checkout');
@@ -48,7 +49,7 @@ function gd_donate_donate_callback() {
 
   $_SESSION['commerce_cart_orders'][] = $order->order_id;
 
-  drupal_goto('checkout/' . $order->order_id);
+  //drupal_goto('checkout/' . $order->order_id);
 }
 
 /**

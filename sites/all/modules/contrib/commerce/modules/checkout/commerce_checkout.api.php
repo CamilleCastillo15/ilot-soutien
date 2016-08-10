@@ -35,6 +35,7 @@ function hook_commerce_checkout_router($order, $checkout_page) {
   // Redirect anonymous users to a custom login page instructing them to login
   // prior to checkout. (Note that Drupal Commerce does not require users to
   // login prior to checkout as an e-commerce best practice.)
+
   if (!$user->uid) {
     drupal_set_message(t('Please login or create an account now to continue checkout.'));
     drupal_goto('checkout/login/' . $order->order_id);

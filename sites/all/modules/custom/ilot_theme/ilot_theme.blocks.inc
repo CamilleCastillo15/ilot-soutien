@@ -95,13 +95,13 @@ function ilot_theme_block_view($delta = '') {
       break;
       case 'newsletter':
       $block['subject'] = 'newsletter';
-      $block['content'] = array(
+      $block['content']['newsletter'] = array(
           '#theme' => 'newsletter'
         );
       break;
       case 'contact':
       $block['subject'] = 'contact';
-      $block['content'] = array(
+      $block['content']['contact'] = array(
           '#theme' => 'contact'
         );
       break;
@@ -123,9 +123,11 @@ function ilot_theme_theme($existing, $type, $theme, $path){
   return array( 
     'newsletter' => array(
     'template' => 'templates/ilot_theme_newsletter',
+        'variables' => array('login' => NULL,"machin"=> NULL), 
     ),      
       'contact' => array(
       'template' => 'templates/ilot_theme_contact',
+          'variables' => array('login' => NULL,"machin"=> NULL), 
     ),      
     'ilot_theme_etablissements' => array(
         'template' => 'templates/ilot_theme_etablissements', 

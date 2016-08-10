@@ -8,7 +8,7 @@
     <div class="image">
         <img src="<?php print $img; ?>" alt="header" title="header" />
     </div>
-<div class="title">actualités</div>
+<div class="title">actus</div>
 </div>
     <div class="container-page full">
 
@@ -20,22 +20,23 @@
             for($i = 0; $i < count($view); $i++) {
 
                $node = $view[$i];
-               $titre = field_view_field('node', $node, 'field_titre_presentation');
-               $sous_titre = field_view_field('node', $node, 'field_sous_titre_presentation');
+//               $titre = field_view_field('node', $node, 'field_actualite_auteur_nom');
 
-               $texte = field_view_field('node', $node, 'field_texte_presentation');
-               $image = field_view_field('node', $node, 'field_image_presentation');
+               $type = field_view_field('node', $node, 'field_type_actualite');
 
                $title_principal = $node->title;
+               $texte = field_view_field('node', $node, 'field_actualite_accroche');
+               $image = field_view_field('node', $node, 'field_actualite_image_accroche');
+
+
                $nid = $node->nid;
 
         ?>
 
         <div class="liste-actus-generales-container gb">
             <div class="vignette"><?php print render($image) ?></div>
-            <div class="texte"><h2><?php print render($title_principal) ?></h2>
-              <h3><?php print render($titre) ?></h3>
-              <div class='sous-titre'><?php print render($sous_titre) ?></div>
+            <div class="texte"><h2><?php print render($type) ?></h2>
+              <div class='sous-titre'><?php print render($title_principal) ?></div>
               <?php print render($texte) ?>
               <a href="" class="read-more">voir plus</a>
             </div>

@@ -25,6 +25,9 @@ function commerce_french_donate_menu() {
  * Menu callback. Init a default Donation order with a line item.
  */
 function commerce_french_donate_donate_callback() {
+    
+  dpm("test");
+    
   global $user;
   ilot_custom_form_session_value('checkout_donation', array());
   if (!empty($_SESSION['commerce_cart_orders'])) {
@@ -71,9 +74,13 @@ function commerce_french_donate_donate_callback() {
   commerce_order_save($order);
 
   $_SESSION['commerce_cart_orders'][] = $order->order_id;
+    
+
 
   if (!empty($_GET['checkout'])) {
-  drupal_goto('checkout/' . $order->order_id, array('query' => array('checkout' => $_GET['checkout'])));
+    
+  
+      drupal_goto('checkout/' . $order->order_id, array('query' => array('checkout' => $_GET['checkout'])));
   }
   drupal_goto('checkout/' . $order->order_id);
 

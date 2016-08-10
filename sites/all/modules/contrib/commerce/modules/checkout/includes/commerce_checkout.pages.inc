@@ -11,6 +11,7 @@
  */
 function commerce_checkout_router($order, $checkout_page = NULL) {
   $checkout_pages = commerce_checkout_pages();
+     
 
   // If no checkout page is specified, default to the first one.
   if (empty($checkout_page)) {
@@ -40,9 +41,10 @@ function commerce_checkout_router($order, $checkout_page = NULL) {
   }
 
   // Ensure the order can proceed to checkout; if not, redirect away.
+    /*
   if (!commerce_checkout_order_can_checkout($order)) {
     drupal_goto('<front>');
-  }
+  }*/
 
   // Prior to displaying the checkout form, allow other modules to route the
   // checkout form.
@@ -52,8 +54,8 @@ function commerce_checkout_router($order, $checkout_page = NULL) {
   if (!empty($checkout_page['title'])) {
     drupal_set_title($checkout_page['title']);
   }
-
-  return drupal_get_form('commerce_checkout_form_' . $checkout_page['page_id'], $order, $checkout_page);
+return drupal_get_form('commerce_checkout_form_' . $checkout_page['page_id'], $order, $checkout_page);
+ 
 }
 
 /**
