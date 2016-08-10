@@ -49,13 +49,23 @@ html {
 }
 
 
-.page-chegckout{
+.page-checkout{
 	@include container(false);
 	position: relative;
+	text-align: center;
+	padding-bottom: 3rem;
+
+	.messages{
+		position: absolute;
+		left:-10rem;
+		top:-10rem;
+	}
 
 
 	.checkout_pane_info{
-		@include b(100%);
+		text-align: left;
+		@include b(89%);
+		
 	
 		.fieldset-legend{
 			display: none;
@@ -65,12 +75,105 @@ html {
 		}
 		.menu{
 			@include u();
+			padding: 0rem;
+			list-style: none;
+			li{
+				display: inline-block;
+				vertical-align: middle;
+				padding-right:1rem;
+				a{
+					
+					@include btn_actu(darken($green,1%),100%);
+				}
+			}
+		}
+
+		.node-don-savoir-plus{
+
+			p{
+				font-weight: bold;
+				padding-right: 8rem;
+			}
+			img{
+				top:0px;
+				float: none !important;
+				position: absolute;
+				right: 0px;
+			}
+
 		}
 	}
 
-	.customer_profile_billing_container,.commerce_french_donate{
-		@include b(49%);	
-		padding:2rem;
+	.customer_profile_billing,.commerce_french_donate{
+		text-align: left;
+		@include b(41%);	
+		background-color: darken($grey_3,5%);
+		@include transition(all 0.5s ease-in-out);
+
+		&:hover{
+			background-color: darken($grey_3,10%);
+		}
+		margin:2%;
+		padding:3.5rem;
+
+		.field-type-list-boolean{
+			margin-top:1rem;
+			margin-bottom: 1rem;
+		}
+		.fieldset-legend{
+			display: none;
+		}
+
+		.button-operator{
+			display: none;
+		}
+
+		.checkout-cancel {
+			display: none;
+		}
+		.checkout-submit{
+			 -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+			@include btn_actu($green_bt);
+		}
+
+		.checkout-buttons{
+				text-align: center;
+				margin-top:1rem;
+		}
+	}
+
+	.calculator{
+		text-align: center;
+		.title{
+			@include fz(4);
+			text-align:left;
+			text-transform: uppercase;
+		}
+		.info{
+			text-align: left;
+			margin-top:1rem;
+			margin-bottom: 1rem;
+		}
+		a{
+			@include btn_actu($red,100%);
+		}
+	}
+	.form-item-commerce-french-donate-fieldset-wrapper-fieldset-unique-unique-free{
+		label{
+			display: none;
+		}
+	}
+	.form-item-commerce-french-donate-fieldset-wrapper-fieldset-unique-unique{
+		margin-bottom: 2rem;
+		label{
+			display: none;
+		}
+	}
+
+	.commerce_payment{
+		display: none;
 	}
 }
 

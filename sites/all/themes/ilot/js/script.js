@@ -40,12 +40,14 @@
       }
       if ($('input.unique.don.free')[0]) {
 	    $('.commerce_french_donate_wrapper input:text').click(function(){
+       
 	    	$('.commerce_french_donate_wrapper input[type=text]').not($(this)).val('');
 	    	$('.commerce_french_donate_wrapper input:radio').each(function(){
+
 	    	  if ($(this).prop("checked") == true) {
-	    		  $(this).prop("checked", false).parent().css({
-                      backgroundPosition:  '0 0px'
-                  });
+            
+	    		  $(this).prop("checked", false).parent().css("background-color",'#00a886');
+
 	    	  }
 	    	});
 	    });
