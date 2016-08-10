@@ -8,16 +8,99 @@ html {
 
 }
 
-#page {
 
-  @include background-grid($color: grey);
-  margin: auto;
-  //max-width: $max;
+
+.node-page-simple{
+	
+
+	h1{
+		color:$red;
+		@include fz(4);
+	}
+
+	.field-name-field-page-simple-contact{
+		background-color: $green;
+		@include b(50%);
+		padding:2rem;
+		padding-bottom: 0rem;
+		color:white;
+	}
+
 
 }
 
-.field .field-label {
+.node-page-intro{
+	h1{
+		color:$red;
+		@include fz(4);
+	}
+	article{
+		img{
+			width: 100%;
+		}
+		@include b(32%);
+		padding:2rem;
+		text-align: center;
 
-//    display: none;
+		.read-more{
+			@include btn_actu();
+		}
+	}
+}
 
+
+
+.container-page{
+    @include container(false);
+    text-align: center;
+    margin-top:1rem;
+    padding-bottom: 3rem;
+
+    article.view-mode-full {
+
+      float: none;
+      margin-left: 0px;
+     
+      @include b(70%);
+      text-align:left;
+
+    }
+    aside.view-mode-full {
+      float: none;
+      
+      margin-left: 1rem;
+
+      @media #{$m-t-up} {
+         margin-left: 4rem;
+      }
+
+      @include b(23%);
+      text-align:left;
+
+      h1{
+        text-align: center;
+      }
+
+      article{
+        width: 100%;
+        padding: 1.5rem;
+      }
+      .view-actualites-contextuel{
+         width: 100%;
+         padding: 1.5rem;
+         text-align: center;
+         .vignette{
+             margin-top:2rem;
+         }
+      }
+
+    }
+
+    &.full{
+       @include container(true); 
+       article.view-mode-full{
+            @include b(90%);
+            text-align: center;
+       }
+    }
 }

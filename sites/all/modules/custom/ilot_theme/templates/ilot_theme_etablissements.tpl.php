@@ -38,11 +38,11 @@
               <h3><?php print render($titre) ?></h3>
               <div class='sous-titre'><?php print render($sous_titre) ?></div>
               <?php print render($texte) ?>
-              <a href="" class="read-more">voir plus</a>
+              <?php print l('Voir plus', '/node/'.$nid, array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
             </div>
         </div>
 
-              <?php print l('Voir plus', '/node/'.$nid, array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
+              
 
         <?php } ?>
 
@@ -69,7 +69,7 @@
                       <h3><?php print render($titre) ?></h3>
                       <div class='sous-titre'><?php print render($sous_titre) ?></div>
                       <?php print render($texte) ?>
-                      <a href="" class="read-more">voir plus</a>
+                      <?php print l('Voir plus', '/node/'.$nid, array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
                     </div>
                 </div>
 

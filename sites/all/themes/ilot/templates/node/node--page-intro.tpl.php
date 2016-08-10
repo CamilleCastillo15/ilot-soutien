@@ -1,3 +1,5 @@
+<div class="container-page">
+
 <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 	
   
@@ -16,3 +18,7 @@
       <?php print render($content['field_page_intro_assurances_vie']); ?>
 
 </article>
+
+
+
+</div>
