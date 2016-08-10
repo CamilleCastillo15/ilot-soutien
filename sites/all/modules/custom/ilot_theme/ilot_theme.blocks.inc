@@ -130,6 +130,10 @@ function ilot_theme_theme($existing, $type, $theme, $path){
     'ilot_theme_etablissements' => array(
         'template' => 'templates/ilot_theme_etablissements', 
         'variables' => array('login' => NULL,"machin"=> NULL), 
+    ),
+    'ilot_theme_actus' => array(
+        'template' => 'templates/ilot_theme_actus', 
+        'variables' => array('login' => NULL,"machin"=> NULL), 
     )
    
   );

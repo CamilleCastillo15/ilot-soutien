@@ -21,6 +21,14 @@ function ilot_theme_menu(){
         'page arguments' => array(0,1),        
         'type' => MENU_NORMAL_ITEM,
     );
+    $items['liste-actus'] = array(
+        'title' => 'Liste des 4 dernières actualités' ,
+        'description' => 'Description',
+        'access callback' => TRUE,
+         'page callback' => 'ilot_theme_actus',
+        'page arguments' => array(0,1),        
+        'type' => MENU_NORMAL_ITEM,
+    );
     return $items;
 }
 
@@ -37,11 +45,9 @@ function ilot_theme_etablissements(){
     $a = array();
     $b = array();
     
-    foreach($result as $key => $case){
-        
+    foreach($result as $key => $case){        
         $node = node_load($case->nid);
         $a[]= $node;
-        
     }
     
     foreach($result_2 as $key => $case){
@@ -51,6 +57,24 @@ function ilot_theme_etablissements(){
         
     }
     return theme("ilot_theme_etablissements", array('view' => $a, 'view_2' => $b));
+}
+
+function ilot_theme_actus(){
+
+    $view = views_get_view("liste_actus_generales");
+    $view->execute();
+    $result = $view->result;
+    
+    $a = array();
+    
+    foreach($result as $key => $case){
+        
+        $node = node_load($case->nid);
+        $a[]= $node;
+        
+    }
+    
+    return theme("ilot_theme_actus", array('view' => $a));
 }
 
 function ilot_theme_admin() {
