@@ -133,6 +133,7 @@ function commerce_french_donate_form($form, &$form_state, $order) {
    '#suffix' => '</div>',
     '#collapsible' => FALSE,
     '#collapsed' => FALSE,
+    '#prefix' => 'COUCOUCOU',
     '#attributes' => array(
       'class' => array('commer_french_donate_fieldset_wrapper'),
     ),
@@ -526,7 +527,7 @@ function commerce_french_donate_calculate_values($values, $donation_type, &$form
  */
 function commerce_french_donate_commerce_checkout_pane_info() {
   $panes['commerce_french_donate'] = array(
-    'title' => t('Commerce French Donate'),
+    'title' => t('title'),
     'base' => 'checkout_commerce_french_donate_pane',
     'page' => 'checkout',
     'weight' => 0,

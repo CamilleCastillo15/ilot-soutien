@@ -3,17 +3,17 @@
 
 
 
-.node-liste-projets, [class*="section-temoignages"], .full-temoignage {
+.node-liste-projets, [class*="section-temoignages"], .full-temoignage, .view-t-moignages-de-salari-s, .view-temoignages-de-benevoles, .view-temoignages-de-donateurs, .view-temoignages-residants, .view-temoignages-partenaires, .view-t-moignages-d-entreprises {
 
 
-    .actus,.node-temoignage {
+    .actus, .node-temoignage {
 
             padding: 0;
             position: relative;
 
             margin-bottom:2rem;
 
-            border-bottom: 3px solid $green;
+            border-bottom: 3px solid $green !important;
             text-align:left;
 
     }
@@ -83,9 +83,6 @@
 
         }
     }
-
-   
-
 }
 
 .image-accroche{

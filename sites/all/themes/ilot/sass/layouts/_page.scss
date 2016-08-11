@@ -185,11 +185,10 @@ html {
     margin-top:1rem;
     padding-bottom: 3rem;
 
-    article.view-mode-full {
+    article.view-mode-full, .view-t-moignages-de-salari-s, .view-temoignages-de-benevoles, .view-temoignages-de-donateurs, .view-temoignages-residants, .view-temoignages-partenaires, .view-t-moignages-d-entreprises  {
 
       float: none;
       margin-left: 0px;
-     
       @include b(70%);
       text-align:left;
 

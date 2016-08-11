@@ -818,10 +818,10 @@ function ilot_theme_form_commerce_checkout_form_checkout_alter(&$form, &$form_st
 
   // customer_profile_billing // always present
   if (!isset($form['customer_profile_billing']['#prefix'])) {
-    $form['customer_profile_billing']['#prefix'] = '';
+    $form['customer_profile_billing']['#prefix'] = 'COUCOUCOU';
   }
   if (!isset($form['customer_profile_billing']['#suffix'])) {
-    $form['customer_profile_billing']['#suffix'] = '';
+    $form['customer_profile_billing']['#suffix'] = 'COUCOUCOU';
   }
 /*
   $form['customer_profile_billing']['#prefix'] .= '<div class="customer_profile_billing_container form-wrapper"><h2 class="customer_profile_billing_title"><span><abbr title="Seconde étape">2</abbr></span>Mes coordonnées</h2>';

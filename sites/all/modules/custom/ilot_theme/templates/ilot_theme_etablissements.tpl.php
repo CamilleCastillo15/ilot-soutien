@@ -45,6 +45,8 @@
                $title_principal = $node->title;
                $nid = $node->nid;
 
+               $link = drupal_get_path_alias('node/'.$node->nid);
+
         ?>
 
         <div class="liste-etablissements-container gb">
@@ -53,7 +55,7 @@
               <h3><?php print render($titre) ?></h3>
               <div class='sous-titre'><?php print render($sous_titre) ?></div>
               <?php print render($texte_summary) ?>
-              <?php print l('Voir plus', '/node/'.$nid, array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
+              <?php print l('Voir plus', $link, array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
             </div>
         </div>
 
@@ -78,10 +80,12 @@
                   'settings'=>array('trim_length' => 300),
                ));
 
-               $texte_summary = render($texte_trimmed)."...";
+               $texte_summary = $texte_trimmed."...";
 
                $image = field_view_field('node', $node, 'field_image_presentation');
                $title_principal = $node->title;
+
+               $link = drupal_get_path_alias('node/'.$node->nid);
 
         ?>
 
@@ -91,7 +95,7 @@
                       <h3><?php print render($titre) ?></h3>
                       <div class='sous-titre'><?php print render($sous_titre) ?></div>
                       <?php print render($texte_summary) ?>
-                      <?php print l('Voir plus', '/node/'.$nid, array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
+                      <?php print l('Voir plus', $link, array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
                     </div>
                 </div>
 

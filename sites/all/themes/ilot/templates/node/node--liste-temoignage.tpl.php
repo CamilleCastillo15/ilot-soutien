@@ -8,7 +8,7 @@
     <div class="image">
         <img src="<?php print $img; ?>" alt="header" title="header" />
     </div>
-    <div class="title">témoignages</div>
+    <div class="title"><?php print render($node->title);?></div>
 </div>
   <div class="container-page full">
    <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
