@@ -126,14 +126,15 @@ function commerce_french_donate_form($form, &$form_state, $order) {
     ),
  );
 
-  $title = "Mon don en ligne";
+//  $title = "Mon don en ligne";
+  $title = "";
   $form['fieldset_wrapper'] = array(
     '#type' => 'fieldset',
    '#prefix' => '<div id="commerce_french_donate" class="commerce_french_donate_wrapper ' . $donation_type . ' form-wrapper"><h2 id="title_donation"><span><abbr title="Premiere étape">1</abbr></span>' . $title . '</h2>',
    '#suffix' => '</div>',
     '#collapsible' => FALSE,
     '#collapsed' => FALSE,
-    '#prefix' => 'COUCOUCOU',
+    '#prefix' => '<div class="header-form"><div class="number">1</div><div class="text-form">Mon don en ligne</div></div>',
     '#attributes' => array(
       'class' => array('commer_french_donate_fieldset_wrapper'),
     ),

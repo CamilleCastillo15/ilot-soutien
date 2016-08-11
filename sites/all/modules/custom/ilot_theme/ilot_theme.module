@@ -816,12 +816,14 @@ function ilot_theme_form_commerce_checkout_form_checkout_alter(&$form, &$form_st
   $var = $form['buttons'];
   unset($form['buttons']);
 
+//  $form['fieldseiit_wrapper']['#prefix'] = 'COUCUIX';
+    
   // customer_profile_billing // always present
   if (!isset($form['customer_profile_billing']['#prefix'])) {
-    $form['customer_profile_billing']['#prefix'] = 'COUCOUCOU';
+    $form['customer_profile_billing']['#prefix'] = '';
   }
   if (!isset($form['customer_profile_billing']['#suffix'])) {
-    $form['customer_profile_billing']['#suffix'] = 'COUCOUCOU';
+    $form['customer_profile_billing']['#suffix'] = '';
   }
 /*
   $form['customer_profile_billing']['#prefix'] .= '<div class="customer_profile_billing_container form-wrapper"><h2 class="customer_profile_billing_title"><span><abbr title="Seconde étape">2</abbr></span>Mes coordonnées</h2>';
@@ -1060,6 +1062,7 @@ function ilot_theme_form_commerce_checkout_process_customer_profile_address($for
   //$form['name_block']['last_name']['#attributes']['placeholder'] .=  ' * ';
   $form['name_block']['last_name']['#weight'] = 10;
   // First name, Prénom:
+  $form['name_block']['first_name']['#prefix'] ='<div class="header-form"><div class="number">2</div><div class="text-form">Mes coordonnées</div></div>';
   $form['name_block']['first_name']['#title'] = t('Prénom');
   //$form['name_block']['first_name']['#attributes']['placeholder'] .=  ' * ';
   $form['name_block']['first_name']['#weight'] = 0;
