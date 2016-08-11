@@ -31,16 +31,12 @@ $image-path: '../images' !default;
 $fallback-extension: 'png' !default;
 
 
-$mobile-break:         981px;
+$mobile-break:         800px;
 $tablet-break:         1100px;
 $desktop-break:        1101px;
 $super-desktop-break:  1600px;
 $h-break: 800px;
 
-
-
-
-$m-m: "only screen and (max-width: "+$mobile-break+"), (-webkit-min-device-pixel-ratio: 1), (min-resolution: 192dpi)";
 
 $m-m: "only screen and (max-width: "+$mobile-break+")";
 $m-t: "only screen and (min-width: "+$mobile-break+") and (max-width: "+$desktop-break+")";

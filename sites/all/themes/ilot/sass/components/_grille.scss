@@ -24,8 +24,8 @@
 
     background-color: $grey_3;
     box-shadow: 0px 0rem 1rem 0px rgba($grey_3,0);
-    min-height: 27rem;
-    @include transition(all 0.7s ease-in-out);
+    min-height: 18rem;
+    @include transition(all 0.5s ease-in-out);
 
     &:nth-child(even){
 
