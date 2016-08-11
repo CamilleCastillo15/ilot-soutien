@@ -7,8 +7,12 @@
     <?php if(!empty($content['field_temoignage_sous_titre'])): ?>
       <h3><?php print l(render($content['field_temoignage_sous_titre']), 'node/'.$node->nid, array('html' => TRUE)); ?></h3>
     <?php endif; ?>
-    <?php  if (isset($content['field_temoignage_accroche'])) : ?>
-      <?php print render($content['field_temoignage_accroche']); ?>
+    <?php  if (isset($content['field_temoignage_accroche'])) :
+
+        $content_render = render($content['field_temoignage_accroche']);
+        $content_render_substr = substr($content_render, 0, 250)."...";
+        print $content_render_substr; ?>
+
     <?php endif;?>
     <?php print l('voir plus', 'node/'.$node->nid, array('attributes' => array('class' => 'read-more'))); ?>
   </div>

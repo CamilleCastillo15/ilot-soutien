@@ -1,4 +1,5 @@
-<article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<div class="container-page">
+ <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <div class="vignette">
     <?php print l(render($content['field_temoignage_image']), 'node/'.$node->nid, array('html' => TRUE)); ?>
   </div>
@@ -14,3 +15,4 @@
     <div class="clearfix"></div>
   </div>
 </article><!-- /.node -->
+</div>

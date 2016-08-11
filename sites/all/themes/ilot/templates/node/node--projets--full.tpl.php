@@ -1,4 +1,5 @@
  <div class="container-page">
+
   <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
     <h1><?php print $node->title; ?></h1>
     <?php if(!empty($node->field_projet_sous_titre)): ?>
@@ -72,7 +73,7 @@
           
         </div>
 
-  <div class="nav-next-prev">
+    <div class="nav-next-prev">
       <?php if(isset($prev)) :
         print l('projet précédent', 'node/'.$prev, array('attributes' => array('class' => 'prev read-more')));
         endif;
@@ -82,7 +83,9 @@
         endif;
       ?>
     </div>
+
   </article><!-- /.node -->
+
   <aside class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php print $views_actu_contextuel; ?>
 
@@ -98,4 +101,5 @@
 
   </aside>
   <div class="clearfix"></div>
+
 </div>

@@ -670,7 +670,6 @@ function ilot_theme_mail_alter(&$message) {
  * pane.
  */
 function ilot_theme_commerce_checkout_pane_info() {
-dpm("COUCOUC");
   $panes['checkout_pane_info_don'] = array(
     
       'title' => t('Checkout donation information'),
@@ -914,7 +913,7 @@ function ilot_theme_form_commerce_checkout_submit_customer_profile($form, &$form
     $account = user_save('', $fields);
     // Log in user and convert order (update in db with the good UID, so the user can see is order after login).
     ilot_theme_form_commerce_checkout_connect_donateur($numero_donateur, $order, $account);
-  }*/
+  }*/ 
 }
 
 

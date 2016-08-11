@@ -25,6 +25,20 @@
                $sous_titre = field_view_field('node', $node, 'field_sous_titre_presentation');
 
                $texte = field_view_field('node', $node, 'field_texte_presentation');
+
+               $texte_trimmed = field_view_field("node",$node,'field_texte_presentation',array(
+                  'label' => 'hidden',
+                  'type' => 'text_summary_or_trimmed',
+                  'settings'=>array('trim_length' => 300),
+               ));
+
+               $texte_summary = render($texte_trimmed)."...";
+
+               $texte_render = render($texte);
+               $texte_render_substr = substr($texte_render, 0, 250)."...";
+
+               $image = field_view_field('node', $node, 'field_actualite_image_accroche');
+
                $image = field_view_field('node', $node, 'field_image_presentation');
 
                $title_principal = $node->title;
@@ -37,7 +51,7 @@
             <div class="texte"><h2><?php print render($title_principal) ?></h2>
               <h3><?php print render($titre) ?></h3>
               <div class='sous-titre'><?php print render($sous_titre) ?></div>
-              <?php print render($texte) ?>
+              <?php print render($texte_summary) ?>
               <?php print l('Voir plus', '/node/'.$nid, array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
             </div>
         </div>
@@ -58,6 +72,15 @@
                $titre = field_view_field('node', $node, 'field_titre_presentation');
                $sous_titre = field_view_field('node', $node, 'field_sous_titre_presentation');
                $texte = field_view_field('node', $node, 'field_texte_presentation');
+
+               $texte_trimmed = field_view_field("node",$node,'field_texte_presentation',array(
+                  'label' => 'hidden',
+                  'type' => 'text_summary_or_trimmed',
+                  'settings'=>array('trim_length' => 300),
+               ));
+
+               $texte_summary = render($texte_trimmed)."...";
+
                $image = field_view_field('node', $node, 'field_image_presentation');
                $title_principal = $node->title;
 
@@ -68,7 +91,7 @@
                     <div class="texte"><h2><?php print render($title_principal) ?></h2>
                       <h3><?php print render($titre) ?></h3>
                       <div class='sous-titre'><?php print render($sous_titre) ?></div>
-                      <?php print render($texte) ?>
+                      <?php print render($texte_summary) ?>
                       <?php print l('Voir plus', '/node/'.$nid, array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
                     </div>
                 </div>

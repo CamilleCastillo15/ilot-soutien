@@ -15,7 +15,7 @@
       <div class="gb container-entreprises">
           <h1>Entreprises</h1>
           <?php print $views_liste_temoignage_entreprises; ?>
-          <?php print l('Lire d\'autres témoignages', '/temoignages-entreprises', array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
+          <?php print l('Lire d\'autres témoignages', '/temoignages-d-entreprises', array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
       </div>
       <div class="gb container-benevoles">
           <h1>Bénévoles</h1>
@@ -32,10 +32,10 @@
           <?php print $views_liste_temoignage_partenaires; ?>
           <?php print l('Lire d\'autres témoignages', '/temoignages-partenaires', array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
       </div>
-      <div class="gb container-partenaires">
+      <div class="gb container-residents">
           <h1>Personnes accueillies</h1>
           <?php print $views_liste_temoignage_residents; ?>
-          <?php print l('Lire d\'autres témoignages', '/temoignages-partenaires', array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
+          <?php print l('Lire d\'autres témoignages', '/temoignages-residants', array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
       </div>
       <div class="gb container-partenaires">
           <h1>Salariés</h1>
