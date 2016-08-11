@@ -9,7 +9,7 @@
     <div class="image">
         <img src="<?php print $img; ?>" alt="header" title="header" />
     </div>
-    <div class="title">actus</div>
+    <div class="title">actualités</div>
 </div>
 
 <div class="container-page full">
