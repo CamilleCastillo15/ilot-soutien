@@ -10,7 +10,8 @@
     </div>
     <div class="title">établissements</div>
 </div>
-    <div class="container-page full">
+
+<div class="container-page full">
 
     <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
@@ -55,8 +56,6 @@
               <?php print l('Voir plus', '/node/'.$nid, array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
             </div>
         </div>
-
-              
 
         <?php } ?>
 

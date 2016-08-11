@@ -3,12 +3,14 @@
     $file = file_load($visuel_asso);
     $img = image_style_url("header", $file->uri);
 ?>
-    <div class="imagetitle">
-        <div class="image">
-            <img src="<?php print $img; ?>" alt="header" title="header" />
-        </div>
-        <div class="title">Nos valeurs</div>
+
+<div class="imagetitle">
+    <div class="image">
+        <img src="<?php print $img; ?>" alt="header" title="header" />
     </div>
+    <div class="title">Nos valeurs</div>
+</div>
+
 <div class="container-page">
     <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
       <div class="icone-set">

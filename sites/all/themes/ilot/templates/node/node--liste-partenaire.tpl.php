@@ -8,7 +8,7 @@
     <div class="image">
         <img src="<?php print $img; ?>" alt="header" title="header" />
     </div>
-    <div class="title">partenaires</div>
+    <div class="title">nos partenaires</div>
 </div>
  <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <ul><li><a href="">Tous les partenaires</a></li></ul>

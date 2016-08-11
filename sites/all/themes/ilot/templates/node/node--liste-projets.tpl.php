@@ -83,22 +83,25 @@
  * @see template_process()
  */
 ?>
+
 <?php
     $visuel_asso = variable_get("ilot_theme_projets_visuel");
     $file = file_load($visuel_asso);
-//    $img = file_create_url($file->uri);
     $img = image_style_url("header", $file->uri);
+
+    $texte_presentation = variable_get("ilot_theme_projets_texte_presentation");
 ?>
+
 <div class="imagetitle">
     <div class="image">
         <img src="<?php print $img; ?>" alt="header" title="header" />
     </div>
     <div class="title">projets</div>
 </div>
+
 <div class="container-page">
-    <p class="gros">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate magni, quibusdam totam modi. Libero temporibus culpa aliquid voluptatum saepe optio cumque nesciunt tenetur, laborum nulla corporis, numquam placeat cum officiis!</p>
+    <p class="gros"><?php print render($texte_presentation); ?></p>
     <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-      <?php print render($content['field_projets_accroche']); ?>
       <?php print $views_liste_projet; ?>
     </article><!-- /.node -->
 </div>

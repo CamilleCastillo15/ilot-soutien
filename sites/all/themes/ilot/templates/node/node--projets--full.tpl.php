@@ -1,4 +1,19 @@
- <div class="container-page">
+<?php
+    $visuel_asso = variable_get("ilot_theme_projets_visuel");
+    $file = file_load($visuel_asso);
+    $img = image_style_url("header", $file->uri);
+
+    $texte_presentation = variable_get("ilot_theme_projets_texte_presentation");
+?>
+
+<div class="imagetitle">
+    <div class="image">
+        <img src="<?php print $img; ?>" alt="header" title="header" />
+    </div>
+    <div class="title">projets</div>
+</div>
+
+<div class="container-page">
 
   <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
     <h1><?php print $node->title; ?></h1>

@@ -145,6 +145,7 @@ function commerce_french_donate_form($form, &$form_state, $order) {
 
   if ($unique_options || $unique_free) {
       dpm("LA 1");
+      
     $form['fieldset_wrapper']['fieldset_unique'] = array(
       '#type' => 'fieldset',
       '#title' => t('Je donne <span>maintenant</span>'),

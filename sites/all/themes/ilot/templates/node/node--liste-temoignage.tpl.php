@@ -20,12 +20,12 @@
       <div class="gb container-benevoles">
           <h1>Bénévoles</h1>
           <?php print $views_liste_temoignage_benevoles; ?>
-          <?php print l('Lire d\'autres témoignages', '/temoignages-benevoles', array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
+          <?php print l('Lire d\'autres témoignages', '/temoignages-de-benevoles', array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
       </div>
       <div class="gb container-donateurs">
           <h1>Donateurs</h1>
           <?php print $views_liste_temoignage_donateurs; ?>
-          <?php print l('Lire d\'autres témoignages', '/temoignages-donateurs', array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
+          <?php print l('Lire d\'autres témoignages', '/temoignages-de-donateurs', array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
       </div>
       <div class="gb container-partenaires">
           <h1>Partenaires</h1>

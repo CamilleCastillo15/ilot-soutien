@@ -9,12 +9,11 @@
     <div class="image">
         <img src="<?php print $img; ?>" alt="header" title="header" />
     </div>
-    <div class="title">actus</div>
+    <div class="title">actualités</div>
 </div>
 
  <div class="container-page">
   <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-
     <div class="vignette">
       <?php  print render($content['field_actualite_image_accroche']); ?>
     </div>

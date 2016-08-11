@@ -2,6 +2,7 @@
 <?php
 
     $fc_blocs_textes = field_get_items('node', $node, 'field_blocs_images_textes');
+    $title_principal = $node->title;
 
     if($fc_blocs_textes){
         $idti = array();
@@ -11,9 +12,18 @@
         $collectionsg =  field_collection_item_load_multiple($idti);
     }
 
-//    dpm($collectionsg);
+   $visuel_asso = variable_get("ilot_theme_etablissements_visuel");
+   $file = file_load($visuel_asso);
+   $img = image_style_url("header", $file->uri);
 
 ?>
+
+<div class="imagetitle">
+    <div class="image">
+        <img src="<?php print $img; ?>" alt="header" title="header" />
+    </div>
+    <div class="title"><?php print render($title_principal);?></div>
+</div>
 
 <div class="container-page">
     <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
