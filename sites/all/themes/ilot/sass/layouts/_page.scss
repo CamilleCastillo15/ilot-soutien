@@ -70,14 +70,17 @@ html {
 
 .page-checkout{
 
-
+	div{
+		//position: relative;
+	}
 	.commerce-checkout-form-checkout{
 		@include container(false);
 		position: relative;
 		text-align: center;
 
-		padding-bottom: 10rem;
-    margin-bottom: 5rem;
+		padding-bottom: 2rem;
+		padding-top: 2rem;
+    	margin-bottom: 5rem;
 	}
 
 	.messages{
@@ -99,10 +102,7 @@ html {
 	.checkout_pane_info{
 		text-align: left;
 		@include b(88%);
-		position: absolute;
-		bottom: 0rem;
-		left:50%;
-@include transform(translate(-50%,0));
+	
 
 		.fieldset-legend{
 			display: none;
@@ -132,7 +132,7 @@ html {
 				padding-right: 8rem;
 			}
 			img{
-				top:0px;
+				top:-1rem;
 				float: none !important;
 				position: absolute;
 				right: 0px;
@@ -156,6 +156,14 @@ html {
 		padding:3.5rem;
 		padding-top: 8rem;
 		margin-top: 2rem;
+
+		@media #{$m-m} {
+			margin:0%;
+			padding: 1rem;
+			padding-top: 8rem;
+			margin-top: 2rem;
+
+		}
 
 		.header-form{
 			display: block;
