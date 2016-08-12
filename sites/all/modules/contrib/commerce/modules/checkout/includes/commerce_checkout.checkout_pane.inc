@@ -58,7 +58,7 @@ function commerce_checkout_completion_message_pane_settings_form($checkout_pane)
   $message = variable_get('commerce_checkout_completion_message', commerce_checkout_completion_message_default());
 
   $form['container'] = array(
-    '#type' => 'container',
+    //'#type' => 'container',
     '#access' => filter_access(filter_format_load($message['format'])),
   );
   $form['container']['commerce_checkout_completion_message'] = array(

@@ -28,8 +28,6 @@ function commerce_french_donate_install() {
   variable_set('commerce_french_donate_info_regular', "Vous pouvez déduire 75 % de votre don à hauteur de 521 € par an. Au delà, votre don est déductible à hauteur de 66 % dans la limite de 20 % de votre revenu net imposable. Vous recevrez un reçu fiscal.");
 
 
-
-
   // If there is a specific ceiling with a different rate of tax deduction above it, here is an example : [ceiling]*0.75 + ([user-amount]-[ceiling])*2/3
   variable_set('commerce_french_donate_activ_monthly_free', TRUE);
   variable_set('commerce_french_donate_activ_unique_free', TRUE);

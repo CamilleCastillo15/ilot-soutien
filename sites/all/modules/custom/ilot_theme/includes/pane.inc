@@ -17,7 +17,6 @@ function checkout_pane_info_don_checkout_form($form, &$form_state, $checkout_pan
       break;
     }
   }
-
   if ($donation_type == 'don_normal') {
     if (!is_null(variable_get('ilot_markup_pane_info_don', NULL))) {
       $data = variable_get('ilot_markup_pane_info_don', commerce_checkout_completion_message_default());
@@ -31,7 +30,6 @@ function checkout_pane_info_don_checkout_form($form, &$form_state, $checkout_pan
     );
   }
   else {
-   
     if (!is_null(variable_get('ilot_markup_pane_info_don_isf', NULL))) {
       $data = variable_get('ilot_markup_pane_info_don_isf', commerce_checkout_completion_message_default());
       $message_isf = $data['value'];
@@ -78,7 +76,6 @@ function checkout_pane_info_don_settings_form($checkout_pane) {
   // Find our default message and text format values.
   if (!is_null(variable_get('ilot_markup_pane_info_don', NULL))) {
     $data = variable_get('ilot_markup_pane_info_don', commerce_checkout_completion_message_default());
-
     $message_normal = $data['value'];
     $text_format_normal = $data['format'];
   }
