@@ -1,9 +1,112 @@
 
+.a_actu{
+
+}
 
 
 
 
-.actualites ,.node-liste-actualites {
+.node-actualites{
+ 
+
+  
+    .date{
+           .socials{
+
+            
+            overflow: hidden;
+            position: absolute;
+          
+            height: 3rem;
+            width: 5rem;
+            bottom: 1rem;
+            right: 0rem;
+     
+            //@include jpg(fake_rs,50% 50%,contain);
+        }
+    }
+
+    .date-actualite{
+        position: absolute;
+        right: 0rem;
+        top:0px;
+        color:black;
+        font-weight: bold;
+        text-align: center;
+        @include fz(1);
+       
+        .jour{
+            display: block;
+             @include jpg(bg_date,50% 100%, 100%);
+           
+             width: 100%;
+              @include fz(2);
+             color:white;
+             height: auto;
+            padding: 1rem;
+        }
+        .mois ,.annee{
+             @include transition(all 0.2s ease-in-out);
+            @include opacity(0.7);
+        }
+       
+    }
+
+
+        .vignette {
+
+            @include b(20%,middle,20%);
+
+            img {
+
+                line-height: 0;
+
+                width: 100%;
+                height: auto;
+
+            }
+
+        }
+
+        .texte {
+
+            display: inline-block;
+            vertical-align: middle;
+            width: 60%;
+
+            padding-left: 1rem;
+           
+            h1{
+                margin-bottom: 1rem;
+                margin-top:0rem;
+            }
+            
+
+            .text-detail {
+
+                display: none;
+
+                @include breakpoint($mobilel) {
+                    display: block;
+                 }
+
+            }
+
+            p {
+                text-align: left !important;
+            }
+
+        }
+
+  
+
+
+}
+
+
+
+
+.actualites ,.node-liste-actualites{
  
 
     @include b(64%);
@@ -74,6 +177,7 @@
 
         }
         }
+          }
 
         .vignette {
 
@@ -121,7 +225,7 @@
 
         }
 
-    }
+  
 
  
     .read-more{

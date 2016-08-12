@@ -11,7 +11,7 @@
     z-index: 10;
     height: 100%;
     display: block;
-    @media #{$m-m} {
+    @media #{$m-t-down} {
         display: none;
     }
 
@@ -25,7 +25,7 @@
     width: 100%;
     padding-left: 30%;
 
-    @media #{$m-m} {
+    @media #{$m-t-down} {
             
         padding-left: 0%;
 
@@ -69,9 +69,9 @@
     position: relative;
     height: 22rem;
 
-      @media #{$m-m} {
-             height: 20rem;
-        }
+    @media #{$m-m} {
+        height: 20rem;
+    }
 
     .bloc-texte {
 
@@ -82,9 +82,10 @@
 
        
 
-        @media #{$m-m} {
+        @media #{$m-t-down} {
              left: 25%;
             top: 45%;
+            width: 50%;
         }
 
         .chiffres-clefs{

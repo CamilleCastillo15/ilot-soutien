@@ -15,32 +15,34 @@
             margin-left: 0;
             padding: 0;
 
-            display: none;
+            display: block;
 
-            @include breakpoint($laptop) {
-                display: block;
+          
+            @media #{$m-t-down} {
+                display:none;
             }
 
             li {
                 transition:all 0ms;
                 text-transform: uppercase;
                 line-height: $h;
-                font-size: 1rem;
+                font-size: 1.3rem;
         
-                padding: 0rem 2.5rem;
+                margin: 0rem 2.2rem;
                 display: inline-block;
 
-                @include breakpoint($laptop) {
-                    font-size: 1.2rem;
-                }
+                 @media #{$m-t} {
+                    padding: 0rem 0.5rem;
+                 }
 
-                @include breakpoint($laptopl) {
-                    font-size: 1.4rem;
-                }
+            
 
                 a {
                     transition:all 300ms;
-                     padding-bottom: 1rem;
+                     padding-bottom: 0rem;
+                     width: 100%;
+                     height: 100%;
+                     display: block;
                      border-bottom: 3px solid transparent;
                     &:hover,
                     &.active{
@@ -60,7 +62,8 @@
                         z-index: 10;
                         margin-left: 0;
 
-                        width: 150.84746%;
+                        width: 200%;
+                        min-width: 16rem;
                        // float: left;
                         //margin-right: -100%;
                        //margin-left: 0;
@@ -68,27 +71,17 @@
                         left: 50%;
                        // -webkit-transform: translate(-50%,0);
                         //-ms-transform: translate(-50%,0);
-                        //transform: translate(-50%,0);
-                        @include transform(translate(-50%,0));
+                        transform: translate(-50%,0);
+                        //@include transform(translate(-50%,0));
                         z-index: 1000;
 
                     li {
 
-                        font-size: 0.7rem;
-                        line-height: 40px;
+                        font-size: 1rem;
+                        line-height: 1rem;
                         display: inherit;
 
-                        @include breakpoint($laptop) {
-                            font-size: 0.9rem;
-                            margin: 0;
-                            line-height: 60px;
-                        }
-
-                        @include breakpoint($laptopl) {
-                            font-size: 1.1rem;
-                            margin: 0;
-                            line-height: 70px;
-                        }
+                
 
                         &:hover,
                         &.active {
@@ -98,8 +91,9 @@
                         a {
                              width: 100%;
                             display: block;
+                            padding: 1.5rem 1.5rem;
                             margin: 0px;
-                            padding-bottom: 0px;
+                           
                             &:hover,
                             &.active {
                                 border-bottom:none !important;

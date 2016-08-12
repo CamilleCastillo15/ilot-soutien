@@ -11,7 +11,7 @@
             padding: 0;
             position: relative;
 
-            margin-bottom:2rem;
+            margin-bottom:2rem !important;
 
             border-bottom: 3px solid $green !important;
             text-align:left;
@@ -130,4 +130,38 @@
     .next{
         float: right;
     }
+}
+
+.col-1{
+  a{
+    text-decoration: none !important;
+  }
+}
+
+
+
+.node-type-projets{
+   h2{
+    margin-top:2rem;
+   }
+   .bandeau-je-fais-don{
+     vertical-align: middle;
+   }
+    .contact{
+      
+      vertical-align: middle !important;
+    background-color: $green;
+    @include b(48%);
+    margin-top:1rem;
+    padding:2rem;
+    
+    color:white;
+    h2{
+    margin-top:0rem;
+   }
+    .contact{
+      padding:0px;
+      font-weight: bold;
+    }
+  }
 }

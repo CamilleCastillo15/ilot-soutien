@@ -143,7 +143,7 @@
   left: 10px;
   left: 30.5%;
   right: auto;
-  @media #{$m-m} {
+  @media #{$m-t-down} {
     left: 10px;
   }
 }

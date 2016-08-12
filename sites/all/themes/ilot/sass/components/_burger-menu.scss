@@ -3,11 +3,12 @@
 @import "../variables/var";
 
 .burger {
-    display: block;
-    @include breakpoint($tablet) {
-        display:none ;
+    display: none;
+    @media #{$m-t-down} {
+         display:block;
     }
-    top: $margin;
+   
+    top: 4rem;
     right:$margin;
     position: fixed;
     width: 60px;
