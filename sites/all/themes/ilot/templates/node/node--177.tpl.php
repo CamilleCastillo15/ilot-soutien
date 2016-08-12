@@ -23,7 +23,7 @@
       </div>
 
       <?php if(!empty($content['field_page_simple_contact'])):?>
-       <div class="right-column-intro-categorie">
+       <div class="right-column-intro-categorie column-intro-categorie">
 
               <?php print render($content['field_page_simple_contact']); ?>
         </div>

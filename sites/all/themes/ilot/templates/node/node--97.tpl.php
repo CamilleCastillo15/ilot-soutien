@@ -1,5 +1,5 @@
 <?php
-    $visuel_asso = variable_get("ilot_theme_nous_soutenir_visuel");
+    $visuel_asso = variable_get("ilot_theme_don_visuel");
     $file = file_load($visuel_asso);
 //    $img = file_create_url($file->uri);
     $img = image_style_url("header", $file->uri);
@@ -9,7 +9,7 @@
     <div class="image">
         <img src="<?php print $img; ?>" alt="header" title="header" />
     </div>
-    <div class="title">Nos missions</div>
+    <div class="title"><?php print $node->title; ?></div>
 </div>
 
 <div class="container-page">
@@ -21,10 +21,24 @@
         <?php print render($content['print_links']);?>
         <?php print render($content['sharethis']);?>
       </div>
-      <?php
-        print render($content);
-      ?>
+
+      <?php if(!empty($content['field_page_simple_contact'])):?>
+       <div class="right-column-intro-categorie">
+
+              <?php print render($content['field_page_simple_contact']); ?>
+        </div>
+        <?php endif;?>
+
+       <?php if(!empty($content['field_page_simple_contact'])):?>
+       <div class="left-column-intro-categorie column-intro-categorie">
+       <?php endif;?>
+
+          <?php print render($content['field_page_simple_contenu']); ?>
+
+       <?php if(!empty($content['field_page_simple_contact'])):?>
+       </div>
+       <?php endif;?>
+
     </article>
 
 </div>
-

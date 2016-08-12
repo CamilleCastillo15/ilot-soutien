@@ -9,7 +9,7 @@
     <div class="image">
         <img src="<?php print $img; ?>" alt="header" title="header" />
     </div>
-    <div class="title">Nos missions</div>
+    <div class="title"><?php print $node->title; ?></div>
 </div>
 
 <div class="container-page">

@@ -1,0 +1,109 @@
+.container-page {
+
+//    .node-page-simple {
+//
+//        width: 100% !important;
+//    }
+
+    .node-page-simple, .view-mode-full, .node-page-intro {
+
+        h1 {
+
+             color: black;
+
+        }
+
+        .column-intro-categorie {
+
+            @include breakpoint($tablet) {
+
+                 width: 50%;
+                 float: left;
+
+            }
+
+            p {
+
+                img {
+
+                    float: none !important;
+                    margin-bottom: 20px;
+                    margin-top: 20px;
+
+                }
+
+            }
+
+        }
+
+        .field-name-field-page-simple-contact {
+
+            @include breakpoint($tablet) {
+
+                float: right;
+                width: 90%;
+
+            }
+
+        }
+
+        .right-column-intro-categorie {
+
+            @include breakpoint($tablet) {
+
+                float: right;
+//                width: 40%;
+
+            }
+
+        }
+
+        table{
+
+            tr {
+
+                vertical-align: middle;
+
+                td {
+
+                    vertical-align: middle;
+
+                    p {
+
+                        padding: 20px;
+
+                    }
+
+                }
+
+                img {
+
+                    padding: 10px;
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+.node-page-intro {
+
+    .right-column-intro-categorie {
+        background-color: $green;
+        @include b(50%);
+        padding:2rem;
+        margin: 2rem 0;
+
+        @include breakpoint($tablet) {
+            margin: 0;
+        }
+
+        color:white;
+    }
+
+}
+

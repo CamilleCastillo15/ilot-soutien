@@ -1,5 +1,5 @@
 <?php
-    $visuel_asso = variable_get("ilot_theme_don_visuel");
+    $visuel_asso = variable_get("ilot_theme_don_isf_visuel");
     $file = file_load($visuel_asso);
 //    $img = file_create_url($file->uri);
     $img = image_style_url("header", $file->uri);

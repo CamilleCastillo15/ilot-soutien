@@ -1,5 +1,5 @@
 <?php
-    $visuel_asso = variable_get("ilot_theme_don_visuel");
+    $visuel_asso = variable_get("ilot_theme_don_isf_visuel");
     $file = file_load($visuel_asso);
 //    $img = file_create_url($file->uri);
     $img = image_style_url("header", $file->uri);
@@ -21,24 +21,7 @@
         <?php print render($content['print_links']);?>
         <?php print render($content['sharethis']);?>
       </div>
-
-      <?php if(!empty($content['field_page_simple_contact'])):?>
-       <div class="right-column-intro-categorie">
-
-              <?php print render($content['field_page_simple_contact']); ?>
-        </div>
-        <?php endif;?>
-
-       <?php if(!empty($content['field_page_simple_contact'])):?>
-       <div class="left-column-intro-categorie column-intro-categorie">
-       <?php endif;?>
-
-          <?php print render($content['field_page_simple_contenu']); ?>
-
-       <?php if(!empty($content['field_page_simple_contact'])):?>
-       </div>
-       <?php endif;?>
-
+      <?php print render($content['field_page_simple_contenu']); ?>
     </article>
 
 </div>
