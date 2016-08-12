@@ -39,6 +39,7 @@ function commerce_french_donate_donate_callback() {
       }
     }
   }
+    
   // Create the new order in checkout status.
   $order = commerce_order_new($user->uid, 'checkout_checkout');
   commerce_order_save($order);
@@ -72,8 +73,6 @@ function commerce_french_donate_donate_callback() {
   commerce_order_save($order);
 
   $_SESSION['commerce_cart_orders'][] = $order->order_id;
-    
-
 
   if (!empty($_GET['checkout'])) {
     
