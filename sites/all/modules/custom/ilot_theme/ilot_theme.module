@@ -3,14 +3,14 @@ require_once drupal_get_path('module', 'ilot_theme') .'/ilot_theme.blocks.inc';
 
 
 function ilot_theme_menu(){
-    
+
     $items = array();
-    $items['admin/settings/ateliers'] = array(
+    $items['admin/settings/ilotsoutien'] = array(
         'title' => 'Configuration du site' ,
         'description' => 'Configuration de la newsletter, du block contact..',
         'page callback' => 'drupal_get_form',
-        'page arguments' => array('ilot_theme_admin'),    
-        'access arguments' => array('access ateliersmod admin'),
+        'page arguments' => array('ilot_theme_admin'),
+        'access arguments' => array('access ilotsoutienmod admin'),
         'type' => MENU_NORMAL_ITEM,
     );
     $items['liste-etablissements-chantiers-insertion'] = array(
@@ -18,15 +18,15 @@ function ilot_theme_menu(){
         'description' => 'Description',
         'access callback' => TRUE,
          'page callback' => 'ilot_theme_etablissements',
-        'page arguments' => array(0,1),        
+        'page arguments' => array(0,1),
         'type' => MENU_NORMAL_ITEM,
     );
     $items['liste-actus'] = array(
         'title' => 'Liste des 4 dernières actualités' ,
         'description' => 'Description',
         'access callback' => TRUE,
-         'page callback' => 'ilot_theme_actus',
-        'page arguments' => array(0,1),        
+        'page callback' => 'ilot_theme_actus',
+        'page arguments' => array(0,1),
         'type' => MENU_NORMAL_ITEM,
     );
     return $items;
@@ -37,48 +37,48 @@ function ilot_theme_etablissements(){
     $view = views_get_view("liste_etablissements");
     $view->execute();
     $result = $view->result;
-    
+
     $view_2 = views_get_view("liste_chantiers_insertion");
     $view_2->execute();
     $result_2 = $view_2->result;
-    
+
     $a = array();
     $b = array();
-    
-    foreach($result as $key => $case){        
+
+    foreach($result as $key => $case){
         $node = node_load($case->nid);
         $a[]= $node;
     }
-    
+
     foreach($result_2 as $key => $case){
         $node = node_load($case->nid);
         $b[]= $node;
     }
-    
+
     return theme("ilot_theme_etablissements", array('view' => $a, 'view_2' => $b));
-    
+
 }
 
 function ilot_theme_actus(){
-
-    $view = views_get_view("liste_actus_generales");
-    $view->execute();
-    $result = $view->result;
-    
-    $a = array();
-    
-    foreach($result as $key => $case){
-        
+    $b = array();
+    for($i = 0;$i<4;$i++){
+      $view = views_get_view("liste_actus_generales");
+      $view->set_arguments($i);
+      $view->execute();
+      $result = $view->result;
+      $a = array();
+      foreach($result as $key => $case){
         $node = node_load($case->nid);
         $a[]= $node;
-        
+      }
+      $b[] = $a;
     }
-    
-    return theme("ilot_theme_actus", array('view' => $a));
+
+    return theme("ilot_theme_actus", array('views' => $b));
 }
 
 function ilot_theme_admin() {
-    
+
     $form['ilot_theme_social'] = array(
         '#type' => 'fieldset',
         '#title' => t('Paramétrage des URLs des réseaux sociaux'),
@@ -151,11 +151,17 @@ function ilot_theme_admin() {
         '#collapsible' => TRUE, // Added
         '#collapsed' => FALSE,  // Added
     );
+    $form['ilot_theme_don'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Paramétrage des pages de la catégorie "Faire un don"'),
+        '#collapsible' => TRUE, // Added
+        '#collapsed' => FALSE,  // Added
+    );
     $defaults = array(
         'value' => '',
         'format' => 'full_html',
     );
-    
+
     $var1 = variable_get('ilot_theme_newsletter_text');
     $form['ilot_theme_newsletterttt']['ilot_theme_newsletter_text'] = array(
         '#type' => 'text_format',
@@ -164,9 +170,9 @@ function ilot_theme_admin() {
         '#default_value' =>$var1["value"],
         '#description' => t("Texte présent dans le bloc newsletter"),
         '#required' => FALSE,
-       
+
     );
-    
+
    $var2 = variable_get('ilot_theme_newsletter_img');
 //   dpm($var2);
    $form['ilot_theme_newsletterttt']['ilot_theme_newsletter_img'] = array(
@@ -174,20 +180,20 @@ function ilot_theme_admin() {
         '#tree' => TRUE,
         '#title' => t('Icone du bloc newsletter'),
         '#default_value' =>$var2,
-        
+
         '#media_options' => array(
             'global' => array(
                 'file_extensions' => 'jpg png svg', // File extensions
                 'max_filesize' => '100 MB',
                 'file_directory' => 'config', // Will be a subdirectory of the files directory
                 'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
-            ),  
-        ),  
+            ),
+        ),
         '#description' => t("Icone du bloc newsletter"),
         '#required' => FALSE,
-       
+
     );
-    
+
     $var3 = variable_get('ilot_theme_contact_text');
 //    dpm($var3);
     $form['ilot_theme_contact']['ilot_theme_contact_text'] = array(
@@ -197,9 +203,9 @@ function ilot_theme_admin() {
         '#default_value' =>$var3["value"],
         '#description' => t("Texte présent dans le bloc contact"),
         '#required' => FALSE,
-       
+
     );
-    
+
     $var4 = variable_get('ilot_theme_contact_img');
 //    dpm($var4);
     $form['ilot_theme_contact']['ilot_theme_contact_img'] = array(
@@ -207,20 +213,20 @@ function ilot_theme_admin() {
         '#tree' => TRUE,
         '#title' => t('Icone du bloc newsletter'),
         '#default_value' =>$var4,
-        
+
         '#media_options' => array(
             'global' => array(
                 'file_extensions' => 'jpg png svg', // File extensions
                 'max_filesize' => '100 MB',
                 'file_directory' => 'config', // Will be a subdirectory of the files directory
                 'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
-            ),  
-        ),  
+            ),
+        ),
         '#description' => t("Icone du bloc newsletter"),
         '#required' => FALSE,
-       
+
     );
-    
+
     $var5 = variable_get('ilot_theme_contact_icone');
 //    dpm($var5);
     $form['ilot_theme_contact']['ilot_theme_contact_icone'] = array(
@@ -228,40 +234,40 @@ function ilot_theme_admin() {
         '#tree' => TRUE,
         '#title' => t('Icone téléphone du bloc newsletter'),
         '#default_value' =>$var5,
-        
+
         '#media_options' => array(
             'global' => array(
                 'file_extensions' => 'jpg png svg', // File extensions
                 'max_filesize' => '100 MB',
                 'file_directory' => 'config', // Will be a subdirectory of the files directory
                 'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
-            ),  
-        ),  
+            ),
+        ),
         '#description' => t("'Icone téléphone du bloc newsletter"),
         '#required' => FALSE,
-       
+
     );
-    
+
     $var6 = variable_get('ilot_theme_mosaique_img');
     $form['ilot_theme_mosaique']['ilot_theme_mosaique_img'] = array(
         '#type' => 'media',
         '#tree' => TRUE,
         '#title' => t('Image du bloc "don en confiance"'),
         '#default_value' =>$var6,
-        
+
         '#media_options' => array(
             'global' => array(
                 'file_extensions' => 'jpg png svg', // File extensions
                 'max_filesize' => '100 MB',
                 'file_directory' => 'config', // Will be a subdirectory of the files directory
                 'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
-            ),  
-        ),  
+            ),
+        ),
         '#description' => t('Image du bloc "don en confiance"'),
         '#required' => FALSE,
-       
+
     );
-    
+
     $var7 = variable_get('ilot_theme_social_twitter');
     $form['ilot_theme_social']['ilot_theme_social_twitter'] = array(
         '#type' => 'textarea',
@@ -271,7 +277,7 @@ function ilot_theme_admin() {
         '#description' => t("URL du twitter de l'îlot"),
         '#required' => FALSE,
     );
-    
+
     $var8 = variable_get('ilot_theme_social_linkedin');
     $form['ilot_theme_social']['ilot_theme_social_linkedin'] = array(
         '#type' => 'textarea',
@@ -281,7 +287,7 @@ function ilot_theme_admin() {
         '#description' => t("URL du linkedin de l'îlot"),
         '#required' => FALSE,
     );
-    
+
     $var9 = variable_get('ilot_theme_asso_visuel');
     $form['ilot_theme_asso']['ilot_theme_asso_visuel'] = array(
         '#type' => 'media',
@@ -294,13 +300,13 @@ function ilot_theme_admin() {
                 'max_filesize' => '100 MB',
                 'file_directory' => 'config', // Will be a subdirectory of the files directory
                 'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
-            ),  
-        ),  
+            ),
+        ),
         '#description' => t("Image header association"),
         '#required' => FALSE,
-       
+
     );
-    
+
     $var10 = variable_get('ilot_theme_valeurs_visuel');
     $form['ilot_theme_valeurs']['ilot_theme_valeurs_visuel'] = array(
         '#type' => 'media',
@@ -313,12 +319,12 @@ function ilot_theme_admin() {
                 'max_filesize' => '100 MB',
                 'file_directory' => 'config', // Will be a subdirectory of the files directory
                 'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
-            ),  
-        ),  
+            ),
+        ),
         '#description' => t("Image header nos valeurs"),
-        '#required' => FALSE,     
+        '#required' => FALSE,
     );
-    
+
     $var11 = variable_get('ilot_theme_temoignages_visuel');
     $form['ilot_theme_temoignages']['ilot_theme_temoignages_visuel'] = array(
         '#type' => 'media',
@@ -331,12 +337,12 @@ function ilot_theme_admin() {
                 'max_filesize' => '100 MB',
                 'file_directory' => 'config', // Will be a subdirectory of the files directory
                 'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
-            ),  
-        ),  
+            ),
+        ),
         '#description' => t("Image header témoignages"),
-        '#required' => FALSE,     
+        '#required' => FALSE,
     );
-    
+
     $var12 = variable_get('ilot_theme_projets_visuel');
     $form['ilot_theme_projets']['ilot_theme_projets_visuel'] = array(
         '#type' => 'media',
@@ -349,12 +355,12 @@ function ilot_theme_admin() {
                 'max_filesize' => '100 MB',
                 'file_directory' => 'config', // Will be a subdirectory of the files directory
                 'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
-            ),  
-        ),  
+            ),
+        ),
         '#description' => t("Image header projets"),
-        '#required' => FALSE,     
+        '#required' => FALSE,
     );
-    
+
     $var16 = variable_get('ilot_theme_projets_texte_presentation');
     $form['ilot_theme_projets']['ilot_theme_projets_texte_presentation'] = array(
         '#type' => 'textarea',
@@ -364,7 +370,7 @@ function ilot_theme_admin() {
         '#description' => t("Texte de présentation"),
         '#required' => FALSE,
     );
-    
+
     $var13 = variable_get('ilot_theme_partenaires_visuel');
     $form['ilot_theme_partenaires']['ilot_theme_partenaires_visuel'] = array(
         '#type' => 'media',
@@ -377,12 +383,12 @@ function ilot_theme_admin() {
                 'max_filesize' => '100 MB',
                 'file_directory' => 'config', // Will be a subdirectory of the files directory
                 'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
-            ),  
-        ),  
+            ),
+        ),
         '#description' => t("Image header partenaires"),
-        '#required' => FALSE,     
+        '#required' => FALSE,
     );
-    
+
     $var14 = variable_get('ilot_theme_etablissements_visuel');
     $form['ilot_theme_etablissements']['ilot_theme_etablissements_visuel'] = array(
         '#type' => 'media',
@@ -395,13 +401,13 @@ function ilot_theme_admin() {
                 'max_filesize' => '100 MB',
                 'file_directory' => 'config', // Will be a subdirectory of the files directory
                 'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
-            ),  
-        ),  
+            ),
+        ),
         '#description' => t("Image header établissements"),
-        '#required' => FALSE,     
+        '#required' => FALSE,
     );
-    
-        
+
+
     $var15 = variable_get('ilot_theme_actus_generales_visuel');
     $form['ilot_theme_actus_generales']['ilot_theme_actus_generales_visuel'] = array(
         '#type' => 'media',
@@ -414,12 +420,12 @@ function ilot_theme_admin() {
                 'max_filesize' => '100 MB',
                 'file_directory' => 'config', // Will be a subdirectory of the files directory
                 'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
-            ),  
-        ),  
+            ),
+        ),
         '#description' => t("Image header établissements"),
-        '#required' => FALSE,     
+        '#required' => FALSE,
     );
-    
+
     $var17 = variable_get('ilot_theme_nous_soutenir_visuel');
     $form['ilot_theme_nous_soutenir']['ilot_theme_nous_soutenir_visuel'] = array(
         '#type' => 'media',
@@ -432,14 +438,32 @@ function ilot_theme_admin() {
                 'max_filesize' => '100 MB',
                 'file_directory' => 'config', // Will be a subdirectory of the files directory
                 'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
-            ),  
-        ),  
+            ),
+        ),
         '#description' => t("Image header 'Nous soutenir'"),
-        '#required' => FALSE,     
+        '#required' => FALSE,
     );
-    
+
+    $var18 = variable_get('ilot_theme_don_visuel');
+    $form['ilot_theme_don']['ilot_theme_don_visuel'] = array(
+        '#type' => 'media',
+        '#tree' => TRUE,
+        '#title' => t('Image header des pages de catégorie "Faire un don"'),
+        '#default_value' => $var18,
+        '#media_options' => array(
+            'global' => array(
+                'file_extensions' => 'jpg png', // File extensions
+                'max_filesize' => '100 MB',
+                'file_directory' => 'config', // Will be a subdirectory of the files directory
+                'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
+            ),
+        ),
+        '#description' => t("Image header 'Faire don'"),
+        '#required' => FALSE,
+    );
+
     return system_settings_form($form);
-    
+
 }
 
 function ilot_theme_init() {
@@ -705,7 +729,6 @@ function ilot_theme_mail_alter(&$message) {
  */
 function ilot_theme_commerce_checkout_pane_info() {
   $panes['checkout_pane_info_don'] = array(
-    
       'title' => t('Checkout donation information'),
       'base' => 'checkout_pane_info_don',
       'page' => 'checkout',
@@ -789,10 +812,20 @@ function ilot_theme_commerce_checkout_complete($order) {
 
 /**
  * Implements hook_form_ID_alter().
- *
  * Alter the checkout_checkout form.
  */
 function ilot_theme_form_commerce_checkout_form_checkout_alter(&$form, &$form_state) {
+  $visuel_asso = variable_get("ilot_theme_don_visuel");
+  $file = file_load($visuel_asso);
+  $img = image_style_url("header", $file->uri);
+  $s = '<div class="imagetitle">';
+  $s .= '<div class="image">';
+  $s .=        '<img src="'.$img.'?>" alt="header" title="header" />';
+  $s .= '</div>';
+  $s .= '<div class="title">Faire un don</div>';
+  $s .= '</div>';
+
+
   global $user;
   $order = $form_state['order'];
   $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
@@ -804,7 +837,7 @@ function ilot_theme_form_commerce_checkout_form_checkout_alter(&$form, &$form_st
   	}
   }
 
-  $form['#prefix'] = '<div class="ajax-notifier-anchor"></div>';
+  $form['#prefix'] = $s.'<div class="ajax-notifier-anchor"></div>';
   $form['#attributes'] = array(
     'class' => array('commerce-checkout-form-checkout'),
   );
@@ -817,7 +850,7 @@ function ilot_theme_form_commerce_checkout_form_checkout_alter(&$form, &$form_st
   unset($form['buttons']);
 
 //  $form['fieldseiit_wrapper']['#prefix'] = 'COUCUIX';
-    
+
   // customer_profile_billing // always present
   if (!isset($form['customer_profile_billing']['#prefix'])) {
     $form['customer_profile_billing']['#prefix'] = '';
@@ -949,7 +982,7 @@ function ilot_theme_form_commerce_checkout_submit_customer_profile($form, &$form
     $account = user_save('', $fields);
     // Log in user and convert order (update in db with the good UID, so the user can see is order after login).
     ilot_theme_form_commerce_checkout_connect_donateur($numero_donateur, $order, $account);
-  }*/ 
+  }*/
 }
 
 

@@ -3,7 +3,7 @@
 @import "../variables/var";
 
 html {
-   
+
     background-color: white;
 
 }
@@ -11,7 +11,7 @@ html {
 
 
 .node-page-simple{
-	
+
 
 	h1{
 		color:$red;
@@ -69,7 +69,7 @@ html {
 
 
 .page-checkout{
-	
+
 
 	#main{
 		@include container(false);
@@ -79,17 +79,18 @@ html {
 	}
 
 	.messages{
-		position: absolute;
+		/*position: absolute;
 		left:-10rem;
 		top:-10rem;
+    */
 	}
 
 
 	.checkout_pane_info{
 		text-align: left;
 		@include b(89%);
-		
-	
+
+
 		.fieldset-legend{
 			display: none;
 		}
@@ -105,7 +106,7 @@ html {
 				vertical-align: middle;
 				padding-right:1rem;
 				a{
-					
+
 					@include btn_actu(darken($green,1%),100%);
 				}
 			}
@@ -131,7 +132,7 @@ html {
 
 
 		text-align: left;
-		@include b(41%);	
+		@include b(41%);
 		background-color: darken($grey_3,5%);
 		@include transition(all 0.5s ease-in-out);
 
@@ -279,7 +280,7 @@ html {
     }
     aside.view-mode-full {
       float: none;
-      
+
       margin-left: 1rem;
 
       @media #{$m-t-up} {
@@ -309,7 +310,7 @@ html {
     }
 
     &.full{
-       @include container(true); 
+       @include container(true);
        article.view-mode-full{
             @include b(90%);
             text-align: center;

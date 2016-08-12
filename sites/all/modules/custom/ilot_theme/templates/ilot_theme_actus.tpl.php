@@ -13,18 +13,17 @@
 </div>
 
 <div class="container-page full">
-    <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+    <article >
         <?php
-            for($i = 0; $i < count($view); $i++) {
+            for($i = 0; $i < count($views); $i++) {
 
-               $node = $view[$i];
-//               $titre = field_view_field('node', $node, 'field_actualite_auteur_nom');
+               $node = $views[$i];
 
-               $type = field_view_field('node', $node, 'field_type_actualite');
-
+              // $type = field_view_field('node', $node, 'field_type_actualite');
+            }
+               /*
                $title_principal = $node->title;
                $texte = field_view_field('node', $node, 'field_actualite_accroche');
-
                $texte_trimmed = field_view_field("node",$node,'field_actualite_accroche',array(
                   'label' => 'hidden',
                   'type' => 'text_summary_or_trimmed',
@@ -39,6 +38,7 @@
 
                $nid = $node->nid;
 
+
         ?>
 
         <div class="liste-actus-generales-container gb">
@@ -51,8 +51,6 @@
             </div>
         </div>
 
-        <?php } ?>
-
+      <?php */ ?>
     </article>
-
 </div>

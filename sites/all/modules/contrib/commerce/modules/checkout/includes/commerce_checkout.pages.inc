@@ -11,7 +11,7 @@
  */
 function commerce_checkout_router($order, $checkout_page = NULL) {
   $checkout_pages = commerce_checkout_pages();
-     
+
 
   // If no checkout page is specified, default to the first one.
   if (empty($checkout_page)) {
@@ -55,7 +55,7 @@ function commerce_checkout_router($order, $checkout_page = NULL) {
     drupal_set_title($checkout_page['title']);
   }
 return drupal_get_form('commerce_checkout_form_' . $checkout_page['page_id'], $order, $checkout_page);
- 
+
 }
 
 /**
@@ -156,6 +156,7 @@ function commerce_checkout_form($form, &$form_state, $order, $checkout_page) {
       }
     }
   }
+
 
   // Restore general messages to the current session's messages array.
   $_SESSION['messages'] = array_merge_recursive(array_filter($previous_messages), drupal_get_messages());

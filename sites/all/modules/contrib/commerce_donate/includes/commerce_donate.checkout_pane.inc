@@ -54,6 +54,7 @@ function commerce_donate_checkout_pane_settings_form($checkout_pane) {
  * Create the donate checkout pane form.
  */
 function commerce_donate_checkout_pane_checkout_form($form, &$form_state, $checkout_pane, $order) {
+  dpm("COOUOU");
   $pane_id = $checkout_pane['pane_id'];
   $product_id = variable_get('commerce_donate_checkout_pane_product_id', 0);
   if (!empty($product_id) || !is_numeric($product_id)) {
@@ -63,12 +64,12 @@ function commerce_donate_checkout_pane_checkout_form($form, &$form_state, $check
     $form_state['donate_line_item'] = $line_item;
 
     // Add the line item's fields to a container on the form.
-    $pane_form[$pane_id] = array(
-      '#type' => 'container',
+    /*$pane_form[$pane_id] = array(
+      '#type' => 'fieldset',
       '#parents' => array($pane_id),
       '#weight' => 10,
       '#tree' => TRUE,
-    );
+    );*/
     field_attach_form('commerce_line_item', $line_item, &$pane_form[$pane_id], &$form_state);
     foreach (element_children($pane_form[$pane_id]) as $field_name) {
       $info = field_info_instance('commerce_line_item', $field_name, $line_item->type);
@@ -158,4 +159,3 @@ function commerce_donate_checkout_pane_checkout_form_submit($form, &$form_state,
     }
   }
 }
-
