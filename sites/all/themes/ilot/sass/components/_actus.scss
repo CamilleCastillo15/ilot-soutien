@@ -162,6 +162,8 @@
         margin-bottom:2rem;
 
         border-bottom: 3px solid $green;
+        line-height: 0;
+
         text-align:left;
         overflow: hidden;
         height: 100%;
@@ -199,6 +201,7 @@
             display: inline-block;
             vertical-align: top;
             width: 55%;
+            line-height: 1.3em;
 
             padding-left: 1rem;
             padding-bottom: 5rem;

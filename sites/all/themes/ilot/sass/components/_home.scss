@@ -11,14 +11,15 @@
     z-index: 10;
     height: 100%;
     display: block;
+
     @media #{$m-t-down} {
         display: none;
     }
-
 	
 	p{
 		@include fz(2);
 	}
+
  }
 
  .view-accueil-chiffres{
@@ -26,9 +27,7 @@
     padding-left: 30%;
 
     @media #{$m-t-down} {
-            
         padding-left: 0%;
-
     }
 
     .field-name-field-chiffres-clefs-accroche{
@@ -56,7 +55,6 @@
                         left:-50%;
                     }
                 }
-
             }
         }
     }
@@ -77,15 +75,13 @@
 
         @include ba(30%,50%);
         height: auto;
-        left: 65%;
+        left: 55%;
         top: 2rem;
 
-       
-
         @media #{$m-t-down} {
-             left: 25%;
-            top: 45%;
-            width: 50%;
+          left: 25%;
+          top: 45%;
+          width: 50%;
         }
 
         .chiffres-clefs{
@@ -93,10 +89,10 @@
             background-color: $grey;
             font-family: "PermanentMarker",sans-serif;
         }
+
         .field-name-field-chiffres-clefs-accroche{
            background-color: $grey_1;
         }
-
 
     }
 
@@ -122,7 +118,6 @@
                  
         }
     }
-    
 }
 
 
