@@ -1,4 +1,4 @@
-<?php
+<?php /*
 
    $title_principal = $node->title;
 
@@ -13,9 +13,9 @@
         <img src="<?php print $img; ?>" alt="header" title="header" />
     </div>
     <div class="title"><?php print render($title_principal);?></div>
-</div>
+</div> */ ?>
 
-<div class="container-page">
+<?php /* <div class="container-page"> */ ?>
  <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <div class="vignette">
     <?php print l(render($content['field_temoignage_image']), 'node/'.$node->nid, array('html' => TRUE)); ?>
@@ -32,4 +32,4 @@
     <div class="clearfix"></div>
   </div>
 </article><!-- /.node -->
-</div>
+<?php /* </div> */ ?>

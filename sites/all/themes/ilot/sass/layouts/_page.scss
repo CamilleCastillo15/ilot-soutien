@@ -286,7 +286,7 @@ html {
 	}
 }
 
-.container-page{
+.container-page {
     @include container(false);
     text-align: center;
     margin-top:1rem;
@@ -338,4 +338,27 @@ html {
             text-align: center;
        }
     }
+}
+
+.content.vert {
+
+    h1 {
+
+        color: white !important;
+
+    }
+
+    background-color: $green;
+    color: white;
+    padding: 2rem;
+    margin: 1rem 0;
+
+}
+
+.content.gris {
+
+    background-color: $lightgrey;
+    padding: 2rem;
+    margin: 1rem 0;
+
 }

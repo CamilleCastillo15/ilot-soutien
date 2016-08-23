@@ -40,6 +40,38 @@
 
         margin-top: 2rem;
 
+        table{
+
+            width: 130px;
+            text-align: center;
+            margin: 0 auto;
+
+            tr {
+
+                vertical-align: middle;
+
+                td {
+
+                    vertical-align: middle;
+
+                    p {
+
+                        padding: 20px;
+
+                    }
+
+                }
+
+                img {
+
+//                    padding: 10px;
+
+                }
+
+            }
+
+        }
+
     }
 
     .telephone {
@@ -105,13 +137,38 @@
         position: absolute;
         left: 31%;
 
+        @media #{$m-sd} {
+            left: 25%;
+        }
+
+        @media #{$m-t} {
+            left: 35%;
+        }
+
+        @media #{$m-m} {
+            left: 10%;
+        }
+
     }
 
     .contact-img {
 
         width: 3em;
         position: absolute;
-        left: 10%;
+        left: 17.5%;
+
+        @media #{$m-sd} {
+            left: 22.5%;
+        }
+
+        @media #{$m-t} {
+            left: 12.5%;
+        }
+
+        @media #{$m-m} {
+            left: 10%;
+        }
 
     }
+
 }
