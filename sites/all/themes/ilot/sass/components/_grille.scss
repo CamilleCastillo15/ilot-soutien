@@ -4,13 +4,15 @@
 
     text-align: left;
     
+
     h1{
         color:$green;
         margin-top:0px;
         text-align: left;
     }
     
-    @include b(31%);
+//    @include b(31%);
+    @include b(47%);
     margin: 1rem;
     padding: 1.3rem;
 
@@ -79,9 +81,11 @@
          @include b(63%,top,75%);
          padding-bottom: 3rem;
          padding-left:1rem;
+
          h2{
             @include fz(3);
          }
+
          h3{
             @include fz(2);
             font-weight: bold;
@@ -89,6 +93,7 @@
                 text-transform: uppercase;
             }
          }
+
          p{
              @include fz(1);
          }
@@ -97,15 +102,13 @@
             display: none;
          }
 
-         .read-more{
-           
+         .read-more {
             @include btn_actu();
              margin-top:1rem;
              bottom: 0px;
              display: block;
              position: relative;
         }
-
     }
 
     article.node-temoignage{
@@ -117,6 +120,7 @@
              position: relative;
         }
     }
+    border-bottom: 4px solid $green;
 }
 
 .ilot-theme-actus{
@@ -137,21 +141,47 @@
 
 .bloc{
 
-   
-
     &.i-0{
         background-color: $green;
         color:white;
-        @include b(48%);
+
+        div {
+
+            color: white;
+
+        }
+
+//        @include b(48%);
         padding: 2rem;
     }
+
     &.i-1{
         
-        @include b(48%);
-         padding: 2rem;
+//        @include b(48%);
+//         padding: 2rem;
         margin-left:3%;
     }
 
     margin-top: 3rem;
+
+}
+
+
+.node-etablissements {
+
+    .bloc-contact.vert {
+
+        margin-top: 2rem;
+        color: white;
+        background-color: $green;
+        padding: 2rem;
+
+        h1 {
+
+            color: white;
+
+        }
+
+    }
 
 }

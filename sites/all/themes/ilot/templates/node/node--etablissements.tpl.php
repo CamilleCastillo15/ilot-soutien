@@ -50,6 +50,41 @@
             </div>
 
       <?php } ?>
+
+      <?php
+
+        $fc_bloc_contact = field_get_items('node', $node, 'field_contact');
+
+        if($fc_bloc_contact){
+        $idti_2 = array();
+        foreach ($fc_bloc_contact as $fc_field) {
+            $idti_2[] = $fc_field['value'];
+                }
+                $collectionsg_3 =  field_collection_item_load_multiple($idti_2);
+            }
+
+           for($j = 0; $j < count($idti_2); $j++) {
+               $collectionsg_4 = $collectionsg_3[$idti_2[$j]];
+
+               $adresse = field_view_field('field_collection_item', $collectionsg_4, 'field_adresse');
+               $tel = field_view_field('field_collection_item', $collectionsg_4, 'field_telephone');
+               $mail = field_view_field('field_collection_item', $collectionsg_4, 'field_mail');
+
+        ?>
+
+        <div class="bloc-contact vert ?>">
+
+            <h1>Contact</h1>
+
+            <?php print render($adresse) ?>
+            <?php print render($tel) ?>
+            <?php print render($mail) ?>
+
+            </div>
+
+      <?php } ?>
+
+
     </article><!-- /.node -->
 </div>
 

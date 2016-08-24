@@ -10,7 +10,7 @@
     <?php print render($content['print_links']);?>
     <?php print render($content['sharethis']);?>
   </div>
-  <h3><?php print render($content['field_partenaire_sous_titre']); ?></h3>
+<!--  <h3><?php //print render($content['field_partenaire_sous_titre']); ?></h3>-->
 
   <?php
         $lien = field_view_field("node",$node,'field_partenaire_lien');

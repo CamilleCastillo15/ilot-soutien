@@ -10,11 +10,28 @@
     </div>
     <div class="title">nos partenaires</div>
 </div>
- <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <ul><li><a href="">Tous les partenaires</a></li></ul>
-  <?php print render($content['block_filters']); ?>
-  <div class="clearfix"></div>
-  <?php print $views_liste_partenaire; ?>
+<div class="container-page">
+   <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+      <ul class="block-filters"><li><a href="nos-partenaires">Tous les partenaires</a></li>
+          <li><?php print render($content['block_filters']['#items']['0']); ?></li>
+          <li><?php print render($content['block_filters']['#items']['1']); ?></li>
+          <li><?php print render($content['block_filters']['#items']['2']); ?></li>
+      </ul>
+      <div class="clearfix"></div>
+      <?php print $views_liste_partenaire; ?>
 
-</article><!-- /.node -->
+    </article><!-- /.node -->
+        <aside class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+        <h1>Témoignages</h1>
+        <?php print $views_temoignages_contextuel; ?>
+        <div class="bandeau-je-fais-don">
+            <img src="/sites/all/themes/ilot/images/logo_coeur_rouge.svg" />
+            <div class="col-1">
+                Je fais<br />
+                un don
+            </div>
+            <?php print l("<div class='don-btn'>Accéder au formulaire</div>", "", array("html"=>true)); ?>
+        </div>
+    </aside>
+</div>
 <div class="clearfix"></div>

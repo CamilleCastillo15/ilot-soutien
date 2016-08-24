@@ -3,7 +3,6 @@ article.node-liste-projets, .view-id-t_moignages_de_salari_s {
     //padding: 1rem;
 
     p {
-
         //margin: 1rem 0;
          @include fz(2);
           margin-bottom: 0.5rem;
@@ -11,12 +10,9 @@ article.node-liste-projets, .view-id-t_moignages_de_salari_s {
           a{
             color:$green;
           }
-
     }
 
-
     h1 {
-
         padding-bottom: 0.5rem;
         margin-bottom: 0rem;
 
@@ -50,6 +46,7 @@ article.node-liste-projets, .view-id-t_moignages_de_salari_s {
         p{
             font-weight: bold;
         }
+
     }
 
     .gris{
@@ -89,7 +86,6 @@ article.node-liste-projets, .view-id-t_moignages_de_salari_s {
                             width: 100%;
                              display: block;
                              //padding: 2rem 6rem;
-
                         }
 
                         &:nth-child(2){
@@ -161,7 +157,6 @@ article.node-liste-projets, .view-id-t_moignages_de_salari_s {
 
     }
 
-
 }
 
 
@@ -173,28 +168,20 @@ article.node-liste-projets, .view-id-t_moignages_de_salari_s {
 
         &:hover{
             img{
-
                 @include animation(coeur 1s ease-in-out 12);
             }
         }
 
         img {
-
             @include b(35%!important,middle);
-
-           
-            
-
         }
 
         .col-1 {
-        
             @include b(50%,middle);
             font-family: "PermanentMarker",sans-serif;
             color:$red;
             @include fz(4);
             font-size: 2.2rem !important;
-
         }
 
         &.small{
@@ -205,20 +192,16 @@ article.node-liste-projets, .view-id-t_moignages_de_salari_s {
         }
 
         .don-btn {
-
             @include btn_actu($red,100%);
             margin: 1rem 0;
         }
 
         &.bloc{
-            
             @include b(48%,middle);
              margin-left:3%;
              .don-btn {
                     display: block;
              }
-  
-
         }
 }
 
@@ -226,8 +209,16 @@ article.node-liste-projets, .view-id-t_moignages_de_salari_s {
 aside.view-mode-full {
 
     margin-bottom: 1rem;
-    .read-more {
 
+//    @media #{$m-m-up} {
+//       width: 70% !important;
+//    }
+
+    @media #{$m-m} {
+        width: 80% !important;
+    }
+
+    .read-more {
 
         @include btn_actu($green,100%);
 
@@ -237,9 +228,7 @@ aside.view-mode-full {
         margin-top:1rem;
 
         a {
-
             text-decoration: none;
-
         }
 
     }
@@ -258,7 +247,6 @@ aside.view-mode-full {
 //        padding-left: 6rem;
 
         h3 {
-
 //            padding: 0 2rem;
             color:$green;
             text-transform: uppercase;
@@ -299,51 +287,41 @@ article.node-histoire{
 article.node-valeur {
 
      @media #{$m-m} {
-
                padding: 2rem;
-                
-
             }
 
     em {
-
         font-style: italic;
         color: rgb(163,164,165);
         float: right;
         padding-bottom: 1rem;
-
     }
 
     p {
-
         clear: both;
-
     }
 
     img {
-
         margin-right: 6px;
         margin-left: 6px;
         vertical-align: text-top;
-
     }
-    .field-items{
 
-       
+    .field-items{
 
         .field-item{
             @include p();
-             h1{
-                color:$green;
-            }
+//             h1{
+//                color:$green;
+//            }
 
             .field-item{
                 padding: 0rem;
             }
-           
         }
+
         .field-item:not(:first-child){
-            @include b(46%,top);
+//            @include b(46%,top);
              @include p();
            
             .rteindent1{
@@ -369,27 +347,22 @@ article.node-valeur {
             }
             
             margin-right: 4%;
+
             @media #{$m-m} {
-
                 margin-right: 0px;
-
-
             }
+
             .field-item{
                 padding: 0rem;
             }
-            
         }
 
         &:last-child{
-            
             margin-right: 0%;
-               
         }
-        
     }
-
 }
+
 #content{
     position: relative;
 }
@@ -406,8 +379,6 @@ article.node-valeur {
     @include opacity(0);
     @include transition(all 0.2s ease-in-out);
 
-
-
      &.top{
         @include opacity(1);
         top:15%;
@@ -418,7 +389,6 @@ article.node-valeur {
         @include opacity(1);
         top:42%;
     }
-
 
     > div{
 
@@ -449,7 +419,8 @@ article.node-valeur {
    
 
     @include b(60%,top);
-    text-align: right;
+    text-align: left;
+
     .img-admin{
         
         cursor:pointer;
@@ -457,25 +428,19 @@ article.node-valeur {
         height: 10rem;
         @include p();
 
-        
-
-
-      
-      
-        img{
+        img {
             height: 100% !important;
             width: auto !important;
             @include opacity(0.8);
             @include transition(all 0.2s ease-in-out);
-              
         }
 
         &:after{
              @include fx-mix($green,unset);
              z-index: -1;
              @include opacity(0);
-            @include transition(all 0.2s ease-in-out);
-            visibility: hidden;
+             @include transition(all 0.2s ease-in-out);
+             visibility: hidden;
         }
 
         &.active{
@@ -486,14 +451,12 @@ article.node-valeur {
                 @include transform(rotate(3deg));
                 
              }
+
             img{
-
                @include transform(scale(1.15));
-            @include opacity(1);
-
+               @include opacity(1);
             }
         }
-
     }
 
     .img-admin *{
@@ -506,7 +469,7 @@ article.node-valeur {
     }
 }
 
-.node-liste-partenaire{
+article.node-liste-partenaire{
     text-align: center;
     ul.block-filters{
         @include b(100%);
@@ -531,6 +494,10 @@ article.node-valeur {
                 &.active-sort{
                     border-bottom:3px solid white;
                 }  
+
+                &:hover {
+                    border-bottom:3px solid white;
+                }
             }
         }
     }
@@ -544,7 +511,7 @@ article.node-valeur {
         img{
             height: auto;
             width: auto;
-            max-height: 6rem;
+            max-width: 5rem;
             display: inline-block;
             mix-blend-mode: multiply;
         }
