@@ -1,9 +1,21 @@
 
 @import "../variables/var";
 
+[class*="section-temoignages"], .full-temoignage, .view-t-moignages-de-salari-s, .view-temoignages-de-benevoles, .view-temoignages-de-donateurs, .view-temoignages-residants, .view-temoignages-partenaires, .view-t-moignages-d-entreprises {
+
+
+    .read-more {
+
+        margin-bottom: 0.25rem;
+
+    }
+
+
+}
 
 
 .node-liste-projets, [class*="section-temoignages"], .full-temoignage, .view-t-moignages-de-salari-s, .view-temoignages-de-benevoles, .view-temoignages-de-donateurs, .view-temoignages-residants, .view-temoignages-partenaires, .view-t-moignages-d-entreprises {
+
 
 
     .actus, .node-temoignage {
@@ -15,6 +27,8 @@
 
             border-bottom: 3px solid $green !important;
             text-align:left;
+
+            line-height: 0;
 
     }
 
@@ -37,6 +51,7 @@
          @include b(73%,top,75%);
          padding-bottom: 4rem;
          padding-left:2rem;
+         line-height: 1.3rem;
           h2{
                 @include fz(4);
           }
@@ -63,6 +78,7 @@
         position: absolute;
         right: 0px;
         bottom: 0.3rem;
+        line-height: 1.3em;
     }
 
     .nav-next-prev{

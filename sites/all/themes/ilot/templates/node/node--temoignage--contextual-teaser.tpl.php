@@ -28,8 +28,10 @@
     <?php  if (isset($content['field_temoignage_accroche'])) : ?>
       <?php print render($content['field_temoignage_accroche']); ?>
     <?php endif;?>
-    <?php print l('voir plus', 'node/'.$node->nid, array('attributes' => array('class' => 'read-more'))); ?>
-    <div class="clearfix"></div>
   </div>
+
+     <div class="clearfix"></div>
+     <?php print l('voir plus', 'node/'.$node->nid, array('attributes' => array('class' => 'read-more'))); ?>
+
 </article><!-- /.node -->
 <?php /* </div> */ ?>

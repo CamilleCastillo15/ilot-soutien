@@ -116,6 +116,7 @@
            
             @include btn_actu();
              margin-top:1rem;
+             margin-bottom: 0.25rem;
              bottom: 0px;
              position: relative;
         }
@@ -168,6 +169,11 @@
 
 
 .node-etablissements {
+
+    .don-btn {
+        @include btn_actu($green,100%);
+        margin: 1rem 0;
+    }
 
     .bloc-contact.vert {
 

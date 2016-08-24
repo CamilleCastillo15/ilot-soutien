@@ -12,7 +12,7 @@
     <div class="title">actualités</div>
 </div>
 
-<div class="container-page full">
+<div class="container-page liste-actus-container">
     <article >
         <?php
             for($i = 0; $i < count($views); $i++) {
@@ -20,8 +20,8 @@
                $node = $views[$i];
 
               // $type = field_view_field('node', $node, 'field_type_actualite');
-            }
-               /*
+//            }
+
                $title_principal = $node->title;
                $texte = field_view_field('node', $node, 'field_actualite_accroche');
                $texte_trimmed = field_view_field("node",$node,'field_actualite_accroche',array(
@@ -51,6 +51,6 @@
             </div>
         </div>
 
-      <?php */ ?>
+      <?php } ?>
     </article>
 </div>
