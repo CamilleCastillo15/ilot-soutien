@@ -52,7 +52,7 @@ function checkout_pane_info_don_checkout_form($form, &$form_state, $checkout_pan
 
   if (isset($menu_don['content'])) {
     $form['checkout_autre_soutien'] = array(
-      '#prefix' => "<h2>Nous soutenir autrement</h2>",
+      '#prefix' => "<h1>Nous soutenir autrement</h1>",
       'content' => $menu_don['content'],
     );
   }

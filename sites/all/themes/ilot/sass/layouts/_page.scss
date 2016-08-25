@@ -6,19 +6,53 @@ html {
     background-color: white;
 }
 
-.node-page-simple{
+.node-page-simple, .node-112 {
 
 	h1 {
 //		color:$red;
 		@include fz(4);
 	}
 
-	.field-name-field-page-simple-contact {
-		background-color: $green;
+    .left-column-intro-categorie  {
+
+        @include breakpoint($tablet) {
+            width: 65%;
+        }
+
+    }
+
+    .right-column-intro-categorie {
+		background-color: $lightgrey;
 		@include b(50%);
-		padding:2rem;
+		padding:1rem 2rem;
 		padding-bottom: 0rem;
 		color:white;
+
+        @include breakpoint($tablet) {
+            width: 30%;
+        }
+
+        .field-name-field-page-simple-contact {
+
+            float: none !important;
+            width: 100% !important;
+            color: black;
+
+            .field-name-field-page-simple-mail {
+
+                text-decoration: underline;
+                color:$green;
+
+            }
+
+        }
+
+        h1 {
+
+            text-align: center;
+
+        }
+
     }
 
 	li{
@@ -147,6 +181,8 @@ html {
 		padding:3.5rem;
 		padding-top: 8rem;
 		margin-top: 2rem;
+
+        min-height: 44rem;
 
 		@media #{$m-m} {
 			margin:0%;
@@ -383,5 +419,17 @@ html {
 .liste-etablissements {
 
     text-align: left;
+
+}
+
+.faire-don-important {
+
+    .field-item.odd {
+
+
+        padding: 2rem;
+        background-color: $lightgrey;
+
+    }
 
 }

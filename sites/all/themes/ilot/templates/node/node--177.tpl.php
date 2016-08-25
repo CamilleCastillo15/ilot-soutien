@@ -25,6 +25,7 @@
       <?php if(!empty($content['field_page_simple_contact'])):?>
        <div class="right-column-intro-categorie column-intro-categorie">
 
+             <h1>Contact</h1>
               <?php print render($content['field_page_simple_contact']); ?>
         </div>
         <?php endif;?>

@@ -14,17 +14,34 @@
 
 <div class="container-page">
 
-    <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+    <article class="faire-don-important node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
       <h1><?php print $node->title; ?></h1>
       <div class="icone-set">
         <?php print render($content['print_links']);?>
         <?php print render($content['sharethis']);?>
       </div>
-      <?php
-        print render($content);
-      ?>
+
+      <?php if(!empty($content['field_page_simple_contact'])):?>
+       <div class="right-column-intro-categorie column-intro-categorie">
+
+             <h1>Contact</h1>
+              <?php print render($content['field_page_simple_contact']); ?>
+        </div>
+        <?php endif;?>
+
+       <?php if(!empty($content['field_page_simple_contact'])):?>
+       <div class="left-column-intro-categorie column-intro-categorie">
+       <?php endif;?>
+
+          <?php print render($content['field_page_simple_contenu']); ?>
+
+       <?php if(!empty($content['field_page_simple_contact'])):?>
+       </div>
+       <?php endif;?>
+
     </article>
 
 </div>
+
 

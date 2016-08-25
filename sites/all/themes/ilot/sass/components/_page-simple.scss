@@ -17,7 +17,7 @@
 
             @include breakpoint($tablet) {
 
-                 width: 50%;
+//                 width: 50%;
                  float: left;
 
             }
@@ -87,16 +87,36 @@
 .node-page-intro {
 
     .right-column-intro-categorie {
-        background-color: $green;
-        @include b(50%);
-        padding:2rem;
-        margin: 2rem 0;
+        background-color: $lightgrey;
+//        @include b(50%);
+//        padding:2rem;
 
         @include breakpoint($tablet) {
             margin: 0;
         }
 
         color:white;
+
+        p {
+
+            color: black;
+            margin-bottom: 0;
+
+            a {
+
+                color: $green;
+                text-decoration: underline;
+
+            }
+
+            &:last-child {
+
+                margin-bottom: 2rem;
+
+            }
+
+        }
+
     }
 
 }

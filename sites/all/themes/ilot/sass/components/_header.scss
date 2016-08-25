@@ -15,7 +15,7 @@
 
  @include container(false);
         text-align: center;
-        padding-top: 2rem;
+//        padding-top: 2rem;
         width: 100%;
 
         &:hover{
@@ -133,8 +133,6 @@
 
                      @media #{$m-t-down} {
                         text-align: center;
-          
-                   
                     }
 
                     span {
@@ -143,7 +141,7 @@
                         clear: both;
                         float: none;
 
-                        @include fz(4);
+                        @include fz(2);
                         font-size: 1.5rem;
 
                      
@@ -165,38 +163,36 @@
 
                        vertical-align: middle;
                        font-family: "PermanentMarker",sans-serif;
-                        //@include btn_don(#903139);
+                       // @include btn_don(#903139);
+                       // width: 32%;
+                       width: 15rem;
 
-    //                    width: 32%;
-                        width: 15rem;
+                       display: inline-block;
 
-                        display: inline-block;
+                       position: relative;
+                       font-size: 1.5rem;
+                       line-height: 2.2rem;
+                       @include transform(scale(1.0001));
 
-                        position: relative;
-                        font-size: 1.5rem;
-                        line-height: 2.2rem;
-                        @include transform(scale(1.0001));
+                       top: -0.5rem;
+                       left: 2rem;
 
-                        top: -0.5rem;
-                        left: 2rem;
+                       background-color: #903139;
 
-                        background-color: #903139;
+                       color:white;
+                       cursor:pointer;
+                       @include transition(all 0.2s ease-in-out);
+                       text-decoration: none;
+                       text-transform: uppercase;
+                       padding: 1rem;
+                       // padding-top: 2rem;
+                       background-image : url(../images/f_blanches/f_droite.svg);
+                       background-size : 1.2rem;
+                       background-position: 95% 50%;
+                       background-repeat: no-repeat;
 
-                        color:white;
-                        cursor:pointer;
-                        @include transition(all 0.2s ease-in-out);
-                        text-decoration: none;
-                        text-transform: uppercase;
-                        padding: 1rem;
-//                        padding-top: 2rem;
-                        background-image : url(../images/f_blanches/f_droite.svg);
-                        background-size : 1.2rem;
-                        background-position: 95% 50%;
-                        background-repeat: no-repeat;
-
-                        text-align: left;
-
-                        height: 6rem;
+                       text-align: left;
+                       height: 6rem;
 
                     }
                        
