@@ -67,7 +67,7 @@
             display: inline-block;
             vertical-align: middle;
 
-            width: 75%;
+            width: 65%;
 
 
             text-align: center;
@@ -78,7 +78,7 @@
             box-shadow: 0 7px 8px -2px rgba(black,0.5);
             @media #{$m-t-up} {
                  box-shadow: 0 7px 8px -2px $grey_5;
-                 height: 7rem;
+                 height: 5rem;
                  text-align: left;
             }
 
@@ -144,7 +144,7 @@
                         float: none;
 
                         @include fz(4);
-                        font-size: 1.75rem;
+                        font-size: 1.5rem;
 
                      
                     }
@@ -168,16 +168,17 @@
                         //@include btn_don(#903139);
 
     //                    width: 32%;
-                        width: 19rem;
+                        width: 15rem;
 
                         display: inline-block;
 
                         position: relative;
-                        font-size: 2rem;
+                        font-size: 1.5rem;
                         line-height: 2.2rem;
                         @include transform(scale(1.0001));
 
                         top: -0.5rem;
+                        left: 2rem;
 
                         background-color: #903139;
 
@@ -187,15 +188,15 @@
                         text-decoration: none;
                         text-transform: uppercase;
                         padding: 1rem;
-                        padding-top: 2rem;
+//                        padding-top: 2rem;
                         background-image : url(../images/f_blanches/f_droite.svg);
-                        background-size : 1.8rem;
+                        background-size : 1.2rem;
                         background-position: 95% 50%;
                         background-repeat: no-repeat;
 
                         text-align: left;
 
-                        height: 8rem;
+                        height: 6rem;
 
                     }
                        
