@@ -2,13 +2,12 @@
   input[type="number"],
   input[type="text"]{
     width:40%;
-    margin:1rem;
+//    margin:1rem;
+    margin: 0.5rem 0.5rem 1.25rem 0.5rem;
   }
 }
 
 a[href^="/faire-un-don/isf"] {
-
     background-color: $green !important;
     border: 2px solid $green !important;
-
 }

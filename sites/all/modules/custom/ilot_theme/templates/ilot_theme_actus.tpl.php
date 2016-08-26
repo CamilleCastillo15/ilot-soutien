@@ -12,15 +12,15 @@
     <div class="title">actualités</div>
 </div>
 
-<div class="container-page liste-actus-container">
+<div class="container-page full">
     <article >
         <?php
-            for($i = 0; $i < count($views); $i++) {
+            for($i = 0; $i < count($view); $i++) {
 
-               $node = $views[$i];
-
+               $node = $view[$i];
+               dpm($node);
               // $type = field_view_field('node', $node, 'field_type_actualite');
-//            }
+
 
                $title_principal = $node->title;
                $texte = field_view_field('node', $node, 'field_actualite_accroche');
@@ -51,6 +51,6 @@
             </div>
         </div>
 
-      <?php } ?>
+       <?php } ?>
     </article>
 </div>

@@ -130,13 +130,16 @@
 }
 
 .nav-next-prev{
-    margin-top:3rem;
+//    margin-top:3rem;
+    margin-top: 7.25rem;
     .read-more{
         @include btn_actu($green);
     }
 
     .prev{
         float: left;
+        background-image : url(../images/f_noires/f_g_gauche.svg);
+        background-position: 5% center;
     }
     .next{
         float: right;

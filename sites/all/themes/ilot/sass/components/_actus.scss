@@ -93,7 +93,7 @@
 
 
 
-.actualites ,.node-liste-actualites{
+.actualites ,.node-liste-actualites, .view-actus-soutien {
  
 
 //    @include b(64%);
@@ -169,8 +169,8 @@
             } 
 
         }
-        }
-          }
+    }
+}
 
         .vignette {
 
@@ -203,25 +203,22 @@
             }
             
 
-            .text-detail {
+                .text-detail {
 
-                display: none;
+                    display: none;
 
-                @include breakpoint($mobilel) {
-                    display: block;
-                 }
+                    @include breakpoint($mobilel) {
+                        display: block;
+                     }
+
+                }
+
+                p {
+                    text-align: left !important;
+                }
 
             }
 
-            p {
-                text-align: left !important;
-            }
-
-        }
-
-  
-
- 
     .read-more{
         @include btn_actu();
         position: absolute;

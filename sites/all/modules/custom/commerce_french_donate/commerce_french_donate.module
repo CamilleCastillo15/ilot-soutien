@@ -66,9 +66,11 @@ function commerce_french_donate_donate_callback() {
   if (!empty($_GET['referent'])) {
     $order_wrapper->field_url_referent->set($_GET['referent']);
   }
+    
   if (!empty($_GET['redirection'])) {
     $order_wrapper->field_url_redirection->set($_GET['redirection']);
   }
+    
   commerce_order_save($order);
 
   $_SESSION['commerce_cart_orders'][] = $order->order_id;
@@ -76,6 +78,7 @@ function commerce_french_donate_donate_callback() {
   if (!empty($_GET['checkout'])) {
       drupal_goto('checkout/' . $order->order_id, array('query' => array('checkout' => $_GET['checkout'])));
   }
+    
   drupal_goto('checkout/' . $order->order_id);
 
 }

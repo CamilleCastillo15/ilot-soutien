@@ -191,3 +191,25 @@
     }
 
 }
+
+.view-liste-temoignage {
+
+    .view-content {
+
+        .read-more {
+
+            @include btn_actu(transparent,100%);
+
+            &:hover {
+
+                color: white;
+                background-color: $green;
+                border: 2px solid $green;
+
+            }
+
+        }
+
+    }
+
+}
