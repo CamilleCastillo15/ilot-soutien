@@ -29,6 +29,7 @@
 //    $img = file_create_url($file->uri);
     $img = image_style_url("header", $file->uri);
 ?>
+
 <div class="imagetitle">
     <div class="image">
         <img src="<?php print $img; ?>" alt="header" title="header" />
@@ -38,24 +39,47 @@
 
 <div class="container-page">
 
-    <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+     <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
-      <div class="icone-set">
-        <?php print render($content['print_links']);?>
-        <?php print render($content['sharethis']);?>
-      </div>
+          <div class="icone-set">
+            <?php print render($content['print_links']);?>
+            <?php print render($content['sharethis']);?>
+          </div>
 
-      <h1>Les membres du bureau</h1>
+          <h1>Les membres du bureau</h1>
 
-      <?php
-           for($i = 0; $i < count($idti); $i++) {
-               $collectionsg_3 = $collectionsg[$idti[$i]];
-               $img = field_view_field('field_collection_item', $collectionsg_3, 'field_image');
-        ?>
+          <?php
+               for($i = 0; $i < count($idti); $i++) {
+                   $collectionsg_3 = $collectionsg[$idti[$i]];
+                   $img = field_view_field('field_collection_item', $collectionsg_3, 'field_image');
+            ?>
 
             <div id="membres_bureau_<?php print $i ?>" class="img-membres-bureau img-admin"><?php print render($img) ?></div>
 
       <?php } ?>
+
+    </article>
+
+    <div class="details_conseil top">
+
+          <?php
+               for($i = 0; $i < count($idti); $i++) {
+                   $collectionsg_5 = $collectionsg[$idti[$i]];
+                   $titre = field_view_field('field_collection_item', $collectionsg_5, 'field_titre');
+                   $texte = field_view_field('field_collection_item', $collectionsg_5, 'field_texte');
+            ?>
+                <div id="membres_bureau_<?php print $i ?>_textes">
+                    <h1><?php print render($titre) ?></h1>
+                    <?php print render($texte) ?>
+                </div>
+
+          <?php } ?>
+
+     </div>
+
+    <div class="clearfix"></div>
+
+    <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
       <h1>Les autres membres du conseil d'administration</h1>
 
@@ -65,15 +89,34 @@
                $img = field_view_field('field_collection_item', $collectionsg_4, 'field_image');
         ?>
 
-            <div id="membres_conseil_<?php print $i ?>"  class="img-conseil-admin img-admin"><?php print render($img) ?></div>
+            <div id="membres_conseil_<?php print $i ?>"  class="img-conseil-admin img-admin bottom"><?php print render($img) ?></div>
 
       <?php } ?>
 
     </article><!-- /.node -->
-</div>
-<div class="details_conseil">
 
-      <?php
+    <div class="details_conseil bottom">
+
+       <?php
+           for($i = 0; $i < count($idti_2); $i++) {
+               $collectionsg_6 = $collectionsg_2[$idti_2[$i]];
+               $titre = field_view_field('field_collection_item', $collectionsg_6, 'field_titre');
+               $texte = field_view_field('field_collection_item', $collectionsg_6, 'field_valeur_texte');
+        ?>
+
+            <div id="membres_conseil_<?php print $i ?>_textes">
+                <h1><?php print render($titre) ?></h1>
+                <?php print render($texte) ?>
+            </div>
+
+      <?php } ?>
+
+    </div>
+
+</div>
+<!--<div class="details_conseil">-->
+
+      <?php /*
            for($i = 0; $i < count($idti); $i++) {
                $collectionsg_5 = $collectionsg[$idti[$i]];
                $titre = field_view_field('field_collection_item', $collectionsg_5, 'field_titre');
@@ -98,8 +141,8 @@
                 <?php print render($texte) ?>
             </div>
 
-      <?php } ?>
+      <?php } */?>
 
-</div>
+<!--</div>-->
 
 <div class="clearfix"></div>

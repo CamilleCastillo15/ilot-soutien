@@ -17,22 +17,38 @@
 
          	if(currentBt != null){
          		currentBt.removeClass("active");
-         		$(".details_conseil").removeClass(desti);
+//         		$(".details_conseil").removeClass(desti);
          	}
 
-         	
+
          	var go = $("#"+$(this).attr('id')+"_textes");
          	go.addClass("active");
          	$(this).addClass("active");
 
          	var _y = $(this).offset().top;
+
+            console.log(_y);
+
          	if(_y < 700){
          		desti = "top";
          	}else{
          		desti = "bottom";
          	}
 
-         	$(".details_conseil").addClass(desti);
+//         	$(".details_conseil").addClass(desti);
+//            $(".details_conseil."+desti).addClass("visible");
+
+            if($(this).hasClass('img-membres-bureau')) {
+
+                $(".details_conseil.top").addClass("visible");
+                $(".details_conseil.bottom").removeClass("visible");
+
+            } else {
+
+                $(".details_conseil.bottom").addClass("visible");
+                $(".details_conseil.top").removeClass("visible");
+
+            }
 
          	currentBt = $(this);
 

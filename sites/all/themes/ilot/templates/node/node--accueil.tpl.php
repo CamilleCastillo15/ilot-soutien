@@ -14,19 +14,60 @@
     <h1 class="gros">actualités</h1>
     <?php print $views_accueil_actu; ?>
     <?php print l('Voir toutes les actus', 'actualités', array('attributes' => array('class' => 'actu readmore')));?>
+
+    <?php
+
+            $view_projet = views_get_view('liste_projet');
+            $view_temoignage = views_get_view('liste_temoignage');
+
+            $view_projet->execute();
+            $result_projet = $view_projet->result;
+
+            $view_temoignage->execute();
+            $result_temoignage = $view_temoignage->result;
+
+            $first = TRUE;
+
+             foreach($result_projet as $key => $value) {
+
+                    if ( $first )
+                    {
+                          $n = node_load($value->nid);
+                          $link =drupal_get_path_alias("node/".$value->nid);
+                          $img_projet = field_view_field("node",$n,'field_projet_image_accroche');
+                        $first = false;
+                    }
+              }
+
+            $first = TRUE;
+
+            foreach($result_temoignage as $key => $value) {
+
+                    if ( $first )
+                    {
+                          $n = node_load($value->nid);
+                          $link_2 =drupal_get_path_alias("node/".$value->nid);
+                          $img_temoignage = field_view_field("node",$n,'field_temoignage_image');
+                        $first = false;
+                    }
+              }
+
+      ?>
+
   </section><section class="mosaique-new">
     <div class="bloc bloc-text dernier-projet">
         <div class="mosaique-text">dernier projet</div>
         <div class="arrow east"></div>
-    </div><div class="bloc bloc-img img-dernier-projet">
-       <img src="sites/all/themes/ilot/images/img_test/samia-temoignage.png" />
     </div><!--
-       --><div class="bloc bloc-img img-son-temoignage">
-        <img src="sites/all/themes/ilot/images/img_test/bel-espoir.png" />
-    </div><div class="bloc bloc-text son-temoignage">
-        <div class="mosaique-text">son témoignage</div>
-        <div class="arrow west"></div>
-    </div><!--
+   --><a class="bloc bloc-img img-dernier-projet" href="<?php print $link ?>">
+           <?php print render($img_projet); ?>
+    </a><!--
+   --><a class="bloc bloc-img img-son-temoignage" href="<?php print $link_2 ?>">
+              <?php print render($img_temoignage); ?>
+       </a><div class="bloc bloc-text son-temoignage">
+            <div class="mosaique-text">son témoignage</div>
+            <div class="arrow west"></div>
+        </div><!--
        --><div class="bloc bloc-text espace-presse">
         <div class="mosaique-text">espace presse</div>
         <div class="arrow east"></div>

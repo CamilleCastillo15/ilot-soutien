@@ -1,5 +1,6 @@
 .mosaique-new {
 
+    text-align: left;
 
     @include b(20vw);
 //    width: 26rem;
@@ -176,7 +177,11 @@
                 margin-left: 0%;
                 clear: both;
                 margin-bottom: 20px;
-                margin-top: 20px;
+                margin-top: 40px;
+
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
 
             
                 a {
@@ -203,5 +208,19 @@
 //        width: 5em;
         width: 4rem;
     }
+
+//    .mosaique_link {
+//
+//        display: inline-block;
+//        width: 10vw;
+//        vertical-align: top;
+//        position: relative;
+//        margin: 0rem;
+//        padding: 0rem;
+//        border: none;
+////        width: 170px;
+////        height: 170px;
+//
+//    }
 
 }
