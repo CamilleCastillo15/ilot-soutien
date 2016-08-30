@@ -60,22 +60,26 @@
 
     </article>
 
-    <div class="details_conseil top">
+<!--    <div class="container_details_conseil">-->
 
-          <?php
-               for($i = 0; $i < count($idti); $i++) {
-                   $collectionsg_5 = $collectionsg[$idti[$i]];
-                   $titre = field_view_field('field_collection_item', $collectionsg_5, 'field_titre');
-                   $texte = field_view_field('field_collection_item', $collectionsg_5, 'field_texte');
-            ?>
-                <div id="membres_bureau_<?php print $i ?>_textes">
-                    <h1><?php print render($titre) ?></h1>
-                    <?php print render($texte) ?>
-                </div>
+        <div class="details_conseil top">
 
-          <?php } ?>
+              <?php
+                   for($i = 0; $i < count($idti); $i++) {
+                       $collectionsg_5 = $collectionsg[$idti[$i]];
+                       $titre = field_view_field('field_collection_item', $collectionsg_5, 'field_titre');
+                       $texte = field_view_field('field_collection_item', $collectionsg_5, 'field_texte');
+                ?>
+                    <div id="membres_bureau_<?php print $i ?>_textes">
+                        <h1><?php print render($titre) ?></h1>
+                        <?php print render($texte) ?>
+                    </div>
 
-     </div>
+              <?php } ?>
+
+         </div>
+
+<!--     </div>-->
 
     <div class="clearfix"></div>
 
@@ -95,6 +99,8 @@
 
     </article><!-- /.node -->
 
+    <!--    <div class="container_details_conseil">-->
+
     <div class="details_conseil bottom">
 
        <?php
@@ -112,6 +118,8 @@
       <?php } ?>
 
     </div>
+
+<!--    </div>-->
 
 </div>
 <!--<div class="details_conseil">-->

@@ -399,7 +399,7 @@ function commerce_french_donate_calculate_values($values, $donation_type, &$form
     $info = variable_get('commerce_french_donate_info_regular');
     // Title
     //$title_impot = 'IMPÔT SUR LE REVENU';
-    $title_impot = 'Déduction fiscale';
+    $title_impot = '<h2>Déduction fiscale</h2>';
     // button switch type de don
     $button = l('CLIQUEZ ICI POUR UN DON ISF', 'faire-un-don/isf');
   }
@@ -414,14 +414,14 @@ function commerce_french_donate_calculate_values($values, $donation_type, &$form
     $info = variable_get('commerce_french_donate_info_isf');
 
     // Title
-    $title_impot = 'Déduction fiscale';
+    $title_impot = '<h2>Déduction fiscale</h2>';
     // button switch type de don
     $button = l('POUR TOUT AUTRE DON, CLIQUEZ ICI', 'faire-un-don/en-ligne');
   }
   $output_footer = '<div class="calculator-footer"><div class="title">'.$title_impot.'</div>';
   $output_footer .= '<div class="info">' . $info . '</div>';
   if($donation_type=="don_isf"){
-    $output_footer .= '<div class="calcu"><div class="title">Calcul de la déduction</div><input type="number" placeholder="Montant de la déduction" id="calcu_dedu" type="text"><input type="number"  placeholder="Montant du don" id="calcu_don" type="text"> </div>';
+    $output_footer .= '<div class="calcu"><div class="title"><h2>Calcul de la déduction</h2></div><input type="number" placeholder="Montant de la déduction" id="calcu_dedu" type="text"><input type="number"  placeholder="Montant du don" id="calcu_don" type="text"> </div>';
   }
 
   // Markup footer
@@ -534,6 +534,10 @@ function commerce_french_donate_commerce_checkout_pane_info() {
  * Commerce french donate pane form callback.
  */
 function checkout_commerce_french_donate_pane_checkout_form($form, &$form_state, $checkout_pane, $order) {
+    
+
+//  $pane_form['#prefix'] = $s;
+    
   $pane_form = commerce_french_donate_form(array(), $form_state, $order);
   return $pane_form;
 }

@@ -66,20 +66,37 @@ function ilot_theme_etablissements(){
 
 function ilot_theme_actus(){
 
-//    for($i = 0;$i<4;$i++){
-      $view = views_get_view("liste_actus_generales");
+    $b = array();    
+//      $view = views_embed_view('liste_actus_generales',"default", 0);
+//      dpm($view);
+    for($i = 0;$i<4;$i++){
+      
+        $view = views_get_view("liste_actus_generales");
+//      $contextual_filters = $view->get_items();
+//      dpm($contextual_filters);
+//      $args = $view->args;
 //      $view->set_arguments($i);
+//      dpm($view);
+//      $view->set_arguments(3);
+//      dpm($view);
       $view->execute();
       $result = $view->result;
-    
+        
+      dpm($result);
+        
       $a = array();
-    
+        
       foreach($result as $key => $case){
         $node = node_load($case->nid);
         $a[]= $node;
       }
+        
+      $b[$i] = $a;
+    }
+    
+    dpm($b);
 
-    return theme("ilot_theme_actus", array('view' => $a));
+    return theme("ilot_theme_actus", array('views' => $b));
 }
 
 function ilot_theme_admin() {

@@ -243,10 +243,11 @@ html {
 			display: none;
 		}
 		.checkout-submit{
-			 -webkit-appearance: button;
-  -moz-appearance: button;
-  appearance: button;
+			  -webkit-appearance: button;
+              -moz-appearance: button;
+            appearance: button;
 			@include btn_actu($green_bt);
+            margin-top: 2rem;
 		}
 
 		.checkout-buttons{
@@ -265,10 +266,12 @@ html {
 		.info{
 			text-align: left;
 			margin-top:1rem;
-			margin-bottom: 1rem;
+//			margin-bottom: 1rem;
+            margin-bottom: 2rem;
 		}
 		a{
 			@include btn_actu($red,100%);
+            margin-top: 2rem;
 		}
 	}
 	.form-item-commerce-french-donate-fieldset-wrapper-fieldset-unique-unique-free{
