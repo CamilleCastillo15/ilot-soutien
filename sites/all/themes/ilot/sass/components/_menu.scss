@@ -164,6 +164,9 @@
 
 .l-off {
 
+    z-index: 100;
+    overflow: scroll;
+
     .menu {
 
             border: none;
@@ -171,7 +174,6 @@
             text-align: left !important;
             margin-top: 1rem;
             display: block;
-            z-index: 10;
             padding: 0;
 
         a {
@@ -232,7 +234,9 @@
             }
 
             &:hover > ul {
-                display: none;
+                @include breakpoint($laptop) {
+                    display: none;
+                }
             }
 
         }
@@ -301,7 +305,9 @@
             }
 
             &:hover > ul {
-                display: none;
+                @include breakpoint($laptop) {
+                    display: none;
+                }
             }
 
         }
