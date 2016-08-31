@@ -16,11 +16,12 @@
         font-family: "PermanentMarker";
         color: #ffffff;
         text-align: center;
-        font-size: 5.5vw;
+        font-size: 4.5vw;
         line-height: 7rem;
 
         @include breakpoint($laptopl) {
-            font-size: 85px;
+//            font-size: 85px;
+            font-size: 65px;
         }
 
         top: 50%;
