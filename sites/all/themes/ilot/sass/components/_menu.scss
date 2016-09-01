@@ -249,18 +249,17 @@
             list-style-image: none;
             position: relative;
 
-            a {
+            &:hover {
+
+                background-color:$green;
+
+            }
+
+            > a {
 
                 padding: 4.5% 3% 4.5% 3%;
-                display: block;
+                display: inline-block;
                 margin-left: auto;
-
-
-                &:hover {
-
-                    background-color:$green;
-
-                }
 
             }
 
@@ -275,7 +274,8 @@
 
             ul {
 
-                margin-top:0rem;
+                margin:0rem;
+                padding: 0rem;
 
                 li {
 

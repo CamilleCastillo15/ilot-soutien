@@ -80,7 +80,7 @@
                   'settings'=>array('trim_length' => 300),
                ));
 
-               $texte_summary = $texte_trimmed."...";
+               $texte_summary = render($texte_trimmed)."...";
 
                $image = field_view_field('node', $node, 'field_image_presentation');
                $title_principal = $node->title;
@@ -90,14 +90,14 @@
         ?>
 
               <div class="liste-etablissements-container gb">
-                    <div class="vignette"><?php print render($image) ?></div>
-                    <div class="texte"><h2><?php print render($title_principal) ?></h2>
-                      <h3><?php print render($titre) ?></h3>
-                      <div class='sous-titre'><?php print render($sous_titre) ?></div>
-                      <?php print render($texte_summary) ?>
-                      <?php print l('Voir plus', $link, array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
-                    </div>
+                <div class="vignette"><?php print render($image) ?></div>
+                <div class="texte"><h2><?php print render($title_principal) ?></h2>
+                  <h3><?php print render($titre) ?></h3>
+                  <div class='sous-titre'><?php print render($sous_titre) ?></div>
+                  <?php print render($texte_summary) ?>
+                  <?php print l('Voir plus', $link, array('html' => TRUE, 'attributes' => array('class' => array('read-more')))); ?>
                 </div>
+            </div>
 
         <?php } ?>
 

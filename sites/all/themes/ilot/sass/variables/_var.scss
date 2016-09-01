@@ -37,6 +37,7 @@ $super-desktop-break:  1600px;
 $h-break:              800px;
 
 $m-m: "only screen and (max-width: "+$mobile-break+")";
+$t-t: "only screen and (max-width: "+$tablet-break+")";
 $m-t: "only screen and (min-width: "+$mobile-break+") and (max-width: "+$desktop-break+")";
 $m-d: "only screen and (min-width: "+$desktop-break+")";
 $m-sd: "only screen and (min-width: "+$super-desktop-break+")";

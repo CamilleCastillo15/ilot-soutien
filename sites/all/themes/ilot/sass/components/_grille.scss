@@ -17,6 +17,12 @@
     padding: 1.3rem;
 
     @media #{$m-t} {
+
+        margin: 1rem 0;
+
+    }
+
+    @media #{$m-t} {
         @include b(48%);
         margin: 0.5rem;
         padding: 1rem;

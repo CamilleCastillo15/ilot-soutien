@@ -5,6 +5,7 @@
                 drupal_add_js($theme_path."/js/Swiper/dist/js/swiper.jquery.min.js");
             break;
         }
+//        drupal_add_js($theme_path."/js/menu.mobile.js");
     }
 ?>
 

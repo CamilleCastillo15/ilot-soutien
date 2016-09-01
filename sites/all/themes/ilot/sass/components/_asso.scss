@@ -301,11 +301,13 @@ aside.node-projets {
 
 article.node-histoire{
      padding-bottom: 3rem !important;
+
       h1{
         color:$green;
         margin-top:3rem;
 
       }
+
 }
 
 
@@ -336,6 +338,7 @@ article.node-valeur {
 
         .field-item{
             @include p();
+
 //             h1{
 //                color:$green;
 //            }
@@ -390,7 +393,7 @@ article.node-valeur {
     }
 }
 
-#content{
+#content {
     position: relative;
 }
 
@@ -603,7 +606,7 @@ article.node-liste-partenaire{
             margin-bottom: 2rem;
             background-color: white;
             border:1px solid $grey_3;
-            img{
+            img {
                 mix-blend-mode: unset;
             }
         }
@@ -645,6 +648,7 @@ article.node-liste-medias{
             }
         }
     }
+
     .views-row{
 //        @include b(25%);
 //        @include b(22.57%);
@@ -695,7 +699,9 @@ article.node-liste-medias{
 //        &:first-child {
 //            margin-left: 0;
 //        }
+
     }
+
 }
 
 aside.node-mission{
@@ -729,8 +735,9 @@ aside.node-mission{
     @include b(45%,middle);
 }
 
-.container-txt{
-    &.i-0{
+.container-txt {
+
+    &.i-0 {
       
        background-color: $green;
        @include fz(4);
@@ -739,10 +746,12 @@ aside.node-mission{
        padding:2rem;
        padding-top: 1rem;
         margin-left:3%;
+
         p{
             font-size: 1.5rem !important;
             line-height: 1.6rem;
         }
+
     }
    
 }

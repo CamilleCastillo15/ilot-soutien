@@ -34,8 +34,14 @@ h1{
     &.gros {
 
         @include fz(5);
-          margin: 3rem 1rem;
-          text-align:left;
+        margin: 3rem 1rem;
+        text-align:left;
+
+        @media #{$m-m} {
+            @include fz(5);
+            font-size: 2.8rem;
+            text-align: center;
+        }
 
     }
 
@@ -82,16 +88,14 @@ ul {
     font-size: 1rem;
 
     li {
-
 //      font-size: 1rem;
         @include fz(1);
         line-height: 1.5rem;
-
     }
 
 }
 
-input[type="text"]{
+input[type="text"],input[type="number"]{
 
   padding:0.25rem;
   display: inline-block;
@@ -213,4 +217,14 @@ label{
   text-align: right;
   vertical-align: top;
   @include fz(3);
+}
+
+.field-name-field-temoignage-accroche {
+
+    .field-item.even {
+
+        line-height: 1.5rem;
+
+    }
+
 }

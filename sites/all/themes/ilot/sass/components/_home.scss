@@ -58,7 +58,7 @@
 
                         @media #{$m-m} {
                             width: 200%;
-                            left:-50%;
+//                            left:-50%;
                         }
 
                         @media #{$m-sd} {
@@ -95,6 +95,13 @@
           top: 45%;
           width: 50%;
         }
+
+        @media #{$m-m} {
+            left: 0%;
+            position: relative;
+            margin: 0 auto;
+        }
+
 
         .chiffres-clefs{
             @include fz(4);
