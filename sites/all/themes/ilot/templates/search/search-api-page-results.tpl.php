@@ -35,10 +35,11 @@
  */
 
 ?>
-<div class="<?php print $classes;?>">
+<div class="container-page <?php print $classes;?>">
   <?php if ($result_count) : ?>
     <?php print render($spellcheck); ?>
     <h1 class="title"><?php print t('Search results') . ' pour ' . $keys;?></h1>
+
     <?php print render($search_performance); ?>
     <ol class="search-results">
       <?php print render($search_results); ?>

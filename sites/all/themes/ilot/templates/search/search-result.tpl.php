@@ -67,6 +67,10 @@
 <li class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <?php $view = node_view($result['node'], 'search-result'); ?>
   <?php print render($view); ?>
+
+  test de tests
+
+  <?php dpm($view); ?>
   <div class="search-snippet-info">
     <?php if ($snippet): ?>
       <p class="search-snippet"<?php print $content_attributes; ?>><?php print $snippet; ?></p>
