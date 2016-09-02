@@ -31,8 +31,6 @@
             padding: 20px 0;
         }
 
-
-
          @include breakpoint($laptop) {
             display: none;
             position: absolute;
@@ -62,21 +60,16 @@
             }
 
             a {
-
                 border-bottom: none;
-
                 &:hover,
                 &.active {
-
                     border-bottom: none;
                 }
 
                 color:white;
 
                 &.active-trail {
-
                     border-bottom: 3px solid $green;
-
                 }
 
             }
