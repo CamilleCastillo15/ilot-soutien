@@ -52,3 +52,45 @@
     }
 
 }
+.search-page{
+  text-align:left;
+  label{
+    width:auto;
+    vertical-align: inherit;
+  }
+  input[type="text"]{
+    max-width: 250px;
+    min-height: 35px;
+    text-align: left;
+    color: #00a886;
+    font-size: 100%;
+    margin: 0;
+    vertical-align: baseline;
+  }
+  .form-submit{
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 200ms;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 0.5rem 2rem;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: 0.4rem;
+    background-position: 95% center;
+    color: #000000;
+    position: relative;
+    border: 2px solid #000000;
+    background-image: url(../images/f_noires/f_g_droite.svg);
+    max-width: 15rem;
+    margin-left: 0%;
+    clear: both;
+    float: none;
+  }
+
+}
+
+.search-api-page-results{
+  width:100%;
+}

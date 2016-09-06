@@ -26,8 +26,7 @@
 <?php if ($search_results): ?>
   <h2><?php print t('Search results');?></h2>
   <ol class="search-results <?php print $module; ?>-results">
-   testetest
-    <?php print $search_results; ?>
+     <?php print $search_results; ?>
   </ol>
   <?php print $pager; ?>
 <?php else : ?>

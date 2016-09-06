@@ -20,7 +20,6 @@
       </ul>
       <div class="clearfix"></div>
       <?php print $views_liste_medias; ?>
-
     </article><!-- /.node -->
 </div>
 <div class="clearfix"></div>

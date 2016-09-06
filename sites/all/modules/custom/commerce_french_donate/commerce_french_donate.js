@@ -66,7 +66,10 @@
   });
   Drupal.behaviors.limitFormInputQuantity = {
 	attach : function() {
+    $("#edit-checkout-pane-info-don").appendTo("#commerce-checkout-form-checkout > div");
+
 	  $('input.don.free').keypress(function(e) {
+
         var a = [];
         var k = e.which;
 

@@ -35,6 +35,7 @@
  */
 
 ?>
+
 <div class="<?php print $classes;?>">
   <?php if ($result_count): ?>
     <?php print render($search_performance); ?>

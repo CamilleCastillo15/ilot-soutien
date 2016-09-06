@@ -42,7 +42,6 @@
  */
 ?>
 <li class="search-result">
-
   <h3 class="title">
     <?php
       $node = node_load($nid);
