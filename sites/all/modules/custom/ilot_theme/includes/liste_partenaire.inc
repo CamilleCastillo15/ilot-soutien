@@ -39,6 +39,9 @@ function ilot_theme_preprocess_node_liste_partenaire(&$variables, $hook) {
     }
     $variables['content']['block_filters'] = $block_filters;
     $variables['views_liste_partenaire'] = views_embed_view('liste_partenaire', 'default', $type_partner);
+     if ($variables['view_mode'] == 'full') {
+        $variables['views_temoignages_contextuel'] = views_embed_view('temoignages_contextuel', 'default', $node->nid);
+      }
   }
 }
 

@@ -14,6 +14,9 @@
         print $content_render_substr; ?>
 
     <?php endif;?>
-    <?php print l('voir plus', 'node/'.$node->nid, array('attributes' => array('class' => 'read-more'))); ?>
   </div>
+
+
 </article><!-- /.node -->
+<?php print l('voir plus', 'node/'.$node->nid, array('attributes' => array('class' => 'read-more'))); ?>
+

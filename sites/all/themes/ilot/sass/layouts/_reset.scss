@@ -14,7 +14,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block; }
 
 body {
-  line-height: 1; }
+  line-height: 1;
+  overflow-x: hidden; }
 
 ol, ul {
   list-style: none; }
@@ -42,19 +43,4 @@ html {
 }
 *, *:before, *:after {
   box-sizing: inherit;
-}
-
-
-.nav-next-prev{
-  .read-more{
-    &.prev{
-      background-image : url(../images/f_noires/f_g_gauche.svg);
-      background-position: 5% center;
-    }
-    &:hover {
-      &.prev{
-        background-image : url(../images/f_blanches/f_gauche.svg);
-      } 
-    }
-  }
 }

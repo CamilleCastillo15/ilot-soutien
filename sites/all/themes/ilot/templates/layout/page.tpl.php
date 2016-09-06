@@ -76,7 +76,7 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
 
 ?>
 
-<div id="page" <?php if ($light) : print 'class="checkout-light"'; endif; ?>>
+<div id="page" <?php //if ($light) : print 'class="checkout-light"'; endif; ?>>
     <?php if (!$light) : ?>
 
     <div id="l-header" >
@@ -93,8 +93,8 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
                         <span class="premier">Un accueil, un toit,</span>
                         <span> Un nouveau départ</span>
                     </div>
-
                </div>
+
                 <a href="/faire-un-don">
                     <img src="/sites/all/themes/ilot/images/logo_coeur_blanc.svg" />
                     <div class="col-1">
@@ -102,6 +102,7 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
                         un don
                     </div>
                 </a>
+
             </div>
          </div>
 
@@ -109,10 +110,12 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
               <?php print render($page['header']);?>
               <div class="clear"></div>
           </div>
-          <div class="vocation-mobile">
-          <h1>NOTRE VOCATION</h1>
-          <p>L'Îlot accueille, héberge et accompagne vers la réinsertion des personnes en grande détresse, en particulier lorsqu'elles sortent de prison. L'association accompagne ces personnes dans leur démarche personnelle et volontaire pour retrouver une place dans la société, notamment par l'accès au logement et à l'emploi.</p>
-        </div><!-- /.node -->
+
+           <div class="vocation-mobile">
+              <h1>NOTRE VOCATION</h1>
+              <p>L'Îlot accueille, héberge et accompagne vers la réinsertion des personnes en grande détresse, en particulier lorsqu'elles sortent de prison. L'association accompagne ces personnes dans leur démarche personnelle et volontaire pour retrouver une place dans la société, notamment par l'accès au logement et à l'emploi.</p>
+            </div><!-- /.node -->
+
         <div class="clearfix"></div>
 
     </div><!-- /#navigation -->
@@ -121,15 +124,15 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
 
     <div id="main">
         <div id="content" class="column l-content" role="main">
-          <?php print render($page['highlighted']); ?>
-          <?php print $breadcrumb; ?>
+          <?php //print render($page['highlighted']); ?>
+          <?php //print $breadcrumb; ?>
           <a id="main-content"></a>
-          <?php print $messages; ?>
-          <?php print render($tabs); ?>
-          <?php print render($page['help']); ?>
-          <?php if ($action_links): ?>
+          <?php //print $messages; ?>
+          <?php //print render($tabs); ?>
+          <?php //print render($page['help']); ?>
+          <?php /*if ($action_links): ?>
             <ul class="action-links"><?php print render($action_links); ?></ul>
-          <?php endif; ?>
+          <?php endif; */?>
           <?php print render($page['content']); ?>
           <?php
           if (arg(0) == 'checkout' && (!arg(2))) : ?>
@@ -162,6 +165,7 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
 
       </div><!-- /#main -->
       <div class="l-shield"></div>
+
       <div class="l-off h text-presentation">
             <a href="/">
                 <img class="logo" src="<?php print $theme ?>/images/ilot_vert.svg" alt="logo" title="logo" />
@@ -179,29 +183,34 @@ if (!empty($_GET['checkout']) && $_GET['checkout'] == 'light') {
               <?php print l("<div class='linkedin-img'></div>", render($url_linkedin), array("html"=>true, 'external' => TRUE,  'attributes' => array('class' => array('linkedin-lien'),'target'=>'_blank'))); ?>
             </div>
        </div>
+
     <div class="l-footer" >
+
     <?php if (!$light) : ?>
       <?php print render($page['footer']); ?>
     <?php endif; ?>
-<!--
-        <div class="reseaux">
-            <a href="https://twitter.com/IlotAsso?lang=fr" class="twitter-lien" target="_blank">
-                <div class="twitter-img">
-                </div>
-            </a>
-           <a href="https://www.linkedin.com/company/3787026?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A3787026%2Cidx%3A2-1-3%2CtarId%3A1460643706927%2Ctas%3Al%27ilot%20" class="linkedin-lien" target="_blank">
-                <div class="linkedin-img">
-                </div>
-            </a>
-        </div>
--->
 
-        <div class="reseaux">
-          <?php print l("<div class='twitter-img'></div>", render($url_twitter), array("html"=>true, 'external' => TRUE,  'attributes' => array('class' => array('twitter-lien'),'target'=>'_blank'))); ?>
-          <?php print l("<div class='linkedin-img'></div>", render($url_linkedin), array("html"=>true, 'external' => TRUE,  'attributes' => array('class' => array('linkedin-lien'),'target'=>'_blank'))); ?>
-        </div>
+       <!-- <div class="reseaux">
+           <a href="https://twitter.com/IlotAsso?lang=fr" class="twitter-lien" target="_blank">
+               <div class="twitter-img">
+               </div>
+           </a>
+           <a href="https://www.linkedin.com/company/3787026?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A3787026%2Cidx%3A2-1-3%2CtarId%3A1460643706927%2Ctas%3Al%27ilot%20" class="linkedin-lien" target="_blank">
+               <div class="linkedin-img">
+               </div>
+           </a>
+       </div> -->
+
+    <div class="reseaux">
+
+      <?php print l("<div class='twitter-img'></div>", render($url_twitter), array("html"=>true, 'external' => TRUE,  'attributes' => array('class' => array('twitter-lien'),'target'=>'_blank'))); ?>
+
+      <?php print l("<div class='linkedin-img'></div>", render($url_linkedin), array("html"=>true, 'external' => TRUE, 'attributes' => array('class' => array('linkedin-lien'),'target'=>'_blank'))); ?>
 
     </div>
+
+</div>
+
 </div><!-- /#page -->
 <?php if (!$light) : ?>
 <?php print render($page['bottom']); ?>

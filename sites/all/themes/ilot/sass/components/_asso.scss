@@ -3,7 +3,6 @@ article.node-liste-projets, .view-id-t_moignages_de_salari_s {
     //padding: 1rem;
 
     p {
-
         //margin: 1rem 0;
          @include fz(2);
           margin-bottom: 0.5rem;
@@ -11,12 +10,9 @@ article.node-liste-projets, .view-id-t_moignages_de_salari_s {
           a{
             color:$green;
           }
-
     }
 
-
     h1 {
-
         padding-bottom: 0.5rem;
         margin-bottom: 0rem;
 
@@ -32,7 +28,6 @@ article.node-liste-projets, .view-id-t_moignages_de_salari_s {
 
     .content{
         margin-bottom: 2rem;
-
     }
 
     .standard{
@@ -50,6 +45,7 @@ article.node-liste-projets, .view-id-t_moignages_de_salari_s {
         p{
             font-weight: bold;
         }
+
     }
 
     .gris{
@@ -58,7 +54,6 @@ article.node-liste-projets, .view-id-t_moignages_de_salari_s {
         padding: 1rem;
         padding-left: 3rem;
     }
-
 
     .content {
 
@@ -89,7 +84,6 @@ article.node-liste-projets, .view-id-t_moignages_de_salari_s {
                             width: 100%;
                              display: block;
                              //padding: 2rem 6rem;
-
                         }
 
                         &:nth-child(2){
@@ -161,7 +155,6 @@ article.node-liste-projets, .view-id-t_moignages_de_salari_s {
 
     }
 
-
 }
 
 
@@ -173,28 +166,20 @@ article.node-liste-projets, .view-id-t_moignages_de_salari_s {
 
         &:hover{
             img{
-
                 @include animation(coeur 1s ease-in-out 12);
             }
         }
 
         img {
-
             @include b(35%!important,middle);
-
-           
-            
-
         }
 
         .col-1 {
-        
             @include b(50%,middle);
             font-family: "PermanentMarker",sans-serif;
             color:$red;
             @include fz(4);
             font-size: 2.2rem !important;
-
         }
 
         &.small{
@@ -205,20 +190,16 @@ article.node-liste-projets, .view-id-t_moignages_de_salari_s {
         }
 
         .don-btn {
-
             @include btn_actu($red,100%);
             margin: 1rem 0;
         }
 
         &.bloc{
-            
             @include b(48%,middle);
              margin-left:3%;
              .don-btn {
                     display: block;
              }
-  
-
         }
 }
 
@@ -226,8 +207,16 @@ article.node-liste-projets, .view-id-t_moignages_de_salari_s {
 aside.view-mode-full {
 
     margin-bottom: 1rem;
-    .read-more {
 
+//    @media #{$m-m-up} {
+//       width: 70% !important;
+//    }
+
+    @media #{$m-m} {
+        width: 80% !important;
+    }
+
+    .read-more {
 
         @include btn_actu($green,100%);
 
@@ -237,9 +226,7 @@ aside.view-mode-full {
         margin-top:1rem;
 
         a {
-
             text-decoration: none;
-
         }
 
     }
@@ -258,7 +245,6 @@ aside.view-mode-full {
 //        padding-left: 6rem;
 
         h3 {
-
 //            padding: 0 2rem;
             color:$green;
             text-transform: uppercase;
@@ -285,65 +271,85 @@ aside.view-mode-full {
 
 }
 
+aside.node-projets {
+
+    .vignette {
+
+        width: 100%;
+
+        img {
+
+            max-height: 100%;
+            height: auto;
+
+        }
+
+    }
+
+    .texte {
+
+        text-align: left;
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding-left: 0;
+        padding-top: 1rem;
+
+    }
+
+}
 
 article.node-histoire{
      padding-bottom: 3rem !important;
+
       h1{
         color:$green;
         margin-top:3rem;
 
       }
+
 }
 
 
 article.node-valeur {
 
      @media #{$m-m} {
-
                padding: 2rem;
-                
-
             }
 
     em {
-
         font-style: italic;
         color: rgb(163,164,165);
         float: right;
         padding-bottom: 1rem;
-
     }
 
     p {
-
         clear: both;
-
     }
 
     img {
-
         margin-right: 6px;
         margin-left: 6px;
         vertical-align: text-top;
-
     }
-    .field-items{
 
-       
+    .field-items{
 
         .field-item{
             @include p();
-             h1{
-                color:$green;
-            }
+
+//             h1{
+//                color:$green;
+//            }
 
             .field-item{
                 padding: 0rem;
             }
-           
         }
+
         .field-item:not(:first-child){
-            @include b(46%,top);
+//            @include b(46%,top);
              @include p();
            
             .rteindent1{
@@ -353,6 +359,7 @@ article.node-valeur {
                 @include fz(1);
                  font-style: italic;
                  padding-left: 2rem;
+
                  span{
                     padding: 0rem;
                     margin:0px !important;
@@ -361,6 +368,7 @@ article.node-valeur {
                         width: 1.6rem !important;
                         height: auto !important;
                     }
+
                  }
 
                  .ouvre{
@@ -369,56 +377,98 @@ article.node-valeur {
             }
             
             margin-right: 4%;
+
             @media #{$m-m} {
-
                 margin-right: 0px;
-
-
             }
+
             .field-item{
                 padding: 0rem;
             }
-            
         }
 
         &:last-child{
-            
             margin-right: 0%;
-               
         }
-        
     }
-
 }
-#content{
+
+#content {
     position: relative;
+}
+
+.container_details_conseil {
+
+    position: relative;
+//    float: right;
+
 }
 
 .details_conseil{
 
-    position: absolute;
-    right: 5%;
-    top: 15%;
+//    position: absolute;
+//    right: 5%;
+//    top: 15%;
     background-color: $green;
     padding: 2rem;
-    width: 30%;
+
+    @include breakpoint($laptop) {
+        width: 30%;
+     }
+
+    width: 60%;
     height: auto;
     @include opacity(0);
     @include transition(all 0.2s ease-in-out);
 
-
+    display: inline-block;
 
      &.top{
-        @include opacity(1);
-        top:15%;
+//        @include opacity(1);
+//        top:15%;
+
+          position: relative;
+
+            @include breakpoint($laptop) {
+                position: absolute;
+                left: 80%;
+                top:10%;
+                @include transform(translate(-50%,0));
+             }
+
+         &.visible {
+
+           @include opacity(1);
+
+         }
+
     }
 
 
-    &.bottom{
-        @include opacity(1);
-        top:42%;
+    &.bottom {
+
+           @include breakpoint($laptop) {
+                position: absolute;
+                left: 80%;
+                top:50%;
+                @include transform(translate(-50%,0));
+             }
+
+        position: relative;
+
+          &.visible {
+
+           @include opacity(1);
+
+         }
+
     }
 
+    &.visible {
+
+         @include opacity(1);
+
+    }
 
     > div{
 
@@ -449,7 +499,8 @@ article.node-valeur {
    
 
     @include b(60%,top);
-    text-align: right;
+    text-align: left;
+
     .img-admin{
         
         cursor:pointer;
@@ -457,25 +508,19 @@ article.node-valeur {
         height: 10rem;
         @include p();
 
-        
-
-
-      
-      
-        img{
+        img {
             height: 100% !important;
             width: auto !important;
             @include opacity(0.8);
             @include transition(all 0.2s ease-in-out);
-              
         }
 
         &:after{
              @include fx-mix($green,unset);
              z-index: -1;
              @include opacity(0);
-            @include transition(all 0.2s ease-in-out);
-            visibility: hidden;
+             @include transition(all 0.2s ease-in-out);
+             visibility: hidden;
         }
 
         &.active{
@@ -486,14 +531,12 @@ article.node-valeur {
                 @include transform(rotate(3deg));
                 
              }
+
             img{
-
                @include transform(scale(1.15));
-            @include opacity(1);
-
+               @include opacity(1);
             }
         }
-
     }
 
     .img-admin *{
@@ -506,7 +549,7 @@ article.node-valeur {
     }
 }
 
-.node-liste-partenaire{
+article.node-liste-partenaire{
     text-align: center;
     ul.block-filters{
         @include b(100%);
@@ -531,6 +574,10 @@ article.node-valeur {
                 &.active-sort{
                     border-bottom:3px solid white;
                 }  
+
+                &:hover {
+                    border-bottom:3px solid white;
+                }
             }
         }
     }
@@ -544,12 +591,91 @@ article.node-valeur {
         img{
             height: auto;
             width: auto;
-            max-height: 6rem;
+            max-width: 5rem;
             display: inline-block;
             mix-blend-mode: multiply;
         }
         h2{
             text-transform: none;
+        }
+        h3{
+            margin-bottom: 0.5rem;
+        }
+        @media #{$m-m} {
+            min-height: 100%;
+            margin-bottom: 2rem;
+            background-color: white;
+            border:1px solid $grey_3;
+            img {
+                mix-blend-mode: unset;
+            }
+        }
+        .lien_partenaire{
+            @include btn_actu();
+        }
+    }
+}
+
+article.node-liste-medias{
+    text-align: center;
+    ul.block-filters{
+        @include b(100%);
+        @include u();
+        background-color: $green;
+        @include p();
+
+        text-align: center;
+        li{
+            @include b(17%);
+            @include m();
+            padding: 0.5rem !important;
+            text-align: center;
+            a{
+                display: inline-block;
+
+                width: auto;
+                color:white;
+                font-weight: bold;
+                text-decoration: none;
+
+                &.active-sort{
+                    border-bottom:3px solid white;
+                }
+
+                &:hover {
+                    border-bottom:3px solid white;
+                }
+            }
+        }
+    }
+
+    .views-row{
+//        @include b(25%);
+//        @include b(22.57%);
+
+        @include b(23.05%);
+
+        @include p();
+        @include m();
+        min-height: 20rem;
+        text-align: left;
+        background-color: $grey_3;
+
+//        @include breakpoint($laptop){
+//            @include b(23.07%);
+//        }
+//
+//
+        img{
+            height: auto;
+            width: auto;
+            max-width: 5rem;
+            display: inline-block;
+            mix-blend-mode: multiply;
+        }
+        h2{
+            text-transform: none;
+            margin: 0.5rem 0 1rem 0;
         }
         h3{
             margin-bottom: 0.5rem;
@@ -565,8 +691,17 @@ article.node-valeur {
         }
         .lien_partenaire{
             @include btn_actu();
+            margin: 40px 0 0 0;
         }
+//        &:last-child {
+//            margin-right: 0;
+//        }
+//        &:first-child {
+//            margin-left: 0;
+//        }
+
     }
+
 }
 
 aside.node-mission{
@@ -600,8 +735,9 @@ aside.node-mission{
     @include b(45%,middle);
 }
 
-.container-txt{
-    &.i-0{
+.container-txt {
+
+    &.i-0 {
       
        background-color: $green;
        @include fz(4);
@@ -610,10 +746,12 @@ aside.node-mission{
        padding:2rem;
        padding-top: 1rem;
         margin-left:3%;
+
         p{
             font-size: 1.5rem !important;
             line-height: 1.6rem;
         }
+
     }
    
 }

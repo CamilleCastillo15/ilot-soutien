@@ -1,5 +1,7 @@
 .menu-header {
 
+    min-height: 4rem;
+
     .menu-block-custom-1 {
 
         .menu {
@@ -25,7 +27,8 @@
             li {
                 transition:all 0ms;
                 text-transform: uppercase;
-                line-height: $h;
+//                line-height: $h;
+                line-height: 50px;
                 font-size: 1.3rem;
         
                 margin: 0rem 2.2rem;
@@ -163,6 +166,9 @@
 
 .l-off {
 
+    z-index: 100;
+    overflow: scroll;
+
     .menu {
 
             border: none;
@@ -170,7 +176,6 @@
             text-align: left !important;
             margin-top: 1rem;
             display: block;
-            z-index: 10;
             padding: 0;
 
         a {
@@ -231,7 +236,9 @@
             }
 
             &:hover > ul {
-                display: none;
+                @include breakpoint($laptop) {
+                    display: none;
+                }
             }
 
         }
@@ -242,18 +249,17 @@
             list-style-image: none;
             position: relative;
 
-            a {
+            &:hover {
+
+                background-color:$green;
+
+            }
+
+            > a {
 
                 padding: 4.5% 3% 4.5% 3%;
-                display: block;
+                display: inline-block;
                 margin-left: auto;
-
-
-                &:hover {
-
-                    background-color:$green;
-
-                }
 
             }
 
@@ -268,7 +274,8 @@
 
             ul {
 
-                margin-top:0rem;
+                margin:0rem;
+                padding: 0rem;
 
                 li {
 
@@ -300,7 +307,9 @@
             }
 
             &:hover > ul {
-                display: none;
+                @include breakpoint($laptop) {
+                    display: none;
+                }
             }
 
         }
@@ -344,7 +353,8 @@
     .reseaux {
         display: block;
         text-align: center;
-        padding-top: 5%;
+//        padding-top: 5%;
+        clear: both;
         color:white;
         font-size: 2rem;
         position: relative;

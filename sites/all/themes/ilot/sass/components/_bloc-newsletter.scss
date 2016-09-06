@@ -13,11 +13,24 @@
     .bloc-newsletter {
 
         margin-top: 2rem;
+
         img {
           
-            width: 3em;
+            width: 3.5em;
             position: absolute;
-            left: 10%;
+            left: 30%;
+
+            @media #{$m-sd} {
+                left: 35%;
+            }
+
+            @media #{$m-t} {
+                left: 25%;
+            }
+
+            @media #{$m-m} {
+                left: 10%;
+            }
 
         }
 
@@ -26,7 +39,10 @@
     .col-1 {
    
         text-align: center;
-        margin: 0 auto;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+        margin-bottom: 0.35rem;
         padding: 0rem 4rem;
         
     }
@@ -51,7 +67,7 @@
 
         .newsletter-btn {
 
-            margin-top: 0px !important;
+            margin-top: 1rem;
 
             &.read-more {
 
@@ -88,7 +104,14 @@
 
             input {
 
-                max-width: 350px;
+                max-width: 250px;
+
+                @include breakpoint($laptop){
+
+                    max-width: 350px;
+
+                }
+
                 text-align: center;
 
                 background-color: transparent;
@@ -111,7 +134,14 @@
 
             input {
 
-                max-width: 350px;
+                max-width: 250px;
+
+                @include breakpoint($laptop){
+
+                    max-width: 350px;
+
+                }
+
                 min-height: 35px;
                 text-align: center;
                 color: $green;

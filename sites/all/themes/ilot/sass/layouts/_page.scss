@@ -3,33 +3,61 @@
 @import "../variables/var";
 
 html {
-
     background-color: white;
-
 }
 
+.node-page-simple, .node-112 {
 
-
-.node-page-simple{
-
-
-	h1{
-		color:$red;
+	h1 {
+//		color:$red;
 		@include fz(4);
 	}
 
-	.field-name-field-page-simple-contact{
-		background-color: $green;
+    .left-column-intro-categorie  {
+
+        @include breakpoint($tablet) {
+            width: 65%;
+        }
+
+    }
+
+    .right-column-intro-categorie {
+		background-color: $lightgrey;
 		@include b(50%);
-		padding:2rem;
+		padding:1rem 2rem;
 		padding-bottom: 0rem;
 		color:white;
-	}
+
+        @include breakpoint($tablet) {
+            width: 30%;
+        }
+
+        .field-name-field-page-simple-contact {
+
+            float: none !important;
+            width: 100% !important;
+            color: black;
+
+            .field-name-field-page-simple-mail {
+
+                text-decoration: underline;
+                color:$green;
+
+            }
+
+        }
+
+        h1 {
+
+            text-align: center;
+
+        }
+
+    }
 
 	li{
 		margin-top:0.5rem;
 		margin-bottom: 0.5rem;
-
 	}
 
 	p{
@@ -40,12 +68,10 @@ html {
 			margin-top:2rem;
 			text-transform: uppercase;
 		}
+
 	}
 
-
 }
-
-
 
 .node-page-intro{
 	h1{
@@ -110,7 +136,7 @@ html {
 		h2{
 			@include fz(4);
 		}
-		.menu{
+		.menu {
 			@include u();
 			padding: 0rem;
 			list-style: none;
@@ -127,17 +153,16 @@ html {
 
 		.node-don-savoir-plus{
 
-			p{
+			p {
 				font-weight: bold;
 				padding-right: 8rem;
 			}
-			img{
+			img {
 				top:-1rem;
 				float: none !important;
 				position: absolute;
 				right: 0px;
 			}
-
 		}
 	}
 
@@ -156,6 +181,8 @@ html {
 		padding:3.5rem;
 		padding-top: 8rem;
 		margin-top: 2rem;
+
+        min-height: 44rem;
 
 		@media #{$m-m} {
 			margin:0%;
@@ -216,10 +243,11 @@ html {
 			display: none;
 		}
 		.checkout-submit{
-			 -webkit-appearance: button;
-  -moz-appearance: button;
-  appearance: button;
+			  -webkit-appearance: button;
+              -moz-appearance: button;
+            appearance: button;
 			@include btn_actu($green_bt);
+            margin-top: 2rem;
 		}
 
 		.checkout-buttons{
@@ -238,10 +266,12 @@ html {
 		.info{
 			text-align: left;
 			margin-top:1rem;
-			margin-bottom: 1rem;
+//			margin-bottom: 1rem;
+            margin-bottom: 2rem;
 		}
 		a{
 			@include btn_actu($red,100%);
+            margin-top: 2rem;
 		}
 	}
 	.form-item-commerce-french-donate-fieldset-wrapper-fieldset-unique-unique-free{
@@ -286,7 +316,7 @@ html {
 	}
 }
 
-.container-page{
+.container-page {
     @include container(false);
     text-align: center;
     margin-top:1rem;
@@ -300,6 +330,7 @@ html {
       text-align:left;
 
     }
+
     aside.view-mode-full {
       float: none;
 
@@ -328,7 +359,6 @@ html {
              margin-top:2rem;
          }
       }
-
     }
 
     &.full{
@@ -338,4 +368,77 @@ html {
             text-align: center;
        }
     }
+}
+
+.content.vert {
+
+    position: relative;
+
+    h1 {
+
+        color: white !important;
+
+    }
+
+    background-color: $green;
+    color: white;
+    padding: 2rem;
+    margin: 4.5rem 0 1rem 0;
+
+    img {
+
+        position: absolute;
+        right: 2%;
+        top:0;
+        @include translate(0%, -50%);
+
+        @media #{$m-sd} {
+            max-width: 175px;
+            max-height: 175px;
+        }
+
+        @media #{$m-d} {
+            max-width: 100px;
+            max-height: 100px;
+        }
+
+        @media #{$m-m} {
+            max-width: 75px;
+            max-height: 75px;
+        }
+
+    }
+
+}
+
+.content.gris {
+
+    background-color: $lightgrey;
+    padding: 2rem;
+    margin: 1rem 0;
+
+}
+
+.liste-etablissements {
+
+    text-align: left;
+
+}
+
+.faire-don-important {
+
+    .field-item.odd {
+
+
+        padding: 2rem;
+        background-color: $lightgrey;
+
+    }
+
+}
+
+table {
+
+    font-size: 0.9rem;
+
 }

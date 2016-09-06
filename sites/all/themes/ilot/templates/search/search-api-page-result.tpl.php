@@ -42,15 +42,21 @@
  */
 ?>
 <li class="search-result">
+
   <h3 class="title">
+    <?php
+      $node = node_load($nid);
+      //$title = $node->title;
+      //$image = field_get_items("node",$node,"")
+    ?>
     <?php print $url ? l($title, $url['path'], $url['options']) : check_plain($title); ?>
   </h3>
   <div class="search-snippet-info">
     <?php if ($snippet) : ?>
       <p class="search-snippet"><?php print $snippet; ?></p>
-    <?php endif; ?>
+    <?php endif; /*?>
     <?php if ($info) : ?>
       <p class="search-info"><?php print $info; ?></p>
-    <?php endif; ?>
+    <?php endif; */?>
   </div>
 </li>

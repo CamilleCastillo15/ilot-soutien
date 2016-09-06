@@ -5,7 +5,9 @@
         li {
             cursor: pointer;
             &:hover > ul {
-                display: block;
+                @include breakpoint($laptop) {
+                    display: block;
+                }
             }
             a {
                 text-decoration: none;
@@ -19,20 +21,20 @@
 
     .expanded ul.menu {
 
-        padding: 10px 0;
+//        padding: 10px 0;
 
         @include breakpoint($laptop) {
             padding: 24px 0;
         }
 
         @include breakpoint($laptopl) {
-
             padding: 20px 0;
-
         }
 
-        position: absolute;
-        display: none;
+         @include breakpoint($laptop) {
+            display: none;
+            position: absolute;
+        }
 
         li.leaf {
 
@@ -58,21 +60,16 @@
             }
 
             a {
-
                 border-bottom: none;
-
                 &:hover,
                 &.active {
-
                     border-bottom: none;
                 }
 
                 color:white;
 
                 &.active-trail {
-
                     border-bottom: 3px solid $green;
-
                 }
 
             }

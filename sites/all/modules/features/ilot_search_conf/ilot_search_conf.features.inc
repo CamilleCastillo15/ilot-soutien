@@ -146,13 +146,14 @@ function ilot_search_conf_default_search_api_page() {
       "per_page" : "10",
       "result_page_search_form" : 1,
       "get_per_page" : 0,
-      "view_mode" : "teaser",
+      
       "language_filter" : []
     },
     "enabled" : "1",
     "rdf_mapping" : []
   }');
   return $items;
+//    "view_mode" : "teaser",
 }
 
 /**

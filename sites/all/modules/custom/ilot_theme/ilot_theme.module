@@ -5,6 +5,7 @@ require_once drupal_get_path('module', 'ilot_theme') .'/ilot_theme.blocks.inc';
 function ilot_theme_menu(){
 
     $items = array();
+    
     $items['admin/settings/ilotsoutien'] = array(
         'title' => 'Configuration du site' ,
         'description' => 'Configuration de la newsletter, du block contact..',
@@ -13,23 +14,27 @@ function ilot_theme_menu(){
         'access arguments' => array('access ilotsoutienmod admin'),
         'type' => MENU_NORMAL_ITEM,
     );
+    
     $items['liste-etablissements-chantiers-insertion'] = array(
         'title' => 'Liste des établissements et chantiers d\'insertion' ,
         'description' => 'Description',
         'access callback' => TRUE,
-         'page callback' => 'ilot_theme_etablissements',
+        'page callback' => 'ilot_theme_etablissements',
         'page arguments' => array(0,1),
         'type' => MENU_NORMAL_ITEM,
     );
+    
     $items['liste-actus'] = array(
-        'title' => 'Liste des 4 dernières actualités' ,
+        'title' => 'Liste des 4 dernières actualités',
         'description' => 'Description',
         'access callback' => TRUE,
         'page callback' => 'ilot_theme_actus',
         'page arguments' => array(0,1),
         'type' => MENU_NORMAL_ITEM,
     );
+    
     return $items;
+    
 }
 
 function ilot_theme_etablissements(){
@@ -60,19 +65,36 @@ function ilot_theme_etablissements(){
 }
 
 function ilot_theme_actus(){
-    $b = array();
+
+    $b = array();    
+//      $view = views_embed_view('liste_actus_generales',"default", 0);
+//      dpm($view);
     for($i = 0;$i<4;$i++){
-      $view = views_get_view("liste_actus_generales");
-      $view->set_arguments($i);
+      
+        $view = views_get_view("liste_actus_generales");
+//      $contextual_filters = $view->get_items();
+//      dpm($contextual_filters);
+//      $args = $view->args;
+//      $view->set_arguments($i);
+//      dpm($view);
+//      $view->set_arguments(3);
+//      dpm($view);
       $view->execute();
       $result = $view->result;
+        
+      dpm($result);
+        
       $a = array();
+        
       foreach($result as $key => $case){
         $node = node_load($case->nid);
         $a[]= $node;
       }
-      $b[] = $a;
+        
+      $b[$i] = $a;
     }
+    
+    dpm($b);
 
     return theme("ilot_theme_actus", array('views' => $b));
 }
@@ -85,78 +107,91 @@ function ilot_theme_admin() {
         '#collapsible' => TRUE, // Added
         '#collapsed' => FALSE,  // Added
     );
+    
     $form['ilot_theme_newsletterttt'] = array(
         '#type' => 'fieldset',
         '#title' => t('Paramétrage de la newsletter'),
         '#collapsible' => TRUE, // Added
         '#collapsed' => FALSE,  // Added
     );
+    
     $form['ilot_theme_contact'] = array(
         '#type' => 'fieldset',
         '#title' => t('Paramétrage du bloc contact'),
         '#collapsible' => TRUE, // Added
         '#collapsed' => FALSE,  // Added
     );
+    
     $form['ilot_theme_mosaique'] = array(
         '#type' => 'fieldset',
         '#title' => t('Paramétrage de la mosaïque sur le menu home'),
         '#collapsible' => TRUE, // Added
         '#collapsed' => FALSE,  // Added
     );
+    
     $form['ilot_theme_asso'] = array(
         '#type' => 'fieldset',
         '#title' => t('Paramétrage de la page "Association"'),
         '#collapsible' => TRUE, // Added
         '#collapsed' => FALSE,  // Added
     );
+    
     $form['ilot_theme_valeurs'] = array(
         '#type' => 'fieldset',
         '#title' => t('Paramétrage de la page "Nos valeurs"'),
         '#collapsible' => TRUE, // Added
         '#collapsed' => FALSE,  // Added
     );
+    
     $form['ilot_theme_temoignages'] = array(
         '#type' => 'fieldset',
         '#title' => t('Paramétrage de la page "Témoignages"'),
         '#collapsible' => TRUE, // Added
         '#collapsed' => FALSE,  // Added
     );
+    
     $form['ilot_theme_projets'] = array(
         '#type' => 'fieldset',
         '#title' => t('Paramétrage de la page "Projets"'),
         '#collapsible' => TRUE, // Added
         '#collapsed' => FALSE,  // Added
     );
+    
     $form['ilot_theme_partenaires'] = array(
         '#type' => 'fieldset',
         '#title' => t('Paramétrage de la page "Partenaires"'),
         '#collapsible' => TRUE, // Added
         '#collapsed' => FALSE,  // Added
     );
+    
     $form['ilot_theme_etablissements'] = array(
         '#type' => 'fieldset',
         '#title' => t('Paramétrage de la page "Etablissements"'),
         '#collapsible' => TRUE, // Added
         '#collapsed' => FALSE,  // Added
     );
+    
     $form['ilot_theme_actus_generales'] = array(
         '#type' => 'fieldset',
         '#title' => t('Paramétrage des actualités générales"'),
         '#collapsible' => TRUE, // Added
         '#collapsed' => FALSE,  // Added
     );
+    
     $form['ilot_theme_nous_soutenir'] = array(
         '#type' => 'fieldset',
         '#title' => t('Paramétrage des pages de la catégorie "Nous soutenir"'),
         '#collapsible' => TRUE, // Added
         '#collapsed' => FALSE,  // Added
     );
+    
     $form['ilot_theme_don'] = array(
         '#type' => 'fieldset',
         '#title' => t('Paramétrage des pages de la catégorie "Faire un don"'),
         '#collapsible' => TRUE, // Added
         '#collapsed' => FALSE,  // Added
     );
+    
     $defaults = array(
         'value' => '',
         'format' => 'full_html',
@@ -170,7 +205,6 @@ function ilot_theme_admin() {
         '#default_value' =>$var1["value"],
         '#description' => t("Texte présent dans le bloc newsletter"),
         '#required' => FALSE,
-
     );
 
    $var2 = variable_get('ilot_theme_newsletter_img');
@@ -459,6 +493,24 @@ function ilot_theme_admin() {
             ),
         ),
         '#description' => t("Image header 'Faire don'"),
+        '#required' => FALSE,
+    );
+    
+    $var19 = variable_get('ilot_theme_don_isf_visuel');
+    $form['ilot_theme_don']['ilot_theme_don_isf_visuel'] = array(
+        '#type' => 'media',
+        '#tree' => TRUE,
+        '#title' => t('Image header des pages de catégorie "Faire un don ISF"'),
+        '#default_value' => $var19,
+        '#media_options' => array(
+            'global' => array(
+                'file_extensions' => 'jpg png', // File extensions
+                'max_filesize' => '100 MB',
+                'file_directory' => 'config', // Will be a subdirectory of the files directory
+                'types' => array('image'), // Refers to a file_entity bundle (such as audio, video, image, etc.)
+            ),
+        ),
+        '#description' => t("Image header 'Faire don ISF'"),
         '#required' => FALSE,
     );
 

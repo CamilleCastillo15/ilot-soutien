@@ -73,3 +73,28 @@
     src: url(../fonts/PermanentMarker.ttf);
     font-style: normal;
 }
+
+/** Gill Sans Mt **/
+@font-face {
+    font-family: "GillSansMT";
+    src: url(../fonts/GillSansMT.ttf);
+    font-style: normal;
+//    font-weight: 200;
+}
+@font-face {
+    font-family: "GillSansMtBold";
+    src: url(../fonts/Gill-Bold.TTF);
+    font-style: normal;
+    font-weight: 600;
+}
+@font-face {
+    font-family: "GillSansMtBoldItalic";
+    src: url(../fonts/Gill-BoldItalic.TTF);
+    font-style: normal;
+    font-weight: 600;
+}
+@font-face {
+    font-family: "GillSansMtItalic";
+    src: url(../fonts/Gill-Italic.TTF);
+    font-style: normal;
+}

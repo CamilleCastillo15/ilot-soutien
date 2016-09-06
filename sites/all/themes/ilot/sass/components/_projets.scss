@@ -1,10 +1,15 @@
 
 @import "../variables/var";
 
+[class*="section-temoignages"], .full-temoignage, .view-t-moignages-de-salari-s, .view-temoignages-de-benevoles, .view-temoignages-de-donateurs, .view-temoignages-residants, .view-temoignages-partenaires, .view-t-moignages-d-entreprises {
+
+    .read-more {
+        margin-bottom: 0.25rem;
+    }
+}
 
 
 .node-liste-projets, [class*="section-temoignages"], .full-temoignage, .view-t-moignages-de-salari-s, .view-temoignages-de-benevoles, .view-temoignages-de-donateurs, .view-temoignages-residants, .view-temoignages-partenaires, .view-t-moignages-d-entreprises {
-
 
     .actus, .node-temoignage {
 
@@ -15,6 +20,8 @@
 
             border-bottom: 3px solid $green !important;
             text-align:left;
+
+            line-height: 0;
 
     }
 
@@ -30,7 +37,6 @@
                 height: auto;
 
             }
-
     }
 
     .texte {
@@ -38,6 +44,7 @@
          @include b(73%,top,75%);
          padding-bottom: 4rem;
          padding-left:2rem;
+         line-height: 1.3rem;
           h2{
                 @include fz(4);
           }
@@ -64,6 +71,7 @@
         position: absolute;
         right: 0px;
         bottom: 0.3rem;
+        line-height: 1.3em;
     }
 
     .nav-next-prev{
@@ -80,7 +88,6 @@
              &.next{
                 right: 0px;
              }
-
         }
     }
 }
@@ -113,19 +120,25 @@
 
 .contact{
  @include b(48%,middle);
-
 }
 
-
-
 .nav-next-prev{
-    margin-top:3rem;
+//    margin-top:3rem;
+//    margin-top: 7.25rem;
+    margin-top: 1.25rem;
     .read-more{
         @include btn_actu($green);
     }
 
     .prev{
-        float: left;
+        float: left !important;
+        background-image : url(../images/f_noires/f_g_gauche.svg) !important;
+        background-position: 5% center !important;
+        &:hover {
+
+            background-image : url(../images/f_blanches/f_gauche.svg) !important;
+
+        }
     }
     .next{
         float: right;
@@ -149,16 +162,17 @@
    }
     .contact{
       
-      vertical-align: middle !important;
+    vertical-align: middle !important;
     background-color: $green;
     @include b(48%);
     margin-top:1rem;
     padding:2rem;
     
     color:white;
+
     h2{
-    margin-top:0rem;
-   }
+        margin-top:0rem;
+    }
     .contact{
       padding:0px;
       font-weight: bold;

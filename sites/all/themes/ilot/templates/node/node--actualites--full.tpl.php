@@ -1,4 +1,4 @@
-<?php
+<?php /*
     $visuel_asso = variable_get("ilot_theme_actus_generales_visuel");
     $file = file_load($visuel_asso);
 //    $img = file_create_url($file->uri);
@@ -10,7 +10,7 @@
         <img src="<?php print $img; ?>" alt="header" title="header" />
     </div>
     <div class="title">actualités</div>
-</div>
+</div> */ ?>
 
  <div class="container-page">
   <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>

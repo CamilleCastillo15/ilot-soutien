@@ -7,14 +7,16 @@ $laptopl : 1440px;
 $laptopxcl: 1650px;
 $laptopxl : 1920px;
 
-$max : $laptopl;
+//$max : $laptopl;
+$max: $laptopxl;
 $debug: false;
 
 $margin : 1rem;
 
 $green: #00a886;
 $green_bt: #00a885;
-$red: rgb(144,49,57);
+//$red: rgb(144,49,57);
+$red: #9D2537;
 $lightgrey: rgb(247,247,247);
 $darkgrey: rgb(74,75,76);
 $grey: #4b4b4b;
@@ -25,20 +27,17 @@ $grey_4:rgb(216, 216, 216);
 $grey_5:rgb(230,230,230);
 $grey_6:rgb(215,216,217);
 
-
-
 $image-path: '../images' !default;
 $fallback-extension: 'png' !default;
-
 
 $mobile-break:         800px;
 $tablet-break:         1100px;
 $desktop-break:        1101px;
 $super-desktop-break:  1600px;
-$h-break: 800px;
-
+$h-break:              800px;
 
 $m-m: "only screen and (max-width: "+$mobile-break+")";
+$t-t: "only screen and (max-width: "+$tablet-break+")";
 $m-t: "only screen and (min-width: "+$mobile-break+") and (max-width: "+$desktop-break+")";
 $m-d: "only screen and (min-width: "+$desktop-break+")";
 $m-sd: "only screen and (min-width: "+$super-desktop-break+")";
@@ -47,7 +46,5 @@ $m-m-up: "only screen and (min-width: "+$mobile-break+")";
 $m-t-up: "only screen and (min-width: "+$tablet-break+")";
 
 $m-t-down: "only screen and (max-width: "+$desktop-break+")";
-
-
 
 $m-h: "only screen and (max-height: "+$h-break+")";

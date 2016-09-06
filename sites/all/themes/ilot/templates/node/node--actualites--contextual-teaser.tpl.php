@@ -1,15 +1,37 @@
+<?php /*
 
-  <div class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+   $title_principal = $node->title;
+
+   $visuel = variable_get("ilot_theme_temoignages_visuel");
+   $file = file_load($visuel);
+   $img = image_style_url("header", $file->uri);
+
+?>
+
+<div class="imagetitle">
+    <div class="image">
+        <img src="<?php print $img; ?>" alt="header" title="header" />
+    </div>
+    <div class="title"><?php print render($title_principal);?></div>
+</div>  ?>
+
+<?php /* <div class="container-page"> */ ?>
+ <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <div class="vignette">
-    <a href="<?php print url('node/' . $node->nid); ?>">
-    <?php  print render($content['field_actualite_image_accroche']); ?>
-    </a>
-    <span class="auteur"><?php if(!empty($auteur)){print $auteur;} ?></span>
+    <?php print l(render($content['field_actualite_image_accroche']), 'node/'.$node->nid, array('html' => TRUE)); ?>
   </div>
-  <div class="actu-short">
-    <?php print $actualites_date; ?>
-    <h2><?php print l($node->title, 'node/'.$node->nid, array('html' => TRUE)); ?></h2>
-    <?php print l('voir plus', 'node/'.$node->nid, array('attributes' => array('class' => array('read-more')))); ?>
+  <div class="texte">
+    <h3><?php print l($node->title, 'node/'.$node->nid, array('html' => TRUE)); ?></h3>
+    <?php if(!empty($content['title'])): ?>
+      <h4><?php print l(render($content['title']), 'node/'.$node->nid, array('html' => TRUE)); ?></h4>
+    <?php endif; ?>
+    <?php  if (isset($content['field_actualite_accroche'])) : ?>
+      <?php print render($content['field_actualite_accroche']); ?>
+    <?php endif;?>
   </div>
 
-</div><!-- /.node -->
+     <div class="clearfix"></div>
+     <?php print l('voir plus', 'node/'.$node->nid, array('attributes' => array('class' => 'read-more'))); ?>
+
+</article><!-- /.node -->
+<?php /* </div> */ ?>

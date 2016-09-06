@@ -1,16 +1,7 @@
 
-.a_actu{
-
-}
-
-
-
-
 .node-actualites{
- 
-
   
-    .date{
+    .date {
            .socials{
 
             
@@ -52,7 +43,6 @@
        
     }
 
-
         .vignette {
 
             @include b(20%,middle,20%);
@@ -80,7 +70,6 @@
                 margin-bottom: 1rem;
                 margin-top:0rem;
             }
-            
 
             .text-detail {
 
@@ -98,20 +87,61 @@
 
         }
 
-  
-
-
 }
 
 
+.actualites {
 
+//    width: 65% !important;
 
-.actualites ,.node-liste-actualites{
+    @include breakpoint($tablet){
+
+        width:  40% !important;
+
+    }
+
+    @include breakpoint($laptop){
+
+        width: 45% !important;
+
+    }
+
+//    @include breakpoint($laptopl){
+//
+//       width:  50% !important;
+//
+//    }
+//
+//    @include breakpoint($laptopxcl){
+//
+//        width: 65% !important;
+//
+//    }
+
+    @include breakpoint($laptopl){
+
+        width: 65% !important;
+
+    }
+
+    @include breakpoint($laptopxl){
+
+        width: 72% !important;
+
+    }
+
+}
+
+.actualites ,.node-liste-actualites, .view-actus-soutien {
  
 
-    @include b(64%);
+//    @include b(64%);
+    @include b(55%);
 
-  
+//    @media #{$m-sd} {
+//            @include b(56%);
+//        }
+
     .date{
            .socials{
 
@@ -162,6 +192,8 @@
         margin-bottom:2rem;
 
         border-bottom: 3px solid $green;
+        line-height: 0;
+
         text-align:left;
         overflow: hidden;
         height: 100%;
@@ -173,11 +205,10 @@
              .date-actualite{
              .mois ,.annee{
              @include opacity(1);
-            } 
-
+            }
         }
-        }
-          }
+    }
+}
 
         .vignette {
 
@@ -199,6 +230,7 @@
             display: inline-block;
             vertical-align: top;
             width: 55%;
+            line-height: 1.3em;
 
             padding-left: 1rem;
             padding-bottom: 5rem;
@@ -209,30 +241,28 @@
             }
             
 
-            .text-detail {
+                .text-detail {
 
-                display: none;
+                    display: none;
 
-                @include breakpoint($mobilel) {
-                    display: block;
-                 }
+                    @include breakpoint($mobilel) {
+                        display: block;
+                     }
+
+                }
+
+                p {
+                    text-align: left !important;
+                }
 
             }
 
-            p {
-                text-align: left !important;
-            }
-
-        }
-
-  
-
- 
     .read-more{
         @include btn_actu();
         position: absolute;
         right: 0px;
-        bottom: 0.3rem;
+        bottom:1rem;
+//        bottom: 0.3rem;
     }
 
       .actu{

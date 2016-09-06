@@ -1,4 +1,4 @@
-<?php
+<?php /*
 
    $title_principal = $node->title;
 
@@ -13,9 +13,9 @@
         <img src="<?php print $img; ?>" alt="header" title="header" />
     </div>
     <div class="title"><?php print render($title_principal);?></div>
-</div>
+</div> */ ?>
 
-<div class="container-page">
+<?php /* <div class="container-page"> */ ?>
  <article class="node-<?php print $node->nid; ?> <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <div class="vignette">
     <?php print l(render($content['field_temoignage_image']), 'node/'.$node->nid, array('html' => TRUE)); ?>
@@ -28,8 +28,10 @@
     <?php  if (isset($content['field_temoignage_accroche'])) : ?>
       <?php print render($content['field_temoignage_accroche']); ?>
     <?php endif;?>
-    <?php print l('voir plus', 'node/'.$node->nid, array('attributes' => array('class' => 'read-more'))); ?>
-    <div class="clearfix"></div>
   </div>
+
+     <div class="clearfix"></div>
+     <?php print l('voir plus', 'node/'.$node->nid, array('attributes' => array('class' => 'read-more'))); ?>
+
 </article><!-- /.node -->
-</div>
+<?php /* </div> */ ?>
