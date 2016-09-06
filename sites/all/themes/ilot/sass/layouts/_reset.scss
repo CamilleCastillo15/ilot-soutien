@@ -43,3 +43,18 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
+
+.nav-next-prev{
+  .read-more{
+    &.prev{
+      background-image : url(../images/f_noires/f_g_gauche.svg);
+      background-position: 5% center;
+    }
+    &:hover {
+      &.prev{
+        background-image : url(../images/f_blanches/f_gauche.svg);
+      } 
+    }
+  }
+}
