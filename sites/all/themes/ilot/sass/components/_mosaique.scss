@@ -4,51 +4,28 @@
 
     @include b(20vw);
 //    width: 26rem;
-    @include m(5%,0rem,0rem,5%);
+    //@include m(5%,0rem,0rem,5%);
     margin-top: 11rem;
+    margin-left: 3%;
 
-    width: 350px;
-
-    @media #{$m-sd} {
-        width: 400px;
+    @media #{$m-m} {
+        margin-left:0px;
+        margin-top:2rem;
     }
-
-    @media #{$m-t} {
-        width: 300px;
-        margin-left: 5%;
-    }
-
-     @media #{$m-m} {
-         width: 100%;
-         margin: 4rem 0 0px 0px;
-    }
+ 
 
     .bloc {
 
-//      sheight:10vw;
+        height:10vw;
 //        height: 13rem;
 
         @include b(10vw,top,50%);
 
-        width: 175px;
-        height: 175px;
+         @media #{$m-m} {
+        height: 10rem;
+    }
 
-        @media #{$m-sd} {
-            height: 206px;
-            width: 200px;
-        }
-
-        @media #{$m-t} {
-            height: 150px;
-            width: 150px;
-            margin-left: 0;
-        }
-
-        @media #{$m-m} {
-            height:6rem;
-            width: 50%;
-        }
-
+       
         &.dernier-projet {
             background-color: $green;
             .arrow {

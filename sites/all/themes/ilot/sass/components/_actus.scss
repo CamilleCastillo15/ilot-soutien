@@ -92,55 +92,19 @@
 
 .actualites {
 
-//    width: 65% !important;
-
-    @include breakpoint($tablet){
-
-        width:  40% !important;
-
-    }
-
-    @include breakpoint($laptop){
-
-        width: 45% !important;
-
-    }
-
-//    @include breakpoint($laptopl){
-//
-//       width:  50% !important;
-//
-//    }
-//
-//    @include breakpoint($laptopxcl){
-//
-//        width: 65% !important;
-//
-//    }
-
-    @include breakpoint($laptopl){
-
-        width: 65% !important;
-
-    }
-
-    @include breakpoint($laptopxl){
-
-        width: 72% !important;
-
-    }
+    //width: 65%;
 
 }
 
 .actualites ,.node-liste-actualites, .view-actus-soutien {
  
 
-//    @include b(64%);
+//  @include b(64%);
     @include b(55%);
 
-//    @media #{$m-sd} {
-//            @include b(56%);
-//        }
+//  @media #{$m-sd} {
+//      @include b(56%);
+//  }
 
     .date{
            .socials{
