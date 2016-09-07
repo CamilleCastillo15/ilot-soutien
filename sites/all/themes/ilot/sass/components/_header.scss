@@ -1,6 +1,50 @@
+.node-type-accueil{
+   @media #{$m-t-down} {
+    #l-header {
+
+       .bandeau-don{
+          display: inline-block !important;
+
+       }
+
+       .vocation-mobile {
+          display: block !important;
+       }
+
+       
+
+          .logo-wrapper {
+
+            img {
+               width:8rem;
+            }
+     
+          }
+      } 
+  }
+
+   @media #{$m-m} {
+
+     #l-header {
+
+         @include jpg(home_mobile_bg ,50% 50%,cover);
+
+     }
+
+   }
+
+}
+
+
+
+
+
 #l-header {
 
-        @include jpg(home_mobile_bg ,50% 50%,cover);
+ 
+ 
+
+       
         @include container(true);
 
 
@@ -13,10 +57,16 @@
     .container-logo-bandeau-don {
 
 
- @include container(false);
+        @include container(false);
         text-align: center;
 //        padding-top: 2rem;
         width: 100%;
+
+         @media #{$m-m} {
+
+                padding: 0rem; 
+               
+             }
 
         &:hover{
 
@@ -29,7 +79,7 @@
             }     
         }
 
-        .logo-wrapper {
+        .logo-wrapper{
 
             text-align: center;
             vertical-align: middle;
@@ -37,6 +87,7 @@
             display: inline-block;
 //            width: 20%;
             width: 15%;
+            margin-right: 3%;
 
             img {
                 width:100%;
@@ -44,20 +95,29 @@
             }
                 @include transform(scale(1));
                   
-                    @include transition(all 0.2s ease-in-out);
 
-            &:hover{
-                 @include transform(scale(1.2));
+     @media #{$m-m} {
+        width: 11rem;
+        display: block;
+        margin-left:-1rem;
+        padding: 0rem;
+
+     }
+
+            @media #{$m-d} {
+
+                 
+              margin-right: 0%;
+               @include transition(all 0.2s ease-in-out);
+
+             &:hover{
+                @include transform(scale(1.2));
+              }
+
             }
 
         }
 
-        @media #{$t-t} {
-               
-             .logo-wrapper {
-                 width: 80%;   
-            }
-        }
 
         .bandeau-don {
 
@@ -88,13 +148,15 @@
             @media #{$m-t-down} {
                
                 padding: 1rem;
-                width: 80%;
+                width: 75%;
                 text-align: center;
+                display: none;
             }
 
              @media #{$m-m} {
 
-                padding: 0rem;           
+                padding: 0rem; 
+                width: 100%;          
                 
              }
 
@@ -105,16 +167,18 @@
                 position: relative;
                 display: inline-block;
                 vertical-align: middle;
+                padding: 0rem;   
 
-                 @media #{$m-t-down} {
+                @media #{$m-t-down} {
                     width: 100%;
                     text-align: center;
                     padding: 1rem;
                    
-                 }
+                }
                 @media #{$m-m} {
 
-                    padding: 3rem;           
+                    padding: 1rem;  
+                    padding-top: 3rem;         
                 
                 }
 
@@ -280,6 +344,26 @@
         @media #{$m-t-up} {
             display: none;
         }
+
+        @media #{$m-t-down} {
+               
+            display: none;
+            background-color: #fff;
+            color:$green;
+            margin: 1rem auto;
+            padding: 1rem;
+        }
+
+          @media #{$m-m} {
+            display: none;
+             padding: 1rem;
+              color:white;
+             width: 100%;
+             background-color: $green;
+        }
+
+
+
 
     }
 

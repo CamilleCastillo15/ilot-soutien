@@ -198,10 +198,14 @@
 
             padding-left: 1rem;
             padding-bottom: 5rem;
+            min-height: 10rem;
 
             h1{
                 margin-bottom: 1rem;
                 margin-top:0rem;
+                @media #{$m-m} {
+                    @include fz(2);
+                }
             }
             
 
@@ -226,16 +230,27 @@
         position: absolute;
         right: 0px;
         bottom:1rem;
-//        bottom: 0.3rem;
+        @media #{$m-m} {
+            max-width: 100%;
+            width: 100%;
+        }
+//      bottom: 0.3rem;
     }
 
       .actu{
         float: right;
-         left: 0rem;
-            width: 50%;
-            position: relative;
-            margin-top: 3rem;
-             @include btn_actu($green,100%);
+        left: 0rem;
+        width: 50%;
+        position: relative;
+        margin-top: 3rem;
+        @include btn_actu($green,100%);
+
+        @media #{$m-m} {
+            float: none;
+            width: 100%;
+            margin-top: 0rem;
+
+        }
     }
 
 }

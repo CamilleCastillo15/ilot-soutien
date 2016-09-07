@@ -90,6 +90,9 @@
             @include translate(-50%, -50%);
             text-align: center;
             @include fz(3);
+            @media #{$m-t-down} {
+                @include fz(2);
+            }
         }
     }
 

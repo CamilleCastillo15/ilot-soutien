@@ -278,8 +278,8 @@ $fzs: 0.9rem, 1rem,  1.3rem,  1.6rem,  3.8rem, 5rem;
     }
 
      @media #{$m-m} {
-        padding-left: 2rem;
-        padding-right: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 
     @include dev();

@@ -1,6 +1,9 @@
 .menu-header {
 
-    min-height: 4rem;
+ @media #{$m-d} {
+min-height: 4rem;
+ }
+    
 
     .menu-block-custom-1 {
 
@@ -94,7 +97,7 @@
                         a {
                              width: 100%;
                             display: block;
-                            padding: 1.5rem 1.5rem;
+                            padding: 1rem 1rem;
                             margin: 0px;
                            
                             &:hover,

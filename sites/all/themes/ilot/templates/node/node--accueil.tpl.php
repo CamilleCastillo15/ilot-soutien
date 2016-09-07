@@ -73,8 +73,8 @@
         <div class="arrow east"></div>
     </div><!--
     --><a class="bloc bloc-img img-son-temoignage" href="/espace-presse">
-    <div class="bloc bloc-img img-espace-presse"><img src="sites/all/themes/ilot/images/img_test/samia-temoignage.png" /></div></a><!--
-    --><a class="bloc bloc-img img-son-temoignage" href="/ilot-dans-les-medias"><div class="bloc bloc-img img-lot-media"><img src="sites/all/themes/ilot/images/img_test/bel-espoir.png" />
+    <div class="bloc-img img-espace-presse"><img src="sites/all/themes/ilot/images/img_test/samia-temoignage.png" /></div></a><!--
+    --><a class="bloc bloc-img img-son-temoignage" href="/ilot-dans-les-medias"><div class="bloc-img img-lot-media"><img src="sites/all/themes/ilot/images/img_test/bel-espoir.png" />
     </div></a><div class="bloc bloc-text ilot-medias">
         <div class="mosaique-text">l'îlot dans les médias</div>
         <div class="arrow west"></div>

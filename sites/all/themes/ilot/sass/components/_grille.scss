@@ -28,6 +28,12 @@
         padding: 1rem;
     }
 
+     @media #{$m-m} {
+ 
+        margin: 0rem;
+   
+    }
+
     .sous-titre{
         @include fz(3);
         font-weight: bold;
@@ -125,6 +131,7 @@
              margin-bottom: 0.25rem;
              bottom: 0px;
              position: relative;
+             display: block;
         }
     }
     border-bottom: 4px solid $green;
