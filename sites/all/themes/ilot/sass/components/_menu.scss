@@ -1,3 +1,19 @@
+.svg-icon {
+  width: 1em;
+  height: 1em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #FFFFFF;
+}
+
+.svg-icon circle {
+  stroke: #FFFFFF;
+  stroke-width: 1;
+}
+
 .menu-header {
 
  @media #{$m-d} {
@@ -192,11 +208,11 @@ min-height: 4rem;
 
             &.active {
 
-                color:$green;
+                color:black;
 
                 &:hover {
 
-                    color:white;
+                    color:black;
 
                 }
 
@@ -252,6 +268,15 @@ min-height: 4rem;
             list-style-image: none;
             position: relative;
 
+            background-image : url(../images/plus.svg);
+            background-size : 1.2rem;
+            background-position: 90% 1rem;
+            background-repeat: no-repeat;
+
+            &.open{
+                 background-image : url(../images/moins.svg);
+            }
+
             &:hover {
 
                 background-color:$green;
@@ -286,7 +311,7 @@ min-height: 4rem;
 
                     a {
 
-                        padding: 4.5% 3% 4.5% 6%;
+                        padding: 0.3rem 0.5rem;
 
                         &:after {
 
